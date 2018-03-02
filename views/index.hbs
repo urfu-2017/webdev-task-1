@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="{{meta.charset}}">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+{{> header }}
+<main>
+    <h2 class="categories__heading">Категории новостей</h2>
+    <ul class="categories">
+        {{#each categories}}
+        <li class="categories__item">
+            <a href="{{url}}" class="categories__link">{{name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</main>
+{{> footer }}
+</body>
+</html>
