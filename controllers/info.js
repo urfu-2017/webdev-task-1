@@ -12,7 +12,7 @@ function getQueryParams(query) {
 }
 
 exports.getPage = async (req, res) => {
-    let { query, lon, lat, country } = getQueryParams(req.query);
+    let { query, lon, lat } = getQueryParams(req.query);
     let result;
 
     if (query) {
@@ -28,4 +28,17 @@ exports.getPage = async (req, res) => {
     }
 
     res.render('index', { result, title: 'title' });
+};
+
+exports.news = async (req, res) => {
+    let { country } = getQueryParams(req.query);
+
+    let result;
+    if (country) {
+        await newsProxy(req.params.category, country).then(news => {
+            result = news;
+        });
+    }
+
+    // res.render(result);
 };
