@@ -13,21 +13,21 @@ function getQueryParams(query) {
 
 exports.getPage = async (req, res) => {
     let { query, lon, lat } = getQueryParams(req.query);
-    let result;
+    let weatherQueryResult;
 
     if (query) {
         await weatherProxy.query(query)
             .then(weather => {
-                result = JSON.stringify(weather);
+                weatherQueryResult = weather;
             });
     } else if (lat && lon) {
         weatherProxy.lattlong(`${lat},${lon}`)
             .then(weather => {
-                result = JSON.stringify(weather);
+                weatherQueryResult = weather;
             });
     }
 
-    res.render('index', { result, title: 'title' });
+    res.render('index', { weatherQueryResult, title: 'title' });
 };
 
 exports.news = async (req, res) => {

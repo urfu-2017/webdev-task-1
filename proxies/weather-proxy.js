@@ -27,7 +27,13 @@ const apiQuery = url => queryInternal(url)
                     weatherStateAbbr: weatherInfo.weather_state_abbr,
                     temperature: weatherInfo.the_temp,
                     windSpeed: weatherInfo.wind_speed
-                }))));
+                })))
+        .then(weatherInfos => {
+            return {
+                today: weatherInfos[0],
+                nextDays: weatherInfos.slice(1)
+            };
+        }));
 
 exports.query = query => {
     return apiQuery(queryUrl + query);
