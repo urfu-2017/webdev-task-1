@@ -13,13 +13,14 @@ exports.list = (req, res) => {
 
 exports.get = function (req, res) {
     let category = req.params.category;
+    let country = req.query.country || 'ru';
     if (!supported.includes(category)) {
         error404(req, res);
 
         return;
     }
     news.getList({
-        country: 'ru',
+        country,
         category
     }, (newsList) => {
         res.render('category', {

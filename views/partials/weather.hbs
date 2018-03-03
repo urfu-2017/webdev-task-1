@@ -1,1 +1,25 @@
-<section class="weather-widget">Здесь будет погода</section>
+<section class="weather">
+    {{#with widget}}
+        <h2 class="weather__town">{{title}}</h2>
+        <img src="{{imageUrl}}" alt="Погода" class="weather__icon" width="64" height="64">
+        <section class="weather__info">
+            <span class="weather__current-temp">{{currentTemp}}</span>
+            <span class="weather__current-wind">{{currentWind}}</span>
+            <table class="weather-table weather__other-days">
+                <tr class="weather-table__row">
+                    {{#each weatherList}}
+                        <th class="weather-table__heading">{{applicable_date}}</th>
+                    {{/each}}
+                </tr>
+                <tr class="weather-table__row">
+                    {{#each weatherList}}
+                    <td class="weather-table__data">
+                        <span class="weather-table__wind">{{the_temp}}</span>
+                        <span class="weather-table__temp">{{wind_speed}}</span>
+                    </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </section>
+    {{/with}}
+</section>

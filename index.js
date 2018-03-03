@@ -5,6 +5,7 @@ const express = require('express');
 const hbs = require('hbs');
 
 const routes = require('./routes').routes;
+const weather = require('./controllers/weather');
 
 const app = express();
 const viewsDir = path.join(__dirname, 'views');
@@ -18,13 +19,16 @@ app.set('views', viewsDir);
 app.use(express.static(publicDir));
 
 app.use((req, res, next) => {
-    res.locals.meta = {
-        charset: 'utf-8',
-        description: 'News and Weather app'
-    };
+    weather.getPlaces(req.query, widget => {
+        res.locals.meta = {
+            charset: 'utf-8',
+            description: 'News and Weather app'
+        };
 
-    res.locals.title = 'NaW';
-    next();
+        res.locals.title = 'NaW';
+        res.locals.widget = widget;
+        next();
+    });
 });
 
 routes(app);
