@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="/index.css">
 </head>
 <body>
-{{> header }}
-<main>
-    {{#each newsList}}
-    <article class="news-item">
-        <a href="{{url}}">
-            <h3 class="news-item__title">{{title}}</h3>
-        </a>
-        <span class="news-item__date">{{publishedAt}}</span>
-        <section class="news-item__content">
-            {{#if urlToImage}}
-                <img src="{{urlToImage}}" alt="{{title}}" class="news-item__image">
-            {{/if}}
-            <p class="news-item__description">{{description}}</p>
-        </section>
-        <span class="news-item__source">{{source.name}}</span>
-    </article>
-    {{/each}}
-</main>
-{{> footer }}
+<div class="app app_main-color-theme">
+    {{> header }}
+    <main class="category-main">
+        {{#each newsList}}
+            <article class="news-item">
+                <a href="{{url}}" class="news-item__link news-item__link_main-theme">
+                    <h3 class="news-item__title" title="{{{title}}}">{{{title}}}</h3>
+                </a>
+                <span class="news-item__date">{{publishedAt}}</span>
+                <section class="news-item__content">
+                    {{#if urlToImage}}
+                        <img src="{{urlToImage}}" class="news-item__image">
+                    {{/if}}
+                    <p class="news-item__description">{{{description}}}</p>
+                </section>
+                <span class="news-item__source">{{source.name}}</span>
+            </article>
+        {{/each}}
+    </main>
+    {{> footer }}
+</div>
 </body>
 </html>

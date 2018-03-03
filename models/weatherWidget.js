@@ -1,6 +1,8 @@
 'use strict';
 
 const baseUrl = 'https://www.metaweather.com';
+const moment = require('moment');
+moment.locale('ru');
 
 class Widget {
     constructor(weatherObj) {
@@ -9,6 +11,7 @@ class Widget {
         weatherList.forEach(o => {
             o.the_temp = Math.round(o.the_temp);
             o.wind_speed = Math.round(o.wind_speed);
+            o.applicable_date = moment(o.applicable_date).format('D MMMM');
         });
         this.title = weatherObj.title;
         this.weatherList = weatherList;
