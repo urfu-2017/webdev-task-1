@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const bh = require('bh');
 
-module.exports = app => {
+module.exports = (app) => {
     const blockPath = path.resolve(__dirname, 'views', 'blocks');
     const blocks = fs.readdirSync(blockPath);
 
@@ -26,7 +26,7 @@ module.exports = app => {
             const bemjson = renderFunction(options);
             const rendered = render.apply(bemjson);
 
-            return callback(callback(null, rendered));
+            return callback(null, rendered);
         }
 
         callback(new Error('View file not found'));
