@@ -39,3 +39,4 @@ hbs.registerPartials(partialsDir, () => {
     });
 });
 
+module.exports = app;
