@@ -18,7 +18,8 @@
     width: 880px;
 }
 
-.page__header {
+.page__header,
+.page__widget {
     margin-bottom: 48px;
 }
 
@@ -112,4 +113,111 @@
 
 .categories__item:nth-last-child(-2n) {
     margin-bottom: 0;
+}
+
+.posts__item:not(:last-child) {
+    margin-bottom: 48px;
+}
+
+.post {
+    box-sizing: border-box;
+    padding: 20px;
+
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.post__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__title {
+    margin: 0 40px 0 0;
+    font-size: 24px;
+}
+
+.post__date {
+    display: inline-block;
+    background: #2196F3;
+    border-radius: 5px;
+    padding: 6px 10px;
+    color: #ffffff;
+}
+
+.post__content {
+    margin-top: 24px;
+}
+
+.post__thumb {
+    display: block;
+    margin: 0 auto 16px auto;
+    max-width: 100%;
+}
+
+.post__description {
+    font-size: 18px;
+    margin: 0;
+}
+
+.post__footer {
+    margin-top: 24px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.weather {
+    box-sizing: border-box;
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.weather__city {
+    flex: 1 0 100%;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.weather__icon_state {
+    width: 128px;
+    height: 128px;
+    margin-right: 40px;
+}
+
+.weather__data {
+    width: calc(100% - 40px - 128px);
+}
+
+.weather__days {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.weather__day {
+    flex: 0 1 100%;
+    text-align: center;
+}
+
+.weather__day:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.weather__day_date {
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.weather__day_value {
+    padding: 5px;
 }

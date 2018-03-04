@@ -1,14 +1,13 @@
 'use strict';
 
-const config = require('../config');
-
 module.exports = data => ({
     block: 'page',
-    title: 'Welcome',
+    title: data.category,
     content: [
         {
             block: 'header',
-            title: config.views.title,
+            title: `${data.category} news`,
+            showHomeLink: true,
             mix: { block: 'page', elem: 'header' }
         },
         {
@@ -17,14 +16,12 @@ module.exports = data => ({
             mix: { block: 'page', elem: 'widget' }
         },
         {
-            block: 'categories',
+            block: 'posts',
             tag: 'main',
-            content: data.categories.map(category => ({
-                block: 'category',
-                name: category.key,
-                text: category.name,
-
-                mix: { block: 'categories', elem: 'item' }
+            content: data.posts.map(post => ({
+                block: 'post',
+                post: post,
+                mix: { block: 'posts', elem: 'item' }
             }))
         }
     ]

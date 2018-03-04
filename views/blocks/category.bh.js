@@ -4,7 +4,7 @@ const config = require('../../config');
 
 module.exports = bh => bh.match('category', (ctx, json) => {
     ctx.tag('a');
-    ctx.attrs({ href: `/news/${json.name}` });
+    ctx.attrs({ href: `/${json.name}` });
 
     ctx.content([
         {

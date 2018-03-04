@@ -17,25 +17,18 @@ class Weather {
                 url = `search?query=${query}`;
             } else if (lat && lon) {
                 url = `search?lattlong=${lat},${lon}`;
-            } else {
-                throw new Error('No data');
             }
 
             const queryResponse = await fetch(baseUrl + url);
             const location = await queryResponse.json();
 
-            let woeid = null;
-            let city = null;
-
-            if (Array.isArray(location) && location[0] && location[0]) {
-                woeid = location[0].woeid;
-                city = location[0].title;
-            }
+            let woeid = location[0].woeid;
+            let city = location[0].title;
 
             const weatherResponse = await fetch(baseUrl + woeid);
             const data = await weatherResponse.json();
             const days = data.consolidated_weather.map(day => ({
-                date: day.applicable_date,
+                date: new Date(day.applicable_date),
                 windSpeed: day.wind_speed,
                 state: day.weather_state_name,
                 temp: day.the_temp

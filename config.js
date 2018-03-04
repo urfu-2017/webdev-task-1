@@ -6,6 +6,7 @@ module.exports = {
         host: 'localhost'
     },
 
+    newsApiKey: process.env.NEWS_API_KEY,
     staticBasePath: '/',
 
     views: {
