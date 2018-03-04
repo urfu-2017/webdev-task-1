@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../style.css" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+    <div class="main-page">
+        <div class="main-page__item">
+            {{> header }}
+        </div>
+        <div class="main-page__item">
+            {{> fullWeather}}
+        </div>
+        <div class="main-page__item">
+            <div class="category-list">
+                <a href="/news/business?query={{city}}&country={{country}}">💼 Бизнес</a>
+                <a href="/news/entertainment?query={{city}}&country={{country}}">😀 Развлечения</a>
+                <a href="/news/all?query={{city}}&country={{country}}">📄 Общее</a>
+                <a href="/news/health?query={{city}}&country={{country}}">❤️ Здоровье</a>
+                <a href="/news/science?query={{city}}&country={{country}}">🔬 Науки</a>
+                <a href="/news/sport?query={{city}}&country={{country}}">🏀 Спорт</a>
+                <a href="/news/technology?query={{city}}&country={{country}}">🚀 Технологии</a>
+            </div>
+        </div>
+        <div class="main-page__item">
+            {{> footer }}
+        </div>
+    </div>
+</body>
+</html>

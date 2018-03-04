@@ -1,0 +1,160 @@
+.main-page
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.main-page__item
+{
+    width: 800px;
+}
+
+.weather
+{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-info
+{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-info__ico
+{
+    height: 100px;
+}
+
+.additional-info
+{
+    width: 600px;
+}
+
+.mini-weather
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.mini-weather__item
+{
+    margin: 0 4px;
+    width: 80px;
+    height: 80px;
+    background: floralwhite;
+}
+
+.mini-weather__date
+{
+    background: dodgerblue;
+    color: white;
+    text-align: center;
+}
+
+.mini-weather__info
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header
+{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header__home-btn
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.category-list
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 24px;
+}
+
+.news-box
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item
+{
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.news-item__header
+{
+    background: whitesmoke;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.news-item__body
+{
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.news-item__image-box
+{ 
+    width: 200px;
+}
+
+.news-item__image
+{
+    max-width: 200px;
+    max-height: 120px;
+}
+
+.news-item__description
+{
+    padding: 4px 8px;
+    width: 434px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.news-item__author
+{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 150px;
+}
+
+.footer
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 80px;
+}

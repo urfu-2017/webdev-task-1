@@ -1,0 +1,23 @@
+<div class="news-box">
+    {{#each news}}
+        <div class="news-item">
+            <div class="news-item__header">
+                <span>{{title}}</span>
+                <span>{{prettyData publishedAt}}</span>
+            </div>
+            <div class="news-item__body">
+                {{#if urlToImage}}
+                <div class="news-item__image-box">
+                    <img class="news-item__image" src="{{urlToImage}}"/>
+                </div>
+                {{/if}}
+                <div class="news-item__description">
+                    {{description}}
+                </div>
+                <div class="news-item__author">
+                    <span></span>{{source.name}}</span>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
