@@ -1,0 +1,22 @@
+.menu__list
+{
+    list-style-type: none;
+
+}
+
+.menu__icon
+{
+    height: 2em;
+    vertical-align: middle;
+}
+
+.menu__link
+{
+    text-decoration: none;
+    color: #697391;
+}
+
+.menu__item
+{
+    margin-bottom: .5em;
+}

@@ -2,8 +2,23 @@
 <html>
 <head>
     <title>{{title}}</title>
+    <link rel="stylesheet" href="/blocks/publication.css">
+    <link rel="stylesheet" href="/blocks/forecasts.css">
+    <link rel="stylesheet" href="/blocks/weather.css">
+    <link rel="stylesheet" href="/blocks/footer.css">
+    <link rel="stylesheet" href="/blocks/header.css">
+    <link rel="stylesheet" href="/blocks/page.css">
+    <link rel="stylesheet" href="/blocks/menu.css">
+    <link rel="stylesheet" href="/blocks/text.css">
+
 </head>
-<body>
-{{{body}}}
+<body class="page text">
+{{> header header}}
+{{> weather weather}}
+<main class="page__content">
+    {{{body}}}
+</main>
+
+{{> footer}}
 </body>
 </html>

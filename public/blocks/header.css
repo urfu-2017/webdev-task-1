@@ -1,0 +1,24 @@
+.header
+{
+    display: grid;
+    grid-template-areas: "back_link title .";
+    grid-template-columns: 1fr auto 1fr;
+    grid-column-gap: 1em;
+
+}
+
+.header__back-link
+{
+    align-self: center;
+    justify-self: left;
+    grid-area: back_link;
+}
+
+.header__title
+{
+    align-self: center;
+    justify-self: center;
+    grid-area: title;
+}
+
+

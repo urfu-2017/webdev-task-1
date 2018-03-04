@@ -1,0 +1,60 @@
+.publication
+{
+    display: grid;
+    grid-template-areas: "title title title date"
+                         "image desc desc desc"
+                         "image . . source";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 0.1em solid #697391;
+    border-radius: 0.1em;
+    border-top: 0;
+    padding: 0.5em;
+    grid-gap: 0.5em;
+}
+
+.publication_no-image
+{
+    grid-template-areas: "title title title date"
+                         "desc desc desc desc"
+                         ". . . source";
+}
+
+.publication__image_error
+{
+    display: none;
+}
+.publication__image
+{
+    grid-area: image;
+    max-height: 10em;
+    max-width: 100%;
+    object-fit: cover;
+    height: auto;
+    justify-self: stretch;
+}
+
+.publication__date
+{
+    grid-area: date;
+    justify-self: right;
+    padding-right: 0.25em;
+    opacity: 0.7;
+}
+
+.publication__description
+{
+    grid-area: desc;
+}
+
+.publication__source
+{
+    grid-area: source;
+    justify-self: right;
+    padding-right: 0.25em;
+    opacity: 0.7;
+}
+
+.publication__title
+{
+    grid-area: title;
+}

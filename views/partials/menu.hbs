@@ -1,0 +1,15 @@
+<div class="menu">
+    <h2 class="menu__title">{{title}}</h2>
+    <ul class="menu__list">
+        {{#each items}}
+            <li class="menu__item">
+                <a class="menu__link" href="{{url}}">
+                    <img class="menu__icon"
+                         alt="{{caption}}"
+                         src="{{iconSrc}}">
+                    {{caption}}
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>

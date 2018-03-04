@@ -1,0 +1,21 @@
+.footer
+{
+    display: grid;
+    grid-template-areas: "caption year";
+    align-items: stretch;
+    grid-column-gap: 1em;
+}
+
+.footer__caption
+{
+    align-self: center;
+    justify-self: left;
+    grid-area: caption;
+}
+
+.footer__year
+{
+    align-self: center;
+    justify-self: right;
+    grid-area: year;
+}
