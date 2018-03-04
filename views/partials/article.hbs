@@ -1,0 +1,18 @@
+
+{{#if image}}
+    <div class="article">
+        <img class="article__image" src={{image}}>
+{{else}}
+    <div class="article article_no-image">
+{{/if}}
+    <div class="article__title">{{title}}</div>
+    <div class="article__desc">
+        {{#if desc}}
+            {{desc}}
+        {{else}}
+            {{document.article.noDescMessage}}
+        {{/if}}
+    </div>
+    <div class="article__published">{{published}}</div>
+    <div class="article__source"><a href="{{source}}">{{document.article.sourceText}}</a></div>
+</div>

@@ -1,0 +1,17 @@
+footer
+{
+    grid-area: f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__author::before
+{
+    content: '©'
+}
+
+.footer__author,
+.footer__year
+{
+    margin: 15px;
+}

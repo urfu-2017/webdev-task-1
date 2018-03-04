@@ -1,0 +1,64 @@
+.weather
+{
+    margin: 20px auto;
+    padding: 15px;
+    padding-left: 0;
+    display: grid;
+    grid-template-rows: 40px 40px 1fr;
+    grid-template-columns: 180px;
+    grid-template-areas:    'c t' 
+                            'i w' 
+                            'i f';
+}
+
+.weather__img
+{
+    width: 128px;
+    height: 128px;
+    grid-area: i;
+    margin: 0 auto;
+}
+
+.weather__city
+{
+    grid-area: c;
+    text-align: center;
+}
+
+.wind
+{
+    grid-area: w;
+}
+
+.temp
+{
+    grid-area: t;
+}
+
+.wind__icon,
+.temp__icon
+{
+    width: 32px;
+    height: 32px;
+}
+
+.wind__text,
+.wind__icon,
+.temp__text,
+.temp__icon
+{
+    vertical-align: middle;
+}
+
+.future-wind
+{
+    grid-area: f;
+}
+
+.weather_error
+{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
