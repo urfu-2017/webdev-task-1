@@ -8,5 +8,5 @@ describe('GET /', () => {
         request(app)
             .get('/')
             .expect(200, done);
-    });
+    }).timeout(5000);
 });
