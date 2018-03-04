@@ -1,0 +1,9 @@
+{{#if categories.length}}
+    <ul>
+        {{#each categories}}
+            <li><a href="/categories/{{ name }}">{{ title }}</a></li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p>Categories not found!</p>
+{{/if}}
