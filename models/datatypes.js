@@ -15,7 +15,10 @@ const NewsItem = Type({
 })
 
 const WeatherInfo = Type({ 
-    city: String
+    city: String,
+    tempCelsius: Number,
+    windMps: Number,
+    day: Date
 })
 
 module.exports = { NewsCategory, NewsItem, WeatherInfo }
