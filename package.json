@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "handlebars": "^4.0.11",
+    "hbs": "^4.0.1",
     "metaweather": "0.0.2",
     "newsapi": "^2.2.0",
     "union-type": "^0.4.1"
