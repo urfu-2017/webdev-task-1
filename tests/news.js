@@ -24,7 +24,6 @@ describe('news', () => {
         const categories = sut.getCategories()
         
         const results = await Promise.all(categories.map(x => sut.getNews(x)))
-        console.info(results[0][0])
         assert.ok(results.every(x => x.length > 0))
         results.forEach(x => x.forEach(NewsItem.case({
             NewsItem: () => {},
