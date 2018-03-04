@@ -3,7 +3,7 @@
 const path = require('path');
 const express = require('express');
 
-const app = express();
+const config = require('./config');
 const configureTemplateEngine = require('./configureTemplateEngine');
 
 const ignoreStatic = require('./middlewares/ignore-static');
@@ -13,6 +13,8 @@ const newsController = require('./controllers/news');
 const errorsController = require('./controllers/errors');
 
 const publicDir = path.resolve(__dirname, 'public');
+
+const app = express();
 
 // configure workflow
 configureTemplateEngine(app);
@@ -26,5 +28,8 @@ app.get('/:category', newsController.category);
 app.get('*', errorsController.notFound);
 
 // Run app
-app.listen(8080);
+app.listen(config.server.port, () => {
+    console.info('Server run on ' + config.server.port + ' port');
+});
+
 module.exports = app;
