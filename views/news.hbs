@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="header">
+            <a href="/" class="header__return-link">На главную</a>
+            <h1 class="header__text">Крутое название</h1>
+        </header>
+
+        {{> weather }}
+
+        {{> news_list }}
+
+        {{> footer }}
+    </div>
+</body>

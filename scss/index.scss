@@ -1,0 +1,236 @@
+$border2px: 2px solid black;
+$border1px: 1px solid black;
+$width: 426px;
+
+body
+{
+    display: flex;
+    justify-content: center;
+}
+
+.content-wrapper
+{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    
+}
+
+.header
+{
+    width: $width;
+    border: $border2px;
+    border-bottom: none;
+
+    &__text
+    {
+        text-align: center;
+    }
+
+    &__return-link
+    {
+        text-align: left;
+        margin-left: 5px;
+    }
+}
+
+.footer
+{
+    width: $width;
+    border: $border2px;
+    border-top: none;
+    position: relative;
+
+    &__copyright
+    {
+        position: relative;
+        display: inline-block;
+        left: 20px;
+    }
+
+    &__date
+    {   
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+        
+    }
+}
+
+.categories 
+{
+    border: $border2px;
+    border-top: none;
+    width: $width;
+
+    &__header
+    {
+        margin-left: 10px;
+        margin-bottom: 4px;
+        margin-top: 7px;
+    }
+
+    &__list
+    {
+        margin-top: 0;
+        padding-left: 65px;
+    }
+
+    &__img
+    {
+        position: relative;
+        top: 5px;
+    }
+
+    &__list-item
+    {
+        list-style-type: none;
+    }
+
+    &__link
+    {
+        text-decoration: none;
+    }
+
+    &__name {
+        font-size: 24px;
+    }
+}
+
+.weather
+{
+    border: $border2px;
+    position: relative;
+    height: 130px;
+    width: $width;
+
+    &__city
+    {
+        font-weight: bold;
+        margin-top: 3px;
+        width: 113px;
+        text-align: center;
+    }
+
+    &__icon
+    {
+        position: absolute;
+        top: 40px;
+        left: 25px;
+    }
+
+
+    &__now-info
+    {
+        font-size: 22px;
+    }
+
+    &__letter-t
+    {
+        position: absolute;
+        left: 127px;
+        top: 6px;
+    }
+
+    &__temp-value
+    {
+        position: absolute;
+        left: 215px;
+        top: 6px;
+    }
+
+    &__wind_img 
+    {
+        position: absolute;
+        left: 125px;
+        top: 30px;
+    }
+
+    &__wind-speed-value
+    {
+        position: absolute;
+        left: 215px;
+        top: 35px;
+    }
+
+    &__future-info
+    {
+        text-align: center;
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 68px;
+        border-right: $border1px;
+    }
+
+    &__future-info-item
+    {
+        border: $border1px;
+        border-right: none;
+    }
+
+    &__date
+    {
+        padding: 0 1px;
+        border-bottom: $border1px;
+    }
+}
+
+.news 
+{
+    border: $border2px;
+    border-top: none;
+    border-bottom: none;
+    width: $width;
+
+    &__item
+    {
+        position: relative;
+        border-bottom: $border2px;
+    }
+
+    &__title
+    {
+        font-size: 17px;
+        width: 250px;
+        margin: 2px 0 0 6px;
+    }
+
+    &__title-link
+    {
+        text-decoration: none;
+    }
+
+    &__date
+    {
+        position: absolute;
+        top: 0;
+        right: 10px;
+    }
+
+    &__description-wrapper
+    {
+        display: flex;
+        align-items: center;
+    }
+    &__img
+    {
+        display: block;
+        margin-left: 5px;
+    }
+
+    &__description
+    {
+        margin: 0 5px 0 5px;
+        display: block;
+        font-style: italic;
+        
+    }
+
+    &__source
+    {
+        text-align: right;
+        margin: 0 10px 3px;
+    }
+}
+

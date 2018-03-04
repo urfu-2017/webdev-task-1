@@ -1,0 +1,14 @@
+<article class="categories">
+    <h2 class="categories__header">Категории новостей</h2>
+    <ul class="categories__list">
+        {{#each categories }}
+        <li class="categories__list-item">
+            <a href="{{ url }}" class="categories__link">
+                <img src="{{ iconPath }}" alt="{{ iconAlt }}" 
+                    class="categories__img" width="32" height="32">
+                <span class="categories__name">{{ name }}</span>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</article>

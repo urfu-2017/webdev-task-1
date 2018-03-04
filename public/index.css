@@ -1,0 +1,194 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrapper {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.header {
+  width: 426px;
+  border: 2px solid black;
+  border-bottom: none;
+}
+
+.header__text {
+  text-align: center;
+}
+
+.header__return-link {
+  text-align: left;
+  margin-left: 5px;
+}
+
+.footer {
+  width: 426px;
+  border: 2px solid black;
+  border-top: none;
+  position: relative;
+}
+
+.footer__copyright {
+  position: relative;
+  display: inline-block;
+  left: 20px;
+}
+
+.footer__date {
+  position: absolute;
+  display: inline-block;
+  right: 20px;
+}
+
+.categories {
+  border: 2px solid black;
+  border-top: none;
+  width: 426px;
+}
+
+.categories__header {
+  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-top: 7px;
+}
+
+.categories__list {
+  margin-top: 0;
+  padding-left: 65px;
+}
+
+.categories__img {
+  position: relative;
+  top: 5px;
+}
+
+.categories__list-item {
+  list-style-type: none;
+}
+
+.categories__link {
+  text-decoration: none;
+}
+
+.categories__name {
+  font-size: 24px;
+}
+
+.weather {
+  border: 2px solid black;
+  position: relative;
+  height: 130px;
+  width: 426px;
+}
+
+.weather__city {
+  font-weight: bold;
+  margin-top: 3px;
+  width: 113px;
+  text-align: center;
+}
+
+.weather__icon {
+  position: absolute;
+  top: 40px;
+  left: 25px;
+}
+
+.weather__now-info {
+  font-size: 22px;
+}
+
+.weather__letter-t {
+  position: absolute;
+  left: 127px;
+  top: 6px;
+}
+
+.weather__temp-value {
+  position: absolute;
+  left: 215px;
+  top: 6px;
+}
+
+.weather__wind_img {
+  position: absolute;
+  left: 125px;
+  top: 30px;
+}
+
+.weather__wind-speed-value {
+  position: absolute;
+  left: 215px;
+  top: 35px;
+}
+
+.weather__future-info {
+  text-align: center;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 68px;
+  border-right: 1px solid black;
+}
+
+.weather__future-info-item {
+  border: 1px solid black;
+  border-right: none;
+}
+
+.weather__date {
+  padding: 0 1px;
+  border-bottom: 1px solid black;
+}
+
+.news {
+  border: 2px solid black;
+  border-top: none;
+  border-bottom: none;
+  width: 426px;
+}
+
+.news__item {
+  position: relative;
+  border-bottom: 2px solid black;
+}
+
+.news__title {
+  font-size: 17px;
+  width: 250px;
+  margin: 2px 0 0 6px;
+}
+
+.news__title-link {
+  text-decoration: none;
+}
+
+.news__date {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.news__description-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.news__img {
+  display: block;
+  margin-left: 5px;
+}
+
+.news__description {
+  margin: 0 5px 0 5px;
+  display: block;
+  font-style: italic;
+}
+
+.news__source {
+  text-align: right;
+  margin: 0 10px 3px;
+}
