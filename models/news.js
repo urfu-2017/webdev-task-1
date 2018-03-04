@@ -1,4 +1,5 @@
 const { NewsItem, NewsCategory } = require('./datatypes')
+const NewsApi = require('newsapi')
 
 class News {
     constructor(newsApi) {
@@ -27,6 +28,10 @@ class News {
             source: x.url,
             category
         }))
+    }
+
+    static fromNewsApiKey(keyString) {
+        return new News(new NewsApi(keyString))
     }
 }
 

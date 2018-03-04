@@ -2,13 +2,12 @@
 
 const { News } = require('../models/news')
 const { NewsItem, NewsCategory } = require('../models/datatypes')
-const NewsApi = require('newsapi')
 const assert = require('assert')
 
 
 describe('news', () => {
     const testApiKey = 'af406ce76d00443f90f40b9a2e5f2da4'
-    const sut = new News(new NewsApi(testApiKey))
+    const sut = News.fromNewsApiKey(testApiKey)
 
     it('has some categories', () => {
         const categories = sut.getCategories()
