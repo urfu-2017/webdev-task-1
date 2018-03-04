@@ -1,6 +1,6 @@
 .body {
     width: 100vw;
-    height: 100vh;
+    height: 230vh;
     right: 0;
     top: 0;
     position: absolute;
@@ -8,8 +8,8 @@
 }
 
 .start-page {
-    background-color: black;
-    color: blanchedalmond;
+    background-color: #000;
+    color: #ffebcd;
 }
 
 .header
@@ -21,4 +21,94 @@
 .main-page-header
 {
     font-size: 36px;
+}
+
+.block
+{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;    
+    margin: auto;
+    width: 25vw;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.block:hover
+{
+    border-color: #d2b48c;
+    box-shadow: 0 0 10px #d2b48c;
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.block_dark
+{
+    opacity: .9;
+    border-radius: 28px;
+    background: #d2b48c;
+    color: #000;
+}
+
+.icon
+{
+    height: 50px;
+    width: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 40px;
+}
+
+.business__icon
+{
+    background: url("/news-icons/business-icon.png") no-repeat;
+    background-size: cover;    
+}
+
+.entertainment__icon
+{
+    background: url("/news-icons/entertainment-icon.png") no-repeat;
+    background-size: cover;        
+}
+
+.general__icon
+{
+    background: url("/news-icons/general-icon.png") no-repeat;
+    background-size: cover;
+}
+
+.health__icon
+{
+    background: url("/news-icons/health-icon.png") no-repeat;
+    background-size: cover; 
+}
+
+.science__icon
+{
+    background: url("/news-icons/science-icon.png") no-repeat;
+    background-size: cover; 
+}
+
+.sports__icon
+{
+    background: url("/news-icons/sports-icon.png") no-repeat;
+    background-size: cover; 
+}
+
+.technology__icon
+{
+    background: url("/news-icons/technology-icon.png") no-repeat;
+    background-size: cover; 
+}
+
+.footer
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

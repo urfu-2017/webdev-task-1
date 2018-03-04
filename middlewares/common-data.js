@@ -1,18 +1,18 @@
-'use strict';
+// 'use strict';
 
-const config = require('config');
+// const config = require('config');
 
-module.exports = (req, res, next) => {
-    // Хранение в res.locals – рекомендованный способ
-    // Не перезаписываем, а дополняем объект
-    // res.locals.meta = {
-    //     charset: 'utf-8',
-    //     description: 'Awesome notes'
-    // };
+// module.exports = (req, res, next) => {
+//     // Хранение в res.locals – рекомендованный способ
+//     // Не перезаписываем, а дополняем объект
+//     // res.locals.meta = {
+//     //     charset: 'utf-8',
+//     //     description: 'Awesome notes'
+//     // };
 
-    // res.locals.title = 'Awesome notes';
+//     // res.locals.title = 'Awesome notes';
 
-    res.locals.staticBasePath = config.get('staticBasePath');
+//     res.locals.staticBasePath = config.get('staticBasePath');
 
-    next();
-};
+//     next();
+// };

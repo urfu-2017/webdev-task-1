@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const app = express();
 
 const weatherMiddleware = require('./middlewares/weather-middleware');
+// const ignoreStatic = require('./middlewares/ignore-static');
 
 const publicDir = path.join(__dirname, 'public');
 app.use(express.static(publicDir));
@@ -17,6 +18,7 @@ const partialsDir = path.join(viewsDir, 'partials');
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
+// app.use(ignoreStatic(weatherMiddleware));
 app.use(weatherMiddleware);
 
 const frontPage = require('./mocks/front-page');

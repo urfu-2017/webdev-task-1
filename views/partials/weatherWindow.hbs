@@ -1,14 +1,29 @@
-<header class="weather-header"></header>
-<img class="weather-image">
-<article class="weather-info"></article>
-<div class="weather-info__temp"></div>
-<div class="weather-info__wind"></div>
-<table class="weather-info__future table">
-    <tr>
-        <th class="table__day-one"></th>
-        <th class="table__day-two"></th>
-        <th class="table__day-three"></th>
-        <th class="table__day-four"></th>
-        <th class="table__day-five"></th>
-    </tr>
-</table>
+<header class="weather-header">{{ city }}</header>
+<div class="weather-image">{{ image }}</div>
+<article class="weather-info">
+    <div class="weather-info__temp">{{ tempToday }}°C</div>
+    <div class="weather-info__wind">{{ windToday }}m/s</div>
+    <table class="weather-info__future table">
+        <tr>
+            <th class="table__day-one">{{ date1 }}</th>
+            <th class="table__day-two">{{ date2 }}</th>
+            <th class="table__day-three">{{ date3 }}</th>
+            <th class="table__day-four">{{ date4 }}</th>
+            <th class="table__day-five">{{ date5 }}</th>
+        </tr>
+        <tr>
+            <th class="temp table__day-one">{{ temp1 }}</th>
+            <th class="temp table__day-two">{{ temp2 }}</th>
+            <th class="temp table__day-three">{{ temp3 }}</th>
+            <th class="temp table__day-four">{{ temp4 }}</th>
+            <th class="temp table__day-five">{{ temp5 }}</th>
+        </tr>
+        <tr>
+            <th class="wind table__day-one">{{ wind1 }}</th>
+            <th class="wind table__day-two">{{ wind2 }}</th>
+            <th class="wind table__day-three">{{ wind3 }}</th>
+            <th class="wind table__day-four">{{ wind4 }}</th>
+            <th class="wind table__day-five">{{ wind5 }}</th>
+        </tr>
+    </table>
+</article>
