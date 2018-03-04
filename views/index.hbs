@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>My news platform</title>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ staticBasePath }}styles.css" media="screen">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <section class="body start-page">
+        <header class="header main-page-header">{{ header }}</header>
+        <article class="header weather-widget">{{ weatherHeader }}</article>
+        <div class="link weather-widget__link">{{> weatherWindow }}</div>
+        <article class="header news">{{ newsHeader }}</article>
+        <div class="news__business">{{ business }}</div>
+        <div class="news__entertainment">{{ entertainment }}</div>
+        <div class="news__general">{{ general }}</div>
+        <div class="news__health">{{ health }}</div>
+        <div class="news__science">{{ science }}</div>
+        <div class="news__sports">{{ sports }}</div>
+        <div class="news_technology">{{ technology }}</div>
+        <footer class="footer">{{ footer }}</footer>
+        <div class="footer__copyright">{{ copyright }}</div>
+        <div class="footer__year">{{ year }}</div>
+    </section>
 </body>
 </html>
