@@ -2,10 +2,11 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "lint": "echo",
+    "test": "npm run lint && mocha tests/*.js --timeout 5000"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "express": "^4.16.2",
     "hbs": "^4.0.1",
     "metaweather": "0.0.2",
