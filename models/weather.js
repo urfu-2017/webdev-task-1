@@ -11,7 +11,17 @@ class Weather {
 
     static async load({ query, lat, lon }) {
         try {
-            const queryResponse = await fetch(baseUrl + `query=${query}&lattlong=${lat},${lon}`);
+            let url = null;
+
+            if (query) {
+                url = `search?query=${query}`;
+            } else if (lat && lon) {
+                url = `search?lattlong=${lat},${lon}`;
+            } else {
+                throw new Error('No data');
+            }
+
+            const queryResponse = await fetch(baseUrl + url);
             const location = await queryResponse.json();
 
             let woeid = null;
@@ -24,8 +34,7 @@ class Weather {
 
             const weatherResponse = await fetch(baseUrl + woeid);
             const data = await weatherResponse.json();
-
-            const days = data.map(day => ({
+            const days = data.consolidated_weather.map(day => ({
                 date: day.applicable_date,
                 windSpeed: day.wind_speed,
                 state: day.weather_state_name,
@@ -34,6 +43,7 @@ class Weather {
 
             return new Weather(city, days);
         } catch (e) {
+            console.error(e);
             throw new Error('Не удалось загрузить данные о погоде');
         }
     }

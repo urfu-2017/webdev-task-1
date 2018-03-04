@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic");
+
+.page {
+    margin: 0;
+    font-family: Helvetica Neue, Helvetica, 'Open Sans', Arial;
+    font-size: 16px;
+    line-height: 1.5;
+
+    color: #333333;
+    background: #f5f5f5;
+}
+
+.page__container {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 16px 20px;
+
+    width: 880px;
+}
+
+.page__header {
+    margin-bottom: 48px;
+}
+
+.link {
+    text-decoration: none;
+    color: #2196F3;
+    transition: color 300ms ease-in-out;
+}
+
+.link:hover {
+    color: #90CAF9;
+}
+
+.header {
+    box-sizing: border-box;
+    padding: 20px 40px;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.header__title {
+    margin: 0;
+    font-size: 42px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.header__home_link {
+    margin-top: 20px;
+}
+
+.category {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #333333;
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.category__icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+}
+
+.category__name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+
+    border-bottom: 3px solid transparent;
+    transition: border-color 300ms ease-in-out;
+}
+
+.category:hover > .category__name {
+    border-color: #90CAF9
+}
+
+.categories {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.categories__item {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+    margin-right: 40px;
+}
+
+.categories__item:nth-child(2n) {
+    margin-right: 0;
+}
+
+.categories__item:nth-last-child(-2n) {
+    margin-bottom: 0;
+}
