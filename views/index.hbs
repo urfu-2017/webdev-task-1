@@ -6,8 +6,27 @@
     <link rel="stylesheet" href="/styles.css" media="screen">
 </head>
 <body>
-<main>
-    {{> weather_widget}}
+{{> header innerClass="main-page__header"}}
+<main class="main-page">
+    {{> weather_widget innerClass="main-page__weather-widget"}}
+    <div class="main-page__categories">
+        <h2 class="main-page__categories-title">Категории новостей</h2>
+        <div class="main-page__categories-list">
+            <span class="main-page__category">💼 <a href="/business"
+                                                    class="main-page__category-link">Бизнес</a></span>
+            <span class="main-page__category">😃 <a href="/entertainment"
+                                                    class="main-page__category-link">Развлечения</a></span>
+            <span class="main-page__category">📄 <a href="/general"
+                                                    class="main-page__category-link">Общее</a></span>
+            <span class="main-page__category">🏥 <a href="/health" class="main-page__category-link">Здоровье</a></span>
+            <span class="main-page__category">⚛️ <a href="/science"
+                                                    class="main-page__category-link">Наука</a></span>
+            <span class="main-page__category">⚽️ <a href="/sports" class="main-page__category-link">Спорт</a></span>
+            <span class="main-page__category">🚀 <a href="/tecnology"
+                                                    class="main-page__category-link">Технологии</a></span>
+        </div>
+    </div>
 </main>
+    {{> footer innerClass="main-page__footer"}}
 </body>
 </html>
