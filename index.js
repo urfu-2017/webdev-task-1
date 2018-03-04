@@ -9,7 +9,8 @@ const hbs = require('hbs');
 
 
 const routes = require('./routes');
-const { fetchWeather } = require('./controllers/weatherFetcher.js');
+const { fetchWeather } = require('./controllers/weatherFetcher');
+const info = require('./mocks/info');
 
 
 const app = express();
@@ -24,11 +25,9 @@ app.set('views', viewsDir);
 app.use(express.static(publicDir));
 
 app.use((req, res, next) => {
-    res.locals.meta = {
-        charset: 'utf-8',
-        description: 'Новости'
-    };
-    res.locals.title = 'Новости';
+    res.locals.meta = info.meta;
+    res.locals.title = info.title;
+    res.locals.header = info.header;
     fetchWeather(req.query)
         .then(weather => {
             res.locals.weather = weather;
