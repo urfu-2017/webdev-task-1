@@ -1,0 +1,14 @@
+{{#if weather.length}}
+    <ul>
+        {{#each weather}}
+            <li>
+                {{city}}
+                {{date}}
+                {{temperature}}
+                {{windSpeed}}
+            </li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p>No weather in your place</p>
+{{/if}}
