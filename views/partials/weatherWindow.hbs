@@ -8,26 +8,20 @@
         <div class="weather-content__wind">Wind: {{ windToday }}m/s</div>
         <table class="weather-content__future table">
             <tr>
-                <th class="table__element table__day-one">{{ date1 }}</th>
-                <th class="table__element table__day-two">{{ date2 }}</th>
-                <th class="table__element table__day-three">{{ date3 }}</th>
-                <th class="table__element table__day-four">{{ date4 }}</th>
-                <th class="table__element table__day-five">{{ date5 }}</th>
+                {{#each dates}}
+                <th class="table__element table__{{ this }}">{{ this }}</th>
+                {{/each}}
             </tr>
             <tr>
-                <td class="table__element temp table__day-one">{{ temp1 }}°C</td>
-                <td class="table__element temp table__day-two">{{ temp2 }}°C</td>
-                <td class="table__element temp table__day-three">{{ temp3 }}°C</td>
-                <td class="table__element temp table__day-four">{{ temp4 }}°C</td>
-                <td class="table__element temp table__day-five">{{ temp5 }}°C</td>
+                {{#each temps}}
+                <td class="table__element temp table__{{ this }}">{{ this }}°C</td>
+                {{/each}}
             </tr>
             <tr>
-                <td class="table__element wind table__day-one">{{ wind1 }}m/s</td>
-                <td class="table__element wind table__day-two">{{ wind2 }}m/s</td>
-                <td class="table__element wind table__day-three">{{ wind3 }}m/s</td>
-                <td class="table__element wind table__day-four">{{ wind4 }}m/s</td>
-                <td class="table__element wind table__day-five">{{ wind5 }}m/s</td>
-            </tr>
+                {{#each winds}}
+                <td class="table__element wind table__this">{{ this }}m/s</td>                
+                {{/each}}
+                </tr>
         </table>
     </div>
 </article>

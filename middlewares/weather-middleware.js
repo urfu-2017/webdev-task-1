@@ -55,6 +55,19 @@ const formatDate = date => {
     return monthNames[parseInt(newDate.getMonth())] + ' ' + newDate.getDate();
 }
 
+const getInfo = (oldArray, field, isDate) => {
+    const elements = [];
+    oldArray.forEach(element => {
+        if (isDate) {
+            elements.push(formatDate(element[field]));
+        } else {
+            elements.push(parseInt(element[field]));
+        }
+    });
+
+    return elements.splice(1, 5);
+}
+
 module.exports = (req, res, next) => {
     console.info(req.path);
 
@@ -68,22 +81,9 @@ module.exports = (req, res, next) => {
                 res.locals.image = data.consolidated_weather[0].weather_state_abbr;
                 res.locals.tempToday = parseInt(data.consolidated_weather[0].the_temp);
                 res.locals.windToday = parseInt(data.consolidated_weather[0].wind_speed);
-                res.locals.date1 = formatDate(data.consolidated_weather[1].applicable_date);
-                res.locals.date2 = formatDate(data.consolidated_weather[2].applicable_date);
-                res.locals.date3 = formatDate(data.consolidated_weather[3].applicable_date);
-                res.locals.date4 = formatDate(data.consolidated_weather[4].applicable_date);
-                res.locals.date5 = formatDate(data.consolidated_weather[5].applicable_date);
-                res.locals.temp1 = parseInt(data.consolidated_weather[1].the_temp);
-                res.locals.temp2 = parseInt(data.consolidated_weather[2].the_temp);
-                res.locals.temp3 = parseInt(data.consolidated_weather[3].the_temp);
-                res.locals.temp4 = parseInt(data.consolidated_weather[4].the_temp);
-                res.locals.temp5 = parseInt(data.consolidated_weather[5].the_temp);
-                res.locals.wind1 = parseInt(data.consolidated_weather[1].wind_speed);
-                res.locals.wind2 = parseInt(data.consolidated_weather[2].wind_speed);
-                res.locals.wind3 = parseInt(data.consolidated_weather[3].wind_speed);
-                res.locals.wind4 = parseInt(data.consolidated_weather[4].wind_speed);
-                res.locals.wind5 = parseInt(data.consolidated_weather[5].wind_speed);
-                
+                res.locals.dates = getInfo(data.consolidated_weather, 'applicable_date', true);
+                res.locals.temps = getInfo(data.consolidated_weather, 'the_temp', false);
+                res.locals.winds = getInfo(data.consolidated_weather, 'wind_speed', false);
                 next();
             })
             .catch(error => {

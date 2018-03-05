@@ -28,7 +28,8 @@
     padding: 10px;
     border: 1px solid #fdc168;
     box-shadow: 0 0 10px #d2b48c;
-    width: 350px;
+    opacity: .9;    
+    width: 370px;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -68,6 +69,11 @@
 .weather-content__future
 {
     display: inline;    
+}
+
+.news__link
+{
+    color: #000;
 }
 
 .block

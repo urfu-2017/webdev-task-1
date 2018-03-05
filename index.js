@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const app = express();
 
 const weatherMiddleware = require('./middlewares/weather-middleware');
+const commonData = require('./middlewares/common-data');
 // const ignoreStatic = require('./middlewares/ignore-static');
 
 const publicDir = path.join(__dirname, 'public');
@@ -20,11 +21,15 @@ app.set('views', viewsDir);
 
 // app.use(ignoreStatic(weatherMiddleware));
 app.use(weatherMiddleware);
+app.use(commonData);
 
 const frontPage = require('./mocks/front-page');
 
 app.get('/', (req, res) => {
     res.render('index', frontPage);
+});
+app.get('/:category', (req, res) => {
+    res.render('category');
 });
 
 // Подключаем директорию с отдельными частями шаблонов
