@@ -1,12 +1,15 @@
 <div class="weather">
     {{#with (head forecast)}}
         <header class="weather__city">{{city}}</header>
-        <span class="weather__icon icofont {{mwStateToIcon weatherState}}"></span>
-        <br>
-        <span class="icofont icofont-thermometer">{{fmtTemp tempCelsius}}</span>
-        <br>
-        <span class="icofont icofont-wind">{{fmtWind windMps}}</span>
-        <br>
+        <div class="weather__icon">
+            <span class="icofont {{mwStateToIcon weatherState}}"></span>
+        </div>
+        <div class="weather__temp">
+            <span class="icofont icofont-thermometer">{{fmtTemp tempCelsius}}</span>
+        </div>
+        <div class="weather__wind">
+            <span class="icofont icofont-wind">{{fmtWind windMps}}</span>
+        </div>
     {{/with}}
     <table class="weather__table">
         <thead>

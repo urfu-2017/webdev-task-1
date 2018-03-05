@@ -7,6 +7,7 @@
     width: 640px;
     background: #fff;
     border: 2px solid #99b;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 
@@ -19,24 +20,43 @@
 }
 
 .weather {
+    display: grid;
+    grid-template-columns: 20px 25% auto;
+    grid-template-rows: 10px 20px 20px 30px auto 10px;
+    grid-template-areas:
+    ". . . . ."
+    ". weather-city . . ."
+    ". weather-icon weather-temp weather-temp ."
+    ". weather-icon weather-wind weather-wind ."
+    ". weather-icon weather-table weather-table weather-table";
     background: #99b;
     width: 100%;
     color: white;
+    font-size: 15px;
 }
 
 .weather__city {
-    color: #fff;
-    display: block;
-    line-height: 30px;
-    margin-left: 20px;
+    grid-area: weather-city;
+    text-align: center;
 }
 
 .weather__icon {
-    color: #fff;
-    font-size: 40px;
+    grid-area: weather-icon;
+    font-size: 90px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.weather__temp {
+    grid-area: weather-temp;
+}
+
+.weather__wind {
+    grid-area: weather-wind;
 }
 
 .weather__table {
+    grid-area: weather-table;
     border: thin solid #fff;
 }
 
