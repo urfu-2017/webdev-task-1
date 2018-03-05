@@ -6,33 +6,31 @@
     display: grid;
     grid-template-rows: 40px 40px 1fr;
     grid-template-columns: 180px;
-    grid-template-areas:    'c t' 
-                            'i w' 
-                            'i f';
+    grid-template-areas: 'city temp' 'img wind' 'img future';
 }
 
 .weather__img
 {
     width: 128px;
     height: 128px;
-    grid-area: i;
+    grid-area: img;
     margin: 0 auto;
 }
 
 .weather__city
 {
-    grid-area: c;
+    grid-area: city;
     text-align: center;
 }
 
 .wind
 {
-    grid-area: w;
+    grid-area: wind;
 }
 
 .temp
 {
-    grid-area: t;
+    grid-area: temp;
 }
 
 .wind__icon,
@@ -52,7 +50,7 @@
 
 .future-wind
 {
-    grid-area: f;
+    grid-area: future;
 }
 
 .weather_error

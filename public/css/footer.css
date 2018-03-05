@@ -7,7 +7,7 @@ footer
 
 .footer__author::before
 {
-    content: '©'
+    content: '©';
 }
 
 .footer__author,
