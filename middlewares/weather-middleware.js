@@ -63,7 +63,6 @@ module.exports = (req, res, next) => {
         getLocationId({ query, lat, lon })
             .then(id => getWeather(id))
             .then(data => {
-                // это дерьмо спрятать куда-то, чтобы никто не нашёл
                 // сделать функцию, которая будет приводить дату в человеческий вид
                 res.locals.city = data.title;
                 res.locals.image = data.consolidated_weather[0].weather_state_abbr;

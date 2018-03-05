@@ -23,6 +23,53 @@
     font-size: 36px;
 }
 
+.weather-info
+{
+    padding: 10px;
+    border: 1px solid #fdc168;
+    box-shadow: 0 0 10px #d2b48c;
+    width: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;        
+}
+
+.weather-image
+{
+    padding-top: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+.weather-content
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-content__wind
+{
+    margin-top: 10px;
+}
+
+.table, .table__element
+{
+    font-size: 16px;
+    border: 1px solid #fdc168;
+}
+
+.table
+{
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.weather-content__future
+{
+    display: inline;    
+}
+
 .block
 {
     display: flex;
