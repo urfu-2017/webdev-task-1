@@ -6,7 +6,12 @@ const storage = [];
 
 exports.newsList = (req, res) => {
     var categoryName = req.params.name;
-
-    console.log('eazy for me ',getNewsByCategory(categoryName));
-    res.sendStatus(201);
+    console.log(categoryName);
+    getNewsByCategory(categoryName)
+        .then(news => {
+            // renderNews(news);
+            const data = { news, ...res.locals };
+            console.log(data);
+            res.render('news', data);
+        });
 }

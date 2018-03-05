@@ -46,10 +46,10 @@ app.use((err, req, res, next) => {
 app.use((req, res, next) => {
     res.locals.meta = {
         charset: 'utf-8',
-        description: 'Awesome notes'
+        description: 'Новости'
     };
 
-    res.locals.title = 'Awesome notes';
+    res.locals.title = 'Новости';
 
     next();
 });

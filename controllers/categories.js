@@ -7,7 +7,7 @@ exports.list = (req, res) => {
 
     const data = { categories, ...res.locals };
 
-    res.render('index', data);  
+    res.render('index', data);
 }
 
 exports.create = (req, res) => {

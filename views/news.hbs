@@ -1,0 +1,9 @@
+{{#if news.length}}
+    <ul>
+        {{#each news}}
+            <li><a href="{{ url }}" target="_blank">{{ title }}</a></li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p>Новостей не найдено!</p>
+{{/if}} 
