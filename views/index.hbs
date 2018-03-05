@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/styles/styles.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            {{> header}}
+            {{> weather}}
+            <section class="content">
+                <div class="content__title">
+                    <p>Категории</p>
+                </div>
+                <div class="content__body">
+                    <ul class="menu">
+                        {{#each categories}}
+                            <li><a href="/{{ key }}?{{ ../queries }}">
+                                <div class="menu__item">
+                                    <p><img width="50" height="50" src="/icons/{{ key }}.svg"/></p>
+                                    <p>{{ name }}</p>
+                                </div>
+                            </a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </section>
+            {{> footer}}
+        </div>
+    </body>
+</html>
