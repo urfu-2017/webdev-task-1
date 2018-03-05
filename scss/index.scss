@@ -1,6 +1,7 @@
 $border2px: 2px solid black;
 $border1px: 1px solid black;
 $width: 426px;
+$nowWeatherFontSize: 22px;
 
 body
 {
@@ -100,78 +101,81 @@ body
 .weather
 {
     border: $border2px;
-    position: relative;
-    height: 130px;
-    width: $width;
+    width: $width - 10px;
+    display: grid;
+    
+
+    grid-template-areas: "🎯 🎲 🎸 -"
+                         "⛳ 🎨 🎹 -"
+                         "⛳ 🎻 🎻 🎻";
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    padding: 5px;
 
     &__city
     {
+        grid-area: '🎯';
         font-weight: bold;
-        margin-top: 3px;
-        width: 113px;
         text-align: center;
     }
 
-    &__icon
+    &__icon-wrapper
     {
-        position: absolute;
-        top: 40px;
-        left: 25px;
+        grid-area: ⛳;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
     }
-
-
-    &__now-info
-    {
-        font-size: 22px;
-    }
-
+    
     &__letter-t
     {
-        position: absolute;
-        left: 127px;
-        top: 6px;
+        grid-area: 🎲;
+        font-size: $nowWeatherFontSize;
     }
 
     &__temp-value
     {
-        position: absolute;
-        left: 215px;
-        top: 6px;
+        grid-area: 🎸;
+        font-size: $nowWeatherFontSize;
+        display: flex;
+        align-items: flex-end;
     }
 
     &__wind_img 
     {
-        position: absolute;
-        left: 125px;
-        top: 30px;
+        grid-area: 🎨;
     }
 
-    &__wind-speed-value
+    &__wind-speed-value-wrapper
     {
-        position: absolute;
-        left: 215px;
-        top: 35px;
+        grid-area: 🎹;
+        font-size: $nowWeatherFontSize;
+        display: flex;
+        align-items: center;
     }
 
     &__future-info
     {
+        grid-area: 🎻;   
         text-align: center;
         display: flex;
-        position: absolute;
-        right: 10px;
-        top: 68px;
-        border-right: $border1px;
+        border-left: $border1px;
     }
 
     &__future-info-item
     {
         border: $border1px;
-        border-right: none;
+        border-left: none;
     }
 
     &__date
     {
-        padding: 0 1px;
+        display: block;
+        padding: 1px;
         border-bottom: $border1px;
     }
 }
@@ -187,13 +191,21 @@ body
     {
         position: relative;
         border-bottom: $border2px;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr 1fr;
+        grid-template-areas: "🎯 🎯 🎲 🎲"
+                             "⛳ ⛳ ⛳ ⛳"
+                             "🏹 🏹 🎻 🎻";
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding: 5px;
     }
 
     &__title
     {
-        font-size: 17px;
-        width: 250px;
-        margin: 2px 0 0 6px;
+        grid-area: 🎯;
+        margin: 0;
+        font-size: 16px;
     }
 
     &__title-link
@@ -203,34 +215,33 @@ body
 
     &__date
     {
-        position: absolute;
-        top: 0;
-        right: 10px;
+        grid-area: 🎲;
+        text-align: right;
     }
 
     &__description-wrapper
     {
+        grid-area: ⛳; 
         display: flex;
         align-items: center;
     }
+
     &__img
     {
         display: block;
-        margin-left: 5px;
+        margin-right: 10px;
     }
 
     &__description
     {
-        margin: 0 5px 0 5px;
         display: block;
         font-style: italic;
-        
     }
 
     &__source
     {
+        grid-area: 🎻;
         text-align: right;
-        margin: 0 10px 3px;
     }
 }
 
