@@ -4,8 +4,10 @@ const News = require('../models/news');
 const Weather = require('../models/weather');
 
 exports.newspage = (req, res) => {
-    const prognoz = Weather.prognoz(req.query.query);
-    const news = News.find(req.params.category, req.query.country);
+    let query = req.query.query ? req.query.query : 'moscow';
+    let country = req.query.country ? req.query.country : 'ru';
+    const prognoz = Weather.prognoz(query);
+    const news = News.find(req.params.category, country);
     prognoz.then((weather)=> {
         news.then((allNews) => {
             res.setHeader('content-type', 'text/html');

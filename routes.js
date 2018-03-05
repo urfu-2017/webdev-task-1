@@ -1,7 +1,7 @@
 'use strict';
 
-const { newspage } = require('./controllers/newspage');
-const { mainpage } = require('./controllers/mainpage');
+const { newspage } = require('./app/controllers/newspage');
+const { mainpage } = require('./app/controllers/mainpage');
 
 module.exports = app => {
     app.get('/', mainpage);
