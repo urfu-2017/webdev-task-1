@@ -7,13 +7,12 @@
     width: 640px;
     background: #fff;
     border: 2px solid #99b;
-    font-family: Helvetica, Arial, sans-serif;
 }
 
 
 .main__heading {
     text-align: center;
-    color: #99b;
+    color: #667;
     font-size: 30px;
     padding: 20px;
     text-decoration: none;
@@ -62,4 +61,43 @@
 
 .weather__table tr td {
     border: thin solid #fff;
+}
+
+.categories {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #667;
+}
+
+.categories__list {
+    list-style-type: none;
+}
+
+.categories__item {
+    color: #667;
+}
+
+.categories__item a {
+    height: 20px;
+    line-height: 20px;
+    color: #667;
+    text-decoration: none;
+}
+
+.categories__item a:hover {
+    color: #99b;
+}
+
+.footer {
+    border-top: thin #99b solid;
+}
+
+.footer__right, .footer__left {
+    display: inline-block;
+    padding: 10px;
+}
+
+.footer__right {
+    float: right;
+    width: 20%;
 }

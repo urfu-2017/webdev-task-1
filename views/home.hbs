@@ -1,6 +1,11 @@
-
-<ul>
-  {{#each categories}}
-    <li><a href="/{{ this.urlShortName }}">{{ this.title }}</a></li>
-  {{/each}}
-</ul>
+<div class="categories">
+    Категории новостей
+    <ul class="categories__list">
+        {{#each categories}}{{#with this}}
+            <li class="categories__item">
+                <span class="icofont {{ categoryToIcon urlShortName }}"></span>
+                <a href="/{{ urlShortName }}">{{ title }}</a>
+            </li>
+        {{/with}}{{/each}}
+    </ul>
+</div>
