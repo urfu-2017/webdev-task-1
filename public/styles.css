@@ -1,4 +1,5 @@
-.body {
+.body
+{
     width: 100vw;
     height: 230vh;
     right: 0;
@@ -7,7 +8,8 @@
     text-align: center;
 }
 
-.start-page {
+.start-page
+{
     background-color: #000;
     color: #ffebcd;
 }
@@ -73,7 +75,19 @@
 
 .news__link
 {
+    text-decoration: none;
     color: #000;
+}
+
+.block__header::first-letter
+{
+    text-transform: uppercase;
+}
+
+.block__header
+{
+    text-align: right;
+    padding: 30px; 
 }
 
 .block
@@ -92,6 +106,7 @@
     border-color: #d2b48c;
     box-shadow: 0 0 10px #d2b48c;
     transform: scale(1.2);
+    transition-duration: .3s;
     opacity: 1;
 }
 
