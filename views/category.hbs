@@ -1,8 +1,19 @@
-<b>Category: {{category.title}}</b>
-<ul>
+<div class="news">
+    Категория: {{category.title}}
     {{#each news}}{{#with this}}
-        <li><a href="/{{ this.urlShortName }}">{{ title }}</a></li>
-        <b>{{displayRussianDate publishedAt}}</b>
-        <b>{{description}}</b>
+        <div class="news-item">
+            <div class="news-item__heading">
+                {{ title }}
+            </div>
+            <div class="news-item__date">
+                {{displayRussianDate publishedAt}}
+            </div>
+            <div class="news-item__desc">
+                {{description}}
+            </div>
+            <div class="news-item__src">
+                <a href="{{ source }}">Источник</a>
+            </div>
+        </div>
     {{/with}}{{/each}}
-</ul>
+</div>
