@@ -3,14 +3,14 @@
 const { Weather } = require('../models/weather')
 const { WeatherInfo } = require('../models/datatypes')
 const assert = require('assert')
-
+const moment = require('moment')
 
 describe('weather', () => {
     const sut = Weather.getInstance()
+    const yesterday = moment().subtract(1, 'day').toDate()
 
     it('makes query to "london"', async () => {
         const forecasts = await sut.getWeatherByQuery('london')
-        const yesterday = new Date(new Date - 24*3600*1000)
 
         assert.equal(forecasts.length, 6)
         forecasts.forEach(WeatherInfo.case({ 
@@ -28,7 +28,6 @@ describe('weather', () => {
 
     it('makes query to "50.068,-5.316"', async () => {
         const forecasts = await sut.getWeatherByLocation(50.068, -5.316)
-        const yesterday = new Date(new Date - 24*3600*1000)
 
         assert.equal(forecasts.length, 6)
         forecasts.forEach(WeatherInfo.case({ 
