@@ -6,7 +6,7 @@ class Article {
         this.title = title;
         this.description = description;
         this.urlToImage = urlToImage;
-        this.publishedAt = publishedAt;
+        this.publishedAt = new Date(publishedAt).toDateString();
     }
 }
 

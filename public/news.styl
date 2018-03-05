@@ -1,0 +1,47 @@
+.news
+{
+    padding: 5px
+    box-sizing: border-box
+    margin-bottom: 20px
+    position: relative
+
+    &__header,
+    &__content
+    {
+        display: flex
+    }
+
+    &__title
+    {
+        margin: 0
+        margin-right: 10px
+        font-size: 1em
+        flex: 3
+        padding-left: 2%
+    }
+    &__date
+    {
+        font-size: .5em
+        flex: 1
+        color: #808080
+        text-align: right
+    }
+    &__pic
+    {
+        width: 150px
+        max-height: 200px
+        object-fit: contain
+        margin-right:10px
+    }
+    &__description{
+        padding-top: 20px
+    }
+    &__source
+    {
+        position: absolute;
+        right: 10px
+        bottom: 0
+        font-size: .7em
+        color: #808080
+    }
+}
