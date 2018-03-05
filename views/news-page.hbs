@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/styles.css" media="screen">
+</head>
+<body>
+{{> header innerClass="news-page__header"}}
+<main class="news-page">
+    {{> weather_widget innerClass="news-page__weather-widget"}}
+</main>
+{{> footer innerClass="news-page__footer"}}
+</body>
+</html>

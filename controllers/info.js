@@ -1,4 +1,7 @@
 'use strict';
+
+const url = require('url');
+
 const newsProxy = require('../proxies/news-proxy');
 const weatherProxy = require('../proxies/weather-proxy');
 
@@ -11,8 +14,7 @@ function getQueryParams(query) {
     };
 }
 
-exports.getPage = async (req, res) => {
-    let { query, lon, lat } = getQueryParams(req.query);
+async function queryWeather(query, lat, lon) {
     let weatherQueryResult;
 
     if (query) {
@@ -21,24 +23,55 @@ exports.getPage = async (req, res) => {
                 weatherQueryResult = weather;
             });
     } else if (lat && lon) {
-        weatherProxy.lattlong(`${lat},${lon}`)
+        await weatherProxy.lattlong(`${lat},${lon}`)
             .then(weather => {
                 weatherQueryResult = weather;
             });
     }
 
-    res.render('index', { weatherQueryResult, title: 'title' });
-};
+    return weatherQueryResult;
+}
 
-exports.news = async (req, res) => {
-    let { country } = getQueryParams(req.query);
+async function queryNews(country, req) {
+    let newsQueryResult;
 
-    let result;
     if (country) {
         await newsProxy(req.params.category, country).then(news => {
-            result = news;
+            newsQueryResult = news;
         });
     }
 
-    // res.render(result);
+    return newsQueryResult;
+}
+
+function getSearchString(req) {
+    return url.parse(req.originalUrl).search;
+}
+
+exports.getPage = async (req, res) => {
+    let { query, lon, lat } = getQueryParams(req.query);
+
+    let weatherQueryResult = await queryWeather(query, lat, lon);
+
+    res.render('index', {
+        weatherQueryResult,
+        title: 'Погода и новости',
+        search: getSearchString(req)
+    });
 };
+
+exports.news = async (req, res) => {
+    let { query, lon, lat, country } = getQueryParams(req.query);
+
+    let newsQueryResult = await queryNews(country, req);
+    let weatherQueryResult = await queryWeather(query, lat, lon);
+
+    res.render('news-page', {
+        search: getSearchString(req),
+        returnToMain: true,
+        newsQueryResult,
+        weatherQueryResult,
+        title: 'Новости и погода'
+    });
+}
+;
