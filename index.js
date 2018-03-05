@@ -7,10 +7,7 @@ const hbs = require('hbs');
 
 const app = express();
 
-const data = require('./const');
-const models = require('./models')(data);
-const controller = require('./controllers')(models, data);
-const routes = require('./routes');
+const data = require('./data.json');
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +24,6 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'), () => {
 hbs.localsAsTemplateData(app);
 app.locals.document = data.document;
 
-routes(app, controller);
+app.use('/', require('./routes/root'));
 
 module.exports = app;

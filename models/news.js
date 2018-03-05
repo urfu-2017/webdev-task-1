@@ -1,26 +1,36 @@
 'use strict';
 
-const { promiseError } = require('../utils');
+const moment = require('moment');
 
-module.exports = (data, api) => class {
-    constructor(country, url) {
-        this.url = url;
-        this.country = country;
+const { promiseError } = require('../utils');
+const { ERRORS } = require('../const');
+const data = require('../data.json');
+const api = require('../api');
+
+module.exports = class News {
+    static find(country, url) {
+        const categoryInfo = data.categories.find(i => i.url === url);
+        if (!url || !categoryInfo) {
+            return promiseError(ERRORS.NO_SUCH_CATEGORY);
+        }
+        if (!country) {
+            return promiseError(ERRORS.NO_COUNTRY);
+        }
+
+        return api.getNewsByCategory(country, categoryInfo.category)
+            .then(News.getNewsBySearchData, { error: ERRORS.CANT_LOCATE });
     }
 
-    find() {
-        if (!data.categories.map(i => i.url).includes(this.url) || !this.url) {
-            return promiseError(data.ERRORS.NO_SUCH_CATEGORY);
-        }
-        if (!this.country) {
-            return promiseError(data.ERRORS.NO_COUNTRY);
-        }
-        if (data.categories.map(i => i.url).includes(this.url)) {
+    static getNewsBySearchData(res) {
+        try {
+            return res.data.articles.map(i => {
+                i.publishedAt = moment(i.publishedAt).format('DD.MM.YYYY');
 
-            return api.getNewsByCategory(this.country,
-                data.categories.find(i => i.url === this.url).category);
+                return i;
+            });
+        } catch (e) {
+            return { error: ERRORS.CANT_LOCATE };
         }
 
-        return promiseError(data.ERRORS.NO_SUCH_CATEGORY);
     }
 };

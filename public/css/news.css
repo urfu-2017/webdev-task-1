@@ -17,8 +17,8 @@
     display: grid;
     grid-template-rows: 30px auto;
     grid-template-columns: 160px 1fr auto;
-    grid-template-areas:    't t p' 
-                            'i d s';
+    grid-template-areas:    'title title       published' 
+                            'image description source';
     margin: 25px 0;
     border: 1px solid black;
     padding: 10px;
@@ -27,26 +27,26 @@
 .article_no-image
 {
     grid-template-columns: 1fr auto;
-    grid-template-areas:    't p' 
-                            'd s';
+    grid-template-areas:    'title       published' 
+                            'description source';
 }
 
 .article__image
 {
-    grid-area: i;
+    grid-area: image;
     width: 150px;
     height: 100px;
 }
 
 .article__published
 {
-    grid-area: p;
+    grid-area: published;
     margin-left: 10px;
 }
 
 .article__source
 {
-    grid-area: s;
+    grid-area: source;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -54,12 +54,12 @@
 
 .article__desc
 {
-    grid-area: d;
+    grid-area: description;
 }
 
 .article__title
 {
-    grid-area: t;
+    grid-area: title;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
