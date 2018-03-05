@@ -1,7 +1,8 @@
 <b>Category: {{category.title}}</b>
 <ul>
-  {{#each categories}}
-    <li>{{ this.title }}: {{ this.urlShortName }}</li>
-  {{/each}}
+    {{#each news}}{{#with this}}
+        <li><a href="/{{ this.urlShortName }}">{{ title }}</a></li>
+        <b>{{displayRussianDate publishedAt}}</b>
+        <b>{{description}}</b>
+    {{/with}}{{/each}}
 </ul>
-{{> weather forecast=forecast }}

@@ -1,1 +1,31 @@
-<b>weather {{forecast}}</b>
+<div class="weather">
+    {{#with (head forecast)}}
+        <header class="weather__city">{{city}}</header>
+        <span class="weather__icon icofont {{mwStateToIcon weatherState}}"></span>
+        <br>
+        <span class="icofont icofont-thermometer">{{fmtTemp tempCelsius}}</span>
+        <br>
+        <span class="icofont icofont-wind">{{fmtWind windMps}}</span>
+        <br>
+    {{/with}}
+    <table class="weather__table">
+        <thead>
+            <tr>
+                {{#each (tail forecast)}}{{#with this}}
+                    <td>{{displayRussianDate day}}</td>
+                {{/with}}{{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {{#each (tail forecast)}}{{#with this}}
+                    <td>
+                        {{fmtTemp tempCelsius}}
+                        <br>
+                        {{fmtWind windMps}}
+                    </td>
+                {{/with}}{{/each}}
+            </tr>
+        </tbody>
+    </table>
+</div>

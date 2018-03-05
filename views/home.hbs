@@ -1,6 +1,6 @@
+
 <ul>
   {{#each categories}}
-    <li>{{ this.title }}: {{ this.urlShortName }}</li>
+    <li><a href="/{{ this.urlShortName }}">{{ this.title }}</a></li>
   {{/each}}
 </ul>
-{{> weather forecast=forecast }}

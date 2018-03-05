@@ -1,1 +1,45 @@
-h1 { color: red }
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 640px;
+    background: #fff;
+    border: 2px solid #99b;
+}
+
+
+.main__heading {
+    text-align: center;
+    color: #99b;
+    font-size: 30px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.weather {
+    background: #99b;
+    width: 100%;
+    color: white;
+}
+
+.weather__city {
+    color: #fff;
+    display: block;
+    line-height: 30px;
+    margin-left: 20px;
+}
+
+.weather__icon {
+    color: #fff;
+    font-size: 40px;
+}
+
+.weather__table {
+    border: thin solid #fff;
+}
+
+.weather__table tr td {
+    border: thin solid #fff;
+}

@@ -2,10 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{{ title }}}</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>{{ siteName }} - {{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="/icofont.css">
+    <link rel="stylesheet" type="text/css" href="/index.css">
 </head>
 <body>
-    {{{ body }}}
+    <main class="main">
+        <a href="/" class="main__heading">{{ siteName }}</a>
+        {{> weather forecast=forecast }}
+        {{{ body }}}
+    </main>
 </body>
 </html>
