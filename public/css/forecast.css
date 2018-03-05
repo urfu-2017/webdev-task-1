@@ -1,0 +1,24 @@
+.forecasts
+{
+    font-size: 0;
+}
+
+.forecast
+{
+    font-size: 1rem;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.forecast__date
+{
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+
+.forecast__temp,
+.forecast__wind
+{
+    padding: 5px;
+}

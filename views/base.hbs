@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>{{document.title}}</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/weather.css">
+        <link rel="stylesheet" href="css/forecast.css">
+        <link rel="stylesheet" href="css/news.css">
+        <link rel="stylesheet" href="css/categories.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+        <main>
+            <header class="header">{{ document.header.title }}</header>
+            {{> weather weather weather=document.weather}}
+            {{{body}}}
+            <footer class="footer">
+                <div class="footer__author">{{ document.footer.author }}</div>
+                <div class="footer__year">{{ document.footer.year }}</div>
+            </footer>
+        </main>
+    </body>
+</html>
+

@@ -1,0 +1,15 @@
+{{#if error}}
+    <div class="weather weather_error">{{error}}
+{{else}}
+    <div class="weather">
+        <div class="weather__city">{{city}}</div>
+        <img class="weather__img" src="{{weather.staticUrl}}{{imgAbbr}}.svg">
+        <div class="temp">
+            <img src="{{weather.tempSrc}}" class="temp__icon"><span class="temp__text">: {{forecast.0.temp}}°С</span>
+        </div>
+        <div class="wind">
+            <img src="{{weather.windSrc}}" class="wind__icon"><span class="wind__text">: {{forecast.0.wind}} м/с</span>
+        </div>
+        {{> forecasts forecast=forecast}}
+{{/if}}
+    </div>

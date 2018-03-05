@@ -1,0 +1,10 @@
+<div class="news">
+    {{#if news.error}}
+        <div class="news__error">{{news.error}}</div>
+    {{else}}
+        <div class="news__title">{{category}}</div>
+        {{#each news}}
+            {{> article desc=description source=url published=publishedAt title=title image=urlToImage document=../document}}
+        {{/each}}
+    {{/if}}
+</div>

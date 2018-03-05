@@ -1,0 +1,11 @@
+<div class="categories">
+    <div class="categories__title">{{document.categories.title}}</div>
+    {{#each categories}}
+        <div class="category">
+            <a href="/{{url}}{{../query}}" class="category__link">
+                <img src="{{icon}}" class="category__img">
+                <span class="category__name">{{name}}</span>
+            </a>
+        </div>
+    {{/each}}
+</div>

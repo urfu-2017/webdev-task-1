@@ -1,0 +1,14 @@
+body
+{
+    margin: 0;
+}
+
+main 
+{
+    display: grid;
+    grid-template-rows: auto 240px 1fr auto;
+    grid-template-areas: 'h' 'w' 'n' 'f';
+    width: 700px;
+    height: 100vh;
+    margin: auto;
+}
