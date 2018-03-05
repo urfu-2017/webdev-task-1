@@ -21,3 +21,5 @@ app.use(express.static(publicDir));
 routes(app);
 
 hbs.registerPartials(partialsDir, () => app.listen(8080));
+
+module.exports = app;

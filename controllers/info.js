@@ -36,9 +36,10 @@ async function queryNews(country, req) {
     let newsQueryResult;
 
     if (country) {
-        await newsProxy(req.params.category, country).then(news => {
-            newsQueryResult = news;
-        });
+        await newsProxy(req.params.category, country)
+            .then(news => {
+                newsQueryResult = news;
+            });
     }
 
     return newsQueryResult;
