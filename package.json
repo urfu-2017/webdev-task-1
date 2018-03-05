@@ -11,6 +11,7 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "metaweather": "0.0.2",
+    "moment": "^2.21.0",
     "newsapi": "^2.2.0",
     "union-type": "^0.4.1"
   },
