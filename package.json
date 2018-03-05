@@ -6,6 +6,7 @@
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
+    "hbs": "4.0.1",
     "express": "^4.16.2"
   },
   "devDependencies": {
