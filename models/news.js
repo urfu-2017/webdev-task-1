@@ -19,7 +19,7 @@ class News {
     }
 
     async getNews(category) {
-        const response = await this.newsApi.v2.topHeadlines({ category: category.urlShortName, language: 'ru' })
+        const response = await this.newsApi.v2.topHeadlines({ category: category.urlShortName, country: 'ru' })
 
         return response.articles.map(x => NewsItem.NewsItemOf({
             title: x.title,
