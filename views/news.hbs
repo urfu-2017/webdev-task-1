@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/styles/styles.css" />
+    </head>
+    <body>
+         <div class="wrapper">
+             {{> header}}
+             {{> weather}}
+             <section class="content">
+                 <div class="content__title">
+                     <p>Горячие новости</p>
+                 </div>
+                 <div class="content__body">
+                     <article class="news">
+                         {{#each news.articles}}
+                             <div class="news__article">
+                             {{#if urlToImage}}
+                                 <img class="news__article_img" src="{{ urlToImage }}"/>
+                             {{^}}
+                                 <img class="news__article_img" src="/icons/noimage.svg"/>
+                             {{/if}}
+                                 <p class="news__article_title"><a href="{{ url }}" target="_blank">{{ title }}</a></p>
+                                 <p class="news__article_desc">{{ description }}</p>
+                             </div>
+                         {{/each}}
+                     </article>
+                 </div>
+             </section>
+             {{> footer}}
+         </div>
+    </body>
+</html>
