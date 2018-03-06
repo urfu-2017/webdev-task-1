@@ -1,0 +1,32 @@
+header
+{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.article-header
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-source
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.article-image
+{
+    height: 15%;
+    width: 15%;
+    min-height: 23px;
+}
+
+.article-description
+{
+    display: inline;
+    font-size: 24px;
+    vertical-align: top;
+}

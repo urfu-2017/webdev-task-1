@@ -24,7 +24,6 @@ app.use((err, req, res, next) => {
     next();
 });
 
-routes(app);
 app.use((req, res, next) => {
     res.locals.meta = {
         charset: 'utf-8',
@@ -36,8 +35,10 @@ app.use((req, res, next) => {
     next();
 });
 
-module.exports = app;
+routes(app);
 
-app.listen(8080, () => {
-    console.info('Open http://localhost:8080/');
-});
+hbs.registerPartials(partialsDir, () => {
+    app.listen(8081, () => {
+        console.info('Open http://localhost:8080/notes');
+    });
+})

@@ -1,0 +1,14 @@
+{{#each news}}
+<article class='article'>
+    <div class='article-header'>
+        <h2>{{title}}</h2>
+        <date>{{publishedAt}}</date>
+    </div>
+    <div class='article-content'>
+        <img class='article-image' src='{{urlToImage}}' alt='{{title}}'>
+        <p class='article-description'>{{description}}</p>
+    </div>
+    <cite class='article-source'><span >Источник: {{source}}</span></cite>
+    <hr>
+</article>
+{{/each}}
