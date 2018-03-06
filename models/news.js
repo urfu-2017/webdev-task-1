@@ -15,6 +15,7 @@ module.exports.getNewsAsync = async ({ country = 'ru', category = 'general' }) =
 };
 
 const categories = [
+    { name: 'Общее', key: 'general' },
     { name: 'Бизнес', key: 'business' },
     { name: 'Развлечения', key: 'entertainment' },
     { name: 'Здоровье', key: 'health' },

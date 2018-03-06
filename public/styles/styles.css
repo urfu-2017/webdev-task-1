@@ -4,6 +4,13 @@ body
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: #dcdcdc;
+    margin: 0;
+    padding: 0;
+}
+
+p
+{
+    margin: 12px 0;
 }
 
 .wrapper
@@ -29,8 +36,7 @@ a:hover
 
 header
 {
-    height: 40px;
-    padding: 28px;
+    padding: 18px;
     margin-bottom: 10px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
@@ -39,10 +45,11 @@ header
 footer
 {
     display: flex;
+    flex: none;
     margin-top: 10px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
-    padding: 50px;
+    padding: 18px 28px;
     color: #ccc;
     justify-content: space-between;
 }
@@ -74,7 +81,7 @@ h1
     background-color: green;
     color: #fafafa;
     font-size: 16pt;
-    padding: 18px;
+    padding: 12px 28px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
     position: relative;
     z-index: 1;
@@ -122,8 +129,11 @@ h1
 .menu
 {
     display: grid;
+    background-color: #ebebeb;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1px;
+    padding: 0;
+    margin: 0;
 }
 
 .menu > li
