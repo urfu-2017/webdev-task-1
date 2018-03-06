@@ -1,0 +1,16 @@
+{{#if news.length}}
+    <ul>
+        {{#each news}}
+            <li>
+                {{title}}<br>
+                {{url}}<br>
+                {{image}}<br>
+                {{description}}<br>
+                {{publishedAt}}<br>
+                {{source}}
+            </li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p>Error with news loading</p>
+{{/if}}

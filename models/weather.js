@@ -24,6 +24,20 @@ class Weather {
 
         return await locationResponse.json();
     }
+
+    static getWeatherData(weatherJSON) {
+        const title = weatherJSON.title;
+        const consolidatedWeather = weatherJSON.consolidated_weather;
+
+        return consolidatedWeather.map(element => {
+            return {
+                city: title,
+                date: element.applicable_date,
+                temperature: Math.round(element.the_temp),
+                windSpeed: Math.round(element.wind_speed * 0.44704)
+            };
+        });
+    }
 }
 
 module.exports = Weather;

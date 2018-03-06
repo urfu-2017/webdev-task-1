@@ -3,31 +3,37 @@
 const Weather = require('../models/weather');
 const News = require('../models/news');
 
+const category = [
+    { name: 'business' },
+    { name: 'entertainment' },
+    { name: 'general' },
+    { name: 'health' },
+    { name: 'science' },
+    { name: 'sports' },
+    { name: 'technology' }
+];
+
 exports.main = async (req, res) => {
     const locals = res.locals;
-    const weatherJSON = await Weather.getWeatherJSON(req);
-    const title = weatherJSON.title;
-    const consolidatedWeather = weatherJSON.consolidated_weather;
-    const weather = consolidatedWeather.map(element => {
-        return {
-            city: title,
-            date: element.applicable_date,
-            temperature: Math.round(element.the_temp),
-            windSpeed: Math.round(element.wind_speed * 0.44704)
-        };
-    });
 
-    const data = { weather, locals };
+    const weatherJSON = await Weather.getWeatherJSON(req);
+    const weather = Weather.getWeatherData(weatherJSON);
+
+    const data = { weather, category, locals };
 
     res.render('index', data);
 };
 
 exports.news = async (req, res) => {
     const locals = res.locals;
-    const newsJSON = await News.getNewsJSON(req);
-    const stringified = JSON.stringify(newsJSON, null, 2);
 
-    const data = { stringified, locals };
+    const weatherJSON = await Weather.getWeatherJSON(req);
+    const weather = Weather.getWeatherData(weatherJSON);
+
+    const newsJSON = await News.getNewsJSON(req);
+    const news = News.getNewsData(newsJSON);
+
+    const data = { weather, news, locals };
 
     res.render('news', data);
 };
