@@ -1,0 +1,45 @@
+<div class='cooltable___weather'>
+    <div class="box1">
+        {{city}}
+    </div>
+    <div class="box2">
+        <img src=https://www.metaweather.com/static/img/weather/{{img}}.svg>
+    </div>
+    <div class="box3">
+        <span> t {{formatNumber temp}}&#8451;
+</span>
+    </div>
+    <div class="box4">
+        <span> 💨 {{formatNumber wind}} m/s
+</span>
+</div>
+    <div class="box5">
+    <table border="1" width="100">
+        <tr>
+
+        {{#each info}}
+
+                <th>{{sformatTime applicable_date "D MMMM" }}</th>
+        {{/each}}
+    </tr>
+        <tr>
+            {{#each info}}
+
+                <td>{{formatNumber the_temp }} &#8451;
+                    {{formatNumber wind_speed }} m/s</td>
+            {{/each}}
+
+
+        </tr>
+
+    </table>
+
+
+        </table>
+
+
+    </div>
+
+        <td></td>
+    </tr>
+</div>

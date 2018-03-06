@@ -1,0 +1,17 @@
+<a href="..">На главную</a>>
+<table class='cooltable___news'>
+    {{#each articles}}
+        <tr>
+        <tr>
+        <td >{{title}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{sformatTime publishedAt "D MMMM"}}</td>
+    </tr>
+
+            <td ><img src="{{urlToImage}}"></td>
+            <td >{{description}}</td>
+        </tr>
+    {{/each}}
+</table>

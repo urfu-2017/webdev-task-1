@@ -53,7 +53,6 @@ app.use(express.static(path.join(__dirname, 'public'), options));
 
 app.get('/', function(req, res)
 {
-
     res.render('hello');   // this is the important part
 });
 
