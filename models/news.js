@@ -1,11 +1,10 @@
-'use strict';
-
-const fetch = require('node-fetch');
-const config = require('../config');
+import fetch from 'node-fetch';
+import config from '../config';
+import categoriesData from './mocks/newsCategories';
 
 const BASE_URL = 'https://newsapi.org/v2';
 
-class NewsAPI {
+export default class NewsAPI {
     static async getNewsAsync({ country = 'ru', category = 'general' }) {
         if (config.API_KEY) {
             const newsResponse = await fetch(`${BASE_URL}/top-headlines?` +
@@ -20,19 +19,6 @@ class NewsAPI {
     }
 }
 
+export const categories = categoriesData;
 
-const categories = [
-    { name: 'Общее', key: 'general' },
-    { name: 'Бизнес', key: 'business' },
-    { name: 'Развлечения', key: 'entertainment' },
-    { name: 'Здоровье', key: 'health' },
-    { name: 'Наука', key: 'science' },
-    { name: 'Спорт', key: 'sports' },
-    { name: 'Технологии', key: 'technology' }
-];
-
-const findCategory = (key) => (categories.find(x => x.key === key));
-
-module.exports = NewsAPI;
-module.exports.categories = categories;
-module.exports.findCategory = findCategory;
+export const findCategory = (key) => (categories.find(x => x.key === key));

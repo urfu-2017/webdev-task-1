@@ -1,26 +1,23 @@
-'use strict';
-
-const WeatherAPI = require('../models/weather');
-
-const moment = require('moment');
-require('moment/locale/ru');
+import WeatherAPI from '../models/weather';
+import moment from 'moment';
+import 'moment/locale/ru';
 
 const dateFormat = (date) => moment(date).format('D MMMM');
 
-module.exports = async (req, res, next) => {
+export default async (req, res, next) => {
     try {
         const weatherResponse = await WeatherAPI.getWeatherAsync(req.query);
-        const currentDay = weatherResponse.consolidated_weather.shift();
+        const [current, ...otherDays] = weatherResponse.consolidated_weather;
 
         const summary = {
-            state: currentDay.weather_state_abbr,
+            state: current.weather_state_abbr,
             city: weatherResponse.title,
-            temp: currentDay.the_temp.toFixed(),
-            wind: currentDay.wind_speed.toFixed(),
-            date: dateFormat(currentDay.applicable_date)
+            temp: current.the_temp.toFixed(),
+            wind: current.wind_speed.toFixed(),
+            date: dateFormat(current.applicable_date)
         };
 
-        const days = weatherResponse.consolidated_weather.map(day => ({
+        const days = otherDays.map(day => ({
             temp: day.the_temp.toFixed(),
             wind: day.wind_speed.toFixed(),
             date: dateFormat(day.applicable_date)

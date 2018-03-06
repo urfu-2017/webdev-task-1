@@ -1,11 +1,10 @@
-'use strict';
+import express from 'express';
 
-const express = require('express');
-const weatherMiddleware = require('./middlewares/weather');
-const queriesMiddleware = require('./middlewares/queries');
-const propertiesMiddleware = require('./middlewares/properties');
+import weatherMiddleware from './middlewares/weather';
+import queriesMiddleware from './middlewares/queries';
+import propertiesMiddleware from './middlewares/properties';
 
-module.exports = (app) => {
+export default (app) => {
     app.use(express.static(`${__dirname}/public`));
     app.use(propertiesMiddleware);
     app.use(queriesMiddleware);

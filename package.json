@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js --exec babel-node",
     "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js --timeout 5000"
+    "test": "npm run lint && mocha --compilers js:babel-core/register tests/*.js --timeout 5000"
   },
   "dependencies": {
     "express": "^4.16.2",
@@ -12,6 +12,11 @@
     "node-fetch": "^2.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^4.8.0",
     "eslint-config-hrundel": "^1.3.0",
     "mocha": "^5.0.2",

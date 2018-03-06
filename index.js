@@ -1,11 +1,9 @@
-'use strict';
+import express from 'express';
+import hbs from 'express-handlebars';
 
-const express = require('express');
-const hbs = require('express-handlebars');
-
-const config = require('./config');
-const setupMiddleware = require('./middleware');
-const setupRoutes = require('./routes');
+import config from './config';
+import setupMiddleware from './middleware';
+import setupRoutes from './routes';
 
 const app = express();
 
@@ -19,4 +17,4 @@ app.set('view engine', 'hbs');
 setupMiddleware(app);
 setupRoutes(app);
 
-module.exports = app.listen(config.PORT);
+export default app.listen(config.PORT);
