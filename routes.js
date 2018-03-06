@@ -1,6 +1,8 @@
-import pages from './controllers/pages';
+'use strict';
 
-export default (app) => {
+const pages = require('./controllers/pages');
+
+module.exports = (app) => {
     pages.forEach(page => app.get(page.url, page.request));
     app.all('*', (_, res) => res.sendStatus(404));
 };

@@ -1,11 +1,13 @@
-import WeatherAPI from '../models/weather';
+'use strict';
 
-import moment from 'moment';
-import 'moment/locale/ru';
+const WeatherAPI = require('../models/weather');
+
+const moment = require('moment');
+require('moment/locale/ru');
 
 const dateFormat = (date) => moment(date).format('D MMMM');
 
-export default async (req, res, next) => {
+module.exports = async (req, res, next) => {
     try {
         const weatherResponse = await WeatherAPI.getWeatherAsync(req.query);
         const currentDay = weatherResponse.consolidated_weather.shift();
