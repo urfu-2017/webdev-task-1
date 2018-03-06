@@ -1,16 +1,15 @@
 {{#if news.length}}
-    <ul>
+    <div class="news">
         {{#each news}}
-            <li>
-                {{title}}<br>
-                {{url}}<br>
-                {{image}}<br>
-                {{description}}<br>
-                {{publishedAt}}<br>
-                {{source}}
-            </li>
+        <div class="one-news">
+            <div class="one-news__title"><a href="{{ url }}">{{ title }}</a></div>
+            <div class="one-news__image"><img src="{{image}}" alt="image"></div>
+            <div class="one-news__description">{{description}}</div>
+            <div class="one-news__time">{{time}}</div>
+            <div class="one-news__source">{{source}}</div>
+        </div>        
         {{/each}}
-    </ul>
+    </div>
 {{^}}
-    <p>Error with news loading</p>
+    <div class="news">Error with news loading</div>
 {{/if}}

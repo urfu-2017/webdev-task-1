@@ -1,6 +1,7 @@
 'use strict';
 
 const fetch = require('node-fetch');
+const Weather = require('../models/weather');
 
 class News {
     static async getNewsJSON(req) {
@@ -27,10 +28,17 @@ class News {
                 url: element.url,
                 image: element.urlToImage,
                 description: element.description,
-                publishedAt: element.publishedAt,
+                time: News.parseTime(element.publishedAt),
                 source: element.source.name
             };
         });
+    }
+
+    static parseTime(time) {
+        const [date, hhmmss] = time.split('T');
+        const hhmm = hhmmss.slice(0, 5);
+
+        return 'Опубликовано ' + Weather.parseDate(date) + ' в ' + hhmm;
     }
 }
 

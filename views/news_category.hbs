@@ -6,10 +6,10 @@
     <meta name="description" content="{{ meta.description }}">
     <link rel="stylesheet" href="/index.css" media="screen">
 </head>
-<body>
-    <header><a href="/">На главную</a> HEADER</header>
+<body class="body">
+    {{> newsHeader}}
     {{> weather}}
     {{> news}}
-    <footer>FOOTER</footer>
+    {{> footer}}
 </body>
 </html>

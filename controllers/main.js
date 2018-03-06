@@ -35,5 +35,5 @@ exports.news = async (req, res) => {
 
     const data = { weather, news, locals };
 
-    res.render('news', data);
+    res.render('news_category', data);
 };

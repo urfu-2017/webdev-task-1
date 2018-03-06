@@ -26,17 +26,52 @@ class Weather {
     }
 
     static getWeatherData(weatherJSON) {
-        const title = weatherJSON.title;
-        const consolidatedWeather = weatherJSON.consolidated_weather;
-
-        return consolidatedWeather.map(element => {
+        const weatherData = weatherJSON.consolidated_weather.map(element => {
             return {
-                city: title,
-                date: element.applicable_date,
-                temperature: Math.round(element.the_temp),
-                windSpeed: Math.round(element.wind_speed * 0.44704)
+                abbr: element.weather_state_abbr,
+                date: Weather.parseDate(element.applicable_date),
+                temp: Weather.parseTemperature(element.the_temp),
+                ws: Weather.parseWindSpeed(element.wind_speed)
             };
         });
+
+        return { city: weatherJSON.title, weatherData: weatherData };
+    }
+
+    static parseDate(date) {
+        const months = [
+            'января',
+            'февраля',
+            'марта',
+            'апреля',
+            'мая',
+            'июня',
+            'июля',
+            'августа',
+            'сентября',
+            'октября',
+            'ноября',
+            'декабря'
+        ];
+        const [, month, day] = date.split('-');
+        const monthName = months[parseInt(month, 10) - 1];
+        const dayNumber = parseInt(day, 10);
+
+        return dayNumber + ' ' + monthName;
+    }
+
+    static parseTemperature(temperature) {
+        let temp = parseInt(temperature, 10);
+        const celsius = '℃';
+        if (temp > 0) {
+            temp = '+' + temp;
+        }
+
+        return temp + celsius;
+    }
+
+    static parseWindSpeed(windSpeed) {
+        return Math.round(windSpeed * 0.44704) + 'м/с';
     }
 }
 
