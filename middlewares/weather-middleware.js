@@ -1,6 +1,6 @@
-/* eslint-disable */
-
 'use strict';
+
+const formatDate = require('./date-format');
 
 const request = require('request');
 const baseUrl = 'https://www.metaweather.com/api/';
@@ -12,7 +12,7 @@ const getLocationId = ({ query, lat, lon }) => new Promise((resolve, reject) => 
     if (query) {
         url = baseUrl + `location/search/?query=${query}`;
     } else if (lat && !Number.isNaN(lat) && lon && !Number.isNaN(lon)) {
-        url = baseUrl + `location/search/?lattlong=${lat},${lon}`
+        url = baseUrl + `location/search/?lattlong=${lat},${lon}`;
     } else {
         url = baseUrl + `location/search/?query=${defaultCity}`;
     }
@@ -20,6 +20,7 @@ const getLocationId = ({ query, lat, lon }) => new Promise((resolve, reject) => 
     request(url, (err, response, body) => {
         if (err) {
             reject(new Error('Request failed'));
+
             return;
         }
 
@@ -27,9 +28,9 @@ const getLocationId = ({ query, lat, lon }) => new Promise((resolve, reject) => 
 
         if (Array.isArray(body) && body[0] && body[0].woeid) {
             resolve(body[0].woeid);
+
             return;
         }
-
         reject(new Error('Response no data'));
     });
 });
@@ -38,22 +39,12 @@ const getWeather = placeId => new Promise((resolve, reject) => {
     request(baseUrl + `/location/${placeId}`, (err, response, body) => {
         if (err) {
             reject(new Error('Request failed'));
+
             return;
         }
-
         resolve(JSON.parse(body));
     });
 });
-
-const formatDate = date => {
-    const monthNames = [
-        "Jan", "Feb", "Mar", "Apr",
-        "May", "Jun", "Jul", "Aug",
-        "Sep", "Oct", "Nov", "Dec"
-      ];
-    const newDate = new Date(date);
-    return monthNames[parseInt(newDate.getMonth())] + ' ' + newDate.getDate();
-}
 
 const getInfo = (oldArray, field, isDate) => {
     const elements = [];
@@ -66,17 +57,14 @@ const getInfo = (oldArray, field, isDate) => {
     });
 
     return elements.splice(1, 5);
-}
+};
 
 module.exports = (req, res, next) => {
-    console.info(req.path);
-
     if (req.query) {
         const { query, lat, lon } = req.query;
         getLocationId({ query, lat, lon })
             .then(id => getWeather(id))
             .then(data => {
-                // сделать функцию, которая будет приводить дату в человеческий вид
                 res.locals.city = data.title;
                 res.locals.image = data.consolidated_weather[0].weather_state_abbr;
                 res.locals.tempToday = parseInt(data.consolidated_weather[0].the_temp);
