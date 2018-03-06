@@ -7,12 +7,16 @@ const BASE_URL = 'https://newsapi.org/v2';
 
 class NewsAPI {
     static async getNewsAsync({ country = 'ru', category = 'general' }) {
-        const newsResponse = await fetch(`${BASE_URL}/top-headlines?` +
-            `country=${country}&` +
-            `category=${category}&` +
-            `apiKey=${config.API_KEY}`);
+        if (config.API_KEY) {
+            const newsResponse = await fetch(`${BASE_URL}/top-headlines?` +
+                `country=${country}&` +
+                `category=${category}&` +
+                `apiKey=${config.API_KEY}`);
 
-        return await newsResponse.json();
+            return await newsResponse.json();
+        }
+
+        return {};
     }
 }
 
