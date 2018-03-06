@@ -6,7 +6,6 @@ exports.list = (req, res) => {
     const categories = Category.findAll();
 
     const data = { categories, ...res.locals };
-
     res.render('index', data);
 };
 

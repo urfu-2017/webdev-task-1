@@ -11,6 +11,7 @@ const morgan = require('morgan');
 const Category = require('./models/category');
 const categories = require('./mocks/categories');
 const routes = require('./routes');
+const weatherWidget = require('./repository/weatherWidget');
 
 for (const category of categories) {
     new Category(category).save();
@@ -44,6 +45,9 @@ app.use((err, req, res, next) => {
 
 // console.log((getWeatherData));
 // getWeatherData.then(console.log, null);
+
+app.use(weatherWidget);
+
 app.use((req, res, next) => {
     res.locals.meta = {
         charset: 'utf-8',
@@ -51,8 +55,6 @@ app.use((req, res, next) => {
     };
 
     res.locals.title = 'Новости';
-
-    res.locals.widgets = 'yolo';
 
     next();
 });
