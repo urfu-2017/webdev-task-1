@@ -3,7 +3,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint .",
-    "test": "NODE_ENV=development npm run lint && mocha tests/*.js",
+    "test": "npm run lint && mocha tests/*.js",
     "css:build": "stylus ./views/components/index.styl --out ./public/css/index.css",
     "css:watch": "stylus ./views/components/index.styl --out ./public/css/index.css --watch",
     "dev": "set NODE_ENV=development | npm-run-all css:build start",

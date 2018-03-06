@@ -36,7 +36,7 @@ helpers(hbs);
 routes(app);
 
 registerAllPartials(partialsDir)
-    .then(() => app.listen(config.get('port')))
+    .then(() => app.listen(config.has('port') ? config.get('port') : 8080))
     .catch(error => console.error(error));
 
 module.exports = app;
@@ -53,7 +53,7 @@ async function registerAllPartials(directory) {
 
 function registerPartial(directory) {
     return new Promise(resolve => {
-        if (!config.get('debug')) {
+        if (!config.has('debug')) {
             hbs.registerPartials(directory, resolve);
         } else {
             hbsutils.registerWatchedPartials(directory, resolve);

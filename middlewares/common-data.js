@@ -14,8 +14,8 @@ module.exports = async (req, res, next) => {
         };
     }
 
-    res.locals.staticBasePath = config.get('staticBasePath');
-    res.locals.siteName = config.get('siteName');
+    res.locals.staticBasePath = config.has('staticBasePath') ? config.get('staticBasePath') : '/';
+    res.locals.siteName = config.has('siteName') ? config.get('siteName') : 'Name';
 
     next();
 };

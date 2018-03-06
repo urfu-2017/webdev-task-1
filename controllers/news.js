@@ -4,7 +4,7 @@ const config = require('config');
 
 const News = require('../models/News');
 
-const news = new News(config.get('apiKey'));
+const news = new News(config.has('apiKey') ? config.get('apiKey') : '');
 
 exports.index = (req, res) => {
     const data = Object.assign({
