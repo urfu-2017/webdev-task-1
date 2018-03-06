@@ -3,14 +3,25 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "test": "npm run lint && mocha tests/*.js",
+    "css:build": "stylus ./views/components/index.styl --out ./public/css/index.css",
+    "css:watch": "stylus ./views/components/index.styl --out ./public/css/index.css --watch",
+    "dev": "set NODE_ENV=development | css:build | node ./index.js",
+    "prod": "set NODE_ENV=production | css:build | node ./index.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "config": "^1.30.0",
+    "express": "^4.16.2",
+    "handlebars": "^4.0.11",
+    "hbs": "^4.0.1",
+    "requestify": "^0.2.5"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
     "eslint-config-hrundel": "^1.3.0",
+    "hbs-utils": "0.0.4",
     "mocha": "^5.0.1",
     "supertest": "^3.0.0"
   }
