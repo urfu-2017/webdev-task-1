@@ -1,8 +1,10 @@
 'use strict';
 
 const config = require('config');
+
 const News = require('../models/News');
-const news = new News(config.get('newsApiKey'));
+
+const news = new News(config.get('apiKey'));
 
 exports.index = (req, res) => {
     const data = Object.assign({
