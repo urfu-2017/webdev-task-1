@@ -36,7 +36,6 @@ class Weather {
 
             return new Weather(city, days);
         } catch (e) {
-            console.error(e);
             throw new Error('Не удалось загрузить данные о погоде');
         }
     }

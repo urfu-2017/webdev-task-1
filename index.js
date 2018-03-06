@@ -5,8 +5,6 @@ const express = require('express');
 
 const config = require('./config');
 const configureTemplateEngine = require('./configureTemplateEngine');
-
-const ignoreStatic = require('./middlewares/ignore-static');
 const weatherData = require('./middlewares/weather-data');
 
 const newsController = require('./controllers/news');
@@ -17,9 +15,9 @@ const publicDir = path.resolve(__dirname, 'public');
 const app = express();
 
 // configure workflow
-configureTemplateEngine(app);
 app.use(express.static(publicDir));
-app.use(ignoreStatic(weatherData));
+configureTemplateEngine(app);
+app.use(weatherData);
 
 // routing
 

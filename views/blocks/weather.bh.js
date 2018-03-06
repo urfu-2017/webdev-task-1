@@ -15,10 +15,20 @@ const icons = {
 const iconsUrl = 'https://www.metaweather.com/static/img/weather/';
 
 module.exports = bh => bh.match('weather', (ctx, json) => {
+    ctx.tag('section');
+
+    if (json.data.error) {
+        ctx.content({
+            elem: 'error',
+            content: json.data.error
+        });
+
+        return;
+    }
+
     const { city, days } = json.data;
     const [current, ...other] = days;
 
-    ctx.tag('section');
     ctx.content([
         {
             elem: 'city',
