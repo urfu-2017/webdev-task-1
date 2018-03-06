@@ -6,14 +6,13 @@ const hbs = require('hbs');
 const app = express();
 
 const weatherMiddleware = require('./middlewares/weather-middleware');
-const newsMiddleware = require('./middlewares/news-middleware');
+const fetchNews = require('./middlewares/news-fetcher');
 const commonData = require('./middlewares/common-data');
 
 const frontPage = require('./mocks/front-page');
 
 const publicDir = path.join(__dirname, 'public');
 
-// Подключаем шаблонизатор
 const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
 
@@ -22,7 +21,6 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 app.use(weatherMiddleware);
-app.use(newsMiddleware);
 app.use(commonData);
 
 app.get('/', (req, res) => {
@@ -30,7 +28,14 @@ app.get('/', (req, res) => {
 });
 app.get('/:category', (req, res) => {
     res.locals.category = req.path.substr(1, req.path.indexOf('&') - 1) || req.path.substr(1);
-    res.render('category');
+    fetchNews(req, res)
+        .then(result => {
+            res.locals.newsArticles = result;
+        })
+        .then(() => {
+            res.render('category');
+        })
+        .catch(err => console.error(err));
 });
 
 hbs.registerPartials(partialsDir, () => {

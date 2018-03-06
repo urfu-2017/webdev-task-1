@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 'use strict';
 
 const formatDate = require('./date-format');
@@ -8,13 +6,20 @@ const keyString = '&apiKey=6ccd50aa452a4d48827db4c4a86077d5';
 const baseUrl = 'https://newsapi.org/v2/top-headlines?category=';
 const defaultCountry = 'us';
 
-const getNews = url => new Promise((resolve,reject) => {
+const getNews = url => new Promise((resolve, reject) => {
     request(url, (err, response, body) => {
         if (err) {
             reject(new Error('Request failed'));
+
             return;
         }
-        resolve(JSON.parse(body));
+        body = JSON.parse(body);
+        if (Array.isArray(body.articles)) {
+            resolve(body.articles);
+
+            return;
+        }
+        reject(new Error('Response no data'));
     });
 });
 
@@ -29,23 +34,15 @@ const getFirstFiveNews = data => {
     }
 
     return articles;
-}
+};
 
-module.exports = (req, res, next) => {
+module.exports = async function renderNews(req) {
     let country = req.query.country;
     if (!country) {
         country = defaultCountry;
     }
-    const workingUrl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6ccd50aa452a4d48827db4c4a86077d5'
     const url = baseUrl + req.path.substr(1) + '&country=' + country + keyString;
-    getNews(url)
-        .then(data => {
-            console.info('ok');
-            res.locals.newsArticles = getFirstFiveNews(data.articles);
-            next();
-        })
-        .catch(error => {
-            console.error(error);
-            next();
-        })
-}
+    const news = await getNews(url);
+
+    return getFirstFiveNews(news);
+};

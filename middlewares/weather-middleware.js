@@ -1,50 +1,31 @@
 'use strict';
-
 const formatDate = require('./date-format');
 
-const request = require('request');
+const fetch = require('node-fetch');
 const baseUrl = 'https://www.metaweather.com/api/';
 const defaultCity = 'Moscow';
 
-const getLocationId = ({ query, lat, lon }) => new Promise((resolve, reject) => {
+const getLocationId = async ({ query, lat, lon }) => {
     let url = null;
 
-    if (query) {
-        url = baseUrl + `location/search/?query=${query}`;
-    } else if (lat && !Number.isNaN(lat) && lon && !Number.isNaN(lon)) {
+    if (lat && !Number.isNaN(lat) && lon && !Number.isNaN(lon)) {
         url = baseUrl + `location/search/?lattlong=${lat},${lon}`;
     } else {
-        url = baseUrl + `location/search/?query=${defaultCity}`;
+        url = baseUrl + `location/search/?query=${query || defaultCity}`;
     }
 
-    request(url, (err, response, body) => {
-        if (err) {
-            reject(new Error('Request failed'));
+    const response = await fetch(url);
+    const json = await response.json();
 
-            return;
-        }
+    return json[0].woeid;
+};
 
-        body = JSON.parse(body);
+const getWeather = async (placeId) => {
+    const response = await fetch(baseUrl + `/location/${placeId}`);
+    const json = await response.json();
 
-        if (Array.isArray(body) && body[0] && body[0].woeid) {
-            resolve(body[0].woeid);
-
-            return;
-        }
-        reject(new Error('Response no data'));
-    });
-});
-
-const getWeather = placeId => new Promise((resolve, reject) => {
-    request(baseUrl + `/location/${placeId}`, (err, response, body) => {
-        if (err) {
-            reject(new Error('Request failed'));
-
-            return;
-        }
-        resolve(JSON.parse(body));
-    });
-});
+    return json;
+};
 
 const getInfo = (oldArray, field, isDate) => {
     const elements = [];
@@ -59,24 +40,23 @@ const getInfo = (oldArray, field, isDate) => {
     return elements.splice(1, 5);
 };
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     if (req.query) {
-        const { query, lat, lon } = req.query;
-        getLocationId({ query, lat, lon })
-            .then(id => getWeather(id))
-            .then(data => {
-                res.locals.city = data.title;
-                res.locals.image = data.consolidated_weather[0].weather_state_abbr;
-                res.locals.tempToday = parseInt(data.consolidated_weather[0].the_temp);
-                res.locals.windToday = parseInt(data.consolidated_weather[0].wind_speed);
-                res.locals.dates = getInfo(data.consolidated_weather, 'applicable_date', true);
-                res.locals.temps = getInfo(data.consolidated_weather, 'the_temp', false);
-                res.locals.winds = getInfo(data.consolidated_weather, 'wind_speed', false);
-                next();
-            })
-            .catch(error => {
-                console.error(error);
-                next();
-            });
+        try {
+            const { query, lat, lon } = req.query;
+
+            const locationId = await getLocationId({ query, lat, lon });
+            const weather = await getWeather(locationId);
+
+            res.locals.city = weather.title;
+            res.locals.image = weather.consolidated_weather[0].weather_state_abbr;
+            res.locals.tempToday = parseInt(weather.consolidated_weather[0].the_temp);
+            res.locals.windToday = parseInt(weather.consolidated_weather[0].wind_speed);
+            res.locals.dates = getInfo(weather.consolidated_weather, 'applicable_date', true);
+            res.locals.temps = getInfo(weather.consolidated_weather, 'the_temp', false);
+            res.locals.winds = getInfo(weather.consolidated_weather, 'wind_speed', false);
+        } finally {
+            next();
+        }
     }
 };
