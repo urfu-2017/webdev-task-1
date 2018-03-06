@@ -26,6 +26,7 @@ class News {
             publishedAt: new Date(x.publishedAt),
             description: x.description || '',
             source: x.url,
+            imageUrl: x.urlToImage || '',
             category
         }))
     }

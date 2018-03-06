@@ -6,10 +6,13 @@
                 {{ title }}
             </div>
             <div class="news-item__date">
-                {{displayRussianDate publishedAt}}
+                {{ displayRussianDate publishedAt }}
             </div>
             <div class="news-item__desc">
-                {{description}}
+                {{#if imageUrl}}
+                    <img alt="{{ title }}" title="{{ title }}" src="{{ imageUrl }}">
+                {{/if}}
+                {{{ description }}}
             </div>
             <div class="news-item__src">
                 <a href="{{ source }}">Источник</a>

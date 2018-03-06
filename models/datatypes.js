@@ -11,6 +11,7 @@ const NewsItem = Type({ NewsItem: {
     publishedAt: Date,
     description: String,
     source: String,
+    imageUrl: String,
     category: NewsCategory
 }})
 

@@ -105,7 +105,7 @@
 .news-item {
     display: grid;
     grid-template-columns: 30% 50% 10px auto 20px;
-    grid-template-rows: 10px 40px auto 20px 10px;
+    grid-template-rows: 10px 40px auto 20px 30px;
     grid-template-areas:
     " . . . . ."
     " news-item-heading news-item-heading . news-item-date ."
@@ -125,6 +125,12 @@
 
 .news-item__desc {
     grid-area: news-item-desc;
+}
+
+.news-item__desc img {
+    float: left;
+    width: 50%;
+    margin-right: 10px;
 }
 
 .news-item__src {
