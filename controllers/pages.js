@@ -16,11 +16,15 @@ module.exports = [
         request: async ({ params, query }, res) => {
             const category = findCategory(params.category);
 
-            res.render('news', {
-                title: `Новости категории ${category.name}`,
-                header: `<a href="/?${res.locals.queries}">Категории</a> : ${category.name}`,
-                news: await getNewsAsync(Object.assign({}, params, query))
-            });
+            if (category) {
+                res.render('news', {
+                    title: `Новости категории ${category.name}`,
+                    header: `<a href="/?${res.locals.queries}">Категории</a> : ${category.name}`,
+                    news: await getNewsAsync(Object.assign({}, params, query))
+                });
+            } else {
+                res.sendStatus(404);
+            }
         }
     }
 ];
