@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const storage = [];
 
@@ -20,7 +20,7 @@ class News {
 
     static findByCategory(category) {
         return storage.filter(news => news.category === category);
-    }    
+    }
     static findAll() {
         return storage;
     }

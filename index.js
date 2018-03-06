@@ -8,7 +8,6 @@ const express = require('express');
 const hbs = require('hbs');
 const morgan = require('morgan');
 
-const Note = require('./models/news');
 const Category = require('./models/category');
 const categories = require('./mocks/categories');
 const routes = require('./routes');
@@ -43,6 +42,8 @@ app.use((err, req, res, next) => {
     next();
 });
 
+// console.log((getWeatherData));
+// getWeatherData.then(console.log, null);
 app.use((req, res, next) => {
     res.locals.meta = {
         charset: 'utf-8',
@@ -51,12 +52,14 @@ app.use((req, res, next) => {
 
     res.locals.title = 'Новости';
 
+    res.locals.widgets = 'yolo';
+
     next();
 });
 
 routes(app);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.stack);
 
     res.sendStatus(500);
@@ -67,6 +70,6 @@ hbs.registerPartials(partialsDir, () => {
     app.listen(8080, () => {
         console.info('Open http://localhost:8080/');
     });
-})
+});
 
 module.exports = app;

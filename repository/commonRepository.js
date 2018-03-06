@@ -1,17 +1,16 @@
-'use strict'
+'use strict';
 
 const request = require('request');
 
 exports.getBodyByUrl = (url) => {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
-            let list;
-            if (!error && response.statusCode == 200) {
+            if (!error && response.statusCode === 200) {
                 let result = JSON.parse(body);
-                resolve(result);                   
+                resolve(result);
             } else {
                 reject(error);
             }
-        });    
-    })
-}
+        });
+    });
+};
