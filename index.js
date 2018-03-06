@@ -34,9 +34,9 @@ app.use(commonData);
 helpers(hbs);
 routes(app);
 
-/*registerAllPartials(partialsDir)
-    .then(() => app.listen(2222))
-    .catch(error => console.error(error));*/
+registerAllPartials(partialsDir)
+    .then(() => app.listen(config.get('port')))
+    .catch(error => console.error(error));
 
 module.exports = app;
 

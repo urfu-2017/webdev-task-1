@@ -22,8 +22,7 @@ module.exports = hbs => {
 
     hbs.registerHelper('getWeatherTable', function (days) {
         return days.map(day => {
-            /* eslint no-unused-vars: 0 */
-            const [y, m, d] = day.applicable_date.split('-');
+            const [, m, d] = day.applicable_date.split('-');
             const date = `${d} ${MOTHS[parseInt(m) - 1]}`;
 
             return {
