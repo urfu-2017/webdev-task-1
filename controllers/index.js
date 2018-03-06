@@ -6,9 +6,9 @@ const weather = Weather.getInstance()
 
 const forecastMiddleware = async (req, res, next) => {
     const { query, lat, lon } = req.query
-    const forecast = await ((lat && lon) ? weather.getWeatherByLocation(lat, lon) : weather.getWeatherByQuery(query || 'london'))
+    const forecast = await ((lat && lon) ? weather.getWeatherByLocation(lat, lon) : weather.getWeatherByQuery(query))
 
-    req.forecast = forecast
+    req.forecast = forecast || await weather.getWeatherByQuery('vegas')
     next()
 }
 
