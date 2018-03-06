@@ -1,8 +1,10 @@
-import fetch from 'node-fetch';
+'use strict';
+
+const fetch = require('node-fetch');
 
 const BASE_URL = 'https://www.metaweather.com';
 
-export default class WeatherAPI {
+module.exports = class WeatherAPI {
     static async getWeatherAsync({ query = 'Albuquerque', lat, lon }) {
         const locationResponse = await fetch((lat && lon)
             ? `${BASE_URL}/api/location/search/?lattlong=${lat},${lon}`
@@ -13,4 +15,4 @@ export default class WeatherAPI {
 
         return await weatherResponse.json();
     }
-}
+};

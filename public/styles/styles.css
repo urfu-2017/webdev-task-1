@@ -81,7 +81,7 @@ h1 {
     transition: .25s all;
     background-color: white;
     margin: 0 8px 0 8px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
     transition-timing-function: ease-out;
 }
 
@@ -203,6 +203,6 @@ h1 {
     padding: 8px;
     font-size: 12pt;
     color: green;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .15);
     align-items: center;
 }

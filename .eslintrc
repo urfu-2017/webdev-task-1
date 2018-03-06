@@ -1,6 +1,5 @@
 {
     "extends": "hrundel/node",
-    "parser": "babel-eslint",
     "globals": {
         "describe": true,
         "it": true

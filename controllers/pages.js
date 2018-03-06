@@ -1,6 +1,8 @@
-import NewsAPI, { categories, findCategory } from '../models/news';
+'use strict';
 
-export default [
+const { getNewsAsync, categories, findCategory } = require('../models/news');
+
+module.exports = [
     {
         url: '/',
         request: (req, res) => res.render('index', {
@@ -17,7 +19,7 @@ export default [
             res.render('news', {
                 title: `Новости категории ${category.name}`,
                 header: `<a href="/?${res.locals.queries}">Категории</a> : ${category.name}`,
-                news: await NewsAPI.getNewsAsync({ ...params, ...query })
+                news: await getNewsAsync(Object.assign({}, params, query))
             });
         }
     }

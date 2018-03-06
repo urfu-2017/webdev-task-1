@@ -1,31 +1,24 @@
-import express from 'express';
-import hbs from 'express-handlebars';
+'use strict';
 
-import config from './config';
-import setupMiddleware from './middleware';
-import setupRoutes from './routes';
+const express = require('express');
+const hbs = require('express-handlebars');
 
-export const launchApp = () => {
-    const app = express();
+const config = require('./config');
+const setupMiddleware = require('./middleware');
+const setupRoutes = require('./routes');
 
-    app.set('view engine', '.hbs');
+const app = express();
 
-    app.engine('hbs', hbs({
-        extname: 'hbs',
-        partialsDir: [
-            `${__dirname}/views/partials`
-        ]
-    }));
+app.set('view engine', '.hbs');
 
-    setupMiddleware(app);
-    setupRoutes(app);
+app.engine('hbs', hbs({
+    extname: 'hbs',
+    partialsDir: [`${__dirname}/views/partials`]
+}));
 
-    app.listen(config.PORT);
+setupMiddleware(app);
+setupRoutes(app);
 
-    return app;
-};
+app.listen(config.PORT);
 
-
-if (process.env.NODE_ENV !== 'test') {
-    launchApp();
-}
+module.exports = app;
