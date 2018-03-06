@@ -1,0 +1,183 @@
+body
+{
+    text-align: center;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a
+{
+    color: #00B7FF;
+}
+
+.page
+{
+    display: inline-block;
+    text-align: initial;
+}
+
+.header,
+.weather,
+.categories,
+.articles,
+.main,
+.footer
+{
+    height: 100%;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+}
+
+.footer
+{
+    border-bottom-width: 1px;
+}
+
+.header,
+.weather,
+.categories,
+.footer
+{
+    padding: 10px;
+}
+
+.header
+{
+    position: relative;
+}
+
+.header__title
+{
+    text-align: center;
+}
+
+.header__main-link
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.weather
+{
+    text-align: center;
+}
+
+.weather__city
+{
+    margin-top: 5px;
+}
+
+.weather__column
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.weather__column:first-of-type
+{
+    margin-right: 20px;
+}
+
+.weather__row
+{
+    margin: 10px 0;
+    text-align: left;
+}
+
+.weather__label,
+.weather__value
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.weather__label
+{
+    width: 30px;
+}
+
+.weather-daily
+{
+    border: solid 1px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.weather-daily th,
+.weather-daily td
+{
+    border-style: solid;
+    border-width: 0 1px;
+    padding: 5px;
+}
+
+.weather-daily__header
+{
+    border-bottom: solid 1px;
+}
+
+.categories__header,
+.categories__list
+{
+    margin: 5px 0;
+}
+
+.categories__category
+{
+    font-size: 1rem;
+    list-style-type: none;
+    padding: 7px 0;
+}
+
+.article
+{
+    padding: 15px;
+}
+
+.article:not(:last-of-type)
+{
+    margin-bottom: 10px;
+    border-bottom: solid 1px;
+}
+
+.article__header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article__header h3
+{
+    margin-right: 10px;
+}
+
+.article__content
+{
+    display: flex;
+}
+
+.article__image
+{
+    width: 300px;
+}
+
+.article__text
+{
+    width: 100%;
+    margin-left: 10px;
+}
+
+.article__source
+{
+    text-align: right;
+}
+
+.footer
+{
+    display: flex;
+    justify-content: space-between;
+}

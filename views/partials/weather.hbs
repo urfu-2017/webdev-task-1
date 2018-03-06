@@ -1,0 +1,45 @@
+<aside class="weather">
+    <div class="weather__column">
+        <h2 class="weather__city">{{ weather.city }}</h2>
+        <div class="weather__state">
+            <img src="https://www.metaweather.com/static/img/weather/png/64/{{
+            weather.today.weather_state_abbr }}.png">
+        </div>
+    </div>
+    <div class="weather__column">
+        <div class="weather__row">
+            <span class="weather__label">t</span>
+            <span class="weather__value">{{ round weather.today
+                                                        .the_temp
+            }}°C</span>
+        </div>
+        <div class="weather__row">
+            <span class="weather__label">
+                <img src="/images/wind.svg" alt="wind">
+            </span>
+            <span class="weather__value">{{ round weather.today.wind_speed
+            }} м/с</span>
+        </div>
+        <table class="weather-daily">
+            <thead class="weather-daily__header">
+            <tr>
+                {{#each weather.daily}}
+                    <th>{{dateFormat applicable_date 'D MMMM'}}</th>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody class="weather-daily__body">
+            <tr>
+                {{#each weather.daily}}
+                    <td>{{ round the_temp }}°C</td>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each weather.daily}}
+                    <td>{{ round wind_speed }} м/с</td>
+                {{/each}}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</aside>
