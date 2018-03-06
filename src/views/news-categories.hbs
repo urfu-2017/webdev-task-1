@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="ru">
+{{#extend "base"}}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
+    {{#content "styles"}}
+        <h1>Goodnight Moon</h1>
+    {{/content}}
 
-<body>
-    Главная
-</body>
+    {{#content "header"}}
+        <h1>Goodnight Moon</h1>
+    {{/content}}
 
-</html>
+    {{#content "main"}}
+        <p>Dolor sit amet.</p>
+    {{/content}}
+
+    {{#content "footer"}}
+        <p>MIT License</p>
+    {{/content}}
+
+{{/extend}}
