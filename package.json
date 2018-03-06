@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "lint": "cd .",
+    "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js --timeout 5000"
   },
   "dependencies": {

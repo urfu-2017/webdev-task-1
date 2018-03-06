@@ -19,6 +19,4 @@ app.set('view engine', 'hbs');
 setupMiddleware(app);
 setupRoutes(app);
 
-app.listen(config.PORT);
-
-module.exports = app;
+module.exports = app.listen(config.PORT);
