@@ -1,9 +1,8 @@
 'use strict';
-
+require('dotenv').config();
 const path = require('path');
 
 const bodyParser = require('body-parser');
-const config = require('config');
 const express = require('express');
 const hbs = require('hbs');
 const apicache = require('apicache');
@@ -40,7 +39,7 @@ app.use((err, req, res) => {
 
 hbs.registerHelper('formatDate', formatters.formatDate);
 hbs.registerPartials(partialsDir, () => {
-    const port = config.get('port');
+    const port = process.env.DB_HOST || 8080;
 
     app.listen(port, () => {
         console.info(`Server started on ${port}`);

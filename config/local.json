@@ -1,7 +1,0 @@
-{
-    "debug": true,
-    "port": 8080,
-    "news-api": {
-        "key": "860f76bbd14748f2a89b81010b9b5657"
-    }
-}

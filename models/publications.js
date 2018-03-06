@@ -1,9 +1,7 @@
 'use strict';
 
-const config = require('config');
-
 const NewsAPI = require('newsapi');
-const apiKey = config.get('news-api.key');
+const apiKey = process.env.NEWS_API_KEY;
 const newsapi = new NewsAPI(apiKey);
 
 class Publications {
