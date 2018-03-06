@@ -34,9 +34,9 @@ app.use(commonData);
 helpers(hbs);
 routes(app);
 
-registerAllPartials(partialsDir)
+/*registerAllPartials(partialsDir)
     .then(() => app.listen(2222))
-    .catch(error => console.error(error));
+    .catch(error => console.error(error));*/
 
 module.exports = app;
 

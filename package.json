@@ -6,8 +6,8 @@
     "test": "npm run lint && mocha tests/*.js",
     "css:build": "stylus ./views/components/index.styl --out ./public/css/index.css",
     "css:watch": "stylus ./views/components/index.styl --out ./public/css/index.css --watch",
-    "dev": "set NODE_ENV=development | css:build | node ./index.js",
-    "prod": "set NODE_ENV=production | css:build | node ./index.js"
+    "dev": "set NODE_ENV=development | npm-run-all css:build start",
+    "prod": "set NODE_ENV=production | npm-run-all css:build start"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
