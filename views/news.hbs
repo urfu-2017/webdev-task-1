@@ -9,6 +9,7 @@
          <div class="wrapper">
              {{> header}}
              {{> weather}}
+             {{#if news.articles}}
              <section class="content">
                  <div class="content__title">
                      <p>Горячие новости</p>
@@ -29,6 +30,7 @@
                      </article>
                  </div>
              </section>
+             {{/if}}
              {{> footer}}
          </div>
     </body>

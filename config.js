@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-    API_KEY: '1808e47b1ebd4bbab46283a33440a301',
-    PORT: 8080,
+    API_KEY: process.env.API_KEY,
+    PORT: process.env.PORT || 8080,
 
     view: {
         lang: 'ru',
