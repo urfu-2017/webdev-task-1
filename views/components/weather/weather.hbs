@@ -1,29 +1,34 @@
-<div class="weather">
-    <div>
-        <div class="weather__place">{{ weather.place }}</div>
-        <img src="https://www.metaweather.com/static/img/weather/png/64/{{ weather.days.0.weather_state_abbr }}.png">
-    </div>
-    <div>
-        <div class="weather__temperature">
-            <i class="fa fa-thermometer"></i> {{ toFixed weather.days.0.the_temp }}&deg; C
+{{#if weather.days.length }}
+    <div class="weather">
+        <div>
+            <div class="weather__place">{{ weather.place }}</div>
+            <img src="https://www.metaweather.com/static/img/weather/png/64/{{ weather.days.0.weather_state_abbr }}.png">
         </div>
-        <div class="weather__wind">
-            <i class="fa fa-location-arrow"></i> {{ toFixed weather.days.0.wind_speed }} m/s
+        <div>
+            <div class="weather__temperature">
+                <i class="fa fa-thermometer"></i> {{ toFixed weather.days.0.the_temp }}&deg; C
+            </div>
+            <div class="weather__wind">
+                <i class="fa fa-location-arrow"></i> {{ toFixed weather.days.0.wind_speed }} m/s
+            </div>
+            <table border="1" class="weather__table">
+                <tr>
+                    {{#each (getWeatherTable weather.days)}}
+                        <td>{{ date }}</td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each (getWeatherTable weather.days)}}
+                        <td>
+                            <p>{{ toFixed temp }}&deg; C</p>
+                            <p>{{ toFixed wind }} m/s</p>
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
         </div>
-        <table border="1" class="weather__table">
-            <tr>
-                {{#each (getWeatherTable weather.days)}}
-                    <td>{{ date }}</td>
-                {{/each}}
-            </tr>
-            <tr>
-                {{#each (getWeatherTable weather.days)}}
-                    <td>
-                        <p>{{ toFixed temp }}&deg; C</p>
-                        <p>{{ toFixed wind }} m/s</p>
-                    </td>
-                {{/each}}
-            </tr>
-        </table>
     </div>
-</div>
+{{^}}
+    <div class="weather">{{ weather.place }}</div>
+{{/if}}
+
