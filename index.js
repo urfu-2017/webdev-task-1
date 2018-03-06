@@ -9,12 +9,12 @@ const setupRoutes = require('./routes');
 
 const app = express();
 
-app.set('view engine', '.hbs');
-
 app.engine('hbs', hbs({
     extname: 'hbs',
     partialsDir: [`${__dirname}/views/partials`]
 }));
+
+app.set('view engine', 'hbs');
 
 setupMiddleware(app);
 setupRoutes(app);
