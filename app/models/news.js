@@ -36,7 +36,7 @@ class NewsArticle {
 }
 
 
-async function _getNews({ language = 'ru', country = null, category = null }) {
+async function _getNews({ language = config.language, country = null, category = null }) {
     const request = { apiKey: config.newsApiKey, language };
     Object.assign(request, filterEmptyParams({ country, category }));
     const apiResponse = await apiQuery(config.newsApiDomain, request);

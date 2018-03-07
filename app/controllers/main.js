@@ -13,7 +13,7 @@ const _transformQuery = (query, category) => {
         result = config.defaultQuery;
     } else {
         result = query.query
-            ? query
+            ? Object.assign({}, query)
             : { lattlong: `${query.lat},${query.lon}` };
     }
     Object.assign(
@@ -63,7 +63,8 @@ const newsCategory = async (req, res) => {
     data.articles = await newsPromise;
 
     const originalQuery = Object.assign({}, req.query);
-    Object.keys(req.params).map(p => delete originalQuery[p]);
+    Object.keys(req.params)
+        .map(p => delete originalQuery[p]);
     data.linkToMain = querystring.encode(originalQuery);
     res.render('news', data);
 };
