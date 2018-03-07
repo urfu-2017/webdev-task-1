@@ -1,5 +1,7 @@
+'use strict';
+
 const models = require('../models/news');
-const data = require('../data'); 
+const data = require('../data');
 
 exports.index = (req, res) => {
     models.NewsManager.findByCategory(req.params.category).then((apiResponse) => {
@@ -7,8 +9,8 @@ exports.index = (req, res) => {
             title: data.categories[req.params.category].title,
             articles: apiResponse.articles,
             dateOptions: {
-                lang: "ru"
+                lang: 'ru'
             }
         });
-    })
-}
+    });
+};
