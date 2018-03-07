@@ -1,0 +1,44 @@
+{
+    "urlForNews": "https://newsapi.org/v2/top-headlines?apiKey=b3a0afa88b844b7ebcf167d0b21d183d",
+    "categories": ["business", "health", "entertainment", "sport", "general", "science", "technology"],
+    "countryForNews": "ru",
+    "townForWeather": "london",
+    "urlTownId": "https://www.metaweather.com/api/location/search/?",
+    "urlForWeatherPic": "https://www.metaweather.com/static/img/weather/",
+    "urlForWeatherinTown": "https://www.metaweather.com/api/location/",
+    "maxPageSize": 100,
+    "minPageSize": 1,
+    "minPageNumber": 1,
+    "urlForDetect": "https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20171125T083420Z.cb9d38c1bcd1d2e6.956c53d3350ff265c8064feec4d0e45873157189",
+    "urlForTranslate": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171125T083420Z.cb9d38c1bcd1d2e6.956c53d3350ff265c8064feec4d0e45873157189",
+    "ae": {
+        "title": "اسم الخبر:",
+        "date": "تاريخ النشر:",
+        "description": "وصف الخبر:",
+        "author": "مؤلف الخبر:"
+    },
+    "ar": {
+        "title": "Nombre de la noticia",
+        "date": "Fecha de publicación",
+        "description": "Descripción de las noticias",
+        "author": "El autor de las noticias"
+    },
+    "at": {
+        "title": "Name der Nachrichten",
+        "date": "Datum der Veröffentlichung",
+        "description": "Beschreibung der Nachrichten",
+        "author": "Autor Nachrichten"
+    },
+    "au": {
+        "title": "Title",
+        "date": "Date of publication",
+        "description": "Description of the news",
+        "author": "Author"
+    },
+    "be": {
+        "title": "Titre de l'actualité",
+        "date": "Date de publication",
+        "description": "Description des nouvelle",
+        "author": "Nouvelles des auteurs"
+    }
+}

@@ -1,0 +1,27 @@
+<section class="header">
+    Сервис Безумного <s>Макса</s> Маска.
+</section>
+<hr>
+<section class="back">
+    <a href="/">На главную</a>
+</section>
+{{> weather }}
+    {{#if news.length}}
+    <section class="news">
+        {{#each news}}
+            <div>
+                <div class="news__title"><b><u><span class="news__translateTitle"> {{ titleTranslate }}:</span></u></b> {{ title }}</div>
+                <div class="news__date"><b>{{ publishedTranslate }}:</b> {{ date }}</div>
+                <div class="news__description"><b>{{ descriptionTranslate }}:</b> {{ description }}</div>
+                <div class="news__author"><b>{{ authorTranslate }}:</b> {{ author }}</div>
+                <hr>
+            </div>
+        {{/each}}
+    </section>
+    {{^}}
+    <p>News not found :c</p>
+    {{/if}}
+<hr>    
+<section class="footer">
+    &copy; chrighter 2018
+</section>
