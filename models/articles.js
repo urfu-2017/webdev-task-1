@@ -12,13 +12,7 @@ class Articles {
         return newsapi.v2.topHeadlines({
             category,
             country: country || defaultCountry
-        }).then(apiResponse => {
-            // eslint-disable-next-line no-return-assign
-            apiResponse.articles.forEach(article =>
-                article.publishedAt = new Date(article.publishedAt));
-
-            return apiResponse.articles;
-        });
+        }).then(apiResponse => apiResponse.articles);
     }
 
     static categories() {

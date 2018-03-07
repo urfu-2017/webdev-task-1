@@ -10,10 +10,6 @@ module.exports = function getWeather(query, lat, lon) {
         .then(woeid => got(`https://www.metaweather.com/api/location/${woeid}/`, { json: true }))
         .then(response => {
             const body = response.body;
-            /* eslint-disable camelcase, no-return-assign */
-            body.consolidated_weather.forEach(
-                day => day.applicable_date = new Date(day.applicable_date));
-            /* eslint-enable camelcase, no-return-assign */
 
             return {
                 city: body.title,
