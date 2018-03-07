@@ -11,8 +11,8 @@ app.set('view engine', 'handlebars');
 app.get('/news/:category', newsController);
 app.get('/', indexController);
 
-app.listen(80, function () {
-    console.info('App is started on port 80.');
+app.listen(8080, function () {
+    console.info('App is started on port 8080.');
 });
 
 const categories = [
