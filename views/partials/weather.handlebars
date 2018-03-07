@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<div class='cooltable___weather'>
+<div class='table___weather'>
     <div class="box1">
         {{city}}
     </div>
@@ -17,7 +17,7 @@
 </span>
 </div>
     <div class="box5">
-    <table border="1" width="100">
+    <table border="1" width="420">
         <tr>
 
         {{#each info}}
@@ -28,8 +28,8 @@
         <tr>
             {{#each info}}
 
-                <td>{{formatNumber the_temp }} &#8451;
-                    {{formatNumber wind_speed }} m/s</td>
+                <td>{{formatNumber the_temp }}&nbsp;&#8451;
+                    {{formatNumber wind_speed }}&nbsp;m/s</td>
             {{/each}}
 
 

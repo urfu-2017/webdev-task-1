@@ -13,12 +13,12 @@ module.exports = async (req, res, next)=> {
         if (global.query) {
             await mw.search().query(global.query)
                 .then(async (response) =>{
-                    console.info(global.query);
+                    // console.info(global.query);
 
                     await (mw.location(response.body[0].woeid))
                         .then((response1)=> {
                             global.weather = response1.body;
-                            console.info(global.weather);
+                            // console.info(global.weather);
                         });
                 });
 
@@ -26,12 +26,12 @@ module.exports = async (req, res, next)=> {
         } else if (global.lattlong) {
             await mw.search().latLon(global.lattlong)
                 .then(async (response) =>{
-                    console.info(global.lattlong);
+                    // console.info(global.lattlong);
 
                     await (mw.location(response.body[0].woeid))
                         .then((response1)=> {
                             global.weather = response1.body;
-                            console.info(global.weather);
+                            // console.info(global.weather);
                         });
                 });
 

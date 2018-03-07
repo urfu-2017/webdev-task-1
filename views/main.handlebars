@@ -5,17 +5,18 @@
     <title>{{title}}</title> </head>
    <link rel="stylesheet" href="{{ staticBasePath }}hello.css" media="screen">
 <body>
-{{> weather}}
-
 <header class="header main-page-header">{{header}}</header>
+
+<div class="weather">{{> weather}}</div>
+
     <ul>Категории новостей
-        <li><a href="./news?category=business">Бизнес</a></li>
-        <li><a href="./news?category=enjoy">Развлечения</a> </li>
-        <li><a href="./news">Общее</a> </li>
-        <li><a href="./news?category=health">Здоровье</a> </li>
-        <li><a href="./news?category=science">Наука</a> </li>
-        <li><a href="./news?category=sport">Спорт</a> </li>
-        <li><a href="./news?category=tech">Технологии</a> </li>
+        <li data-type="carrot"><a href="./news?category=business">{{business}}</a></li>
+        <li data-type="tomatos"><a href="./news?category=enjoy">{{Enjoy}}</a> </li>
+        <li data-type="potatos"><a href="./news">{{All}}</a> </li>
+        <li data-type="cucumber"><a href="./news?category=health">{{health}}</a> </li>
+        <li data-type="mushrooms"><a href="./news?category=science">{{science}}</a> </li>
+        <li data-type="broccoli"><a href="./news?category=sport">{{sports}}</a> </li>
+        <li data-type="carrot"><a href="./news?category=Technology">{{tech}}</a> </li>
 
 
 

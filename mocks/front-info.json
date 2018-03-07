@@ -4,12 +4,12 @@
   "weatherHeader": "Weather",
   "newsHeader": "News",
   "business": "Business",
-  "entertainment": "Entertainment",
-  "general": "General",
+  "Enjoy": "Enjoy",
+  "All": "All",
   "health": "Health",
   "science": "Science",
   "sports": "Sports",
-  "technology": "Technology",
+  "tech": "Technology",
   "copyright": "©darl0ck",
   "year": "2018"
 }

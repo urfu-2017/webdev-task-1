@@ -13,11 +13,12 @@ let app = express();
 var Handlebars = require('handlebars');
 app.use(getWeather);
 moment.locale('ru');
-Handlebars.registerHelper('sformatTime', function (date, format) {
+Handlebars.registerHelper('sformatTime', (date, format) => {
     var mmnt = moment(date);
 
     return mmnt.format(format);
 });
+exports.error404 = (req, res) => res.sendStatus(404);
 
 let exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
@@ -45,18 +46,19 @@ global.category = '';
 app.use(express.static(path.join(__dirname, 'public'), options));
 
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.render('main', frontPage); // this is the important part
 });
 
 
-app.listen(app.get('port'), function () {
+app.all('*', exports.error404 = (req, res) => res.sendStatus(404));
+
+app.listen(app.get('port'), () => {
     console.info('Hello express started on http://localhost:' +
         app.get('port') + '; press Ctrl-C to terminate.');
 });
 
-app.get('/news', async function (req, res1) {
-    global.query = req.query.query || 'moscow';
+app.get('/news', async (req, res1) => {
     global.country = req.query.country || 'ru';
     // console.info(req.query.country);
     await request(
@@ -65,7 +67,7 @@ app.get('/news', async function (req, res1) {
         { json: true },
         (err, res, body) => {
             if (err) {
-                return console.info(err);
+                return;
             }
             // console.info(body.url);
             // console.info(body.articles);
