@@ -11,5 +11,8 @@ exports.mainPage = (req, res) => {
         const widget = vals[0];
         const categories = vals[1];
         res.render('index', { widget, categories, ...res.locals });
-    }).catch(err => res.sendStatus(404));
+    })
+        .catch(err => {
+            res.redirect('error', err);
+        });
 };

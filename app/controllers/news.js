@@ -10,8 +10,11 @@ exports.news = (req, res) => {
     ]).then(vals => {
         const widget = vals[0];
         const articles = vals[1];
-        res.locals['nonMain'] = true;
-        res.render('news', { widget, articles, ...res.locals })
-    }).catch(err => res.sendStatus(404));
+        res.locals.nonMain = true;
+        res.render('news', { widget, articles, ...res.locals });
+    })
+        .catch(err => {
+            res.redirect('error', err);
+        });
 
 };
