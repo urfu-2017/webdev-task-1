@@ -6,11 +6,18 @@
     <title>Ilon Mask</title>
     <link rel="stylesheet" href="/index.css" media="screen">
 </head>
-{{> header}}
+<header class="header">
+    {{#if flag}}
+    <a href="/" class="header__link">На главную</a>
+    {{/if}}
+    <h1 class="header__name"> Илон слишком занят </h1>
+</header>
 
 <body>
     <main>
-        {{> weather}}
+        <article class="weather">
+            <div>Погода</div>
+        </article>
         <article class="cathegoriesNews">
             <h1 class="cathegoriesNews__heading">Категории новостей</h1>
             <ul class="cathegories">
@@ -24,6 +31,9 @@
         </article>
     </main>
 </body>
-{{> footer}}
+<footer class="footer">
+    <span class="footer__copy">&copy;mokosha</span>
+    <span class="footer__origin">2018</span>
+</footer>
 
 </html>
