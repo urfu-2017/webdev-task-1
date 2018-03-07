@@ -10,4 +10,4 @@ exports.renderNews = async (req, res) => {
     Object.assign(container, weather);
     Object.assign(container, { news });
     res.render('news', container);
-}
+};

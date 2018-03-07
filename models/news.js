@@ -1,16 +1,13 @@
 'use strict';
 
 const { getResponse } = require('./sendResponse');
-const { URL, URLSearchParams } = require('url');
+const { URL } = require('url');
 const config = require('config');
 const urlencode = require('urlencode');
-const { error404 } = require('../controllers/errors');
-const { format } = require('url');
 
 let countryForNews = config.countryForNews;
 let categories = config.categories;
 
-let cache = {};
 let dayOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
 module.exports.getNews = async (req) => {
@@ -33,8 +30,9 @@ module.exports.getNews = async (req) => {
     let examplePhrase = articles[0].title;
     lang = (await detectLang(examplePhrase)).lang;
     translatedFields = (await translateFields(lang)).text;
+
     return getObjectForRenderNews(articles, translatedFields);
-}
+};
 
 function getObjectForRenderNews(data, translatedFields) {
     let objectForRender = [];
