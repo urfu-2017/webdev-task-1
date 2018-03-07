@@ -1,9 +1,11 @@
 {{#if categories.length}}
-    <ul>
+    <div class="category-container">
         {{#each categories}}
-            <li><a href="/{{ name }}">{{ title }}</a></li>
+            <div class="category-item"><a href="/{{ name }}">
+                <span class="category-item_icon"></span>
+                <span class="category-item_text">{{ title }}</span></a></div>
         {{/each}}
-    </ul>
+    </div>
 {{^}}
     <p>Категории не найдено!</p>
 {{/if}}

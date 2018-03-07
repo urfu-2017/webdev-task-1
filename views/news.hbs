@@ -1,9 +1,48 @@
-{{#if news.length}}
-    <ul>
-        {{#each news}}
-            <li><a href="{{ url }}" target="_blank">{{ title }}</a></li>
-        {{/each}}
-    </ul>
-{{^}}
-    <p>Новостей не найдено!</p>
-{{/if}} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" href="css/main.css" media="screen">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Новости</h1>
+    </header>
+    <section class="weather">
+        {{> weatherWidget }}
+    </section>
+    <section class="news">
+    {{#if news.length}}
+        <div class="news-container">
+            {{#each news}}
+                <div class="news-item">
+                    <a href="{{ url }}" class="news-item__wrapper">
+                        <div class="news-item__head">
+                            <span class="news-item__title">{{ title }}</span>
+                            <span class="news-item__date">{{ publishedAt }}</span>
+                        </div>
+                        <div class="news-item__body">
+                            <div class="news-item__image">
+                                <img src="{{ urlToImage }}" alt="{{ title }}">
+                            </div>
+                            <div class="news-item__description">
+                                {{ description }}
+                            </div>
+                        </div>
+                        <div class="news-item__footer">
+                            <span class="news-item__author">{{ author }}</span>
+                        </div>
+                    </a>
+                    <a href="{{ url }}" target="_blank">{{ title }}</a>
+                </div>
+            {{/each}}
+        </div>
+    {{^}}
+        <p>Новостей не найдено!</p>
+    {{/if}}
+    </section>
+</body>
+</html>
+

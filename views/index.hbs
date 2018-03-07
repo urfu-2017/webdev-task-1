@@ -4,12 +4,17 @@
     <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
     <meta name="description" content="{{ meta.description }}">
-    <link rel="stylesheet" href="/index.css" media="screen">
+    <link rel="stylesheet" href="css/main.css" media="screen">
 </head>
 <body>
-    weather
-    {{> weatherWidget }}
-    weatherEnd
-    {{> categories }}
+    <header class="header">
+        <h1 class="header__title">Новости</h1>
+    </header>
+    <section class="weather">
+        {{> weatherWidget }}
+    </section>
+    <section class="categories">
+        {{> categories }}
+    </section>
 </body>
 </html>

@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
+    "gulp" : "gulp",
     "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js"
   },
@@ -18,6 +19,14 @@
     "eslint": "^4.8.0",
     "eslint-config-hrundel": "^1.3.0",
     "mocha": "^5.0.1",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "browser-sync": "^2.19.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cache": "^1.0.1",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-stylus": "^2.6.0",
+    "imagemin-pngquant": "^5.0.1"
   }
 }

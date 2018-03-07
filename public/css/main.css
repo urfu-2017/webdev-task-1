@@ -1,0 +1,118 @@
+html {
+  font-size: 18px;
+}
+body {
+  background-color: #aaa;
+}
+section {
+  max-width: 900px;
+}
+.weather {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.weather__rigth {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.weather__city-name {
+  font-size: 1.2em;
+  text-align: center;
+}
+.weather__picture {
+  width: 50%;
+  margin: 0 auto;
+}
+.weather__picture img {
+  margin: 0 auto;
+}
+.weather__left {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+.weather__table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.weather__table-item {
+  border: 1px solid #000;
+}
+.weather__table-item-header {
+  border-bottom: 1px solid #000;
+  padding: 5px;
+}
+.weather__table-item-body {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.news-item {
+  padding: 20px;
+}
+.news-item__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #111;
+  text-decoration: none;
+}
+.news-item__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.news-item__image {
+  max-width: 30%;
+  float: left;
+  clear: both;
+}
+.news-item__image img {
+  width: 100%;
+}
+.news-item__desription {
+  max-width: 70%;
+  margin-left: 10px;
+}
