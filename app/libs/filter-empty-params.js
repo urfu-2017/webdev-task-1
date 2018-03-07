@@ -4,7 +4,7 @@
 module.exports = obj => {
     const result = {};
     for (let [prop, value] of Object.entries(obj)) {
-        if (value !== null) {
+        if (value) {
             result[prop] = value;
         }
     }

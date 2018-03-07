@@ -4,6 +4,7 @@ const querystring = require('querystring');
 const config = require('../../config');
 const weather = require('../models/weather');
 const news = require('../models/news');
+const filterEmptyParams = require('../libs/filter-empty-params');
 
 
 const _transformQuery = (query, category) => {
@@ -13,28 +14,14 @@ const _transformQuery = (query, category) => {
     } else {
         result = query.query
             ? query
-            : {
-                lattlong: `${query.lat},${query.lon}`,
-                country: query.country
-            };
+            : { lattlong: `${query.lat},${query.lon}` };
     }
-
-    if (category) {
-        Object.assign(result, { category });
-    }
+    Object.assign(
+        result,
+        filterEmptyParams({ country: query.country, category })
+    );
 
     return result;
-};
-
-
-const NEWS_CATEGORIES = {
-    'business': 'Бизнес',
-    'entertainment': 'Развлечения',
-    'general': 'Общее',
-    'health': 'Здоровье',
-    'science': 'Наука',
-    'sports': 'Спорт',
-    'technology': 'Технологии'
 };
 
 
@@ -50,11 +37,11 @@ const index = async (req, res) => {
     });
 
     const data = await weatherPromise;
-    data.categories = Object.entries(NEWS_CATEGORIES)
-        .map(entry => ({
-            categoryEn: entry[0],
-            categoryRu: entry[1],
-            categoryLink: entry[0] + req.originalUrl
+    data.categories = Object.entries(config.newsCategories)
+        .map(([categoryEn, categoryRu]) => ({
+            categoryEn,
+            categoryRu,
+            categoryLink: categoryEn + req.originalUrl
         }));
     res.render('index', data);
 };

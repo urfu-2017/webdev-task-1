@@ -3,11 +3,8 @@ const config = require('../../config');
 
 
 module.exports = (req, res, next) => {
-    res.locals.meta = {
-        charset: 'utf-8',
-        description: 'Local news and weather'
-    };
-    res.locals.title = 'Название';
+    res.locals.meta = config.meta;
+    res.locals.title = config.title;
     res.locals.year = new Date().getFullYear();
     res.locals.staticBasePath = config.staticBasePath;
 

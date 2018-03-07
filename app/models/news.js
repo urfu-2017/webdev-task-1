@@ -1,9 +1,9 @@
 'use strict';
 const config = require('../../config');
 
-const apiQuery = require('./api-query');
-const { getDateString, getTimeString } = require('./date-formatter');
-const filterNullParams = require('./filter-null-params');
+const apiQuery = require('../libs/api-query');
+const { getDateString, getTimeString } = require('../libs/date-formatter');
+const filterEmptyParams = require('../libs/filter-empty-params');
 
 
 class NewsArticle {
@@ -38,7 +38,7 @@ class NewsArticle {
 
 async function _getNews({ language = 'ru', country = null, category = null }) {
     const request = { apiKey: config.newsApiKey, language };
-    Object.assign(request, filterNullParams({ country, category }));
+    Object.assign(request, filterEmptyParams({ country, category }));
     const apiResponse = await apiQuery(config.newsApiDomain, request);
 
     return apiResponse.articles

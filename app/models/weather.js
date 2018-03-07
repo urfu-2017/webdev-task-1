@@ -1,22 +1,20 @@
 'use strict';
 const config = require('../../config');
-const apiQuery = require('../models/api-query');
-const { getDateString } = require('./date-formatter');
-const filterNullParams = require('./filter-null-params');
+const apiQuery = require('../libs/api-query');
+const { getDateString } = require('../libs/date-formatter');
+const filterEmptyParams = require('../libs/filter-empty-params');
 
 
-const LOCATION_SEARCH_API = 'api/location/search/';
-const WEATHER_API = 'api/location/';
 const MS_TO_MPH_RATIO = 0.447;
 
 
 const _getResponse = async ({ query = null, lattlong = null }) => {
-    const queryObj = filterNullParams({ query, lattlong });
+    const queryObj = filterEmptyParams({ query, lattlong });
     const queryRes = await apiQuery(
-        config.weatherApiDomain + LOCATION_SEARCH_API, queryObj);
+        config.weatherApiDomain + config.locationSearchApi, queryObj);
     const woeid = queryRes[0].woeid;
 
-    return await apiQuery(config.weatherApiDomain + WEATHER_API + woeid, {});
+    return await apiQuery(config.weatherApiDomain + config.weatherApi + woeid, {});
 };
 
 
