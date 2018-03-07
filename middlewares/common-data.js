@@ -1,5 +1,4 @@
 'use strict';
-const config = require('config');
 
 module.exports = (req, res, next) => {
     res.locals.meta = {
@@ -11,7 +10,7 @@ module.exports = (req, res, next) => {
 
     res.locals.defaultCountry = 'ru';
     res.locals.defaultLanguage = 'ru';
-    res.locals.homePage = config.get('homePage');
+    res.locals.homePage = '/';
 
     next();
 };

@@ -1,11 +1,10 @@
 'use strict';
 
-const config = require('config');
 const NewsApi = require('newsapi');
 
 const categories = require('../mocks/categories');
-
-const newsApi = new NewsApi(config.get('key'));
+const key = '674a8a69bfbf43798885b56551490df4';
+const newsApi = new NewsApi(key);
 
 
 class Category {

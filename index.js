@@ -2,7 +2,6 @@
 
 const path = require('path');
 
-const config = require('config');
 const express = require('express');
 const hbs = require('hbs');
 const morgan = require('morgan');
@@ -35,11 +34,10 @@ app.use((err, req, res) => {
 });
 
 hbs.registerPartials(partialsDir, () => {
-    const port = config.get('port');
 
-    app.listen(port, () => {
-        console.info(`Server started on ${port}`);
-        console.info(`Open http://localhost:${port}/`);
+    app.listen(8080, () => {
+        console.info(`Server started on ${8080}`);
+        console.info(`Open http://localhost:${8080}/`);
     });
 });
 
