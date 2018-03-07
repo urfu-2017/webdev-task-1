@@ -1,9 +1,11 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import hbs from 'express-handlebars';
 
-import config from './config';
 import setupMiddleware from './middleware';
 import setupRoutes from './routes';
+
+dotenv.config();
 
 const app = express();
 
@@ -17,4 +19,4 @@ app.set('view engine', 'hbs');
 setupMiddleware(app);
 setupRoutes(app);
 
-export default app.listen(config.PORT);
+export default app.listen(process.env.PORT);

@@ -6,6 +6,7 @@
     "test": "npm run lint && mocha --compilers js:babel-core/register tests/*.js --timeout 5000"
   },
   "dependencies": {
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "moment": "^2.21.0",
