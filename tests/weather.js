@@ -1,10 +1,10 @@
 'use strict'
 
-const { Weather } = require('../models/weather')
-const { WeatherInfo } = require('../models/datatypes')
-const assert = require('assert')
-const moment = require('moment')
-const { checkType } = require('../common')
+import { Weather } from '../models/weather'
+import { WeatherInfo } from '../models/datatypes'
+import assert from 'assert'
+import moment from 'moment'
+import { checkType } from '../common'
 
 
 describe('weather', () => {

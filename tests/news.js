@@ -1,9 +1,9 @@
 'use strict'
 
-const { News } = require('../models/news')
-const { NewsItem, NewsCategory } = require('../models/datatypes')
-const { config, checkType } = require('../common')
-const assert = require('assert')
+import { News } from '../models/news'
+import { NewsItem, NewsCategory } from '../models/datatypes'
+import { config, checkType } from '../common'
+import assert from 'assert'
 
 
 describe('news', () => {

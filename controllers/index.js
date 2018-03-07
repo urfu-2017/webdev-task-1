@@ -1,11 +1,12 @@
-const { News } = require('../models/news')
-const { Weather } = require('../models/weather')
-const { config } = require('../common')
+'use strict'
+
+import { News } from '../models/news'
+import { Weather } from  '../models/weather'
+import { config } from  '../common'
 const news = News.fromNewsApiKey(config.newsApiKey)
 const weather = Weather.getInstance()
 
-
-const forecastMiddleware = async (req, res, next) => {
+export const forecastMiddleware = async (req, res, next) => {
     const { query, lat, lon } = req.query
     const forecast = await ((lat && lon) ? weather.getWeatherByLocation(lat, lon) : weather.getWeatherByQuery(query))
 
@@ -13,7 +14,7 @@ const forecastMiddleware = async (req, res, next) => {
     next()
 }
 
-const index = async (req, res) => {
+export const index = async (req, res) => {
     const categories = news.getCategories()
 
     res.render('home', {
@@ -23,7 +24,7 @@ const index = async (req, res) => {
     })
 }
 
-const getCategory = async (req, res) => {
+export const getCategory = async (req, res) => {
     const categoryShortName = req.params.category
     const category = news.getCategories().find(x => x.urlShortName === categoryShortName)
 
@@ -40,5 +41,3 @@ const getCategory = async (req, res) => {
         news: newsItems
     })
 }
-
-module.exports = { forecastMiddleware, index, getCategory }

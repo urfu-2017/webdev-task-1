@@ -1,7 +1,9 @@
-const { NewsItem, NewsCategory } = require('./datatypes')
-const NewsApi = require('newsapi')
+'use strict'
 
-class News {
+import { NewsItem, NewsCategory } from './datatypes'
+import NewsApi from 'newsapi'
+
+export class News {
     constructor(newsApi) {
         this.newsApi = newsApi
     }
@@ -35,5 +37,3 @@ class News {
         return new News(new NewsApi(keyString))
     }
 }
-
-module.exports = { News }

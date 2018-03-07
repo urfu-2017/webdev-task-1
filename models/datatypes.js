@@ -1,12 +1,12 @@
-const Type = require('union-type')
+import Type from 'union-type'
 
-const NewsCategory = Type({ NewsCategory: {
+export const NewsCategory = Type({ NewsCategory: {
     title: String,
     icon: String,
     urlShortName: String 
 }})
 
-const NewsItem = Type({ NewsItem: {
+export const NewsItem = Type({ NewsItem: {
     title: String,
     publishedAt: Date,
     description: String,
@@ -15,12 +15,10 @@ const NewsItem = Type({ NewsItem: {
     category: NewsCategory
 }})
 
-const WeatherInfo = Type({ WeatherInfo : {
+export const WeatherInfo = Type({ WeatherInfo : {
     city: String,
     weatherState: String,
     tempCelsius: Number,
     windMps: Number,
     day: Date
 }})
-
-module.exports = { NewsCategory, NewsItem, WeatherInfo }

@@ -1,8 +1,10 @@
-const { WeatherInfo } = require('./datatypes')
-const MetaWeather = require('metaweather')
+'use strict'
+
+import { WeatherInfo } from './datatypes'
+import MetaWeather from 'metaweather'
 
 
-class Weather {
+export class Weather {
     constructor(metaWeather) {
         this.metaWeather = metaWeather
     }
@@ -45,5 +47,3 @@ class Weather {
         return new Weather(new MetaWeather);
     }
 }
-
-module.exports = { Weather }
