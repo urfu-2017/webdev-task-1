@@ -1,0 +1,91 @@
+.weather
+{
+    display: grid;
+    grid-template-areas: 'loc now' 'loc table';
+    grid-template-columns: 30% auto;
+    grid-template-rows: 40% auto;
+}
+
+.weather__location
+{
+    grid-area: loc;
+    padding: 0 0 10% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.weather__location h2
+{
+
+    font-weight: normal;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.weather__picture
+{
+    max-width: 70%;
+}
+
+.weather__picture img
+{
+    max-width: 100%;
+}
+
+.weather__table,
+.weather__now
+{
+    grid-area: table;
+    padding: 2% 5%;
+    display: flex;
+}
+
+.weather__now
+{
+    margin: 2% 0 -5% 0;
+    grid-area: now;
+    display: grid;
+    font-size: 1.4em;
+    line-height: .5em;
+    grid-template-areas: 'temp-sign temp' 'wind-sign wind';
+    grid-template-columns: 10% auto;
+    grid-column-gap: 10%;
+    align-items: center;
+}
+
+.weather__temp-sign
+{
+    grid-area: temp-sign;
+    font-size: 1.4em;
+    font-weight: bolder;
+}
+
+.weather__wind-sign
+{
+    grid-area: wind-sign;
+}
+
+.weather__wind-sign img
+{
+    max-width: 100%;
+}
+
+.weather__current-temp
+{
+    grid-area: temp;
+}
+
+.weather__current-wind
+{
+    grid-area: wind;
+}
+
+.weather__daily-info
+{
+    flex-grow: 1;
+    margin-left: -1px;
+}

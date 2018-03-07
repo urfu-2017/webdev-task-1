@@ -1,0 +1,29 @@
+.daily-weather
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.daily-weather__date
+{
+    flex-grow: 3;
+}
+
+.daily-weather__temperature,
+.daily-weather__wind-speed,
+.daily-weather__date
+{
+    display: flex;
+    padding: 0 10% 0 7%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.daily-weather__temperature,
+.daily-weather__wind-speed
+{
+    font-size: 1.3em;
+    flex-grow: 4;
+    text-align: center;
+}

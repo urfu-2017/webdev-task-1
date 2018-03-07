@@ -1,0 +1,33 @@
+.category-link
+{
+    display: block;
+    overflow: hidden;
+}
+
+.category-link:hover
+{
+    box-shadow: 0 0 5px #bbb;
+}
+
+.category-link a
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.category-link__icon
+{
+    flex: 0 0 20%;
+    margin: 0 5% 0 0;
+}
+
+.category-link__icon img
+{
+    max-width: 100%;
+}
+
+.category-link__title
+{
+    flex-grow: 1;
+}

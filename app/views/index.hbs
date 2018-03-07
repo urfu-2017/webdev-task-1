@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" href="{{ staticBasePath }}common-styles.css" media="screen">
+    <link rel="stylesheet" href="{{ staticBasePath }}weather.css" media="screen">
+    <link rel="stylesheet" href="{{ staticBasePath }}daily-weather.css" media="screen">
+    <link rel="stylesheet" href="{{ staticBasePath }}category-link.css" media="screen">
+    <link rel="icon" href="{{ staticBasePath }}favicon.ico">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <h1>{{ title }}</h1>
+    </header>
+    <main class="content">
+        <section class="weather">
+            {{> weather/weather }}
+        </section>
+        <ul class="categories">
+            {{> categories/categories }}
+        </ul>
+    </main>
+    <footer class="footer">
+        &copy;{{ year }}
+    </footer>
+</div>
+</body>
+</html>

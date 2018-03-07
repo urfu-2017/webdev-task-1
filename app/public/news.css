@@ -1,0 +1,52 @@
+.news
+{
+    padding: 3%;
+}
+
+.news__headline,
+.news__content
+{
+    display: flex;
+    overflow: hidden;
+}
+
+.news__headline
+{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.news__content
+{
+    justify-content: flex-start;
+}
+
+.news__date
+{
+    flex: 0 0 15%;
+}
+
+.news__title
+{
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 2%;
+}
+
+.news__picture
+{
+    flex: 0 0 30%;
+    margin: 0 2% 0 0;
+}
+
+.news__picture img
+{
+    max-width: 100%;
+}
+
+.news__footer
+{
+    text-align: right;
+}
