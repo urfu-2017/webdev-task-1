@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{{# if info}}
 <div class='table___weather'>
     <div class="box1">
         {{city}}
@@ -45,5 +45,8 @@
 
         <td></td>
     </tr>
+    {{else}}
+        <div class="weather else-div">Please provide your location to see what the weather like today</div>
+{{/if}}
 </div>
 </html>

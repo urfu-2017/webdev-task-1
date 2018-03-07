@@ -1,13 +1,13 @@
+/* eslint-disable max-statements */
 'use strict';
 let MetaWeather = require('metaweather');
 let mw = new MetaWeather();
 global.weather = '';
-
 module.exports = async (req, res, next)=> {
     global.lattlong = req.query.lattlong;
-    global.query = req.query.query || 'moscow';
+    global.query = req.query.query;
     console.info(global.query);
-    console.info(global.lattlong);
+    // console.info(global.lattlong);
 
     try {
         if (global.query) {
@@ -37,6 +37,7 @@ module.exports = async (req, res, next)=> {
 
 
         }
+        console.info(global.query);
         res.locals.info = global.weather.consolidated_weather;
         res.locals.city = global.weather.title;
         res.locals.img = res.locals.info[0].weather_state_abbr;

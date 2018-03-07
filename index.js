@@ -51,8 +51,6 @@ app.get('/', (req, res) => {
 });
 
 
-app.all('*', exports.error404 = (req, res) => res.sendStatus(404));
-
 app.listen(app.get('port'), () => {
     console.info('Hello express started on http://localhost:' +
         app.get('port') + '; press Ctrl-C to terminate.');
