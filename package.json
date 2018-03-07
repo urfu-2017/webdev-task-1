@@ -6,6 +6,7 @@
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
+    "all-the-cities": "^2.0.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "hbs": "^4.0.1",
