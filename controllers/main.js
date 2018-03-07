@@ -4,13 +4,13 @@ const Weather = require('../models/weather');
 const News = require('../models/news');
 
 const category = [
-    { name: 'business' },
-    { name: 'entertainment' },
-    { name: 'general' },
-    { name: 'health' },
-    { name: 'science' },
-    { name: 'sports' },
-    { name: 'technology' }
+    { englishName: 'business', russianName: 'Бизнес' },
+    { englishName: 'entertainment', russianName: 'Развлечения' },
+    { englishName: 'general', russianName: 'Общее' },
+    { englishName: 'health', russianName: 'Здоровье' },
+    { englishName: 'science', russianName: 'Наука' },
+    { englishName: 'sports', russianName: 'Спорт' },
+    { englishName: 'technology', russianName: 'Технологии' }
 ];
 
 exports.main = async (req, res) => {

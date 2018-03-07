@@ -20,9 +20,8 @@ class News {
 
     static getNewsData(newsJSON) {
         const articles = newsJSON.articles;
-        const topFiveArticles = articles.slice(0, 5);
 
-        return topFiveArticles.map(element => {
+        return articles.map(element => {
             return {
                 title: element.title,
                 url: element.url,
@@ -38,7 +37,7 @@ class News {
         const [date, hhmmss] = time.split('T');
         const hhmm = hhmmss.slice(0, 5);
 
-        return 'Опубликовано ' + Weather.parseDate(date) + ' в ' + hhmm;
+        return Weather.parseDate(date) + ' в ' + hhmm;
     }
 }
 

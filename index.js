@@ -33,7 +33,10 @@ app.use((req, res, next) => {
         description: 'webdev-task-1'
     };
 
-    res.locals.title = 'webdev-task-1';
+    res.locals.title = 'Погода и новости';
+    res.locals.header = 'Погода и новости';
+    res.locals.home = 'На главную';
+    res.locals.footer = '2018';
 
     next();
 });

@@ -1,19 +1,17 @@
 {{#if weather}}
     <div class="weather">
-        <div class="weather__city">{{weather.city}}</div>
-        <div class="weather__icon">
-            <img src="https://www.metaweather.com/static/img/weather/{{weather.weatherData.0.abbr}}.svg" alt="">
-        </div>
-        <div class="weather__temp-letter">t</div>
+        <div class="weather__city">{{weather.city}}</div>        
+        <img src="https://www.metaweather.com/static/img/weather/{{weather.weatherData.0.abbr}}.svg" alt="" class="weather__icon">        
+        <img src="/temp.png" alt="" class="weather__temp-icon">
         <div class="weather__temp">{{weather.weatherData.0.temp}}</div>
-        <div class="weather__ws-icon"><img src="/wind.png" alt=""></div>
+        <img src="/wind.png" alt="" class="weather__ws-icon">
         <div class="weather__ws">{{weather.weatherData.0.ws}}</div>
-        <div class="weather-table">        
+        <div class="weather-days">        
         {{#each weather.weatherData}}
-            <div class="weather-table__weather-cell">
-                {{date}}<br>
-                {{temp}}<br>
-                {{ws}}
+            <div class="weather-days__day-weather">
+                <div class="weather-days__day-date">{{date}}</div>
+                <div class="weather-days__day-temp">{{temp}}</div>
+                <div class="weather-days__day-ws">{{ws}}</div>
             </div>
         {{/each}}
         </div>

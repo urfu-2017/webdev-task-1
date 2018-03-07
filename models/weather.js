@@ -26,7 +26,7 @@ class Weather {
     }
 
     static getWeatherData(weatherJSON) {
-        const weatherData = weatherJSON.consolidated_weather.map(element => {
+        const weatherData = weatherJSON.consolidated_weather.slice(0, 5).map(element => {
             return {
                 abbr: element.weather_state_abbr,
                 date: Weather.parseDate(element.applicable_date),
