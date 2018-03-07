@@ -1,6 +1,7 @@
 const { News } = require('../models/news')
 const { Weather } = require('../models/weather')
-const news = News.fromNewsApiKey('af406ce76d00443f90f40b9a2e5f2da4')
+const { config } = require('../common')
+const news = News.fromNewsApiKey(config.newsApiKey)
 const weather = Weather.getInstance()
 
 

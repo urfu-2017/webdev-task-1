@@ -2,20 +2,17 @@
 
 const { News } = require('../models/news')
 const { NewsItem, NewsCategory } = require('../models/datatypes')
+const { config, checkType } = require('../common')
 const assert = require('assert')
 
 
 describe('news', () => {
-    const testApiKey = 'af406ce76d00443f90f40b9a2e5f2da4'
-    const sut = News.fromNewsApiKey(testApiKey)
+    const sut = News.fromNewsApiKey(config.testApiKey)
 
     it('has some categories', () => {
         const categories = sut.getCategories()
 
-        categories.forEach(NewsCategory.case({
-            NewsCategory: () => {},
-            _: () => assert.fail('This isnt a NewsCategory')
-        }));
+        categories.forEach(checkType(NewsCategory, 'NewsCategory'));
         assert.ok(sut.getCategories().length > 0)
     })
 
@@ -24,9 +21,6 @@ describe('news', () => {
         
         const results = await Promise.all(categories.map(x => sut.getNews(x)))
         assert.ok(results.every(x => x.length > 0))
-        results.forEach(x => x.forEach(NewsItem.case({
-            NewsItem: () => {},
-            _: () => assert.fail('This isnt a NewsItem')
-        })))
+        results.forEach(x => x.forEach(checkType(NewsItem, 'NewsItem')))
     })
 })
