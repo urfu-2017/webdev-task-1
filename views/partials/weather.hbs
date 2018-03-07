@@ -1,8 +1,13 @@
 <div class="weather">
     {{#if weather.message}}
-    <div class="message">{{ weather.message }}</div>
+    <div class="weather__message">{{ weather.message }}</div>
     {{^}}
     <h3 class="weather__location">{{ weather.today.location }}</h3>
-    {{> widget}}
+    <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
+         alt="{{ weather.today.state.name }}"
+         class="weather__state">
+    <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
+    <div class="weather__wind">{{ weather.today.windSpeed }}</div>
+    {{> metcast}}
     {{/if}}
 </div>

@@ -20,11 +20,12 @@ function parseMetcast(apiData) {
     for (let i = 0; i < 5; i++) {
         const weatherData = apiData.consolidated_weather[i];
         const stateAbbr = weatherData.weather_state_abbr;
+        const temp = Math.round(weatherData.the_temp);
 
         const weather = new Weather({
             location,
             date: weatherData.applicable_date,
-            temp: Math.round(weatherData.the_temp),
+            temp: temp > 0 ? `+${temp}` : `${temp}`,
             state: { abbr: stateAbbr, name: API.states[stateAbbr] },
             windSpeed: Math.round(weatherData.wind_speed)
         });

@@ -32,10 +32,17 @@ module.exports = {
     newsCategories: [
         { originalName: 'buisness', name: 'Бизнес' },
         { originalName: 'entertainment', name: 'Развлечения' },
-        { originalName: 'all', name: 'Общее' },
+        { originalName: 'general', name: 'Общее' },
         { originalName: 'health', name: 'Здоровье' },
         { originalName: 'science', name: 'Наука' },
-        { originalName: 'sport', name: 'Спорт' },
-        { originalName: 'tech', name: 'Технологии' }
-    ]
+        { originalName: 'sports', name: 'Спорт' },
+        { originalName: 'technology', name: 'Технологии' }
+    ],
+    newsApi: {
+        url: 'https://newsapi.org/',
+        search: 'v2/top-headlines?apiKey=989971a6b7384d38b124b9bfe7009d35',
+        categoryParam: '&category=',
+        countryParam: '&country=',
+        newsNotFound: 'Новостей не найдено'
+    }
 };

@@ -15,6 +15,10 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'), () => {
+    app.listen(process.env.PORT || config.get('port'));
+});
+
 app.use((req, res, next) => {
     res.locals.meta = config.get('meta');
     res.locals.lang = config.get('lang');
@@ -32,10 +36,6 @@ app.use((err, req, res, next) => {
 
     console.error(err);
     error500(req, res);
-});
-
-hbs.registerPartials(path.join(__dirname, 'views', 'partials'), () => {
-    app.listen(process.env.PORT || config.get('port'));
 });
 
 module.exports = app;
