@@ -1,0 +1,12 @@
+{{#if allNews.length}}
+    <section class="categories">
+        {{#each allNews}}
+            <div class="categories__name">
+            <img class="categories__image" src="/images/{{ image }}">
+            <a class="categories__link categories__link_hover" href="/{{ name }}">{{ name }}</a>
+            </div>
+        {{/each}}
+    </section>
+{{^}}
+    <p>News not found!</p>
+{{/if}}

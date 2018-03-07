@@ -1,0 +1,47 @@
+.weather
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 10px;
+    grid-template-areas: 'l . . .'
+    '. a t .'
+    'p b w .'
+    '. f f f';
+}
+
+.weather__city
+{
+    grid-area: l;
+    font-size: 20px;
+}
+
+.weather__img
+{
+    grid-area: p;
+}
+
+.weather__temp
+{
+    grid-area: t;
+}
+
+.weather__wind
+{
+    grid-area: w;
+}
+
+.weather__forecast
+{
+    grid-area: f;
+}
+
+.weather__wind-icon
+{
+    grid-area: b;
+}
+
+.weather__temp-icon
+{
+    grid-area: a;
+}
