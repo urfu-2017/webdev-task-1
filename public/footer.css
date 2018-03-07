@@ -1,0 +1,13 @@
+.footer {
+    margin-top: 7%;
+    border: solid 1px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.footer__origin {
+    font-size: 1.5em;
+    float: right;
+}
+.footer__copy {
+    font-size: 1.5em;
+}

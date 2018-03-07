@@ -10,6 +10,7 @@ const hbs = require('hbs');
 
 // В третьей – собственные модули
 const routes = require('./routes');
+const { getWeather } = require('./controllers/weather');
 
 // Создаём экземпляр приложения
 const app = express();
@@ -33,6 +34,16 @@ app.set('views', viewsDir);
 
 // Отдаём статичные файлы из соответствующей директории
 app.use(express.static(publicDir));
+
+app.use((req, res, next) => {
+    // Хранение в res.locals – рекомендованный способ
+    // Не перезаписываем, а дополняем объект
+    let options = res.query;
+    getWeather(options, weather => {
+        res.locals.weather = weather;
+        next();
+    });
+});
 
 // Подключаем маршруты
 routes(app);

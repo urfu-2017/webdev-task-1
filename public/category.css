@@ -1,20 +1,6 @@
 body {
     margin: 6%;
 }
-.header {
-    text-align: center;
-    border: solid 1px;
-}
-.header__link {
-    position: absolute;
-    font-size: 1.4em;
-    left: 8%;
-    top: 12%;
-}
-.weather {
-    padding-left: 3%;
-    border: solid 1px;
-}
 
 .new {
     border: solid 1px;
@@ -44,11 +30,13 @@ body {
     margin-right: 2%;
 }
 
-.new__author {
+.new__link {
+    font-size: 2em;
     grid-area: g;
+    text-decoration: none;
 }
 
-.new__author__value {
+.new__link__value {
     float: right;
     padding-top: 40%; 
 }
@@ -59,19 +47,4 @@ body {
 
 .new__publishedAt__value {
     float: right;
-}
-
-
-.footer {
-    margin-top: 7%;
-    border: solid 1px;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.footer__origin {
-    font-size: 1.5em;
-    float: right;
-}
-.footer__copy {
-    font-size: 1.5em;
 }

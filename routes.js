@@ -1,14 +1,14 @@
 'use strict';
 
 const { error404 } = require('./controllers/errors');
-const { listCathegories, listNews } = require('./controllers/cathegories');
+const { listCategories, listNews } = require('./controllers/categories');
 
 module.exports = app => {
-    app.get('/', listCathegories);
+    app.get('/', listCategories);
 
     // Можем объединить разные http методы с одинаковым маршрутом
-    app.get('/cathegories', listCathegories);
-    app.get('/cathegories/:name', listNews);
+    app.get('/categories', listCategories);
+    app.get('/categories/:name', listNews);
 
     // Если роутер не выбрал подходящий для запроса маршрут – используется этот
     app.all('*', error404);

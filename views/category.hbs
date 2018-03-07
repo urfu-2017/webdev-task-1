@@ -6,17 +6,12 @@
     <title>Ilon Mask</title>
     <link rel="stylesheet" href="/header.css" media="screen">
     <link rel="stylesheet" href="/weather.css" media="screen">
-    <link rel="stylesheet" href="/index.css" media="screen">
+    <link rel="stylesheet" href="/category.css" media="screen">
     <link rel="stylesheet" href="/footer.css" media="screen">
 </head>
+{{> header}}
 
 <body>
-    <header class="header">
-        {{#if flag}}
-        <a href="/" class="header__link">На главную</a>
-        {{/if}}
-        <h1 class="header__name"> Илон слишком занят </h1>
-    </header>
     <main>
         <article class="weather">
             <section class="weather__header">
@@ -25,7 +20,7 @@
             </section>
             <section class="weather__info">
                 <div class="weather__info__currentTemp">t &emsp;&emsp;&emsp;{{weather.currentTemp}}&deg;C</div>
-                <img src="img/wind.png" class="weather__info__windImg">
+                <img src="/img/wind.png" class="weather__info__windImg">
                 <div class="weather__info__currentWind">&emsp;&nbsp;&nbsp;&nbsp;{{weather.currentWind}} м/с</div>
                 <!--<div class="weather__info__almanac">
                     <div class="weather__info__almanac__day">7 марта</div>
@@ -33,23 +28,27 @@
                     <div class="weather__info__almanac__wind">{{weather.currentWind}} м/с</div>
                 </div>-->
             </section>
+        </article> 
+        {{#each news}}
+        <article class="new">
+            <h1 class="new__title">{{ title }}</h1>
+            <p class="new__content">
+                {{#if urlToImage}}
+                <img src="{{urlToImage}}" alt="{{title}}" class="new__content__image"> {{/if}}
+                <span class="new__content__description">{{description}}</span>
+            </p>
+            <div class="new__link">
+                <a href="{{url}}" class="new__link__value">
+                    Источник
+                </a>
+            </div>
+            <div class="new__publishedAt">
+                <span class="new__publishedAt__value">{{publishedAt}}</span>
+            </div>
         </article>
-        <article class="categoriesNews">
-            <h1 class="categoriesNews__heading">Категории новостей</h1>
-            <ul class="categories">
-                {{#each categories}}
-                <li class="categories__item">
-                    <img src="{{img_url}}" class="categories__img">
-                    <a href="/categories/{{ url }}" class="categories__link">{{ name }}</a>
-                </li>
-                {{/each}}
-            </ul>
-        </article>
+        {{/each}}
     </main>
-    <footer class="footer">
-        <span class="footer__copy">&copy;mokosha</span>
-        <span class="footer__origin">2018</span>
-    </footer>
 </body>
+{{> footer}}
 
 </html>
