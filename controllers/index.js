@@ -8,9 +8,14 @@ const weather = Weather.getInstance()
 
 export const forecastMiddleware = async (req, res, next) => {
     const { query, lat, lon } = req.query
-    const forecast = await ((lat && lon) ? weather.getWeatherByLocation(lat, lon) : weather.getWeatherByQuery(query))
+    const hasPosition = lat && lon
 
-    req.forecast = forecast || await weather.getWeatherByQuery('vegas')
+    if (hasPosition)
+        req.forecast = weather.getWeatherByLocation(lat, lon)
+    else if (query)
+        req.forecast = weather.getWeatherByQuery(query)
+
+    req.forecast = req.forecast || await weather.getWeatherByQuery('vegas')
     next()
 }
 
