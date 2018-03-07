@@ -1,0 +1,32 @@
+{
+    "categories": {
+        "business": {
+            "title": "Бизнес",
+            "icon": "&#128188;"
+        },
+        "entertainment": {
+            "title": "Развлечение",
+            "icon": "&#128578;"
+        },
+        "common": {
+            "title": "Общее",
+            "icon": "&#128203;"
+        },
+        "science": {
+            "title": "Наука",
+            "icon": "&#9883;"
+        },
+        "health": {
+            "title": "Здоровье",
+            "icon": "&#128137;"
+        },
+        "sports": {
+            "title": "Спорт",
+            "icon": "&#9917;"
+        },
+        "technology": {
+            "title": "Технологии",
+            "icon": "&#128640;"
+        }
+    }
+}

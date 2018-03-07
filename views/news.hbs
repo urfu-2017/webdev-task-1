@@ -1,0 +1,20 @@
+{{> weather}}
+<div>
+    {{#each articles}}
+    <article class='news'>
+        <div class="news__header">
+            <div class="news__header__title">{{ title }}</div>
+            <div class="news__header__published">{{date publishedAt "D MMMM YYYY" ../dateOptions}}</div>
+        </div>
+        <div class="news__block">
+            {{#if urlToImage}}
+                <img class="news__block__image" src="{{urlToImage}}" width="150" height="auto">
+            {{/if}}
+            <div class="news__block__description">{{ description }}</div>
+        </div>
+        <div class="news__footer">
+            <a href="{{ url }}">{{ source.name }}</a>
+        </div>
+    </article>
+    {{/each}}
+</div>
