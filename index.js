@@ -4,9 +4,20 @@ const exphbs = require('express-handlebars');
 
 const app = express();
 
+const defaultWoeid = 44418;
+
 module.exports = app;
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+app.use((req, res, next) => {
+    getWeather(req.query.query)
+        .then(result => {
+            console.info(result);
+            res.locals.weather = result;
+        })
+        .then(next);
+});
 
 app.get('/news/:category', newsController);
 app.get('/', indexController);
@@ -31,11 +42,11 @@ function indexController(req, res) {
 
 function newsController(req, res) {
     const category = req.params.category;
+    let weather = res.locals.weather;
     getNewsByCategory(category)
         .then((response) => {
             let news = response.body.articles;
-            console.info(news);
-            res.render('news', { category, news });
+            res.render('news', { category, news, weather });
         });
 }
 
@@ -47,4 +58,29 @@ function getNewsByCategory(category, country = 'ru') {
     let fullUrl = `${url}category=${category}&country=${country}&apiKey=${apiKey}`;
 
     return got(fullUrl, { json: true }, response => response);
+}
+
+function getWeather(query) {
+    return searchLocation(query)
+        .then(getWeatherByWoeid);
+}
+
+function getWeatherByWoeid(woeid) {
+    const weatherUrl = `https://www.metaweather.com/api/location/${woeid}/`;
+
+    return got(weatherUrl, { json: true })
+        .then(response => {
+            return {
+                cityName: response.body.title,
+                temp: response.body.consolidated_weather[0].the_temp
+            };
+        });
+}
+
+function searchLocation(query) {
+    const weatherUrl = `https://www.metaweather.com/api/location/search/?query=${query}`;
+
+    return got(weatherUrl, { json: true })
+        .then(response => response.body[0].woeid)
+        .catch(() => defaultWoeid);
 }
