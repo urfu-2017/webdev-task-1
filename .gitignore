@@ -1,5 +1,4 @@
 node_modules/
 *.log
-api-keys.js
 public/*.css
 bundle/*
