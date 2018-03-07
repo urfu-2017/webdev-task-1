@@ -19,4 +19,4 @@ app.set('view engine', 'hbs');
 setupMiddleware(app);
 setupRoutes(app);
 
-export default app.listen(process.env.PORT);
+export default app.listen(8080);
