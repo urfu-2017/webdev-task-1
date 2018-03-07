@@ -1,0 +1,32 @@
+body {
+    width: 600px;
+    margin: 100px 0 0 100px;
+}
+.header{
+    height: 200px;
+    border: 2px solid red;
+    display: flex;
+    
+}
+
+.city-weather {
+    width: 120px;
+    margin-left: 20px; 
+}
+
+.city-weather__city,
+.city-weather__state {
+    margin-left: 10px;
+}
+
+.header-data{
+    margin-left: 20px;
+}
+.table{
+    border-collapse: collapse;
+}
+.table__col {
+    border: 1px solid green;
+    padding: 5px;
+
+}

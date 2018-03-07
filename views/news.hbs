@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" type="text/css"  href="index.css">
+</head>
+<body>
+    <header class="header">
+    </header>
+    <main>
+        {{#each news.articles }}
+        <div class="news-list">
+            <p>{{title}}</p>
+            <p>{{publishedAt}}</p>
+            <p>{{description}}</p>
+        </div>
+        {{/each}}
+
+    </main>
+</body>
+</html>
