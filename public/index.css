@@ -1,0 +1,50 @@
+body {
+    margin: 6%;
+}
+.header {
+    text-align: center;
+    border: solid 1px;
+}
+.header__link {
+    font-size: 1.6em;
+    float: left;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.weather {
+    padding-left: 3%;
+    border: solid 1px;
+}
+.cathegoriesNews {
+    padding-left: 3%;
+    border: solid 1px;
+}
+.cathegories__item {
+    font-size: 2em;
+    margin-bottom: 0.4em;
+    margin-left: 5%;
+    list-style: none;
+}
+
+.cathegories__img {
+    width: 50px;
+    height: 50px;
+    margin-right: 1%;
+}
+
+.cathegories__link {
+    text-decoration: none;
+}
+.footer {
+    margin-top: 7%;
+    border: solid 1px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.footer__origin {
+    font-size: 1.5em;
+    float: right;
+}
+.footer__copy {
+    font-size: 1.5em;
+}
