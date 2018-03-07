@@ -39,7 +39,7 @@ app.use((err, req, res) => {
 
 hbs.registerHelper('formatDate', formatters.formatDate);
 hbs.registerPartials(partialsDir, () => {
-    const port = process.env.PORT || 8080;
+    const port = 8080;
 
     app.listen(port, () => {
         console.info(`Server started on ${port}`);
