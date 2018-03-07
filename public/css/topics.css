@@ -1,0 +1,11 @@
+.topics__img
+{
+    width: 30px;
+}
+
+.topics__name
+{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}

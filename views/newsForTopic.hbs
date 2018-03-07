@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang={{app.lang}}>
+
+<head>
+
+    <title>{{app.title.news}}</title>
+    <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <div>
+        <a href="/">На главную</a>
+        <h1 class="app__name">{{app.appName}}</h1>
+    </div>
+
+    {{> weatherWidget }} 
+    {{#each allNews}}
+    <div class="news__info">
+        <div>
+            <h3>{{title}}</h3>
+            <img class="news__img" src="{{urlToImage}}" alt="newsImg">
+        </div>
+        <div>
+            <p>{{description}}</p>
+        </div>
+
+        <div class="news__lastBlock">
+            <div>{{publishedAt}}</div>
+            <div class="news_source">{{source}}</div>
+        </div>
+    </div>
+    {{/each}} 
+    {{> footer}}
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.weather__info,
+.weather__content
+{
+    display: inline-block;
+}
+
+.weather__img
+{
+    width: 100px;
+}
+
+.weather__columns
+{
+    padding-right: 10px;
+}
+
+.weather__allDays
+{
+    border: 2px solid black;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+.app__name
+{
+    text-align: center;
+}

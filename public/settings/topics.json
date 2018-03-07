@@ -1,0 +1,40 @@
+
+  [
+    {
+      "name": "business",
+      "description": "Бизнес",
+      "picture": "business.png"
+    },
+    {
+      "name": "entertainment",
+      "description": "Развлечения",
+      "picture": "entertainment.png"
+    },
+    {
+      "name": "general",
+      "description": "Общее",
+      "picture": "general.png"
+    },
+    {
+      "name": "health",
+      "description": "Здоровье",
+      "picture": "health.png"
+    },
+    {
+      "name": "science",
+      "description": "Наука",
+      "picture": "science.png"
+    },
+    {
+      "name": "sports",
+      "description": "Спорт",
+      "picture": "sports.png"
+    },
+    {
+      "name": "technology",
+      "description": "Технологии",
+      "picture": "technology.png"
+    }
+  ]
+  
+  
