@@ -1,10 +1,11 @@
 body {
     width: 600px;
     margin: 100px 0 0 100px;
+    border: 2px solid red;
 }
 .header{
     height: 200px;
-    border: 2px solid red;
+    border-bottom: 2px solid red;
     display: flex;
     
 }
@@ -30,3 +31,47 @@ body {
     padding: 5px;
 
 }
+
+.news-categories {
+    height: 20px;
+    margin-top: 13px;
+    margin-left: 40px;
+    margin-bottom: 13px;
+
+}
+
+.news-categories__category {
+    text-decoration: none;
+    color: black;
+
+}
+
+.news-list{
+border-bottom: 2px solid red;
+}
+
+.news-list-summury {
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.news-list-summury__title {
+    width: 350px;
+    font-size: 20px; 
+}
+
+.news-list-summury__date {
+    margin-top: 40px;
+}
+.news-list__description {
+    margin: 0 10px 10px 10px;
+}
+
+.news-list__source {
+    margin: 3px 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+

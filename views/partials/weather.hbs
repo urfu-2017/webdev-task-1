@@ -9,7 +9,6 @@
             <p class="header-data__wind">ветер {{weather.wind}} м/c</p>
             
             <table class = "table">
-                
                 <tr>
                     {{#each weather.daily }}
                     <td class="table__col">{{ date }}</td>
@@ -25,9 +24,6 @@
                     <td class="table__col">{{ wind }} м/c</td>
                     {{/each}}
                 </tr>
-                
             </table>
-            
-        
         </div>
     </header>

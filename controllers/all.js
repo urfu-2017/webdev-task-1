@@ -1,7 +1,6 @@
 'use strict';
 
 const Category = require('../models/category');
-// const { getNews } = require('../controllers/getnews');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('574326253ac74f489b5f5015089a3c66');
 
@@ -12,7 +11,7 @@ exports.list = (req, res) => {
 };
 
 exports.news = (req, res) => {
-    const name = req.params.name;
+    var name = req.params.name;
     var country = req.query;
 
     var countries = ['ru', 'au', 'at', 'be', 'br', 'ca', 'ua', 'gb', 'us'];
@@ -28,11 +27,8 @@ exports.news = (req, res) => {
         language: 'ru',
         country: country
     }).then(response => {
-        res.locals.news = response;
+        res.locals.news = response.articles;
         let data = res.locals;
         res.render('news', data);
-
     });
-
-
 };

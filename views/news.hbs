@@ -4,17 +4,20 @@
     <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
     <meta name="description" content="{{ meta.description }}">
-    <link rel="stylesheet" type="text/css"  href="index.css">
+    <link rel="stylesheet" type="text/css"  href="/index.css">
 </head>
 <body>
-    <header class="header">
-    </header>
+    {{> weather}}
+    
     <main>
-        {{#each news.articles }}
+        {{#each news }}
         <div class="news-list">
-            <p>{{title}}</p>
-            <p>{{publishedAt}}</p>
-            <p>{{description}}</p>
+            <div class="news-list-summury">
+                <p class="news-list-summury__title">{{title}}</p>
+                <p class="news-list-summury__date">{{publishedAt}}</p>
+            </div>
+            <p class="news-list__description">{{description}}</p>
+            <p class="news-list__source">{{source.name}}</p>
         </div>
         {{/each}}
 
