@@ -1,0 +1,14 @@
+{
+    "urlForNews": "https://newsapi.org/v2/top-headlines?apiKey=b3a0afa88b844b7ebcf167d0b21d183d",
+    "categories": ["business", "health", "entertainment", "sport", "general", "science", "technology"],
+    "countryForNews": "ru",
+    "townForWeather": "london",
+    "urlTownId": "https://www.metaweather.com/api/location/search/?",
+    "urlForWeatherPic": "https://www.metaweather.com/static/img/weather/",
+    "urlForWeatherinTown": "https://www.metaweather.com/api/location/",
+    "maxPageSize": 100,
+    "minPageSize": 1,
+    "minPageNumber": 1,
+    "urlForDetect": "https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20171125T083420Z.cb9d38c1bcd1d2e6.956c53d3350ff265c8064feec4d0e45873157189",
+    "urlForTranslate": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171125T083420Z.cb9d38c1bcd1d2e6.956c53d3350ff265c8064feec4d0e45873157189"
+}

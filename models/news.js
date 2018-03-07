@@ -2,7 +2,7 @@
 
 const { getResponse } = require('./sendResponse');
 const { URL } = require('url');
-const config = require('config');
+const config = require('./default');
 const urlencode = require('urlencode');
 
 let countryForNews = config.countryForNews;

@@ -1,7 +1,7 @@
 'use strict';
 
 const { getResponse } = require('./sendResponse');
-const config = require('config');
+const config = require('./default');
 const { URL } = require('url');
 
 let townForWeather = config.townForWeather;
