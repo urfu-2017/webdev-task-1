@@ -1,0 +1,8 @@
+<div class="weather">
+    {{#if weather.message}}
+    <div class="message">{{ weather.message }}</div>
+    {{^}}
+    <h3 class="weather__location">{{ weather.today.location }}</h3>
+    {{> widget}}
+    {{/if}}
+</div>
