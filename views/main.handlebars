@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>{{title}}</title> </head>
    <link rel="stylesheet" href="{{ staticBasePath }}hello.css" media="screen">
 <body>
-
-<h1>Elon Mu$$$$k</h1>
 {{> weather}}
 
-    <ul><h2>Категории новостей</h2>
+<header class="header main-page-header">{{header}}</header>
+    <ul>Категории новостей
         <li><a href="./news?category=business">Бизнес</a></li>
         <li><a href="./news?category=enjoy">Развлечения</a> </li>
         <li><a href="./news">Общее</a> </li>

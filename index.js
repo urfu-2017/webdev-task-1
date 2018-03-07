@@ -55,11 +55,11 @@ app.listen(app.get('port'), function () {
         app.get('port') + '; press Ctrl-C to terminate.');
 });
 
-app.get('/news', function (req, res1) {
+app.get('/news', async function (req, res1) {
     global.query = req.query.query || 'moscow';
     global.country = req.query.country || 'ru';
     // console.info(req.query.country);
-    request(
+    await request(
         'https://newsapi.org/v2/top-headlines?apiKey=7003d399f6ae49cbbd75437b2fb4d33a&country=' + global.country +
         '&category=' + global.category,
         { json: true },
@@ -76,4 +76,4 @@ app.get('/news', function (req, res1) {
         });
 });
 
-
+module.exports = app;
