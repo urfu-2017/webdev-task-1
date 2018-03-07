@@ -67,7 +67,7 @@ exports.news = async (req, res) => {
     let newsQueryResult = await queryNews(country, req);
     let weatherQueryResult = await queryWeather(query, lat, lon);
 
-    res.render('news-page', {
+    res.render('news_page', {
         search: getSearchString(req),
         returnToMain: true,
         newsQueryResult,
