@@ -6,9 +6,43 @@
     <link rel="stylesheet" href="/styles.css" media="screen">
 </head>
 <body>
-{{> header innerClass="main-page__header"}}
+<header class="header main-page__header">
+    {{#if returnToMain}}
+        <a href="/{{search}}" class="header__return-link">На главную</a>
+    {{/if}}
+    <h1 class="header__title">Название</h1>
+</header>
+
 <main class="main-page">
-    {{> weather_widget innerClass="main-page__weather-widget"}}
+    <div class="weather-widget main-page__weather-widget">
+        {{#if weatherQueryResult}}
+            <div class="weather-widget__content-info">
+                <div class="weather-widget__city">
+                    {{weatherQueryResult.today.cityName}}
+                </div>
+                <img class="weather-widget__image"
+                     src="https://www.metaweather.com/static/img/weather/{{
+                     weatherQueryResult.today.weatherStateAbbr}}.svg"/>
+            </div>
+            <div class="weather-widget__info">
+                <div class="weather-widget__temp">
+                    <img class="weather-widget__term-icon" src="/thermometer.svg"/>
+                        {{weatherQueryResult.today.temperature}}&deg;C
+                </div>
+                <div class="weather-widget__wind-speed">
+                    <img class="weather-widget__wind-icon" src="/wind.svg"/>
+                    {{weatherQueryResult.today.windSpeed}}<sup>м</sup>/<sub>с</sub>
+                </div>
+                <div class="weather-widget__daily-weather-container">
+                    {{#each weatherQueryResult.nextDays}}
+                        {{> daily_weather}}
+                    {{/each}}
+                </div>
+            </div>
+        {{^}}
+
+        {{/if}}
+    </div>
     <div class="main-page__categories">
         <h2 class="main-page__categories-title">Категории новостей</h2>
         <div class="main-page__categories-list">
@@ -29,6 +63,10 @@
         </div>
     </div>
 </main>
-    {{> footer innerClass="main-page__footer"}}
+<footer class="footer main-page__footer">
+    <span class="footer__copyright">&copy; Someone</span>
+    <span class="footer__date">2018</span>
+</footer>
+
 </body>
 </html>
