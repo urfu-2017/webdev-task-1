@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header>
+    <h1 class="pageName">{{ title }}</h1>
+</header>
+<hr>
+<main>
+    <div>
+        {{> weather}}
+    </div>
+    <hr>
+    <ul class="categories">
+        <li><a class="categories__category" href="../business">Бизнес</a></li>
+        <li><a class="categories__category" href="../entertainment">Развлечение</a></li>
+        <li><a class="categories__category" href="../general">Общее</a></li>
+        <li><a class="categories__category" href="../health">Здоровье</a></li>
+        <li><a class="categories__category" href="../science">Наука</a></li>
+        <li><a class="categories__category" href="../sport">Спорт</a></li>
+        <li><a class="categories__category" href="../technology">Технологии</a></li>
+    </ul>
+</main>
+<hr>
+<footer class="footer">
+    <div>Нуриев</div>
+    <div>2018</div>
+</footer>
+</body>
+</html>

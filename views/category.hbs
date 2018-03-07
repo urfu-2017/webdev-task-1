@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="category.css">
+</head>
+<body>
+<header>
+    <h1 class="pageName">{{ title }}</h1>
+</header>
+<hr>
+<main>
+    <div>
+        {{> weather}}
+    </div>
+    <hr>
+    {{> news}}
+</main>
+<hr>
+<footer class="footer">
+    <div>Нуриев</div>
+    <div>2018</div>
+</footer>
+</body>
+</html>

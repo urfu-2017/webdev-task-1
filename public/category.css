@@ -1,0 +1,44 @@
+.news
+{
+    display: flex;
+}
+
+.news__title
+{
+    order: 0;
+}
+
+.news__date
+{
+    order: 1;
+}
+
+.news__img
+{
+    order: 2;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.news__description
+{
+    order: 3;
+}
+
+.news__source
+{
+    order: 4;
+}
+
+.pageName
+{
+    display: flex;
+    justify-content: center;
+}
+
+.footer
+{
+    display: flex;
+    justify-content: space-between;
+    font: 20px fantasy;
+}

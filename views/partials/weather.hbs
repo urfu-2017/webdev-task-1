@@ -1,0 +1,13 @@
+{{#if weathers.length}}
+    Погода
+    {{#each weathers}}
+        <section>
+            <div>{{ temp }}</div>
+            <div>{{ date }}</div>
+            <div>{{ windSpeed }}</div>
+            <div>{{ stateName }}</div>
+        </section>
+    {{/each}}
+{{^}}
+    <p>Погода не найдена :(</p>
+{{/if}}

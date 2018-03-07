@@ -1,0 +1,17 @@
+{{#if news.length}}
+    <ul>
+        {{#each news}}
+            <li class="news">
+                <div class="news__title">{{ title }}</div>
+                <div class="news__date"> {{ publishedAt }}</div>
+                {{#if urlToImage}}
+                    <img class="news__img" src="{{ urlToImage }}" alt="Картинка для новости">
+                {{/if}}
+                <div class="news__description">{{ description }}</div>
+                <div class="news__source">{{ sourceName }}</div>
+            </li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p>Новости не найдены :(</p>
+{{/if}}
