@@ -49,12 +49,10 @@ app.get('/', (req, res) => {
     res.render('main', frontPage); // this is the important part
 });
 
-
-
-
-app.get('/news', async (req, res1) => {
+app.get('/:category', async (req, res1) => {
     global.country = req.query.country || 'ru';
-    // console.info(req.query.country);
+    console.info(req.params.category);
+    global.category = req.params.category;
     await request(
         'https://newsapi.org/v2/top-headlines?apiKey=7003d399f6ae49cbbd75437b2fb4d33a&country=' + global.country +
         '&category=' + global.category,
@@ -67,12 +65,14 @@ app.get('/news', async (req, res1) => {
             // console.info(body.articles);
             let arti = body;
             res1.render('news', arti);
-            console.info(arti);
+            // console.info(arti);
             // console.info(req.query.country);
         });
 });
+
     app.listen(8080, () => {
         console.info(`Server started on ${8080}`);
         console.info(`Open http://localhost:${8080}/`);
     });
+
 module.exports = app;
