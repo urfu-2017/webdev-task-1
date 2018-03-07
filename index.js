@@ -1,4 +1,4 @@
-/* eslint-disable max-len,no-unused-vars */
+/* eslint-disable max-len,no-unused-vars,indent */
 'use strict';
 const request = require('request');
 let MetaWeather = require('metaweather');
@@ -30,7 +30,6 @@ app.engine('handlebars', exphbs({
     ]
 }));
 app.set('view engine', 'handlebars');
-app.set('port', process.env.PORT || 3000);
 let options = { dotfiles: 'ignore', etag: false,
     extensions: 'html',
     index: false
@@ -51,10 +50,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(app.get('port'), () => {
-    console.info('Hello express started on http://localhost:' +
-        app.get('port') + '; press Ctrl-C to terminate.');
-});
+
 
 app.get('/news', async (req, res1) => {
     global.country = req.query.country || 'ru';
@@ -75,5 +71,8 @@ app.get('/news', async (req, res1) => {
             // console.info(req.query.country);
         });
 });
-
+    app.listen(8080, () => {
+        console.info(`Server started on ${8080}`);
+        console.info(`Open http://localhost:${8080}/`);
+    });
 module.exports = app;
