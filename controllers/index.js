@@ -25,19 +25,20 @@ const index = async (req, res) => {
 
 const getCategory = async (req, res) => {
     const categoryShortName = req.params.category
-    const [category] = news.getCategories().filter(x => x.urlShortName === categoryShortName)
+    const category = news.getCategories().find(x => x.urlShortName === categoryShortName)
 
-    if (category) {
-        const newsItems = await news.getNews(category)
-
-        res.render('category',  {
-            title: category.title,
-            forecast: req.forecast,
-            category: category,
-            news: newsItems
-        })
+    if (!category) {
+        res.sendStatus(404)
+        return
     }
-    else res.sendStatus(404)
+
+    const newsItems = await news.getNews(category)
+    res.render('category',  {
+        title: category.title,
+        forecast: req.forecast,
+        category: category,
+        news: newsItems
+    })
 }
 
 module.exports = { forecastMiddleware, index, getCategory }
