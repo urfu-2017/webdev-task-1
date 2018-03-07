@@ -1,0 +1,15 @@
+{
+  "title": "Task 1",
+  "header": "News and weather",
+  "weatherHeader": "Weather",
+  "newsHeader": "News",
+  "business": "Business",
+  "entertainment": "Entertainment",
+  "general": "General",
+  "health": "Health",
+  "science": "Science",
+  "sports": "Sports",
+  "technology": "Technology",
+  "copyright": "©darl0ck",
+  "year": "2018"
+}

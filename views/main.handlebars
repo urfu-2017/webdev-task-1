@@ -1,14 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <title>Handlebars demo</title> </head>
-<link href="./styles/hello.css" rel="stylesheet">
+    <title>{{title}}</title> </head>
+   <link rel="stylesheet" href="{{ staticBasePath }}hello.css" media="screen">
 <body>
 
 <h1>Elon Mu$$$$k</h1>
 {{> weather}}
 
-{{{body}}}
     <ul><h2>Категории новостей</h2>
         <li><a href="./news?category=business">Бизнес</a></li>
         <li><a href="./news?category=enjoy">Развлечения</a> </li>
@@ -22,4 +21,8 @@
 
     </ul>
 </body>
+<footer class="footer">
+    <div class="footer__copyright">{{ copyright }}</div>
+    <div class="footer__year">{{ year }}</div>
+</footer>
 </html>

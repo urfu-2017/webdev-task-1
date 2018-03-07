@@ -1,10 +1,9 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len,no-unused-vars */
 'use strict';
 const request = require('request');
 let MetaWeather = require('metaweather');
 const getWeather = require('./middlewares/getWeather');
-
-
+const frontPage = require('./mocks/front-info');
 var HandlebarsIntl = require('handlebars-intl');
 var moment = require('moment');
 let mw = new MetaWeather();
@@ -23,7 +22,6 @@ Handlebars.registerHelper('sformatTime', function (date, format) {
 let exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
     extname: 'handlebars',
-    defaultLayout: 'main',
     layoutDir: './views/layouts',
     partialsDir: [
         //  path to your partials
@@ -33,15 +31,11 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 let options = { dotfiles: 'ignore', etag: false,
-    extensions: ['htm', 'html'],
+    extensions: 'html',
     index: false
 };
 HandlebarsIntl.registerWith(Handlebars);
 
-function sleep(ms) {
-    ms += new Date().getTime();
-    while (new Date() < ms) {}
-}
 
 Handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
 
@@ -51,10 +45,8 @@ global.category = '';
 app.use(express.static(path.join(__dirname, 'public'), options));
 
 
-app.get('/', function(req, res)
-{
-
-    res.render('hello');   // this is the important part
+app.get('/', function (req, res) {
+    res.render('main', frontPage); // this is the important part
 });
 
 
@@ -66,7 +58,7 @@ app.listen(app.get('port'), function () {
 app.get('/news', function (req, res1) {
     global.query = req.query.query || 'moscow';
     global.country = req.query.country || 'ru';
-    //console.info(req.query.country);
+    // console.info(req.query.country);
     request(
         'https://newsapi.org/v2/top-headlines?apiKey=7003d399f6ae49cbbd75437b2fb4d33a&country=' + global.country +
         '&category=' + global.category,

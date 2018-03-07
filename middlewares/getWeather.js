@@ -5,11 +5,7 @@ global.weather = '';
 
 module.exports = async (req, res, next)=> {
     global.lattlong = req.query.lattlong;
-    global.query = req.query.query;
-
-
-
-
+    global.query = req.query.query || 'moscow';
     console.info(global.query);
     console.info(global.lattlong);
 

@@ -1,4 +1,11 @@
-<a href="..">На главную</a>>
+<!DOCTYPE html>
+<html lang="en">
+<a href="..">На главную</a>
+<link rel="stylesheet" href="{{ staticBasePath }}hello.css" media="screen">
+<header class="header">{{ category }}</header>
+
+{{> weather}}
+
 <table class='cooltable___news'>
     {{#each articles}}
         <tr>
@@ -15,3 +22,4 @@
         </tr>
     {{/each}}
 </table>
+</html>

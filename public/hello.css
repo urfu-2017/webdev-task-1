@@ -1,0 +1,90 @@
+body {
+    background-color:#FFDEAD;
+}
+
+.footer
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1
+{
+    text-align: center;
+    color:teal;
+}
+.bigbutton {
+    height:40px;
+    color: white;
+    background-color:teal;
+    margin-left:150px;
+    margin-top:50px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 25px;
+    font-size:18px;
+}
+
+tr td{
+    width: 132px !important;
+    
+}
+table {
+    border-collapse: collapse;
+}
+
+
+
+.cooltable___news tr { border: solid #6495ed; }
+
+.cooltable___news tr td img
+{
+    height: 95px;
+}
+
+.cooltable___weather
+{
+    display: grid;
+    width: 19%;
+}
+
+.box1
+{
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+}
+
+.box2{
+    grid-column: 1;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    width: 74px;
+}
+
+.box3{
+    grid-column: 2;
+    grid-row: 2;
+    
+}
+
+.box4
+{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.box5
+{
+    grid-column: 2;
+    grid-row: 4;
+    width: 100px;
+}
