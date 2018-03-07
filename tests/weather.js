@@ -23,7 +23,13 @@ describe('weather', () => {
     it('makes query to "San-Fierro"', async () => {
         const forecasts = await sut.getWeatherByQuery('San-Fierro')
 
-        assert.equal(forecasts, null)
+        assert.ok(forecasts === undefined)
+    })
+
+    it('makes query to undefined', async () => {
+        const forecasts = await sut.getWeatherByQuery({}[1])
+
+        assert.ok(forecasts === undefined)
     })
 
     it('makes query to "50.068,-5.316"', async () => {
