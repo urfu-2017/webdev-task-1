@@ -1,3 +1,213 @@
-.widget-content {
-    display: flex;
+.page-head
+{
+    margin: auto;
+    border-bottom: solid gray 2px;
 }
+
+.head-content-wrap
+{
+    position: relative;
+    width: 700px;
+    height: 100px
+}
+
+.back-link
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.page-wrap
+{
+    box-shadow: 5px 10px 18px #888888;
+    margin: auto;
+    width: 700px;
+    border: solid gray 2px;
+}
+
+.widget
+{
+    margin: auto;
+    width: 700px;
+    border-bottom: solid gray 2px;
+}
+
+.city-name,
+.temp-sign,
+.temp-measure,
+.wind-measure
+{
+    font-size: 20px;
+}
+
+.widget-content
+{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.weather-icon-container
+{
+    width: 150px;
+    height: 100px;
+}
+
+.weather-measures-container
+{
+    flex-direction: column;
+    width: 400px;
+}
+
+.temperature,
+.wind,
+.top-line
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-measures
+{
+    max-width: 150px;
+    margin: 10px;
+}
+
+.wind-sign
+{
+    width: 52px;
+    height: 52px;
+    align-self: center;
+    background: url("/wind.svg") no-repeat;
+}
+
+.header,
+.wind-measure,
+.temp-measure,
+.sub-widget-item,
+.category-link,
+.category-icon,
+.headline-link,
+.publish-date,
+.article-description-wrap
+{
+    align-self: center;
+}
+
+.news,
+.weather-measures-container,
+.sub-widget,
+.news-container,
+.page-head,
+.head-content-wrap
+{
+    display: flex;
+    justify-content: center;
+}
+
+.sub-widgets-container
+{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sub-widget
+{
+    flex-direction: column;
+    border: solid pink;
+    width: 70px;
+    height: 70px;
+}
+
+.news
+{
+    margin: auto;
+    width: 700px;
+}
+
+.news-container
+{
+    flex-direction: column;
+    margin: auto;
+}
+
+.category-icon
+{
+    height: 50px;
+    width: 50px;
+}
+
+.category-item
+{
+    border-radius: 5px;
+    margin: 10px;
+    border: solid gray 2px;
+    box-shadow: 5px 5px 8px #888888;
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    width: 200px;
+}
+
+.articles-container
+{
+    width: 700px;
+}
+
+.article-item
+{
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid gray 2px;
+    padding: 15px;
+    width: 670px;
+    height: 200px;
+}
+
+.headline-link
+{
+    width: 490px;
+    height: 70px;
+}
+
+.article-title
+{
+    font-size: 18px;
+}
+
+.bottom-line
+{
+    display: flex;
+    height: 140px;
+}
+
+.article-image-wrap
+{
+    width: 200px;
+    height: 120px;
+}
+
+.article-image
+{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.top-line
+{
+    height: 60px;
+}
+
+.article-description-wrap
+{
+    width: 400px;
+}
+
+.source-line
+{
+    align-self: flex-end;
+}
+
+

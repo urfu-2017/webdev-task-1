@@ -1,0 +1,19 @@
+<div class="news">
+    <div class="news-container">
+        <div class="list-header">
+            <h2>Категории новостей</h2>
+        </div>
+        <div class="category-list">
+            {{#each categories}}
+                <a href="/news/?query={{../widget.city}}&category={{this.urlName}}&country={{../widget
+                .countryCode}}"
+                    class="category-item">
+                    <span class="category-icon">
+                        <img src="/{{this.urlName}}.svg">
+                    </span>
+                    <span class="category-link">{{this.name}}</span>
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</div>

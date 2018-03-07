@@ -16,5 +16,7 @@ module.exports = (req, res, next) => {
 
     res.locals.weatherApiBasePath = 'https://www.metaweather.com/';
 
+    res.locals.newsApiBasePath = 'https://newsapi.org/v2/';
+
     next();
 };
