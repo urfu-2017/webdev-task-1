@@ -4,7 +4,7 @@
         {{#each categories}}{{#with this}}
             <li class="categories__item">
                 <span class="icofont {{ categoryToIcon urlShortName }}"></span>
-                <a href="/{{ urlShortName }}">{{ title }}</a>
+                <a class="categories__item-link" href="/{{ urlShortName }}">{{ title }}</a>
             </li>
         {{/with}}{{/each}}
     </ul>

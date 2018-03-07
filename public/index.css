@@ -59,7 +59,7 @@
     border: thin solid #fff;
 }
 
-.weather__table tr td {
+.weather__table-cell {
     border: thin solid #fff;
 }
 
@@ -77,7 +77,7 @@
     color: #667;
 }
 
-.categories__item a {
+.categories__item-link {
     height: 20px;
     line-height: 20px;
     color: #667;

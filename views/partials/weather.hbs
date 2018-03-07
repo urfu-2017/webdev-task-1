@@ -15,14 +15,14 @@
         <thead>
             <tr>
                 {{#each (tail forecast)}}{{#with this}}
-                    <td>{{displayRussianDate day}}</td>
+                    <td class="weather__table-cell">{{displayRussianDate day}}</td>
                 {{/with}}{{/each}}
             </tr>
         </thead>
         <tbody>
             <tr>
                 {{#each (tail forecast)}}{{#with this}}
-                    <td>
+                    <td class="weather__table-cell">
                         {{fmtTemp tempCelsius}}
                         <br>
                         {{fmtWind windMps}}
