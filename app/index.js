@@ -2,7 +2,6 @@
 const path = require('path');
 
 const express = require('express');
-const config = require('config');
 const hbs = require('hbs');
 
 const commonData = require('./middlewares/common-data');
@@ -32,7 +31,7 @@ app.use((err, req, res, next) => {
 });
 
 hbs.registerPartials(partialsDir, () => {
-    const port = config.get('port');
+    const port = 8080;
 
     app.listen(port, () => {
         console.info(`Server started on ${port}`);
