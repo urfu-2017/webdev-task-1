@@ -1,11 +1,15 @@
 {{#extend "base"}}
 
+    {{#content "title"}} {{ title }} {{/content}}
+
     {{#content "styles"}}
-        <h1>Goodnight Moon</h1>
+        <link rel="stylesheet" href="/styles/page.css">
+        <link rel="stylesheet" href="/styles/header.css">
+        <link rel="stylesheet" href="/styles/footer.css">
     {{/content}}
 
     {{#content "header"}}
-        <h1>Goodnight Moon</h1>
+        {{> header }}
     {{/content}}
 
     {{#content "main"}}

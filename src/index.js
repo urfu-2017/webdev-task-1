@@ -18,7 +18,8 @@ app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 routes(app);
 
-hbs.registerHelper(layouts(hbs));
+const handlebars = hbs.handlebars;
+handlebars.registerHelper(layouts(handlebars));
 hbs.registerPartials(partialsDir, () => {
     const port = process.env.APP_PORT || 8080;
 
