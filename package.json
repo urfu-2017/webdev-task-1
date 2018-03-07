@@ -3,11 +3,13 @@
   "scripts": {
     "start": "node index.js",
     "lint": "cd .",
-    "test": "npm run lint && mocha tests/*.js --timeout 5000"
+    "test": "npm run lint && mocha tests/*.js --timeout 5000 --require babel-core/register"
   },
   "dependencies": {
     "assert": "^1.4.1",
     "async-middleware": "^1.2.1",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "metaweather": "0.0.2",
