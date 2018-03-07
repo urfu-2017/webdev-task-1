@@ -1,0 +1,15 @@
+<article class="news-article">
+    <header class="news-article_header">
+        <h3 class="news-article_header__title">{{title}}</h3>
+        <span class="news-article_header__data">{{publishedAt}}</span>
+    </header>
+    <article class="article-body">
+        {{#if urlToImage}}
+            <img class="article-body__image" src={{urlToImage}}>
+        {{/if}}
+        <div class="article-body__description">{{description}}</div>
+    </article>
+    <footer class="news-article__source">
+        <a href="{{url}}">Source</a>
+    </footer>
+</article>

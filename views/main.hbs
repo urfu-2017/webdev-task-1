@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ document.title }}</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+    <main class="container">
+        {{> header document.header }}
+        {{> weather weather weather=document.weather}}
+        <section class="news-container">
+            <ul>
+                {{#each document.categories}}
+                    <li><a href="/{{ url }}{{ ../query }}">{{ name }}</a></li>
+                {{/each}}
+            </ul>
+        </section>
+        {{> footer document.footer}}
+    </main>
+</body>
+</html>

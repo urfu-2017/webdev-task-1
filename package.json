@@ -6,7 +6,10 @@
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "dateformat": "^3.0.3",
+    "express": "^4.16.2",
+    "got": "^8.2.0",
+    "hbs": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^4.8.0",

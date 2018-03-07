@@ -1,0 +1,23 @@
+<section class="weather">
+    <h2 class="weather__title">{{ title }}</h2>
+    <img src="{{weather.staticUrl}}{{days.0.icon}}.svg" alt="weather icon" class="weather__icon">
+    <article class="weather__temperature">{{days.0.temp}}&deg</article>
+    <article class="weather__wind">{{days.0.wind}} m/s</article>
+    <table class="weather-forecast">
+        <tr>
+            {{#each days}}
+                <th>{{date}}</th>
+            {{/each}}
+        </tr>
+        <tr>
+            {{#each days}}
+                <td>{{temp}}&deg</td>
+            {{/each}}
+        </tr>
+        <tr>
+            {{#each days}}
+                <td>{{wind}}m/s</td>
+            {{/each}}
+        </tr>
+    </table>
+</section>

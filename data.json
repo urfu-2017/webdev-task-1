@@ -1,0 +1,23 @@
+{
+    "categories": [
+        { "name": "Бизнесс", "url": "business", "category": "business" },
+        { "name": "Развлечения", "url": "entertainment", "category": "entertainment" },
+        { "name": "Общее", "url": "all", "category": "" },
+        { "name": "Здоровье", "url": "health", "category": "health" },
+        { "name": "Наука", "url": "science", "category": "science" },
+        { "name": "Спорт", "url": "sport", "category": "sport" },
+        { "name": "Технологии", "url": "technology", "category": "technology" }
+    ],
+    "title": "Task-1",
+    "header": {
+        "title": "Webdev-task-1"
+    },
+    "weather": {
+        "staticUrl": "https://www.metaweather.com/static/img/weather/"
+    },
+    "footer": {
+        "author": "Evgeny Elakov",
+        "year": 2018
+    },
+    "apiKey": "19e7a75f9e4b4f69a4b25524c553004b"
+}

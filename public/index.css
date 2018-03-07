@@ -1,0 +1,113 @@
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #000;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.container > :not(:first-child) {
+    border-top: 2px solid #000;
+}
+
+header {
+    text-align: center;
+}
+
+.weather {
+    overflow: hidden;
+    font-size: 30px;
+    padding: 0 20px;
+}
+
+.weather__title {
+    margin-top: 0; 
+}
+
+.weather__temperature::before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background-image: url("./thermometer.svg");
+    height: 2em;
+    width: 2em;
+    margin-right: 20px;
+}
+
+.weather__wind::before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background-image: url("./waves.svg");
+    height: 2em;
+    width: 2em;
+    margin-right: 20px;
+}
+
+.weather__icon {
+    float: left;
+    max-width: 5%;
+    margin: 0 30px; 
+}
+
+.news-container {
+    overflow: hidden;
+}
+
+.news-container > :not(:first-child) {
+    border-top: 1px solid #000;
+}
+
+.news-article {
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    clear: left;
+}
+
+.news-article_header {
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.news-article_header__title {
+    float: left;
+    margin: 0;
+}
+
+.news-article_header__data {
+    float: right;
+}
+
+.article-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-body__image {
+    flex-basis: 20%;
+}
+
+.article-body__description {
+    flex-basis: 78%;
+}
+
+.news-article__source {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+} 
+
+.main-footer {
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+
+.main-footer__author {
+    float: left;
+}
+
+.main-footer__year {
+    float: right;
+}
