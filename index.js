@@ -2,12 +2,10 @@
 
 const path = require('path');
 
-const bodyParser = require('body-parser');
 const config = require('config');
 const express = require('express');
 const hbs = require('hbs');
 const morgan = require('morgan');
-
 
 const routes = require('./routes');
 const commonData = require('./middlewares/common-data');
@@ -23,28 +21,14 @@ const publicDir = path.join(__dirname, 'public');
 app.set('view engine', 'hbs');
 
 app.set('views', viewsDir);
-
-
 app.use(morgan('dev'));
 
 
 app.use(express.static(publicDir));
-
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
-
-// app.use((err, req, res, next) => {
-//     console.error(err.stack);
-
-//     next();
-// });
-
 app.use(commonData);
-
 routes(app);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.stack);
 
     res.sendStatus(500);
@@ -58,3 +42,5 @@ hbs.registerPartials(partialsDir, () => {
         console.info(`Open http://localhost:${port}/`);
     });
 });
+
+module.exports = app;

@@ -1,7 +1,6 @@
 'use strict';
 
 const config = require('config');
-// const fetch = require('node-fetch');
 const NewsApi = require('newsapi');
 
 const categories = require('../mocks/categories');
@@ -14,17 +13,33 @@ class Category {
         return categories;
     }
 
-    static getAll(country) {
-        return categories.map(category => {
-            return newsApi.v2.topHeadlines({
-                category,
-                country
-            }).then(res => {
-                return res;
-            });
+    static getNews(category, country, language) {
+        return newsApi.v2.topHeadlines({
+            category,
+            language,
+            country
+        }).then(res => {
+            return res.totalResults > 5 ? getFirstFiveArticles(res) : res;
+            // console.info('Сould not receive news');
         });
     }
-} 
+}
+
+
+function getFirstFiveArticles(articles) {
+
+    return articles.articles.slice(0, 5)
+        .map((article) => {
+            return {
+                url: article.url,
+                title: article.title,
+                source: article.source.name,
+                urlToImage: article.urlToImage,
+                description: article.description,
+                publishedAt: new Date (article.publishedAt).toLocaleString()
+            };
+        });
+}
 
 module.exports = Category;
 

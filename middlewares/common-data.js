@@ -1,4 +1,5 @@
 'use strict';
+const config = require('config');
 
 module.exports = (req, res, next) => {
     res.locals.meta = {
@@ -8,6 +9,9 @@ module.exports = (req, res, next) => {
 
     res.locals.title = 'News and Weather Service';
 
+    res.locals.defaultCountry = 'ru';
+    res.locals.defaultLanguage = 'ru';
+    res.locals.homePage = config.get('homePage');
 
     next();
 };

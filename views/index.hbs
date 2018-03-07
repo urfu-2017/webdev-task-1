@@ -8,11 +8,19 @@
 </head>
 <body>
     <div class="wrapper">
-        {{> header}}
+        <header class="header">
+            {{#if articles}}
+                <a href={{homePage}} class="header__link">На главную</a>
+            {{/if}}
+            <h1 class="header-topic">Сервис новостей и погоды</h1>
+        </header>
     
         {{> category}}
         
-        {{> footer}}
+        <footer class="footer">
+            <span>&copy; dorokhova</span>
+            <span>{{currentYear}}</span>
+        </footer>
     </div>
 </body>
 </html>
