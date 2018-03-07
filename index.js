@@ -50,7 +50,7 @@ Object.assign(app.locals, common);
 hbs.localsAsTemplateData(app);
 
 hbs.registerPartials(partialsDir, () => {
-    const port = 80;
+    const port = 8080;
     app.listen(port, () => {
         console.info(`Server started on http://localhost:${port}/`);
     });
