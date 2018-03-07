@@ -10,7 +10,8 @@ exports.mainPage = (req, res) => {
     ]).then(vals => {
         const widget = vals[0];
         const categories = vals[1];
-        res.render('index', { widget, categories, ...res.locals });
+        const data = Object.assign({ widget, categories }, res.locals);
+        res.render('index', data);
     })
         .catch(err => {
             res.redirect('error', err);

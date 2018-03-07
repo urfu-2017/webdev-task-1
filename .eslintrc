@@ -1,7 +1,4 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
     "extends": "hrundel/node",
     "globals": {
         "describe": true,
