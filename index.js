@@ -14,12 +14,12 @@ const routes = require('./routes');
 app.set('view engine', 'hbs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(lessMiddleware(path.resolve(__dirname, '/public')));
-app.use(express.static(path.resolve(__dirname, '/public')));
+app.use(lessMiddleware(path.resolve(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(morgan('dev'));
 routes(app);
 hbs.registerHelper('date', helperDate);
-hbs.registerPartials(path.resolve(__dirname, '/views/partials'), () => {
+hbs.registerPartials(path.resolve(__dirname, 'views/partials'), () => {
     app.listen(8080);
 });
 
