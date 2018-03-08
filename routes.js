@@ -9,7 +9,7 @@ module.exports = app => {
     // Можем объединить разные http методы с одинаковым маршрутом
     app
         .route('/categories/')
-        .get(categories)
+        .get(categories);
 
     app.get('/news/:category/', news);
 

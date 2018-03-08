@@ -1,18 +1,17 @@
-'use strict'
+'use strict';
 
 const storage = [];
 
 class CategoriesRepository {
-    constructor (){ };
-    getAll () {
+    getAll() {
         return storage;
-    };
-    get (name) {
+    }
+    get(name) {
         return storage.find(c => c.name === name);
     }
-    save (category) {
+    save(category) {
         storage.push(category);
-    };
+    }
 }
 
 module.exports = CategoriesRepository;

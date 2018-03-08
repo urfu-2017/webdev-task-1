@@ -1,6 +1,5 @@
 'use strict';
-const path = require('path')
-const util = require('util');
+const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -82,7 +81,7 @@ app.use(weatherWidget.weatherWidget);
 routes(app);
 
 // Фиксируем фатальную ошибку и отправляем ответ с кодом 500
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.stack);
 
     res.sendStatus(500);
@@ -96,7 +95,7 @@ hbs.registerPartials(partialsDir, () => {
     app.listen(8080, () => {
         console.info('Open http://localhost:8080/notes');
     });
-})
+});
 
 
 module.exports = app;

@@ -1,7 +1,6 @@
 'use strict';
 
 const NewsService = require('../dataAccess/newsService');
-const Category = require('../models/category');
 const CategoriesRepository = require('../dataAccess/categoriesRepository');
 const categoriesRepository = new CategoriesRepository();
 const newsService = new NewsService();

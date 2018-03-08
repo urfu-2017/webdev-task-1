@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 class WeatherInfo {
     constructor(abbr, t, windMpH, date) {
@@ -7,7 +7,7 @@ class WeatherInfo {
         this.windMpH = windMpH.toFixed(2);
         this.date = date;
     }
-    
+
     windKmpH() {
         return (this.windMpH / 1.6).toFixed(1);
     }
