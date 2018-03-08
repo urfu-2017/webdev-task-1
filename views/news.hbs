@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang }}">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <link rel="stylesheet" href="/css/news.css">
+    <title>{{ meta.title }}</title>
+</head>
+<body class="page">
+    {{> header document.header returnLink=returnLink }}
+    {{> weather weather weatherApi=weatherApi }}
+    {{> newslist }}
+    {{> footer document.footer }}
+</body>

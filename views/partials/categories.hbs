@@ -1,0 +1,11 @@
+<section class="categories">
+    <h3 class="categories__title">{{ title }}</h3>
+    {{#each items }}
+    <div class="categories__item">
+        <img src="/images/{{ value }}.svg" alt="{{ name }}" width="20" height="20" 
+            class="categories__icon">
+        <a href="/news/{{ value }}{{#if ../country}}?country={{../country }}{{/if}}" 
+           class="categories__link">{{ name }}</a>    
+    </div>
+    {{/each }}
+</section>

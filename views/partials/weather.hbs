@@ -1,0 +1,28 @@
+<div class="weather-widget">
+    <div class="weather-widget__location">{{ city }}</div>
+    <img class="weather-widget__icon weather-widget__icon_size_large" 
+         src="{{ weatherApi.staticUrl }}/{{ currentWeather.weatherStateAbbr }}.{{ weatherApi.imageExt }}" 
+         alt="{{ currentWeather.weatherStateName}}" width="100">
+    <div class="weather-widget__wind">
+        <img class="weather-widget__icon weather-widget__icon_size_small"
+             src="/images/wind.svg" alt="Wind" width="20" height="20">
+        <span class="weather-widget__text">{{ currentWeather.windSpeed }} м&sol;с</span>
+    </div>
+    <div class="weather-widget__temperature">
+        <img class="weather-widget__icon weather-widget__icon_size_small"
+             src="/images/temp.svg" alt="Temperature" width="20" height="20">
+        <span class="weather-widget__text">{{ currentWeather.temperature }} &#8451;</span>
+    </div>
+    <div class="weather-widget__items">
+        {{#each futureWeather}}
+        <div class="weather-widget__item">
+            <div class="weather-widget__text">{{ formattedDate }}</div>
+            <div clas="weather-widget__text">{{ temperature}} &#8451;</div>
+            <div class="weather-widget__text">{{ windSpeed }} м&sol;с</div>
+            <img class="weather-widget__icon weather-widget__icon_size_small"
+                src="{{ ../weatherApi.staticUrl }}/{{ weatherStateAbbr }}.{{ ../weatherApi.imageExt}}" 
+                alt="{{ weatherStateName}}">
+        </div>
+        {{/each}}
+    </div>
+</div>

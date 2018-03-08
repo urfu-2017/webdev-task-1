@@ -1,0 +1,17 @@
+<section class="news">
+    {{#each news}}
+    <article class="news-item">
+        <h3 class="news-item__title">
+            <a class="news-item__link" href="{{ sourceUrl }}">{{ title }}</a>                
+        </h3>
+        <div class="news-item__content-wrapper">
+            {{#if imageUrl}}
+            <img class="news-item__image" src="{{imageUrl}}" alt="image" width="200">
+            {{/if}}
+            <span class="news-item__description">{{ description }}</span>
+        </div>
+        <p class="news-item__publication-time">{{ formattedPublicationTime }}</p>         
+        <aside class="news-item__source">{{ source }}</aside>
+    </article>
+    {{/each}}
+</section>

@@ -1,0 +1,42 @@
+@import 'header.scss';
+@import 'weather.scss';
+@import 'categories.scss';
+@import 'footer.scss';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: 15% 30% 50% 5%;
+    grid-template-areas: 
+        "header"
+        "weather"
+        "categories"
+        "footer"
+}
+
+.header {
+    grid-area: header;
+
+}
+
+.weather-widget {
+    grid-area: weather;
+    margin: 0 auto;
+}
+
+.categories {
+    grid-area: categories;
+    
+    &__item {
+        margin-left: 3%;
+    }
+}
+
+.footer {
+    grid-area: footer;
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ document.lang }}">
+<head>
+    <meta charset="{{ document.meta.charset }}">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>{{ document.title }}</title>
+</head>
+<body class="page">
+    {{> header document.header }}
+    {{> weather weather weatherApi=weatherApi }}
+    {{> categories document.categories }}
+    {{> footer document.footer }}
+</body>
+</html>

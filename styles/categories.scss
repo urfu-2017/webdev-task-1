@@ -1,0 +1,21 @@
+$link-font-size: 20px;
+$link-color: #3f3636;
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    &__item {
+        display: inline-block;
+    }
+
+    &__link {
+        font-size: $link-font-size;
+        color: $link-color;
+
+        &:hover {
+            color: darken($link-color, 20%);
+        }
+    }
+}

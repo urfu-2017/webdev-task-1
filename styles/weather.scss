@@ -1,0 +1,59 @@
+$icon-width-small: 30px;
+$icon-height-small: 30px;
+$icon-width-large: 80px;
+$icon-height-large: 80px;
+$widget-width: 500px; 
+
+.weather-widget {
+    width: $widget-width;
+    display: grid;
+    grid-template-columns: 33% 33% auto;
+    grid-template-areas:
+        "loc temp ."
+        "icon wind ."
+        "icon items items"
+        "icon items items";
+
+    &__items {
+        grid-area: items;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: inline-block;
+    }
+
+    &__location {
+        grid-area: loc;
+    }
+
+    &__wind, 
+    &__temperature {
+        font-size: 20px;
+    }
+
+    &__wind {
+        grid-area: wind;
+    }
+
+    &__temperature {
+        grid-area: temp;
+    }
+
+    &__icon {
+        &_size {
+            &_small {
+                width: $icon-width-small;
+                height: $icon-height-small;
+            }
+
+            &_large {
+                grid-area: icon;
+                width: $icon-width-large;
+                height: $icon-height-large;
+            }
+        }
+    }
+}

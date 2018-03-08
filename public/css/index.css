@@ -1,0 +1,118 @@
+.header__title {
+  text-align: center;
+}
+
+.header__return-link {
+  position: relative;
+  left: 1%;
+}
+
+.weather-widget {
+  width: 500px;
+  display: grid;
+  grid-template-columns: 33% 33% auto;
+  grid-template-areas: "loc temp ." "icon wind ." "icon items items" "icon items items";
+}
+
+.weather-widget__items {
+  grid-area: items;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.weather-widget__item {
+  display: inline-block;
+}
+
+.weather-widget__location {
+  grid-area: loc;
+}
+
+.weather-widget__wind, .weather-widget__temperature {
+  font-size: 20px;
+}
+
+.weather-widget__wind {
+  grid-area: wind;
+}
+
+.weather-widget__temperature {
+  grid-area: temp;
+}
+
+.weather-widget__icon_size_small {
+  width: 30px;
+  height: 30px;
+}
+
+.weather-widget__icon_size_large {
+  grid-area: icon;
+  width: 80px;
+  height: 80px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.categories__item {
+  display: inline-block;
+}
+
+.categories__link {
+  font-size: 20px;
+  color: #3f3636;
+}
+
+.categories__link:hover {
+  color: #080707;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.footer__content {
+  margin: 0 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.page {
+  display: grid;
+  grid-template-rows: 15% 30% 50% 5%;
+  grid-template-areas: "header" "weather" "categories" "footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.weather-widget {
+  grid-area: weather;
+  margin: 0 auto;
+}
+
+.categories {
+  grid-area: categories;
+}
+
+.categories__item {
+  margin-left: 3%;
+}
+
+.footer {
+  grid-area: footer;
+}
+/*# sourceMappingURL=index.css.map */
