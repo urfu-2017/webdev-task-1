@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 const express = require('express');
 const hbs = require('hbs');
 
@@ -15,20 +17,31 @@ function loadInitialData() {
     }
 }
 
+function registerFuckingPartialsSync(partialsDir, hbsInstance) {
+    var filenames = fs.readdirSync(partialsDir);
+
+    filenames.forEach(filename => {
+        var matches = /^([^.]+).hbs$/.exec(filename);
+        if (!matches) {
+            return;
+        }
+        var name = matches[1];
+        var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
+        hbsInstance.registerPartial(name, template);
+    });
+}
+
 loadInitialData();
 
 const app = express();
 app.use(express.static(settings.publicDir));
 app.set('view engine', 'hbs');
 app.set('views', settings.viewsDir);
+registerFuckingPartialsSync(settings.partialsDir, hbs);
 routes(app);
 
-hbs.registerPartials(settings.partialsDir, () => {
-    const port = settings.serverPort;
-
-    app.listen(port, () => {
-        console.info(`Сервер запущен по адресу http://localhost:${port}/`);
-    });
+app.listen(settings.serverPort, () => {
+    console.info(`Сервер запущен по адресу http://localhost:${settings.serverPort}/`);
 });
 
 module.exports = app;
