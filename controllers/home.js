@@ -1,20 +1,12 @@
-'use strict'
+'use strict';
 
-const weatherProvider = require('./weather');
-const NEWS_CATEGORIES = [
-    { titleRu: 'Бизнес',      titleEn: 'business' },
-    { titleRu: 'Развлечения', titleEn: 'entertainment' },
-    { titleRu: 'Общее',       titleEn: 'general' },
-    { titleRu: 'Здоровье',    titleEn: 'health' },
-    { titleRu: 'Наука',       titleEn: 'science' },
-    { titleRu: 'Спорт',       titleEn: 'sports' },
-    { titleRu: 'Технологии',  titleEn: 'technology' }
-]
+const weatherProvider = require('../core/weather');
+const config = require('../config');
+const newsCategories = config.newsCategories;
 
 exports.home = async (req, res) => {
     const weather = await weatherProvider.getWeatherInfoAsync(req);
-
-    const data = { weather: weather, categories: NEWS_CATEGORIES, ...res.locals };
+    const data = { weather: weather, categories: newsCategories, title: 'Новости и погода' };
 
     res.render('index', data);
-}
+};

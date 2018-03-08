@@ -3,7 +3,7 @@
 const MetaWeather = require('metaweather');
 const mw = new MetaWeather();
 const WeatherInfo = require('../models/WeatherInfo');
-const DEFAULT_CITY = 'london';
+const config = require('../config');
 
 exports.getWeatherInfoAsync = async (req) => {
     let locations = [];
@@ -15,7 +15,7 @@ exports.getWeatherInfoAsync = async (req) => {
     } else if (req.query && req.query.query) {
         locations = await mw.search().query(req.query.query);
     } else {
-        locations = await mw.search().query(DEFAULT_CITY);
+        locations = await mw.search().query(config.defaultCity);
     }
 
     const woeid = locations.body[0].woeid;

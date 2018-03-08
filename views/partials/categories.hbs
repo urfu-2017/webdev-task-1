@@ -1,9 +1,11 @@
-{{#if categories.length}}
-<h2>Категории новостей</h2>
-{{/if}}
-{{#each categories}}
-<div class='news-category'>
-    <img src='/icons/{{ titleEn }}.svg' class='news-category__icon'>
-    <a class='news-category__link' href='/news?category={{ titleEn }}'>{{ titleRu }}</a>
+<div class="news-categories">
+    {{#if categories.length}}
+    <h2>Категории новостей</h2>
+    {{/if}}
+    {{#each categories}}
+    <div class='news-category'>
+        <img src='/icons/{{ titleEn }}.svg' class='news-category__icon'>
+        <a class='news-category__link' href='/news?category={{ titleEn }}'>{{ titleRu }}</a>
+    </div>
+    {{/each}}
 </div>
-{{/each}}
