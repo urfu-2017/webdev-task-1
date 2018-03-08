@@ -1,0 +1,16 @@
+{{> weather}}
+<div>
+    {{#each articles}}
+    <article class='news'>
+        <div>
+            <div>{{ title }}</div>
+        </div>
+        <div>
+            <div>{{ description }}</div>
+        </div>
+        <div>
+            <a href="{{ url }}">{{ source.name }}</a>
+        </div>
+    </article>
+    {{/each}}
+</div>

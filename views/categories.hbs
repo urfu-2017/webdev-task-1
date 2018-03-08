@@ -1,0 +1,14 @@
+{{> weather}}
+<div class="category">
+    <div>
+        Категории новостей
+    </div>
+    {{#each categories}}
+    <div>
+        <div >
+            {{{ icon }}}
+        </div>
+        <a href="/news/{{ @key }}">{{ title }}</a>
+    </div>
+    {{/each}}
+</div>
