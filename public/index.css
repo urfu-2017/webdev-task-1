@@ -1,0 +1,139 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 640px;
+    background: #fff;
+    border: 2px solid #99b;
+}
+
+.main__heading {
+    text-align: center;
+    color: #667;
+    font-size: 30px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.weather {
+    display: grid;
+    box-sizing: border-box;
+    padding: 10px 0 10px 20px;
+    grid-template-columns: 25% auto;
+    grid-template-rows: 20px 20px 30px auto;
+    grid-template-areas:
+    "weather-city . . ."
+    "weather-icon weather-temp weather-temp ."
+    "weather-icon weather-wind weather-wind ."
+    "weather-icon weather-table weather-table weather-table";
+    background: #99b;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+}
+
+.weather__city {
+    grid-area: weather-city;
+    text-align: center;
+}
+
+.weather__icon {
+    grid-area: weather-icon;
+    font-size: 90px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.weather__temp {
+    grid-area: weather-temp;
+}
+
+.weather__wind {
+    grid-area: weather-wind;
+}
+
+.weather__table {
+    grid-area: weather-table;
+    border: thin solid #fff;
+}
+
+.weather__table-cell {
+    border: thin solid #fff;
+}
+
+.categories, .news {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #667;
+}
+
+.categories__list {
+    list-style-type: none;
+}
+
+.categories__item {
+    color: #667;
+}
+
+.categories__item-link {
+    height: 20px;
+    line-height: 20px;
+    color: #667;
+    text-decoration: none;
+}
+
+.categories__item a:hover {
+    color: #99b;
+}
+
+.footer {
+    border-top: thin #99b solid;
+}
+
+.footer__right, .footer__left {
+    display: inline-block;
+    padding: 10px;
+}
+
+.footer__right {
+    float: right;
+    width: 20%;
+}
+
+.news-item {
+    display: grid;
+    box-sizing: border-box;
+    padding: 10px 0 30px 0px;
+    grid-template-columns: 30% 50% 10px auto 20px;
+    grid-template-rows: 40px auto 20px;
+    grid-template-areas:
+    "news-item-heading news-item-heading . news-item-date"
+    "news-item-desc news-item-desc news-item-desc ."
+    ". . . news-item-src";
+}
+
+.news-item__heading {
+    grid-area: news-item-heading;
+    color: #556;
+    font-weight: bold;
+}
+
+.news-item__date {
+    grid-area: news-item-date;
+}
+
+.news-item__desc {
+    grid-area: news-item-desc;
+}
+
+.news-item__desc img {
+    float: left;
+    width: 50%;
+    margin-right: 10px;
+}
+
+.news-item__src {
+    grid-area: news-item-src;
+}

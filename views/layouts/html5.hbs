@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ siteName }} - {{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="/icofont.css">
+    <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+    <main class="main">
+        <a href="/" class="main__heading">{{ siteName }}</a>
+        {{> weather forecast=forecast }}
+        {{{ body }}}
+        <footer class="footer">
+            <div class="footer__left">@mokosha</div>
+            <div class="footer__right">20187</div>
+        </footer>
+    </main>
+</body>
+</html>

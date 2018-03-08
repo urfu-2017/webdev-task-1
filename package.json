@@ -2,11 +2,20 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "lint": "cd .",
+    "test": "npm run lint && mocha tests/*.js --timeout 5000 --require babel-core/register"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "assert": "^1.4.1",
+    "async-middleware": "^1.2.1",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "metaweather": "0.0.2",
+    "moment": "^2.21.0",
+    "newsapi": "^2.2.0",
+    "union-type": "^0.4.1"
   },
   "devDependencies": {
     "eslint": "^4.8.0",

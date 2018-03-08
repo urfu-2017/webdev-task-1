@@ -1,0 +1,22 @@
+<div class="news">
+    Категория: {{category.title}}
+    {{#each news}}{{#with this}}
+        <div class="news-item">
+            <div class="news-item__heading">
+                {{ title }}
+            </div>
+            <div class="news-item__date">
+                {{ displayRussianDate publishedAt }}
+            </div>
+            <div class="news-item__desc">
+                {{#if imageUrl}}
+                    <img alt="{{ title }}" title="{{ title }}" src="{{ imageUrl }}">
+                {{/if}}
+                {{{ description }}}
+            </div>
+            <div class="news-item__src">
+                <a href="{{ source }}">Источник</a>
+            </div>
+        </div>
+    {{/with}}{{/each}}
+</div>
