@@ -1,0 +1,28 @@
+<div class='widget'>
+    <div class='widget__general'>
+        <span>{{ weather.cityName }}</span>
+        <img class='weather-now__icon' src='{{ weather.weatherToday.urlToImage }}' alt='today weather icon'>
+    </div>
+
+    <div class='widget__forecast'>
+        <div class='weather-now'>
+            <div class='weather-now__info'>
+                <img src='/icons/thermometer.svg' alt='thermometer'>
+                <span>{{ weather.weatherToday.temperature }} °C</span>
+            </div>
+            <div class='weather-now__info'>
+                <img src='/icons/wind.svg' alt='wind'>
+                <span>{{ weather.weatherToday.windSpeed }} м/с</span>
+            </div>
+        </div>
+        <div class='weather-widget__forecast'>
+            {{#each weather.forecast}}
+            <div class='weather-widget__forecast-item'>
+                <date>{{ date }}</date>
+                <span>{{ temperature }} °С</span>
+                <span>{{ windSpeed }} м/с</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

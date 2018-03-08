@@ -1,15 +1,11 @@
 'use strict';
 
 const { error404 } = require('./controllers/errors');
-const { weather } = require('./controllers/weather');
 const { news } = require('./controllers/news');
+const { home } = require('./controllers/home');
 
 module.exports = app => {
-    app.get('/', error404);
-
-    app
-        .route('/weather')
-        .get(weather);
+    app.get('/', home);
 
     app
         .route('/news')

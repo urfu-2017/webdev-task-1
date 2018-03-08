@@ -39,6 +39,6 @@ routes(app);
 
 hbs.registerPartials(partialsDir, () => {
     app.listen(8081, () => {
-        console.info('Open http://localhost:8080/notes');
+        console.info('Open http://localhost:8080/');
     });
 })
