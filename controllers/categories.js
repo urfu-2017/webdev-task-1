@@ -7,15 +7,17 @@ const newsapi = new NewsAPI('f8c7968376984c3db60b4759fa20cfe4');
 
 exports.listCategories = (req, res) => {
     let locals = res.locals;
-    const data = { categories, locals };
+    let weatherList = res.locals.weather.weatherList;
+    const data = { categories, locals, weatherList };
     res.render('index', data);
 
 };
 
 exports.listNews = (req, res) => {
     let locals = res.locals;
+    let weatherList = res.locals.weather.weatherList;
     const flag = 1;
-    let data = { categories, flag, locals };
+    let data = { categories, flag, locals, weatherList };
     let country = req.query.country || 'us';
     let options = {
         category: req.params.name,

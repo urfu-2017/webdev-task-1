@@ -8,7 +8,8 @@ class Weather {
         weatherData.consolidated_weather.forEach(o => {
             let theTemp = Math.round(o.the_temp);
             let windSpeed = Math.round(o.wind_speed);
-            weatherList.push({ theTemp, windSpeed });
+            let date = o.applicable_date;
+            weatherList.push({ theTemp, windSpeed, date });
         });
         let svgFileName = weatherData.consolidated_weather[0].weather_state_abbr;
         this.title = weatherData.title;

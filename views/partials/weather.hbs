@@ -1,3 +1,20 @@
 <article class="weather">
-    <div>Погода</div>
+    <section class="weather__header">
+        <div class="weather__header__title">{{weather.title}}</div>
+        <img src="{{weather.imgUrl}}" class="weather__header__img">
+    </section>
+    <section class="weather__info">
+        <div class="weather__info__currentTemp">t &emsp;&emsp;&emsp;{{weather.currentTemp}}&deg;C</div>
+        <img src="img/wind.png" class="weather__info__windImg">
+        <div class="weather__info__currentWind">&emsp;&nbsp;&nbsp;&nbsp;{{weather.currentWind}} м/с</div>
+        <div class="weather__info__almanac">
+            {{#each weatherList}}
+            <div class="weather__info__almanac_day">
+                <div class="weather__info__almanac__date">{{date}}</div>
+                <div class="weather__info__almanac__temp">{{theTemp}}&deg;C</div>
+                <div class="weather__info__almanac__wind">{{windSpeed}} м/с</div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
 </article>
