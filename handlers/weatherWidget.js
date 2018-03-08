@@ -14,7 +14,7 @@ exports.weatherWidget = async (req, res, next) => {
     } else if (lat && long) {
         await weatherService.configureLocationByLatLong({ lat, long });
     } else {
-        await weatherService.configureLocationByQuery("london");
+        await weatherService.configureLocationByQuery('london');
     }
     const weather = await weatherService.getWeather();
     res.locals.todayWeather = weather.find(w => w.date === moment().format('YYYY-MM-DD'));

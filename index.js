@@ -4,8 +4,6 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
-const morgan = require('morgan');
-const config = require('config');
 const MomentHelper = require('handlebars.moment');
 
 const routes = require('./routes');
