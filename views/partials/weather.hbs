@@ -1,0 +1,13 @@
+<div class='weather'>
+    <div class='weather__name-city'>{{city}}</div>
+    <img src='{{weathers.0.weatherStateImage}}' alt='{{weathers.0.weatherStateName}}' width='36px' height='36px' class='weather__image'>
+    <div class='today-temp'>
+    <img src='/images/temp.png' class='today-temp__label' alt='temp'>
+    <span>{{weathers.0.temp}}&deg;C</span>
+    </div>
+    <div class='today-wind'>
+    <img src='/images/wind.png' class='today-temp__label' alt='wind'>
+    <span>{{weathers.0.windSpeed}}м/с</span>
+    </div>
+    {{>weatherFiveDays}}
+</div>

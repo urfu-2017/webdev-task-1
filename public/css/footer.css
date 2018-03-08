@@ -1,0 +1,11 @@
+footer {
+    background: #474747;
+    color: #fff;
+    grid-area: f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 0;
+    font-size: 15px;
+}

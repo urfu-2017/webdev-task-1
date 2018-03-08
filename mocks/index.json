@@ -1,0 +1,31 @@
+[
+{
+    "title": "InWorld",
+    "meta": {
+        "charset": "utf-8",
+        "description": "InWorld"
+    },
+    "main": {
+        "header": "Илон слишком занят",
+        "categories": {
+            "title": "Категории новостей",
+            "categories": [
+                { "name": "Бизнесс", "url": "business", "category": "business", "icon": "/images/business.png" },
+                {
+                    "name": "Развлечения", "url": "entertainment", "category": "entertainment",
+                    "icon": "/images/entertainment.png"
+                },
+                { "name": "Общее", "url": "all", "category": "", "icon": "/images/all.png" },
+                { "name": "Здоровье", "url": "health", "category": "health", "icon": "/images/health.png" },
+                { "name": "Наука", "url": "science", "category": "science", "icon": "/images/science.png" },
+                { "name": "Спорт", "url": "sport", "category": "sport", "icon": "/images/sport.png" },
+                { "name": "Технологии", "url": "technology", "category": "technology", "icon": "/images/technology.png" }
+            ]
+        },
+        "footer": {
+            "author": "Albina",
+            "year": "2018"
+        }
+    }
+}
+]

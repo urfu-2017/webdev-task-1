@@ -1,0 +1,21 @@
+header {
+    background: #474747;
+    color: #fff;
+    grid-area: h;
+    padding: 0.5em;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+
+.header__name {
+    font-size: 40px;
+    display: inline;
+}
+
+.header__main-link {
+    font-size: 25px;
+    color: #777676;
+    position: absolute;
+    left: 10px;
+}

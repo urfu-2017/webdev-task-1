@@ -1,0 +1,13 @@
+.news {
+    padding: 1em;
+}
+
+/*.news__header {
+    font-size: 20px;
+    font-weight: bolder;
+}*/
+
+.news__list {
+    display: flex;
+    flex-direction: column;
+}
