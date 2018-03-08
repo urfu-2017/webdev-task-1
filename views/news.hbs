@@ -6,6 +6,9 @@
             <div>{{ title }}</div>
         </div>
         <div>
+            {{#if urlToImage}}
+                <img  src="{{urlToImage}}" width="100" height="auto">
+            {{/if}}
             <div>{{ description }}</div>
         </div>
         <div>
