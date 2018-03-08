@@ -9,7 +9,6 @@
     border: 2px solid #99b;
 }
 
-
 .main__heading {
     text-align: center;
     color: #667;
@@ -20,17 +19,18 @@
 
 .weather {
     display: grid;
-    grid-template-columns: 20px 25% auto;
-    grid-template-rows: 10px 20px 20px 30px auto 10px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 20px;
+    grid-template-columns: 25% auto;
+    grid-template-rows: 20px 20px 30px auto;
     grid-template-areas:
-    ". . . . ."
-    ". weather-city . . ."
-    ". weather-icon weather-temp weather-temp ."
-    ". weather-icon weather-wind weather-wind ."
-    ". weather-icon weather-table weather-table weather-table";
+    "weather-city . . ."
+    "weather-icon weather-temp weather-temp ."
+    "weather-icon weather-wind weather-wind ."
+    "weather-icon weather-table weather-table weather-table";
     background: #99b;
     width: 100%;
-    color: white;
+    color: #fff;
     font-size: 15px;
 }
 
@@ -104,13 +104,14 @@
 
 .news-item {
     display: grid;
+    box-sizing: border-box;
+    padding: 10px 0 30px 0px;
     grid-template-columns: 30% 50% 10px auto 20px;
-    grid-template-rows: 10px 40px auto 20px 30px;
+    grid-template-rows: 40px auto 20px;
     grid-template-areas:
-    " . . . . ."
-    " news-item-heading news-item-heading . news-item-date ."
-    " news-item-desc news-item-desc news-item-desc . ."
-    " . . . news-item-src .";
+    "news-item-heading news-item-heading . news-item-date"
+    "news-item-desc news-item-desc news-item-desc ."
+    ". . . news-item-src";
 }
 
 .news-item__heading {
