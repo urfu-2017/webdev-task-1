@@ -13,7 +13,7 @@ const NEWS_CATEGORIES = [
 
 exports.home = async (req, res) => {
     const weather = await weatherProvider.getWeatherInfoAsync(req);
-    
+
     const data = { weather: weather, categories: NEWS_CATEGORIES, ...res.locals };
 
     res.render('index', data);

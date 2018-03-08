@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 class ArticleModel {
-    constructor(source, title, description, urlToImage, publishedAt) {
+    constructor({ source, title, description, urlToImage, publishedAt }) {
         this.source = source;
         this.title = title;
         this.description = description;

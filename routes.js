@@ -12,4 +12,4 @@ module.exports = app => {
         .get(news);
 
     app.all('*', error404);
-}
+};

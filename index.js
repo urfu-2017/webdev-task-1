@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require('path')
+const path = require('path');
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -41,4 +41,4 @@ hbs.registerPartials(partialsDir, () => {
     app.listen(8081, () => {
         console.info('Open http://localhost:8080/');
     });
-})
+});
