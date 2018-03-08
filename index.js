@@ -38,7 +38,7 @@ app.use(express.static(publicDir));
 app.use((req, res, next) => {
     // Хранение в res.locals – рекомендованный способ
     // Не перезаписываем, а дополняем объект
-    let options = res.query;
+    let options = req.query;
     getWeather(options, weather => {
         res.locals.weather = weather;
         next();
