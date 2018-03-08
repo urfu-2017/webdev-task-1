@@ -1,8 +1,8 @@
 'use strict';
 const path = require('path');
+
 const hbs = require('hbs');
 const morgan = require('morgan');
-
 const express = require('express');
 
 const config = require('../config');

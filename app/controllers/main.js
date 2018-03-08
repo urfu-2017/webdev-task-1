@@ -25,16 +25,20 @@ const _transformQuery = (query, category) => {
 };
 
 
+const _withTimeoutPromise = (innerPromise, timeout) =>
+    new Promise(async (resolve, reject) => {
+        setTimeout(() => reject(), timeout);
+        await innerPromise
+            .catch(() => reject());
+        resolve();
+    });
+
+
 const index = async (req, res) => {
     const query = _transformQuery(req.query);
     const weatherPromise = weather(query);
 
-    await new Promise(async (resolve, reject) => {
-        setTimeout(() => reject(), config.apiRequestTimeout);
-        await weatherPromise
-            .catch(() => reject());
-        resolve();
-    });
+    await _withTimeoutPromise(weatherPromise, config.apiRequestTimeout);
 
     const data = await weatherPromise;
     data.categories = Object.entries(config.newsCategories)
@@ -52,12 +56,10 @@ const newsCategory = async (req, res) => {
     const weatherPromise = weather(query);
     const newsPromise = news(query);
 
-    await new Promise(async (resolve, reject) => {
-        setTimeout(() => reject(), config.apiRequestTimeout);
-        await Promise.all([weatherPromise, newsPromise])
-            .catch(() => reject());
-        resolve();
-    });
+    await _withTimeoutPromise(
+        Promise.all([weatherPromise, newsPromise]),
+        config.apiRequestTimeout
+    );
 
     const data = await weatherPromise;
     data.articles = await newsPromise;
