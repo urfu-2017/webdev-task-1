@@ -15,8 +15,12 @@
     {{/content}}
 
     {{#content "main"}}
-        {{> weather weather }}
-        {{> news }}
+        {{#if weather}}
+            {{> weather weather }}
+        {{/if}}
+        {{#if news}}
+            {{> news news }}
+        {{/if}}
     {{/content}}
 
     {{#content "footer"}}

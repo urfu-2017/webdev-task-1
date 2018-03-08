@@ -15,18 +15,14 @@ exports.list = async (req, res, next) => {
     try {
         weather = await Weather.filter(req.query);
     } catch (e) {
-        res.status(500).send(e.message);
-
-        return;
+        console.error(e.message);
     }
 
     let news;
     try {
         news = await News.filter(category, req.query);
     } catch (e) {
-        res.status(500).send(e.message);
-
-        return;
+        console.error(e.message);
     }
 
     res.render('page-news', {

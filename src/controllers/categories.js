@@ -8,9 +8,7 @@ exports.list = async (req, res) => {
     try {
         weather = await Weather.filter(req.query);
     } catch (e) {
-        res.status(500).send(e.message);
-
-        return;
+        console.error(e.message);
     }
 
     res.render('page-categories', {

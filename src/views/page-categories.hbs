@@ -15,7 +15,9 @@
     {{/content}}
 
     {{#content "main"}}
-        {{> weather weather }}
+        {{#if weather}}
+            {{> weather weather }}
+        {{/if}}
         {{> categories }}
     {{/content}}
 
