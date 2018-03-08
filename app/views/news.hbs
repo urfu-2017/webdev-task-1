@@ -1,0 +1,9 @@
+{{#if news.length}}
+    <div>
+        {{#each news}}
+            {{>newsEl}}     
+        {{/each}}
+    </div>
+{{^}}
+    <div>Возникла ошибка при загрузке новостей!</div>
+{{/if}}

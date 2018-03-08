@@ -1,0 +1,9 @@
+<div>
+    <a href="{{ url }}">{{ title }}</a>
+    <div>{{ publishedAt }}</div>
+    {{#if urlToImage}}
+        <img src="{{ urlToImage }}" alt="image">
+    {{/if}}
+    <div>{{ description }}</div>
+    <div>{{ source.name }}</div>
+</div>  

@@ -1,12 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "start": "node index.js",
+    "start": "node app/index.js",
     "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "hbs": "^4.0.1",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "eslint": "^4.8.0",

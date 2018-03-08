@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <div>{{ weather.title }}</div>
+        <img src="https://www.metaweather.com/static/img/weather/png/64/{{weather.consolidated_weather.0.weather_state_abbr}}.png">
+        <h4>{{ weather.consolidated_weather.0.the_temp }}°C</h3>
+        <h4>{{ weather.consolidated_weather.0.wind_speed }}М/С</h3>
+    </div>
+    <div>
+        {{#if weather.consolidated_weather.length}}
+            {{#each weather.consolidated_weather}}
+                <div>
+                    <p>{{ applicable_date }}</p>
+                    <p>{{ temp }}°C</p>
+                    <p>{{ wind }}М/С</p>
+                </div>
+            {{/each}}
+        {{^}}
+            <div>{{ weather.title }}</div>
+        {{/if}}
+    </div>
+</div>
