@@ -1,0 +1,5 @@
+.weather-widget__ico {
+    grid-area: ico;
+    width: 200px;
+    justify-self: center;
+}

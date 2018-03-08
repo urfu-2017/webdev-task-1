@@ -1,0 +1,4 @@
+.article__source {
+    grid-area: source;
+    text-align: right;
+}

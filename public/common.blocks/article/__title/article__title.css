@@ -1,0 +1,4 @@
+.article__title {
+    grid-area: title;
+    font-size: large;
+}

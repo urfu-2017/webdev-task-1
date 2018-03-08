@@ -1,0 +1,4 @@
+.weather-widget__location-name {
+    grid-area: location;
+    margin-left: 10px;
+}

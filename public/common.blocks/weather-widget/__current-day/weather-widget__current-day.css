@@ -1,0 +1,3 @@
+.weather-widget__current-day {
+    grid-area: currentDay;
+}

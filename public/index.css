@@ -1,0 +1,23 @@
+@import "/common.blocks/article/article.css";
+@import "/common.blocks/article/__date/article__date.css";
+@import "/common.blocks/article/__description/article__description.css";
+@import "/common.blocks/article/__image/article__image.css";
+@import "/common.blocks/article/__source/article__source.css";
+@import "/common.blocks/article/__title/article__title.css";
+
+
+@import "/common.blocks/header/header.css";
+
+@import "/common.blocks/category/category.css";
+@import "/common.blocks/category/__ico/category__ico.css";
+@import "/common.blocks/category/__name/category__name.css";
+
+@import "/common.blocks/weather-widget/weather-widget.css";
+@import "/common.blocks/weather-widget/__current-day/weather-widget__current-day.css";
+@import "/common.blocks/weather-widget/__ico/weather-widget__ico.css";
+@import "/common.blocks/weather-widget/__location-name/weather-widget__location-name.css";
+@import "/common.blocks/weather-widget/__next-days/weather-widget__next-days.css";
+
+@import "/common.blocks/weather-tile/weather-tile.css";
+@import "/common.blocks/weather-tile/__date/weather-tile__date.css";
+@import "/common.blocks/footer/footer.css";

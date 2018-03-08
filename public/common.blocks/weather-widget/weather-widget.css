@@ -1,0 +1,8 @@
+.weather-widget {
+    display: grid;
+    grid-template-areas: "location location location"
+                         "ico currentDay currentDay"
+                         "ico nextDays nextDays";
+    border: thin solid black;
+    margin-bottom: 10px;
+}
