@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/main.css">
+        <title>Main</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <header class="header">Сервис погоды и новостей </header>
+            <div class="weatherBar">{{> weatherBar}}</div>
+            <section class="categories">
+                <h1 class="categories__head">Категории новостей</h1>
+                {{#each dataMain}}
+                    <div class="categories__item">
+                        <a class="categories__link" href="/news/{{class}}?{{../dataWeather.endOfUrl}}">{{name}}</a>
+                    </div>
+                {{/each}}
+            </section>
+            <footer class="footer">
+                <span class="footer__author">&copy;Author</span>
+                <span class="footer__year">2018</span>
+            </footer>
+        </main>
+    </body>
+</html>

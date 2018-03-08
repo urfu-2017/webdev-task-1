@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/weatherBar.css">
+        <title>Test</title>
+    </head>
+    <body>
+        <div class="window">
+            <div class="cityName">{{dataWeather.cityName}}</div>
+            <div class="weatherPicture">
+                <img src="../images/weather/{{dataWeather.today.weather_state_abbr}}.png">
+            </div>
+            <div class="logoTemperature"></div>
+            <div class="temperature">{{dataWeather.today.the_temp}}</div>
+            <div class="logoWind"></div>
+            <div class="windSpeed">{{dataWeather.today.wind_speed}}</div>
+            <table class="forecasts" border="1">
+                <tr>
+                    {{#each dataWeather.forecasts}}
+                    <td>
+                        {{applicable_date}}
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each dataWeather.forecasts}}
+                    <td>
+                        {{the_temp}}<br>
+                        {{wind_speed}}
+                    </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

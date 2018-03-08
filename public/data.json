@@ -1,0 +1,30 @@
+[
+    {
+        "class" : "business",
+        "name" : "Бизнес "
+    },
+    {
+        "class" : "entertainment",
+        "name" : "Развлечения"
+    },
+    {
+        "class" : "general",
+        "name" : "Общее"
+    },
+    {
+        "class" : "health",
+        "name" : "Здоровье"
+    },
+    {
+        "class" : "science",
+        "name" : "Наука"
+    },
+    {
+        "class" : "sports",
+        "name" : "Спорт"
+    },
+    {
+        "class" : "technology",
+        "name" : "Технологии"
+    }
+]
