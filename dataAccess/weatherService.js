@@ -35,7 +35,7 @@ class WeatherService {
         const forecast = response.body.consolidated_weather;
 
         return forecast.map(f =>
-            new WeatherInfo(f.weather_state_abbrsortByDepthThenByName, f.the_temp,
+            new WeatherInfo(f.weather_state_abbr, f.the_temp,
                 f.wind_speed, f.applicable_date));
     }
 }

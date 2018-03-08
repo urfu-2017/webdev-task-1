@@ -41,11 +41,6 @@ hbs.registerHelper('skipFirst', array => array.slice(1));
 // Подключаем директорию с шаблонами
 app.set('views', viewsDir);
 
-// Логируем запросы к приложению в debug-режиме
-if (config.get('debug')) {
-    app.use(morgan('dev'));
-}
-
 // Отдаём статичные файлы из соответствующей директории
 app.use(express.static(publicDir));
 
