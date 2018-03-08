@@ -10,5 +10,3 @@ require('./routes')(app);
 module.exports = app;
 
 hbs.registerPartials('views/partials');
-
-app.listen(3000);
