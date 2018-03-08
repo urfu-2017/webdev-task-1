@@ -1,7 +1,13 @@
 <section class="all-news">
     {{#each articles}}
-        <article>
-        {{ title }}
+        <article class="all-news__topic-content">
+            <h2 class="topic-content__name">{{ title }}</h2>
+            <time class="topic-content__time">{{ publishedAt }}</time>
+            <div class="topic-content__description">
+                <img class="description__image" src="{{ urlToImage }}">
+                <p class="description__text">{{ description }}</p>  
+            </div>
+            <div class="topic-content__author">{{ author }}</div>
         </article>
     {{/each}}
 </section>

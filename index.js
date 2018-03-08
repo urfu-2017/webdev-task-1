@@ -67,6 +67,10 @@ app.use((req, res, next) => {
 
 routes(app);
 
-hbs.registerPartials(partialsDir);
+hbs.registerPartials(partialsDir, () => {
+    app.listen(8080, () => {
+        console.info('Open http://localhost:8080');
+    });
+});
 
 module.exports = app;

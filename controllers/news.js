@@ -29,6 +29,9 @@ exports.item = (req, res) => {
             .then(body => body.json())
             .then(json => {
                 res.locals.articles = json.articles;
+                res.locals.articles.forEach(article => {
+                    article.publishedAt = article.publishedAt.substr(0, 10);
+                });
                 res.render('news', data);
             })
             .catch(() => res.sendStatus(500));
