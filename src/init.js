@@ -2,7 +2,6 @@
 
 const express = require('express');
 const hbs = require('hbs');
-const layouts = require('handlebars-layouts');
 
 const routes = require('./routes');
 const settings = require('./settings');
@@ -24,8 +23,6 @@ app.set('view engine', 'hbs');
 app.set('views', settings.viewsDir);
 routes(app);
 
-const handlebars = hbs.handlebars;
-handlebars.registerHelper(layouts(handlebars));
 hbs.registerPartials(settings.partialsDir, () => {
     const port = settings.serverPort;
 

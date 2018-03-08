@@ -1,28 +1,33 @@
-{{#extend "base"}}
+<!DOCTYPE html>
+<html lang="ru">
 
-    {{#content "title"}} {{ title }} {{/content}}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/page.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/weather.css">
+    <link rel="stylesheet" href="/styles/categories.css">
+</head>
 
-    {{#content "styles"}}
-        <link rel="stylesheet" href="/styles/page.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/footer.css">
-        <link rel="stylesheet" href="/styles/weather.css">
-        <link rel="stylesheet" href="/styles/categories.css">
-    {{/content}}
-
-    {{#content "header"}}
+<body class="page">
+    <header class="page__header">
         {{> header }}
-    {{/content}}
+    </header>
 
-    {{#content "main"}}
+    <main class="page__main">
         {{#if weather}}
             {{> weather weather }}
         {{/if}}
         {{> categories }}
-    {{/content}}
+    </main>
 
-    {{#content "footer"}}
+    <footer class="page__footer">
         {{> footer }}
-    {{/content}}
+    </footer>
+</body>
 
-{{/extend}}
+</html>
