@@ -1,13 +1,12 @@
 'use strict';
 
-const config = require('config');
-
 const { main } = require('./controllers/main');
 const { news } = require('./controllers/news');
 const { error404 } = require('./controllers/errors');
+const { newsCategories } = require('./config/default.json');
 
 module.exports = app => {
-    const newsCategoriesRegexp = config.get('newsCategories')
+    const newsCategoriesRegexp = newsCategories
         .map(category => category.originalName)
         .join('|');
 

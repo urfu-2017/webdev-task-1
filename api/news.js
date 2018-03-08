@@ -30,7 +30,7 @@ module.exports.getNews = async (category, country) => {
         request += API.countryParam + country;
     }
 
-    const apiData = await (await fetch(request)).json();
+    const apiData = await fetch(request).then(result => result.json());
 
     if (apiData.status !== 'ok' || apiData.totalResults === 0) {
         return { message: API.newsNotFound };

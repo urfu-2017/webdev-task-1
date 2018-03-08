@@ -1,15 +1,15 @@
 'use strict';
 
-const config = require('config');
-
 const { getWeather } = require('../api/weather');
+const { newsCategories, newsCategoriesTitle } = require('../config/default.json');
 
 module.exports.main = async (req, res) => {
+    res.locals.isMainPage = true;
     res.locals.weather = await getWeather(req.query);
 
-    const newsCategories = {
-        newsCategoriesTitle: config.get('newsCategoriesTitle'),
-        newsCategories: config.get('newsCategories').map(category => {
+    const newsCategoriesBlock = {
+        newsCategoriesTitle: newsCategoriesTitle,
+        newsCategories: newsCategories.map(category => {
             category.country = req.query.country;
             category.location = res.locals.weather.today === undefined
                 ? undefined
@@ -19,7 +19,7 @@ module.exports.main = async (req, res) => {
         })
     };
 
-    const data = Object.assign(newsCategories, res.locals);
+    const data = Object.assign(newsCategoriesBlock, res.locals);
 
     res.render('index', data);
 };

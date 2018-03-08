@@ -3,11 +3,22 @@
     <div class="weather__message">{{ weather.message }}</div>
     {{^}}
     <h3 class="weather__location">{{ weather.today.location }}</h3>
+
     <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
          alt="{{ weather.today.state.name }}"
          class="weather__state">
+
     <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
     <div class="weather__wind">{{ weather.today.windSpeed }}</div>
-    {{> metcast}}
+
+    <div class="metcast">
+        {{#each weather.metcast}}
+        <div class="metcastItem">
+            <div class="metcastItem__date">{{ date }}</div>
+            <div class="metcastItem__temp">{{ temp }}&deg;C</div>
+            <div class="metcastItem__windSpeed">{{ windSpeed }}</div>
+        </div>
+        {{/each}}
+    </div>
     {{/if}}
 </div>

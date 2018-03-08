@@ -37,7 +37,7 @@ function parseMetcast(apiData) {
 }
 
 async function getMetcastAsync(request) {
-    let apiData = await (await fetch(request)).json();
+    let apiData = await fetch(request).then(result => result.json());
     const woeid = parseWoeid(apiData);
 
     if (woeid === undefined) {
@@ -45,7 +45,7 @@ async function getMetcastAsync(request) {
     }
 
     request = API.url + API.idSearch + String(woeid);
-    apiData = await (await fetch(request)).json();
+    apiData = await fetch(request).then(result => result.json());
     const metcast = parseMetcast(apiData);
 
     return metcast === undefined
