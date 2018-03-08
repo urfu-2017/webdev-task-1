@@ -1,0 +1,14 @@
+{{#if categories.length}}
+    <ul class="categoriesList">
+        {{#each categories}}
+            <li class="categoryItem">
+                <a class="categoryItem__link" href="/news/{{ name }}/{{ country }}">
+                    <i class="fas fa-{{ icon }} categoryItem__icon"></i>
+                    {{ label }}
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p class="error">Categories not found!</p>
+{{/if}}

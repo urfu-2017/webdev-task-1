@@ -1,0 +1,30 @@
+{{#if news.length}}
+    <ul class="newsList">
+        {{#each news}}
+            <li class="newsItem">
+                <div class="newsItem__upperBound">
+                    <div class="newsItem__title">
+                        {{ title }}
+                    </div>
+                    <div class="newsItem__date">
+                        {{ moment publishedAt "DD.MM.YYYY" }}
+                    </div>
+                </div>
+                <div class="newsItem__lowerBound">
+                    <img class="newsItem__image" src="{{ urlToImage }}" alt="img" />
+                
+                    <div class="newsItem__description">
+                        {{ description }}
+                    </div>
+                
+                    <div class="newsItem__source">
+                        {{ source.name }}
+                    </div>
+                </div>
+                
+            </li>
+        {{/each}}
+    </ul>
+{{^}}
+    <p>News not found!</p>
+{{/if}}

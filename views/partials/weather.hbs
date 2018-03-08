@@ -1,0 +1,32 @@
+{{#if weather.length}}
+    <div class="weatherWidget">
+        <div class="weatherWidget__todayLogo">
+            <img class="weatherWidget__todayImage" src="https://www.metaweather.com/static/img/weather/{{todayWeather.abbr}}.svg" alt"weather" />
+        </div>
+        <div class="weatherWidget__todayTemperature">
+            <img class="weatherWidget__todayIcon" src="/temperature.png" alt="temperature" />
+            {{ todayWeather.t }}
+        </div>
+        <div class="weatherWidget__todayWind">
+            <img class="weatherWidget__todayIcon" src="/wind.png" alt="wind" />
+            {{ todayWeather.windKmpH }}
+        </div>
+        <ul class="weatherDays">
+        {{#each weather}}
+            <li class="weatherDay">
+                <div class="weatherDay__date">
+                    {{ moment date "DD MMMM" lang="ru" }}
+                </div>
+                <div class="weatherDay__temperature">
+                    {{ t }}
+                </div>
+                <div class="weatherDay__wind">
+                    {{ windKmpH }}
+                </div>
+            </li>
+        {{/each}}
+        </ul>
+    </div>
+{{^}}
+    <p>Беда с виджетом погоды!</p>
+{{/if}}
