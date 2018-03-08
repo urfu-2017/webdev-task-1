@@ -1,5 +1,6 @@
 'use strict';
 
+const Weather = require('../models/weather');
 const Category = require('../models/category');
 const News = require('../models/news');
 
@@ -8,6 +9,15 @@ exports.list = async (req, res, next) => {
 
     if (!Category.exists(category)) {
         next();
+    }
+
+    let weather;
+    try {
+        weather = await Weather.filter(req.query);
+    } catch (e) {
+        res.status(500).send(e.message);
+
+        return;
     }
 
     let news;
@@ -25,6 +35,7 @@ exports.list = async (req, res, next) => {
             url: '/',
             text: 'На главную'
         },
+        weather,
         news
     });
 };

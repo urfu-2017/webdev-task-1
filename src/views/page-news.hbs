@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/styles/page.css">
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="/styles/weather.css">
         <link rel="stylesheet" href="/styles/news.css">
     {{/content}}
 
@@ -14,6 +15,7 @@
     {{/content}}
 
     {{#content "main"}}
+        {{> weather weather }}
         {{> news }}
     {{/content}}
 

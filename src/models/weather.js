@@ -4,6 +4,7 @@ const requests = require('../utils/requests');
 
 const apiLocationUrl = 'https://www.metaweather.com/api/location/search/';
 const apiForecastUrl = 'https://www.metaweather.com/api/location/';
+const stateIconUrl = (state) => `https://www.metaweather.com/static/img/weather/${state}.svg`;
 
 class Weather {
     // woeid - Where On Earth ID
@@ -30,7 +31,7 @@ class Weather {
         return response.body[0].woeid;
     }
 
-    static async getForecast(woeid) {
+    static async getLocationWeather(woeid) {
         const requestUrl = `${apiForecastUrl}${woeid}/`;
         const response = await requests.jsonRequest(requestUrl);
 
@@ -41,11 +42,29 @@ class Weather {
         return response.body;
     }
 
+    static prepareToView(weather) {
+        const preparedData = {};
+
+        for (const forecast of weather.consolidated_weather) {
+            forecast.temperature = Math.round(forecast.the_temp);
+            forecast.windSpeed = Math.round(forecast.wind_speed);
+            forecast.icon = stateIconUrl(forecast.weather_state_abbr);
+            forecast.stateAltName = forecast.weather_state_name;
+            forecast.date = forecast.applicable_date;
+        }
+
+        preparedData.city = weather.title;
+        preparedData.today = weather.consolidated_weather[0];
+        preparedData.forecasts = weather.consolidated_weather;
+
+        return preparedData;
+    }
+
     static async filter(queryArgs = { query: '', lat: '', lon: '' }) {
         const woeid = await this.getWoeid(queryArgs);
-        const forecast = await this.getForecast(woeid);
+        const locationWeather = await this.getLocationWeather(woeid);
 
-        return forecast;
+        return this.prepareToView(locationWeather);
     }
 }
 

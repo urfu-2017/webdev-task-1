@@ -1,0 +1,20 @@
+<section class="weather">
+    <span class="weather__city">{{city}}</span>
+    <img class="weather__icon" src="{{today.icon}}" alt="{{today.stateAltName}}">
+
+    <div class="weather__temperature">
+        <span class="weather__temperature-icon">t</span>
+        <span class="weather__temperature-value">{{today.temperature}} ℃</span>
+    </div>
+
+    <div class="weather__wind">
+        <span class="weather__wind-icon">v</span>
+        <span class="weather__wind-value">{{today.windSpeed}} м/c</span>
+    </div>
+
+    <div class="weather__days">
+        {{# each forecasts }}
+            {{> weather_day this }}
+        {{/each}}
+    </div>
+</section>

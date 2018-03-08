@@ -1,10 +1,10 @@
-<ul class="categories">
+<section class="categories">
     {{#each categories}}
-    <li class="categories__item">
+    <article class="categories__item">
         <a href="{{@key}}">
             <img class="categories__item-icon" src="{{this.icon}}" alt="{{@key}}">
             <span class="categories__item-title">{{this.title}}</span>
         </a>
-    </li>
+    </article>
     {{/each}}
-</ul>
+</section>
