@@ -1,11 +1,28 @@
+.topics
+{
+    margin: 0 auto;
+    position: relative;
+}
+
 .topics__img
 {
-    width: 30px;
+    width: 50px;
+    vertical-align: middle;
 }
 
 .topics__name
 {
     color: black;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.topics__title
+{
+    text-align: center;
+}
+
+.topic
+{
+    margin-left: 45%;
 }
