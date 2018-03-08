@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/weather.css">
+    <link rel="stylesheet" href="/weatherday.css">
+    <link rel="stylesheet" href="/layout.css">
+    <link rel="stylesheet" href="/news.css">
+    <link rel="stylesheet" href="/categories.css">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="layout">
+        <header class="layout__header">
+            Илон слишком Маск
+        </header>
+        {{> weather consolidatedWeather }}
+        <main class="layout__main">
+            {{> @partial-block }}
+        </main>
+    </div>
+</body>
+</html>

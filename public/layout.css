@@ -1,0 +1,11 @@
+.layout {
+    border: 1px solid #000;
+    display: inline-block;
+}
+
+.layout__header {
+    text-align: center;
+    padding: 30px;
+    font-size: 50px;
+    font-weight: bold;
+}

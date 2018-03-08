@@ -1,0 +1,16 @@
+.news__category {
+    margin: 15px;
+    font-size: 35px;
+    text-decoration: none;
+    margin-left: 170px;
+}
+
+.news__category a {
+    text-decoration: none;
+}
+
+.news__category-image {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+}

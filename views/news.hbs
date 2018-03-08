@@ -1,0 +1,15 @@
+{{#> layout this}}
+    <div class="news">
+        <div class="news__categories-name"></div>
+        <div clsss="news__categories">
+            {{#each categories}}
+                <div class="news__category">
+                    <img class="news__category-image" src="/images/{{id}}.svg" alt="{{name}}"> 
+                    <a href="/news/{{ id }}"> 
+                        {{ name }}
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/layout}}

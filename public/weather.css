@@ -1,0 +1,41 @@
+.weather {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 18px;
+    width: 650px;
+    display: grid;
+    grid-template-areas: 'a a c c x x x'
+                         'd d f f x x x'
+                         'd d g g g g g'
+                         'd d g g g g g';
+    grid-gap: 10px;
+    padding: 5px;
+}
+
+.weather__city {
+    font-size: 2em;
+    font-weight: bold;
+    grid-area: a;
+}
+
+.weather__image {
+    grid-area: d;
+    width: 150px;
+    height: 150px;
+}
+
+.weather__temp-now {
+    font-size: 2em;
+    grid-area: c;
+}
+
+.weather__wind-now {
+    font-size: 2em;
+    grid-area: f;
+}
+
+
+.wather__consolidation {
+
+    grid-area: g;
+}

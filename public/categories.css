@@ -1,0 +1,38 @@
+.categories {
+    width: 650px;
+}
+
+.categories__category {
+    border: 1px solid #000;
+    margin: 10px;
+}
+
+.categroies__category-title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    width: 430px;
+    display: inline-block;
+}
+
+.categroies__category-date {
+    padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.categroies__category-image {
+    padding: 10px;
+    float: left;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.categroies__category-description {
+    min-height: 100px;
+}
+
+.categroies__category-source {
+    padding: 10px;
+    text-align: right;
+}
