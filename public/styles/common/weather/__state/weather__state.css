@@ -1,0 +1,6 @@
+.weather__state
+{
+    grid-area: s;
+    width: 150px;
+    height: 150px;
+}

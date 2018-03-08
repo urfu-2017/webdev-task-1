@@ -1,0 +1,11 @@
+.metcast-item
+{
+    border-width: 2px 2px 2px 0px;
+    border-style: solid;
+    border-color: #ddd;
+}
+
+.metcast-item:first-child
+{
+    border-left: 2px solid #ddd;
+}

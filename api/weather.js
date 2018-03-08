@@ -2,10 +2,29 @@
 
 const config = require('config');
 const fetch = require('node-fetch');
+const dateformat = require('dateformat');
 
 const Weather = require('../models/weather');
 
 const API = config.get('weatherApi');
+
+dateformat.i18n = {
+    dayNames: [
+        'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб',
+
+        'Воскресенье', 'Понедельник', 'Вторник', 'Среда',
+        'Четверг', 'Пятница', 'Суббота'
+    ],
+    monthNames: [
+        'Янв', 'Фев', 'Март', 'Апр', 'Мая', 'Июня', 'Июля', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек',
+
+        'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля',
+        'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
+    ],
+    timeNames: [
+        'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+    ]
+};
 
 function parseWoeid(apiData) {
     return apiData['0'] === undefined
@@ -21,10 +40,11 @@ function parseMetcast(apiData) {
         const weatherData = apiData.consolidated_weather[i];
         const stateAbbr = weatherData.weather_state_abbr;
         const temp = Math.round(weatherData.the_temp);
+        const date = new Date(weatherData.applicable_date);
 
         const weather = new Weather({
             location,
-            date: weatherData.applicable_date,
+            date: dateformat(date, 'd mmmm').toLowerCase(),
             temp: temp > 0 ? `+${temp}` : `${temp}`,
             state: { abbr: stateAbbr, name: API.states[stateAbbr] },
             windSpeed: Math.round(weatherData.wind_speed)

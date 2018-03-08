@@ -3,74 +3,77 @@
 <head>
     <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="/styles/index.css">
 </head>
 <body>
-    <header class="header">
+    <main class="main">
+        <header class="header">
+            {{#if isMainPage}}
+            {{^}}
+            <a href="/?query={{ weather.today.location }}&country={{ country }}" class="header__back">{{ backText }}</a>
+            {{/if}}
+            <h1 class="header__title">{{ title }}</h1>
+        </header>
+
+        <div class="weather">
+            {{#if weather.message}}
+            <div class="weather__message">{{ weather.message }}</div>
+            {{^}}
+            <h3 class="weather__location">{{ weather.today.location }}</h3>
+
+            <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
+                alt="{{ weather.today.state.name }}"
+                class="weather__state">
+
+            <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
+            <div class="weather__wind">{{ weather.today.windSpeed }} м/с</div>
+
+            <div class="metcast">
+                {{#each weather.metcast}}
+                <div class="metcast-item">
+                    <div class="metcast-item__date">{{ date }}</div>
+                    <div class="metcast-item__temp">{{ temp }}&deg;C</div>
+                    <div class="metcast-item__wind">{{ windSpeed }} м/с</div>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+
         {{#if isMainPage}}
-        {{^}}
-        <a href="/?query={{ weather.today.location }}&country={{ country }}" class="header__back">{{ backText }}</a>
-        {{/if}}
-        <h1 class="header__title">{{ title }}</h1>
-    </header>
-
-    <div class="weather">
-        {{#if weather.message}}
-        <div class="weather__message">{{ weather.message }}</div>
-        {{^}}
-        <h3 class="weather__location">{{ weather.today.location }}</h3>
-
-        <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
-            alt="{{ weather.today.state.name }}"
-            class="weather__state">
-
-        <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
-        <div class="weather__wind">{{ weather.today.windSpeed }}</div>
-
-        <div class="metcast">
-            {{#each weather.metcast}}
-            <div class="metcastItem">
-                <div class="metcastItem__date">{{ date }}</div>
-                <div class="metcastItem__temp">{{ temp }}&deg;C</div>
-                <div class="metcastItem__windSpeed">{{ windSpeed }}</div>
+        <div class="newsCategories">
+            <h2 class="newsCategories__title">{{ newsCategoriesTitle }}</h2>
+            {{#each newsCategories}}
+            <div class="category">
+                <a href="/news/{{ originalName }}?query={{ location }}&country={{ country }}" class="category__link">
+                    <img src="../../public/images/{{ originalName }}.png" alt="{{ name }}" class="category__icon">
+                    <span class="category__name">{{ name }}</span>
+                </a>
             </div>
             {{/each}}
         </div>
-        {{/if}}
-    </div>
-
-    {{#if isMainPage}}
-    <div class="newsCategories">
-        <h2 class="newsCategories__title">{{ newsCategoriesTitle }}</h2>
-        {{#each newsCategories}}
-        <div class="category">
-            <a href="/news/{{ originalName }}?query={{ location }}&country={{ country }}" class="category__link">
-                <img src="../../public/images/{{ originalName }}.png" alt="{{ name }}" class="category__icon">
-                <span class="category__name">{{ name }}</span>
-            </a>
-        </div>
-        {{/each}}
-    </div>
-    {{^}}
-    <div class="feed">
-        {{#if news.message}}
-        <div class="feed__message">{{ news.message }}</div>
         {{^}}
-        {{#each news.feed}}
-        <div class="article">
-            <h3 class="article__title">{{ title }}</h3>
-            <img src="{{ image }}" alt="preview" class="article__image">
-            <div class="article__description">{{ description }}</div>
-            <div class="article__source">{{ source }}</div>
-            <div class="article__publish">{{ publishDatetime }}</div>
+        <div class="feed">
+            {{#if news.message}}
+            <div class="feed__message">{{ news.message }}</div>
+            {{^}}
+            {{#each news.feed}}
+            <div class="article">
+                <h3 class="article__title">{{ title }}</h3>
+                <img src="{{ image }}" alt="preview" class="article__image">
+                <div class="article__description">{{ description }}</div>
+                <div class="article__source">{{ source }}</div>
+                <div class="article__publish">{{ publishDatetime }}</div>
+            </div>
+            {{/each}}
+            {{/if}}
         </div>
-        {{/each}}
         {{/if}}
-    </div>
-    {{/if}}
 
-    <footer class="footer">
-        <div class="footer__author">&copy;{{ author }}</div>
-        <div class="footer__year">{{ year }}</div>
-    </footer>
+        <footer class="footer">
+            <div class="footer__author">&copy;{{ author }}</div>
+            <div class="footer__year">{{ year }}</div>
+        </footer>
+    </main>
 </body>
 </html>

@@ -9,14 +9,14 @@
          class="weather__state">
 
     <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
-    <div class="weather__wind">{{ weather.today.windSpeed }}</div>
+    <div class="weather__wind">{{ weather.today.windSpeed }} м/с</div>
 
     <div class="metcast">
         {{#each weather.metcast}}
-        <div class="metcastItem">
-            <div class="metcastItem__date">{{ date }}</div>
-            <div class="metcastItem__temp">{{ temp }}&deg;C</div>
-            <div class="metcastItem__windSpeed">{{ windSpeed }}</div>
+        <div class="metcast-item">
+            <div class="metcast-item__date">{{ date }}</div>
+            <div class="metcast-item__temp">{{ temp }}&deg;C</div>
+            <div class="metcast-item__wind">{{ windSpeed }}</div>
         </div>
         {{/each}}
     </div>
