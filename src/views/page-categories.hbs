@@ -1,0 +1,24 @@
+{{#extend "base"}}
+
+    {{#content "title"}} {{ title }} {{/content}}
+
+    {{#content "styles"}}
+        <link rel="stylesheet" href="/styles/page.css">
+        <link rel="stylesheet" href="/styles/header.css">
+        <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="/styles/categories.css">
+    {{/content}}
+
+    {{#content "header"}}
+        {{> header }}
+    {{/content}}
+
+    {{#content "main"}}
+        {{> categories }}
+    {{/content}}
+
+    {{#content "footer"}}
+        {{> footer }}
+    {{/content}}
+
+{{/extend}}

@@ -1,9 +1,30 @@
 'use strict';
 
+const Category = require('../models/category');
 const News = require('../models/news');
 
-exports.list = (req, res) => {
-    const news = News.filter(req.query.category);
+exports.list = async (req, res, next) => {
+    const category = req.params.category;
 
-    res.render('news', news);
+    if (!Category.exists(category)) {
+        next();
+    }
+
+    let news;
+    try {
+        news = await News.filter(category, req.query);
+    } catch (e) {
+        res.status(500).send(e.message);
+
+        return;
+    }
+
+    res.render('page-news', {
+        title: req.query.category,
+        back: {
+            url: '/',
+            text: 'На главную'
+        },
+        news
+    });
 };

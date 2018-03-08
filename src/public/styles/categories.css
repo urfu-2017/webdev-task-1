@@ -1,0 +1,17 @@
+.categories__item:first-child {
+    margin-top: 0;
+}
+
+.categories__item:last-child {
+    margin-bottom: 0;
+}
+
+.categories__item {
+    margin: 10px 0;
+    list-style-type: none;
+}
+
+.categories__item-icon {
+    width: 25px;
+    height: 25px;
+}

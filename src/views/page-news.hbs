@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/styles/page.css">
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="/styles/news.css">
     {{/content}}
 
     {{#content "header"}}
@@ -13,11 +14,11 @@
     {{/content}}
 
     {{#content "main"}}
-        <p>Dolor sit amet.</p>
+        {{> news }}
     {{/content}}
 
     {{#content "footer"}}
-        <p>MIT License</p>
+        {{> footer }}
     {{/content}}
 
 {{/extend}}

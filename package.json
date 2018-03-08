@@ -2,16 +2,19 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
+    "watch": "nodemon -w src/ index.js",
     "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
     "hbs": "4.0.1",
     "handlebars-layouts": "3.1.4",
-    "express": "4.16.2"
+    "express": "4.16.2",
+    "node-fetch": "2.1.1"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
+    "nodemon": "1.17.1",
     "eslint-config-hrundel": "^1.3.0",
     "mocha": "^5.0.1",
     "supertest": "^3.0.0"
