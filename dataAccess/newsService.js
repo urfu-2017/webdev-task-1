@@ -6,7 +6,7 @@ let choosedCountry = "ru";
 class NewsService {
     constructor () { }
     
-    static setCountry(country) {
+    static setCountry (country) {
         choosedCountry = country;
     }
     
