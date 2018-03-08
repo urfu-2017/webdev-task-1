@@ -88,7 +88,7 @@ app.use((err, req, res) => {
 hbs.registerPartials(partialsDir, () => {
     // Запускаем сервер на порту 8080
     app.listen(8080, () => {
-        console.info('Open http://localhost:8080/notes');
+        console.info('Open http://localhost:8080/?country=ru&query=london');
     });
 });
 
