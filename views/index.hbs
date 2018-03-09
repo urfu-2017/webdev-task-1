@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/generalStyles.css" media="screen">
+    <link rel="stylesheet" href="/index.css" media="screen">
+</head>
+<body>
+    <main>
+        {{> header }}
+        <hr>
+        {{> weather }}
+        <hr>
+        <h2>Категории новостей</h2>
+        <article class="news">
+            <a href="/business" class="news__category">
+                <img src="categories-icons/business.png" class="news__picture" alt=""/>
+                <div>Бизнес</div>
+            </a>
+            <a href="/entertainment" class="news__category">
+                <img src="categories-icons/entertainment.png" class="news__picture" alt=""/>
+                <div>Развлечения</div>
+            </a>
+            <a href="/general" class="news__category">
+                <img src="categories-icons/general.png" class="news__picture" alt=""/>
+                <div>Общее</div>
+            </a>
+            <a href="/health" class="news__category">
+                <img src="categories-icons/health.png" class="news__picture" alt=""/>
+                <div>Здоровье</div>
+            </a>
+            <a href="/science" class="news__category">
+                <img src="categories-icons/science.png" class="news__picture" alt=""/>
+                <div>Наука</div>
+            </a>
+            <a href="/sport" class="news__category">
+                <img src="categories-icons/sport.png" class="news__picture" alt=""/>
+                <div>Спорт</div>
+            </a>
+            <a href="/technology" class="news__category">
+                <img src="categories-icons/technology.png" class="news__picture" alt=""/>
+                <div>Технологии</div>
+            </a>
+        </article>
+        <hr>
+        {{> footer }}
+    </main>
+</body>
+</html>

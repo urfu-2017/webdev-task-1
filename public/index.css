@@ -1,0 +1,62 @@
+h2
+{
+    text-align: center;
+    margin: 10px auto 5px;
+    font-size: 1.4rem;
+}
+
+.news
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.news__category
+{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30%;
+    height: 54px;
+    margin: 4px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.news__category:hover
+{
+    box-shadow: black 2px 2px 2px;
+}
+
+.news__category:active
+{
+    box-shadow: black 3px 3px 3px;
+}
+
+.news__category > div
+{
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+}
+
+.news__category > div > span
+{
+    text-align: center;
+}
+
+.news__picture
+{
+    width: 48px;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
