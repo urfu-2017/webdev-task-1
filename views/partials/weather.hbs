@@ -1,0 +1,29 @@
+<article class="weather">
+    <span class="weather-state__city">{{weather.city}}</span>
+    <img class="weather-state__image"
+         src="https://www.metaweather.com/static/img/weather/{{weather.today.weather_state_abbr}}.svg">
+    <span class="weather-state__name">{{weather.today.weather_state_name}}</span>
+
+    <span class="weather-info__temp">{{weather.today.the_temp}} &deg;C</span>
+    <span class="weather-info__wind">{{weather.today.wind_speed}} m/s</span>
+    <table class="weather-info__table">
+        <thead>
+        <tr>
+            {{#each weather.weatherOnDays}}
+                <td class="weather-info__table-cell">{{applicable_date}}</td>
+            {{/each}}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {{#each weather.weatherOnDays}}
+                <td class="weather-info__table-cell">
+                    <span>{{the_temp}} &deg;C</span><br>
+                    <span>{{wind_speed}} m/s</span>
+                </td>
+            {{/each}}
+        </tr>
+        </tbody>
+    </table>
+
+</article>

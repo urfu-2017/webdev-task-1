@@ -1,0 +1,20 @@
+<section class="news">
+    <h2>Category: {{title}}</h2>
+    {{#each news}}
+        <article class="news-item">
+            <div class="news-item__header">
+                <a class="news-item__link" href="{{ url }}">{{ title }}</a>
+            </div>
+            <div class="news-item__description">
+                {{#if urlToImage}}
+                    <img class="news-item__image" alt="{{ title }}" title="{{ title }}" src="{{ urlToImage }}">
+                {{/if}}
+                <p class="news-item__info">{{ description }}</p>
+            </div>
+            <div class="news-item__footer">
+                <span class="news-item__source">{{ source }}</span>
+                <time class="news-item__date">{{ publishedAt }}</time>
+            </div>
+        </article>
+    {{/each}}
+</section>
