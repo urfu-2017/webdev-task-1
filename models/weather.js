@@ -41,12 +41,12 @@ function parseJSON(parseDate) {
         .consolidated_weather
         .map((weather) => {
             return {
-                weather_state_name: weather.weather_state_name,
-                applicable_date: new Date (weather.applicable_date)
+                weatherStateName: weather.weather_state_name,
+                date: new Date (weather.applicable_date)
                     .toLocaleDateString('en-US', { month: 'long', day: 'numeric' }),
-                wind_speed: weather.wind_speed.toFixed(1),
-                the_temp: weather.the_temp.toFixed(1),
-                weather_state_abbr: weather.weather_state_abbr
+                windSpeed: weather.wind_speed.toFixed(1),
+                temp: weather.the_temp.toFixed(1),
+                weatherStateAbbr: weather.weather_state_abbr
             };
         });
 
