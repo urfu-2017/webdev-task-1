@@ -7,7 +7,7 @@
     "css:build": "stylus ./views/components/index.styl --out ./public/css/index.css",
     "css:watch": "stylus ./views/components/index.styl --out ./public/css/index.css --watch",
     "dev": "cross-env NODE_ENV=development npm-run-all css:build start",
-    "prod": "cross-env NODE_ENV=production | npm-run-all css:build start"
+    "prod": "cross-env NODE_ENV=production npm-run-all css:build start"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
