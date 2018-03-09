@@ -3,7 +3,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "test": "npm run lint && mocha --exit tests/*.js"
   },
   "dependencies": {
     "config": "^1.30.0",
