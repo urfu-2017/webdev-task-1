@@ -6,17 +6,20 @@
     "test": "npm run lint && mocha tests/*.js",
     "css:build": "stylus ./views/components/index.styl --out ./public/css/index.css",
     "css:watch": "stylus ./views/components/index.styl --out ./public/css/index.css --watch",
-    "dev": "set NODE_ENV=development | npm-run-all css:build start",
-    "prod": "set NODE_ENV=production | npm-run-all css:build start"
+    "dev": "cross-env NODE_ENV=development npm-run-all css:build start",
+    "prod": "cross-env NODE_ENV=production | npm-run-all css:build start"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "config": "^1.30.0",
+    "cross-env": "^5.1.3",
     "express": "^4.16.2",
     "handlebars": "^4.0.11",
     "hbs": "^4.0.1",
-    "requestify": "^0.2.5"
+    "npm-run-all": "^4.1.2",
+    "requestify": "^0.2.5",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
