@@ -4,7 +4,7 @@ const config = require('config');
 const Weather = require('../models/Weahter');
 
 module.exports = async (req, res, next) => {
-    const data = {}
+    const data = {};
 
     try {
         const weather = await getWeather(req.query);
@@ -19,8 +19,8 @@ module.exports = async (req, res, next) => {
     data.staticBasePath = config.has('staticBasePath') ? config.get('staticBasePath') : '/';
     const layoutConfig = config.has('layoutConfig') ? config.get('layoutConfig') : {
         siteName: 'TEST',
-        charset: "utf-8",
-        lang: "en"
+        charset: 'utf-8',
+        lang: 'en'
     };
 
     res.locals = Object.assign(res.locals, data, layoutConfig);

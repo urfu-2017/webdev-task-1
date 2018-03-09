@@ -8,7 +8,7 @@ module.exports = {
 
     layoutConfig: {
         siteName: 'TEST',
-        charset: "utf-8",
-        lang: "en"
+        charset: 'utf-8',
+        lang: 'en'
     }
 };
