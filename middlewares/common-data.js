@@ -4,18 +4,26 @@ const config = require('config');
 const Weather = require('../models/Weahter');
 
 module.exports = async (req, res, next) => {
+    const data = {}
+
     try {
         const weather = await getWeather(req.query);
-        res.locals.weather = weather;
+        data.weather = weather;
     } catch (error) {
-        res.locals.weather = {
+        data.weather = {
             place: error.message,
             weather: []
         };
     }
 
-    res.locals.staticBasePath = config.has('staticBasePath') ? config.get('staticBasePath') : '/';
-    res.locals.siteName = config.has('siteName') ? config.get('siteName') : 'Name';
+    data.staticBasePath = config.has('staticBasePath') ? config.get('staticBasePath') : '/';
+    const layoutConfig = config.has('layoutConfig') ? config.get('layoutConfig') : {
+        siteName: 'TEST',
+        charset: "utf-8",
+        lang: "en"
+    };
+
+    res.locals = Object.assign(res.locals, data, layoutConfig);
 
     next();
 };

@@ -4,8 +4,8 @@
     "start": "node index.js",
     "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js",
-    "css:build": "stylus ./views/components/index.styl --out ./public/css/index.css",
-    "css:watch": "stylus ./views/components/index.styl --out ./public/css/index.css --watch",
+    "css:build": "stylus ./views/components/index.styl --out ./public/index.css",
+    "css:watch": "stylus ./views/components/index.styl --out ./public/index.css --watch",
     "dev": "cross-env NODE_ENV=development npm-run-all css:build start",
     "prod": "cross-env NODE_ENV=production npm-run-all css:build start"
   },

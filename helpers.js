@@ -1,6 +1,6 @@
 'use strict';
 
-const MOTHS = [
+const MONTHS = [
     'January',
     'February',
     'March',
@@ -23,7 +23,7 @@ module.exports = hbs => {
     hbs.registerHelper('getWeatherTable', function (days) {
         return days.map(day => {
             const [, m, d] = day.applicable_date.split('-');
-            const date = `${d} ${MOTHS[parseInt(m) - 1]}`;
+            const date = `${d} ${MONTHS[parseInt(m) - 1]}`;
 
             return {
                 temp: day.the_temp,
