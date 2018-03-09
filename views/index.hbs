@@ -10,7 +10,12 @@
 <body>
     <main>
         {{> header }}
-        {{> weather}}
+        {{#if answer}}
+            <div class='weather'>{{answer}}</div> 
+        {{/if}}
+        {{#if weathers}}
+            {{> weather}}
+        {{/if}}
         {{> categories }}
         {{> footer }}
     </main>

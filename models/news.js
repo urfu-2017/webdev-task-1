@@ -7,17 +7,18 @@ class News {
     constructor({ country, pathname }) {
         this.country = country;
         this.categories = pathname.split('/')[2];
+        this.url = null;
     }
 
     getNews({ main }) {
         main.categories.categories.forEach(element => {
             if (element.category === this.categories) {
-                this.categories = element.url;
+                this.url = element.url;
             }
         });
 
         return newsapi.v2.topHeadlines({
-            category: this.categories,
+            category: this.url,
             language: 'ru',
             country: this.country
         }).then(response => {

@@ -14,7 +14,6 @@ class Weather {
         this.urlImage = 'https://www.metaweather.com/static/img/weather/';
         this.lat = getQuery.lat;
         this.lon = getQuery.lon;
-        this.countDay = 5;
         this.weather = {
             weathers: [],
             city: ''
@@ -29,35 +28,35 @@ class Weather {
         if (this.lat && this.lon) {
             createQuery += 'lattlong=' + this.lat + ', ' + this.lon;
         }
-        if (createQuery === '?') {
-
-            throw Error;
-        }
         createQuery = this.urlWeather + 'search/' + createQuery;
 
         return Weather.requestWeatherId(createQuery)
             .then(answer => {
-                this.weather.city = answer[0].title;
-                let url = this.urlWeather + answer[0].woeid;
+                let url = this.urlWeather;
+                if (answer) {
+                    this.weather.city = answer[0].title;
+                    url += answer[0].woeid;
+                }
 
                 return Weather.requestWeatherId(url);
             })
-            .catch(console.error)
             .then(body => {
-                body.consolidated_weather.forEach(weatherOneDay => {
-                    let oneDay = {};
-                    let date = weatherOneDay.applicable_date.split('-');
-                    oneDay.date = Number.parseInt(date[2]) + ' ' +
-                        mounths[Number.parseInt(date[1]) - 1];
-                    oneDay.weatherStateName = weatherOneDay.weather_state_name;
-                    oneDay.weatherStateImage = this.urlImage +
-                        weatherOneDay.weather_state_abbr + '.svg';
-                    oneDay.windSpeed = Math.round(weatherOneDay.wind_speed * 0.44704);
-                    oneDay.temp = Math.round(weatherOneDay.the_temp);
-                    this.weather.weathers.push(oneDay);
-                });
+                if (typeof body === 'object') {
+                    body.consolidated_weather.forEach(weatherOneDay => {
+                        let oneDay = {};
+                        let date = weatherOneDay.applicable_date.split('-');
+                        oneDay.date = Number.parseInt(date[2]) + ' ' +
+                            mounths[Number.parseInt(date[1]) - 1];
+                        oneDay.weatherStateName = weatherOneDay.weather_state_name;
+                        oneDay.weatherStateImage = this.urlImage +
+                            weatherOneDay.weather_state_abbr + '.svg';
+                        oneDay.windSpeed = Math.round(weatherOneDay.wind_speed * 0.44704);
+                        oneDay.temp = Math.round(weatherOneDay.the_temp);
+                        this.weather.weathers.push(oneDay);
+                    });
 
-                return this.weather;
+                    return this.weather;
+                }
             });
     }
 
@@ -68,6 +67,11 @@ class Weather {
                 if (err) {
                     reject(err);
                 } else {
+                    if (!body || body.search(/<!DOCTYPE/) !== -1) {
+                        resolve(body);
+
+                        return;
+                    }
                     resolve(JSON.parse(body));
                 }
             });

@@ -72,3 +72,5 @@ hbs.registerPartials(path.join(partialsDir, 'weather'), () => {
         });
     });
 });
+
+module.exports = app;
