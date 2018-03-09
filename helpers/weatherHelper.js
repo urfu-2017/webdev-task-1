@@ -22,7 +22,8 @@ class WeatherHelper {
                 date: new Date(day.applicable_date).toDateString(),
                 windSpeed: Math.round(day.wind_speed),
                 state: day.weather_state_abbr,
-                temp: Math.round(day.the_temp)
+                temp: Math.abs(Math.round(day.the_temp)),
+                isPlus: day.the_temp > 0
             }));
     }
 }
