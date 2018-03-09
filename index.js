@@ -3,10 +3,8 @@
 const path = require('path');
 
 const bodyParser = require('body-parser');
-const config = require('config');
 const express = require('express');
 const hbs = require('hbs');
-const morgan = require('morgan');
 
 const routes = require('./routes/routes');
 
