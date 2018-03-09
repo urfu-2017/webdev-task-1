@@ -30,3 +30,5 @@ hbs.registerPartials(partialsDir, () => {
         console.info('Open http://localhost:8080/');
     });
 });
+
+module.exports = app;
