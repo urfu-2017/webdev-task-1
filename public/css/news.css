@@ -9,11 +9,12 @@
 .news__info div
 {
     flex-basis: 400px;
+    margin: 0 30px;
 }
 
 .news__img
 {
-    width: 300px;
+    width: 400px;
 }
 
 .news__lastBlock

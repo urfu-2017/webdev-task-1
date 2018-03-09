@@ -25,7 +25,7 @@ class NewsReader {
                         title: article.title,
                         description: article.description,
                         urlToImage: article.urlToImage,
-                        publishedAt: article.publishedAt
+                        publishedAt: article.publishedAt.slice(0, 10)
                     };
                 });
             });
