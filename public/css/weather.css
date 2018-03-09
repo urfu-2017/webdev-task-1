@@ -1,14 +1,7 @@
-.weather
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
 .weather__info,
 .weather__content
 {
-    margin: 0 15px;
+    display: inline-block;
 }
 
 .weather__img
@@ -26,33 +19,9 @@
     border: 2px solid black;
 }
 
-td
-{
-    border: 2px solid black;
-    text-align: center;
-}
-
 table
 {
     border-collapse: collapse;
-}
-
-.weather__today
-{
-    font-size: 30px;
-}
-
-.weather__today__wind,
-.weather__today__temp
-{
-    width: 50px;
-    vertical-align: middle;
-}
-
-.weather__oneDay__wind,
-.weather__odeDay__temp-img
-{
-    width: 20px;
 }
 
 .app__name
