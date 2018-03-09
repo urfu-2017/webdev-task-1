@@ -1,13 +1,18 @@
 <div class="weather">
-    <h1 class="weather__city">{{cityForWeather}}</h1>
     <div class="weather__content">
+        <h1 class="weather__city">{{cityForWeather}}</h1>
         <img class="weather__img" src="https://www.metaweather.com/static/img/weather/png/64/{{
             firstDay.state }}.png">
     </div>
     <div class="weather__info">
         <div class="weather__today">
-            <p class="weather__temp">Температура: {{firstDay.temp}}&#176;C</p>
-            <p class="weather__windSpeed">Ветер: {{firstDay.windSpeed}}м/c;</p>
+            <div class="weather__temp">
+                <img class="weather__today__temp" src="/images/temp.png" alt="погода" /> 
+                {{ firstDay.tepmSign }} {{firstDay.temp}}&#176;C</div>
+            <div class="weather__windSpeed">
+                <img class="weather__today__wind" src="/images/wind.svg" alt="ветер" /> 
+                {{firstDay.windSpeed}} м/c
+            </div>
         </div>
         <div class="weather__allDays">
             <table>
@@ -15,8 +20,20 @@
                     {{#each weatherInfoForFiveDays}}
                     <td class="weather__columns">
                         <p class="weather_date">{{date}}</p>
-                        <p class="weather__temp">Температура: {{temp}}&#176;C</p>
-                        <p class="weather__windSpeed">Ветер: {{windSpeed}}м/c;</p>
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each weatherInfoForFiveDays}}
+                    <td class="weather__columns">
+                        <div class="weather__oneDay__temp">
+                            <img class="weather__odeDay__temp-img" src="/images/temp.png" alt="погода" /> 
+                            {{ tepmSign }} {{temp}}&#176;C
+                        </div>
+                        <div class="weather__oneDay__windSpeed">
+                            <img class="weather__oneDay__wind" src="/images/wind.svg" alt="ветер" /> 
+                            {{windSpeed}} м/c
+                        </div>
                     </td>
                     {{/each}}
                 </tr>
