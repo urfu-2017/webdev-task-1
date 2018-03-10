@@ -1,22 +1,21 @@
 <section class="articles">
-    {{#each articles}}
+    {{#each articles }}
         <article class="article">
             <div class="article-header">
                 <h2 class="article__topic">{{title}}</h2>
-                {{#if urlToImage}}
-                    <img src={{urlToImage}} class="article__image">
-                {{/if}}
+                {{#if imageUrl }}
+                    <img src={{ imageUrl }} class="article__image">
+                {{/if }}
             </div>
-            {{#if description}}
+            {{#if description }}
                 <p class="article__text">{{description}}</p>
-            {{else}}
-                <p>Читайте на {{source}}</p>
-            {{/if}}
+            {{else }}
+                <p class="article__text">Читайте на {{source}}</p>
+            {{/if }}
             <div class="article-footer">
                 <a href={{url}}>{{source}}</a>
                 <time>{{publishedAt}}</time>
             </div>
-            
         </article>
-    {{/each}}
+    {{/each }}
 </section>
