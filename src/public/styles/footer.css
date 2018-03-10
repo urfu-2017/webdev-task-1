@@ -1,3 +1,7 @@
-.copyright__name-first-letter {
+.copyright__name {
+    display: inline-block;
+}
+
+.copyright__name::first-letter {
     color: #f00;
 }
