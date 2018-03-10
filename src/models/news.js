@@ -1,5 +1,7 @@
 'use strict';
 
+const moment = require('moment');
+
 const config = require('../config');
 const requests = require('../utils/requests');
 
@@ -25,7 +27,15 @@ class News {
             throw new Error('Не удалось получить новости с удалённого сервера.');
         }
 
-        return response.body;
+        return this._prepareToView(response.body.articles);
+    }
+
+    static _prepareToView(news) {
+        return news.map(publication => Object.assign({}, publication, {
+            publishedAt: moment(publication.publishedAt)
+                .locale('ru')
+                .format('DD MMMM YYYY, HH:mm')
+        }));
     }
 }
 

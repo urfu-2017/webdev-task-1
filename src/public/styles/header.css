@@ -8,6 +8,10 @@
     color: #000;
 }
 
+.header__title {
+    margin-top: 0;
+}
+
 .header__title:first-letter {
     color: #f00;
 }

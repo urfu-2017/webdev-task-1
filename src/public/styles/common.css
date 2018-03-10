@@ -33,7 +33,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    width: 100%;
 }
 
 h1,
@@ -86,4 +85,10 @@ a,
 a:hover,
 .link:hover {
     color: #f00;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
 }
