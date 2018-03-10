@@ -1,0 +1,36 @@
+.menu__title
+{
+    margin-left: 15px;
+    font-size: 33px;
+}
+
+
+.menu__icon
+{
+    height: 30px;
+    vertical-align: middle;
+}
+
+.menu__link
+{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.menu__item
+{
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px gray, 0 0 1em rgb(185, 182, 182); ;
+}
+
+.menu__name
+{
+    margin-left: 10px;
+}
+
+.menu__name:hover
+{
+    color:  rgba(0, 204, 255, 0.932);
+}

@@ -1,0 +1,49 @@
+.weather
+{
+    display: flex;
+    background-color:  rgba(0, 204, 255, 0.151);
+    padding: 5px;
+}
+
+.weather__icon
+{
+    height: 95px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.weather__today-icon
+{
+    height: 25px;
+}
+
+.weather__city
+{
+    margin-left: 15px;
+}
+
+.weather__wind
+{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.weather__future
+{
+    display: flex;
+    border-bottom: 1px solid aliceblue;
+    border-top: 1px solid aliceblue;
+}
+
+.weather__future-date
+{
+    padding: 0 7px;
+    border-bottom: 1px solid aliceblue;
+}
+
+.weather__future-temperature,
+.weather__future-wind
+{
+    padding: 0 5px;
+}

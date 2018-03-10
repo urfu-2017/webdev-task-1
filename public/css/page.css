@@ -1,0 +1,44 @@
+@font-face
+{
+    font-family: 'Bad Script';
+    src: url('BadScript-Regular.ttf');
+}
+
+
+html
+{
+    font-family: Bad Script;
+    color: rgb(233, 233, 233);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(6, 10, 10);
+}
+
+.content
+{
+    animation: glowing 1.5s infinite;
+    width: 500px;
+    height: 670px;
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 20px rgba(0, 204, 255, 0.932); }
+    30% { text-shadow: 0 0 40px rgba(0, 204, 255, 0.932); }
+    80% { text-shadow: 0 0 40px rgba(0, 204, 255, 0.932); }
+    100% { text-shadow: 0 0 20px rgba(0, 204, 255, 0.932); }
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 15px rgba(0, 204, 255, 0.932); }
+    25% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.932); }
+    50% { box-shadow: 0 0 40px rgba(0, 204, 255, 0.932); }
+    75% { box-shadow: 0 0 30px rgba(0, 204, 255, 0.932); }
+    100% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.932); }
+}
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+.footer
+{
+    border-top: 1px solid   rgba(185, 182, 182, 0.596);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    animation: neonGlow 1.5s infinite;
+}

@@ -1,0 +1,13 @@
+<div class="menu">
+    <span class="menu__title">{{title}}</span>
+    <span class="menu__items">
+        {{#each items}}
+            <div class="menu__item">
+                <a class="menu__link" href="{{url}}">
+                    <img class="menu__icon" src="{{icon}}">
+                    <span class="menu__name">{{name}}</span>
+                </a>
+            </div>
+        {{/each}}
+    </span>
+</div>
