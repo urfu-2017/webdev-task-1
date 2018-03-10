@@ -1,4 +1,74 @@
+.weather {
+    width: 500px;
+    display: flex;
+    padding: 10px;
+    border: 1px solid #006df0;
+}
+
+.weather__demo {
+    flex-grow: 2;
+    padding: 5px;
+}
+
+.weather__info {
+    flex-grow: 3;
+    padding: 5px 5px 5px 15px;
+}
+
+.weather__city {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
 .weather__icon {
-    width: 30px;
-    height: 30px;
+    width: 64px;
+    height: 64px;
+}
+
+.weather__temperature {
+    display: table;
+    margin-bottom: 5px;
+}
+
+.weather__wind {
+    display: table;
+    margin-top: 5px;
+}
+
+.weather__temperature-icon,
+.weather__wind-icon {
+    width: 20px;
+    height: 20px;
+    display: table-cell;
+}
+
+.weather__temperature-value,
+.weather__wind-value {
+    padding-left: 5px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.weather__forecasts {
+    margin-top: 10px;
+}
+
+.forecasts {
+    border: 1px solid #006df0;
+    border-collapse: collapse;
+}
+
+.forecasts__day {
+    text-align: center;
+    border: 1px solid #006df0;
+}
+
+.forecasts__date {
+    padding: 3px 5px;
+    border-bottom: 1px solid #006df0;
+}
+
+.forecasts__temperature {
+    margin-top: 3px;
 }

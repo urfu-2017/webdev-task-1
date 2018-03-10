@@ -1,5 +1,6 @@
 'use strict';
 
+const moment = require('moment');
 const requests = require('../utils/requests');
 
 const apiLocationUrl = 'https://www.metaweather.com/api/location/search/';
@@ -54,7 +55,9 @@ class Weather {
             windSpeed: Math.round(forecast.wind_speed),
             icon: stateIconUrl(forecast.weather_state_abbr),
             stateAltName: forecast.weather_state_name,
-            date: forecast.applicable_date
+            date: moment(forecast.applicable_date)
+                .locale('ru')
+                .format('DD MMMM')
         }));
 
         return {
