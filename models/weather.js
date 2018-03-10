@@ -75,7 +75,7 @@ class Weather {
             weather.temp = Math.round(weather.the_temp);
             weather.date = weather.applicable_date;
             weather.windSpeed = Math.round(weather.wind_speed);
-            weather.stateName = weather.weather_state_name;
+            weather.stateName = weather.weather_state_abbr;
             storage.push(new Weather(weather));
         }
 

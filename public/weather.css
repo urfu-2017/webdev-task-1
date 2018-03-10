@@ -1,0 +1,54 @@
+.weather
+{
+    display: flex;
+    justify-content: center;
+}
+
+.weatherState__image
+{
+    width: 200px;
+    margin-right: 10px;
+}
+
+.weatherWidgets
+{
+    display: flex;
+}
+
+.weatherIndicators
+{
+    font: 30px serif;
+}
+
+.weatherIndicators__image
+{
+    width: 60px;
+    height: 40px;
+}
+
+.widget
+{
+    background: #ededff;
+    border: solid #78c8ff 1px;
+    height: 100px;
+}
+
+.widget__date
+{
+    border-radius: 5px;
+    border-bottom: solid #78c8ff 1px;
+    margin-bottom: 10px;
+}
+
+.widget__temp
+{
+    text-align: center;
+    font: 15px serif;
+    margin-bottom: 10px;
+}
+
+.widget__wind
+{
+    text-align: center;
+    font: 20px serif;
+}

@@ -1,13 +1,30 @@
 {{#if weathers.length}}
-    Погода
-    {{#each weathers}}
-        <section>
-            <div>{{ temp }}</div>
-            <div>{{ date }}</div>
-            <div>{{ windSpeed }}</div>
-            <div>{{ stateName }}</div>
-        </section>
-    {{/each}}
+    <section class="weather">
+        <article class="weatherState">
+            <img src="{{ weathers.[0].stateName }}.svg" alt="Состояние погоды" class="weatherState__image">
+        </article>
+        <div>
+            <article class="weatherIndicators">
+                <div>
+                    <img src="temp.jpg" alt="Значок температуры" class="weatherIndicators__image">
+                    {{ weathers.[0].temp }} °C
+                </div>
+                <div>
+                    <img src="wind.jpg" alt="Значок ветра" class="weatherIndicators__image">
+                    {{ weathers.[0].windSpeed }} м/с
+                </div>
+            </article>
+            <div class="weatherWidgets">
+                {{#each weathers}}
+                    <article class="widget">
+                        <div class="widget__date">{{ date }}</div>
+                        <div class="widget__temp">{{ temp }} °C</div>
+                        <div class="widget__wind">{{ windSpeed }} м/с</div>
+                    </article>
+                {{/each}}
+            </div>
+        </div>
+    </section>
 {{^}}
     <p>Погода не найдена :(</p>
 {{/if}}
