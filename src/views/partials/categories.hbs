@@ -1,8 +1,8 @@
 <section class="categories">
     {{#each categories}}
     <article class="categories__item">
-        <a href="{{@key}}">
-            <img class="categories__item-icon" src="{{this.icon}}" alt="{{@key}}">
+        <a href="{{this.name}}">
+            <img class="categories__item-icon" src="{{this.icon}}" alt="{{this.name}}">
             <span class="categories__item-title">{{this.title}}</span>
         </a>
     </article>
