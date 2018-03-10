@@ -1,11 +1,11 @@
 'use strict';
 
-const config = require('config');
+
 const NewsApi = require('newsapi');
 
 const categories = require('../mocks/categories');
 
-const key = config.get('key');
+const key = process.env.key;
 const newsApi = new NewsApi(key);
 
 function getFirstFiveArticles(articles) {
