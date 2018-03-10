@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="{{meta.charset}}">
-    <title>{{catName}}</title>
-    <meta name="description" content="{{ meta.description }}">
-    <link rel="stylesheet" href="/index.css">
-</head>
-<body>
-<div class="app app_main-color-theme">
-    {{> header }}
+{{#> layouts/page}}
     <main class="category-main">
         {{#each newsList}}
             <article class="news-item">
@@ -26,7 +16,4 @@
             </article>
         {{/each}}
     </main>
-    {{> footer }}
-</div>
-</body>
-</html>
+{{/ layouts/page}}

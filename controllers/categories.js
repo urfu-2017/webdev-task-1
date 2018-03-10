@@ -7,7 +7,7 @@ const categories = require('../mocks/categories');
 const supported = categories.map(({ url }) => url.split('/').pop());
 
 exports.list = (req, res) => {
-    res.render('index', { categories });
+    res.render('partials/includes/index', { categories });
 };
 
 exports.get = (req, res) => {
@@ -26,7 +26,7 @@ exports.get = (req, res) => {
 
     news.getList(options)
         .then(newsList => {
-            res.render('category', {
+            res.render('partials/includes/category', {
                 newsList,
                 catName: category
             });
