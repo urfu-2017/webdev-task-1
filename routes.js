@@ -1,12 +1,12 @@
 'use strict';
 
-const cats = require('./controllers/categories');
+const categories = require('./controllers/categories');
 const { error404 } = require('./controllers/errors');
 
 exports.routes = app => {
-    app.get('/', cats.list);
+    app.get('/', categories.list);
 
-    app.get('/news/:category', cats.get);
+    app.get('/news/:category', categories.get);
 
     app.all('*', error404);
 };

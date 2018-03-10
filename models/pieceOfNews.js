@@ -14,4 +14,4 @@ class PieceOfNews {
     }
 }
 
-exports.PieceOfNews = PieceOfNews;
+module.exports = PieceOfNews;

@@ -2,24 +2,26 @@
 
 const fetch = require('node-fetch');
 
-const Widget = require('../models/weatherWidget').Widget;
+const Widget = require('../models/weatherWidget');
+const config = require('../config/default');
 
-const baseUrl = 'https://www.metaweather.com';
-
-exports.getPlaces = ({ query, lat, lon }, cb) => {
+exports.getPlaces = ({ query, lat, lon }) => {
     if (!lat || !lon) {
         query = query || 'moscow';
     }
     let url = makeSearchPlacesUrl({ query, lat, lon });
 
-    fetch(url)
+    return fetch(url)
         .then(res => res.json())
         .then(listOfPlaces => getWeather(listOfPlaces[0]))
         .then(res => res.json())
-        .then(weatherObj => cb(new Widget(weatherObj)))
-        .catch(err => console.error(err));
+        .then(weatherObj => new Widget(weatherObj));
 };
 
+/**
+ * @param woeid - Where on Earth id
+ * @returns {Promise}
+ */
 function getWeather({ woeid }) {
     if (!woeid) {
         throw new Error('Weather parameters is not specified');
@@ -32,9 +34,9 @@ function getWeather({ woeid }) {
 function makeSearchPlacesUrl({ query, lat, lon }) {
     let searchParam = query ? `?query=${query}` : `?lattlong=${lat},${lon}`;
 
-    return `${baseUrl}/api/location/search/${searchParam}`;
+    return `${config.weatherLocationUrl}/search/${searchParam}`;
 }
 
 function makeWeatherUrl(woeid) {
-    return `${baseUrl}/api/location/${woeid}/`;
+    return `${config.weatherLocationUrl}/${woeid}`;
 }

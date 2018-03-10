@@ -47,20 +47,24 @@
         background: #c7ffe0;
         color: #008000;
     }
+
     &__town {
         margin: 0;
         grid-area: town;
     }
+
     &__icon {
         grid-area: icon;
         justify-self: center;
     }
+
     &__info {
         grid-area: info;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     &__current-temp,
     &__current-wind {
         width: 100%;
@@ -71,13 +75,14 @@
 }
 
 .weather-table {
+    border: 1px solid;
+    border-collapse: collapse;
+
     &__data,
     &__heading {
         padding: 1px 2px;
         border: 1px solid;
     }
-    border: 1px solid;
-    border-collapse: collapse;
 }
 
 .index-main,
@@ -139,6 +144,7 @@
             }
         }
     }
+
     &__title {
         margin: 0 0 10px;
         grid-area: title;
@@ -148,30 +154,35 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
     &__date {
         grid-area: date;
     }
+
     &__content {
         grid-area: content;
         display: grid;
         grid-template-columns: 33% 66%;
     }
+
     &__image {
         width: 100%;
     }
+
     &__description {
         padding: 0 5px;
         grid-column-end: 3;
     }
+
     &__source {
         grid-area: source;
         text-align: right;
     }
+
     &:not(:last-child) {
         border-bottom: 2px solid;
     }
 }
-
 
 .footer {
     padding: 10px 30px;
@@ -180,4 +191,3 @@
 
     font-size: 1.5rem;
 }
-

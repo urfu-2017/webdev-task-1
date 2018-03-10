@@ -1,17 +1,16 @@
 'use strict';
 
 const news = require('./news');
-const { error404 } = require('../controllers/errors');
-const categories = require('../mocks/categories.json').categories;
-const supported = categories.map(({ url }) => url.split('/').pop());
 
-let getCatName = category => categories.find(cat => cat.url.split('/').pop() === category).name;
+const { error404 } = require('../controllers/errors');
+const categories = require('../mocks/categories');
+const supported = categories.map(({ url }) => url.split('/').pop());
 
 exports.list = (req, res) => {
     res.render('index', { categories });
 };
 
-exports.get = function (req, res) {
+exports.get = (req, res) => {
     let category = req.params.category;
     let country = req.query.country || 'ru';
     if (!supported.includes(category)) {
@@ -19,13 +18,18 @@ exports.get = function (req, res) {
 
         return;
     }
-    news.getList({
+
+    let options = {
         country,
         category
-    }, (newsList) => {
-        res.render('category', {
-            newsList,
-            catName: getCatName(category)
-        });
-    });
+    };
+
+    news.getList(options)
+        .then(newsList => {
+            res.render('category', {
+                newsList,
+                catName: category
+            });
+        })
+        .catch(err => console.error(err));
 };

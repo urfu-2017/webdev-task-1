@@ -1,5 +1,4 @@
-{
-  "categories": [
+[
     {
       "name": "Бизнес",
       "url": "/news/business"
@@ -28,5 +27,4 @@
       "name": "Технологии",
       "url": "/news/technology"
     }
-  ]
-}
+]

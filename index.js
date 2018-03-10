@@ -12,6 +12,15 @@ const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
 const publicDir = path.join(__dirname, 'public');
 
+let locals = {
+    meta: {
+        charset: 'utf-8',
+        description: 'News and Weather app'
+    },
+    title: 'NaW'
+};
+Object.assign(app.locals, locals);
+
 app.set('view engine', 'hbs');
 
 app.set('views', viewsDir);
@@ -19,22 +28,26 @@ app.set('views', viewsDir);
 app.use(express.static(publicDir));
 
 app.use((req, res, next) => {
-    weather.getPlaces(req.query, widget => {
-        res.locals.meta = {
-            charset: 'utf-8',
-            description: 'News and Weather app'
-        };
+    // Чтобы постоянно не подгружать погоду. Оттуда и тормоза были.
+    // По хорошему еще нужно добавить сравнение timestamp-ов, чтобы обновлять раз в день. Но уже не стал
+    if (!app.locals.widget) {
+        weather.getPlaces(req.query)
+            .then(widget => {
+                app.locals.widget = widget;
 
-        res.locals.title = 'NaW';
-        res.locals.widget = widget;
+                next();
+            })
+            .catch(err => console.error(err));
+
+    } else {
         next();
-    });
+    }
 });
 
 routes(app);
 
 hbs.registerPartials(partialsDir, () => {
-    app.listen(8080, () => {
+    app.listen(process.env.MY_PORT, () => {
         console.info('Open http://localhost:8080/');
     });
 });
