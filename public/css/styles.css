@@ -1,0 +1,181 @@
+body
+{
+    background-color: #edeef0;
+    font-family: Roboto, Helvetica, sans-serif;
+}
+
+.header
+{
+    padding: 0 10px;
+    background-color: #1976d2;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3)
+}
+
+.back-link
+{
+    color: #fff;
+}
+
+.page-title
+{
+    display: inline-block;
+    margin: 0 0 10px;
+    font-size: 1em;
+    padding: 10px;
+}
+
+.main
+{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #e3e4e8;
+}
+
+.header
+{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.categories
+{
+    border-top: 1px solid #e3e4e8;
+}
+
+.category,
+.article
+{
+    display: block;
+    border: 1px solid #e3e4e8;
+    color: #000;
+    text-decoration: none;
+}
+
+.category
+{
+    font-size: 1.5rem;
+}
+
+.category:hover,
+.article:hover
+{
+    background-color: rgba(231, 231, 231, 0.82);
+}
+
+.category__icon
+{
+    display: inline-block;
+    margin: 1em 10px;
+    vertical-align: middle;
+}
+
+.category__name
+{
+    display: inline-block;
+}
+
+.article
+{
+    display: grid;
+    grid-template-columns: 20% 1fr 15%;
+    grid-template-rows: auto;
+    grid-template-areas: 'header header date' 'image text col1' 'image col source';
+    padding: 10px;
+}
+
+.article-link
+{
+    text-decoration: none;
+}
+
+.article__title
+{
+    grid-area: header;
+}
+
+.article__date
+{
+    grid-area: date;
+}
+
+.article__image
+{
+    grid-area: image;
+    width: 100%;
+}
+
+.article__description
+{
+    grid-area: text;
+    margin-left: 10px;
+
+}
+
+.article__source
+{
+    grid-area: source;
+}
+
+.weather
+{
+    display: grid;
+    width: 80%;
+    margin: auto;
+    grid-template-columns: 20% 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'city city city city city city' 'icon temp-sign temp empty empty empty' 'icon wind-sign wind empty empty empty' 'icon forecast forecast forecast forecast forecast';
+}
+
+.weather__title
+{
+    grid-area: city;
+    font-size: 1.5rem;
+    margin-left: 5%;
+}
+
+.weather__current-img
+{
+    grid-area: icon;
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.weather__temperature-sign
+{
+    grid-area: temp-sign;
+}
+
+.weather__current-temperature
+{
+    grid-area: temp;
+}
+
+.weather__wind-sign
+{
+    grid-area: wind-sign;
+}
+
+.weather__current-wind
+{
+    grid-area: wind;
+}
+
+.forecast
+{
+    grid-area: forecast;
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.forecast__max,
+.forecast__min
+{
+    display: block;
+}
+
+.footer{
+    padding: 10px;
+}

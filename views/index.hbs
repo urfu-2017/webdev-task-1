@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{meta.title}}</title>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <main class="main">
+            <header class="header">
+                <h1 class="page-title">{{meta.title}}</h1>
+            </header>
+            {{>weather}}
+            <article class="categories">
+                <h2>Категории новостей</h2>
+                {{#each categories}}
+                    <a href="/news/{{this.value}}" class="category">
+                        <span class="category__icon fas {{this.icon}}"></span>
+                        <p class="category__name">{{this.title}}</p>
+                    </a>
+                {{/each}}
+            </article>
+            <footer class="footer">
+                <div class="footer__copyright">&copy; {{meta.copyright}}</div>
+                <time class="footer__date">{{meta.date}}</time>
+            </footer>
+        </main>
+    </body>
+</html>
