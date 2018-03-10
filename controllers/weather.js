@@ -19,7 +19,7 @@ exports.getPlaces = ({ query, lat, lon }) => {
 };
 
 /**
- * @param woeid - Where on Earth id
+ * @param {String} woeid - Where on Earth id
  * @returns {Promise}
  */
 function getWeather({ woeid }) {

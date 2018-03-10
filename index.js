@@ -29,7 +29,7 @@ app.use(express.static(publicDir));
 
 app.use((req, res, next) => {
     // Чтобы постоянно не подгружать погоду. Оттуда и тормоза были.
-    // По хорошему еще нужно добавить сравнение timestamp-ов, чтобы обновлять раз в день. Но уже не стал
+    // По хорошему еще нужно добавить сравнение timestamp-ов, чтобы обновлять раз в день.
     if (!app.locals.widget) {
         weather.getPlaces(req.query)
             .then(widget => {
