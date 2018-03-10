@@ -1,6 +1,6 @@
 'use strict';
 
-const categories = require('../mocks/categories');
+const categories = require('../config/categories');
 
 
 exports.list = (req, res) => {

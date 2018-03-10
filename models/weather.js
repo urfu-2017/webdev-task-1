@@ -1,18 +1,14 @@
 'use strict';
 
-const BASE_LINK = 'https://www.metaweather.com';
-
-const MONTHS = [
-    'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня',
-    'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
-];
+const { formatDate } = require('../middlewares/date');
+const { weatherImgLink } = require('../config/weather-api');
 
 class Weather {
     constructor(responseJSON) {
         let weatherInfo = responseJSON.consolidated_weather;
 
         let weatherAbbr = weatherInfo[0].weather_state_abbr;
-        let weatherIconLink = `${BASE_LINK}/static/img/weather/${weatherAbbr}.svg`;
+        let weatherIconLink = `${weatherImgLink}/${weatherAbbr}.svg`;
 
         this.city = responseJSON.title;
         this.temp = Math.round(weatherInfo[0].the_temp);
@@ -22,24 +18,16 @@ class Weather {
 
         this.futureWeather = [];
         weatherInfo.slice(1).forEach(oldWeather => {
-            let dayNumber = new Date(oldWeather.applicable_date).getDate();
-            let monthNumber = new Date(oldWeather.applicable_date).getMonth();
-            let date = `${dayNumber} ${MONTHS[monthNumber]}`;
             this.futureWeather.push(
                 {
                     temp: Math.round(oldWeather.the_temp),
                     windSpeed: Math.round(oldWeather.wind_speed),
-                    date
+                    date: formatDate(new Date(oldWeather.applicable_date))
                 }
             );
 
         });
     }
-
-    static getBaseLink() {
-        return BASE_LINK;
-    }
-
 }
 
 module.exports = Weather;

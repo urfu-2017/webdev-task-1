@@ -9,8 +9,8 @@ const hbs = require('hbs');
 
 
 const routes = require('./routes');
-const { fetchWeather } = require('./controllers/weatherFetcher');
-const info = require('./mocks/info');
+const { fetchWeather } = require('./middlewares/weatherFetcher');
+const info = require('./config/info');
 
 
 const app = express();

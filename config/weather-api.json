@@ -1,0 +1,5 @@
+{
+    "searchLocationLink": "https://www.metaweather.com/api/location/search",
+    "weatherLink": "https://www.metaweather.com/api/location",
+    "weatherImgLink": "https://www.metaweather.com/static/img/weather"
+}

@@ -4,18 +4,18 @@ const fetch = require('node-fetch');
 const { stringify } = require('querystring');
 
 const Weather = require('../models/weather');
-
+const { searchLocationLink, weatherLink } = require('../config/weather-api');
 
 const MOSCOW_WOEID = 2122265;
 
 exports.fetchWeather = query => {
     let querystring = parseWeatherQuery(query);
 
-    return fetch(`${Weather.getBaseLink()}/api/location/search/?${querystring}`)
+    return fetch(`${searchLocationLink}/?${querystring}`)
         .then(response => response.json())
         .then(json => json[0].woeid ? json[0].woeid : MOSCOW_WOEID)
         .catch(() => MOSCOW_WOEID)
-        .then(woeid => fetch(`${Weather.getBaseLink()}/api/location/${woeid}/`))
+        .then(woeid => fetch(`${weatherLink}/${woeid}/`))
         .then(response => response.json())
         .then(json => new Weather(json));
 };
