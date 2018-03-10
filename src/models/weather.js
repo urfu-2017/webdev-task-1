@@ -5,17 +5,23 @@ const requests = require('../utils/requests');
 const apiLocationUrl = 'https://www.metaweather.com/api/location/search/';
 const apiForecastUrl = 'https://www.metaweather.com/api/location/';
 const stateIconUrl = (state) => `https://www.metaweather.com/static/img/weather/${state}.svg`;
+const defaultQuery = 'moscow';
 
 class Weather {
+    static async get(queryArgs) {
+        const woeid = await this._getWoeid(queryArgs);
+        const locationWeather = await this._getLocationWeather(woeid);
+
+        return this._prepareToView(locationWeather);
+    }
+
     // woeid - Where On Earth ID
-    static async getWoeid(queryArgs) {
+    static async _getWoeid(queryArgs) {
         let requestUrl;
-        if (queryArgs.query) {
-            requestUrl = `${apiLocationUrl}?query=${queryArgs.query}`;
-        } else if (queryArgs.lat && queryArgs.lon) {
-            requestUrl = `${apiLocationUrl}?lattlong=${[queryArgs.lat, queryArgs.lon].join(',')}`;
+        if (queryArgs.lat && queryArgs.lon) {
+            requestUrl = `${apiLocationUrl}?lattlong=${queryArgs.lat},${queryArgs.lon}}`;
         } else {
-            throw new Error('Не указаны аргументы для корректного определения местоположения');
+            requestUrl = `${apiLocationUrl}?query=${queryArgs.query || defaultQuery}`;
         }
 
         const response = await requests.jsonRequest(requestUrl);
@@ -31,7 +37,7 @@ class Weather {
         return response.body[0].woeid;
     }
 
-    static async getLocationWeather(woeid) {
+    static async _getLocationWeather(woeid) {
         const requestUrl = `${apiForecastUrl}${woeid}/`;
         const response = await requests.jsonRequest(requestUrl);
 
@@ -42,29 +48,20 @@ class Weather {
         return response.body;
     }
 
-    static prepareToView(weather) {
-        const preparedData = {};
+    static _prepareToView(weather) {
+        const viewForecasts = weather.consolidated_weather.map(forecast => ({
+            temperature: Math.round(forecast.the_temp),
+            windSpeed: Math.round(forecast.wind_speed),
+            icon: stateIconUrl(forecast.weather_state_abbr),
+            stateAltName: forecast.weather_state_name,
+            date: forecast.applicable_date
+        }));
 
-        for (const forecast of weather.consolidated_weather) {
-            forecast.temperature = Math.round(forecast.the_temp);
-            forecast.windSpeed = Math.round(forecast.wind_speed);
-            forecast.icon = stateIconUrl(forecast.weather_state_abbr);
-            forecast.stateAltName = forecast.weather_state_name;
-            forecast.date = forecast.applicable_date;
-        }
-
-        preparedData.city = weather.title;
-        preparedData.today = weather.consolidated_weather[0];
-        preparedData.forecasts = weather.consolidated_weather;
-
-        return preparedData;
-    }
-
-    static async filter(queryArgs = { query: '', lat: '', lon: '' }) {
-        const woeid = await this.getWoeid(queryArgs);
-        const locationWeather = await this.getLocationWeather(woeid);
-
-        return this.prepareToView(locationWeather);
+        return {
+            city: weather.title,
+            today: viewForecasts[0],
+            forecasts: viewForecasts
+        };
     }
 }
 

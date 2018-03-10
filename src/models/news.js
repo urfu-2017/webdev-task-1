@@ -1,22 +1,23 @@
 'use strict';
 
-const settings = require('../settings');
+const config = require('../config');
 const requests = require('../utils/requests');
-const apiUrl = 'https://newsapi.org/v2/top-headlines/';
 
+const apiUrl = 'https://newsapi.org/v2/top-headlines/';
 const requestSettings = {
     method: 'GET',
     headers: {
         Accept: 'application/json',
-        'X-Api-Key': settings.newsApiKey
+        'X-Api-Key': config.newsApiKey
     }
 };
 
 class News {
-    static async filter(category = 'general', queryArgs = { country: 'ru' }) {
-        // node-fetch не принимает параметр qs в настройках :(
+    static async filter(category, queryArgs) {
+        const country = queryArgs.country || 'ru';
+
         const response = await requests.jsonRequest(
-            `${apiUrl}?category=${category}&country=${queryArgs.country}`,
+            `${apiUrl}?category=${category}&country=${country}`,
             requestSettings
         );
 

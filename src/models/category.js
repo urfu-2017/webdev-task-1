@@ -1,6 +1,6 @@
 'use strict';
 
-const storage = {};
+const storage = [];
 
 class Category {
     constructor(name, title, icon) {
@@ -10,18 +10,15 @@ class Category {
     }
 
     save() {
-        storage[this.name] = {
-            title: this.title,
-            icon: this.icon
-        };
+        storage.push(this);
     }
 
     static all() {
         return storage;
     }
 
-    static exists(name) {
-        return name in storage;
+    static get(name) {
+        return storage.find(category => category.name === name);
     }
 }
 
