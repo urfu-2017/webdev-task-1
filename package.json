@@ -6,7 +6,6 @@
     "test": "npm run lint && mocha --exit tests/*.js"
   },
   "dependencies": {
-    "config": "^1.30.0",
     "express": "^4.16.2",
     "got": "^8.2.0",
     "hbs": "^4.0.1",
@@ -14,6 +13,7 @@
     "newsapi": "^2.2.0"
   },
   "devDependencies": {
+    "config": "^1.30.0",
     "stylelint": "7.3.1",
     "stylelint-config-hrundel": "1.0.3",
     "eslint": "^4.8.0",
