@@ -3,20 +3,25 @@
 const hbs = require('hbs');
 const express = require('express');
 
+const config = require('./config');
 const routes = require('./routes');
-const settings = require('./settings');
-const initHelpers = require('./utils/init-helpers');
+const appHelpers = require('./utils/app-helpers');
 
 const app = express();
-app.use(express.static(settings.publicDir));
+app.use(express.static(config.publicDir));
 app.set('view engine', 'hbs');
-app.set('views', settings.viewsDir);
-initHelpers.registerPartialsSync(settings.partialsDir, hbs);
-initHelpers.loadInitialData();
+app.set('views', config.viewsDir);
+appHelpers.registerPartialsSync(config.partialsDir, hbs);
+appHelpers.loadInitialData();
 routes(app);
 
-app.listen(settings.serverPort, () => {
-    console.info(`Сервер запущен по адресу http://localhost:${settings.serverPort}/`);
+const server = app.listen(config.serverPort, config.serverHost, () => {
+    const { address, port } = server.address();
+    console.info(`Сервер запущен по адресу http://${address}:${port}`);
 });
+
+process.once('SIGINT', async () => appHelpers.gracefulShutdown(server));
+process.once('SIGTERM', async () => appHelpers.gracefulShutdown(server));
+process.once('SIGUSR2', async () => appHelpers.gracefulShutdown(server));
 
 module.exports = app;

@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+exports.serverHost = '0.0.0.0';
 exports.serverPort = 8080;
 exports.publicDir = path.join(__dirname, 'public');
 exports.viewsDir = path.join(__dirname, 'views');
