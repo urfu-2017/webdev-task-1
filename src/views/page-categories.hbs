@@ -6,6 +6,7 @@
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/common.css">
     <link rel="stylesheet" href="/styles/page.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/footer.css">
@@ -13,15 +14,18 @@
     <link rel="stylesheet" href="/styles/categories.css">
 </head>
 
-<body class="page">
+<body class="page text">
     <header class="page__header">
         {{> header }}
     </header>
 
-    <main class="page__main">
+    <section class="page__widgets">
         {{#if weather}}
             {{> weather weather }}
         {{/if}}
+    </section>
+
+    <main class="page__main">
         {{> categories }}
     </main>
 

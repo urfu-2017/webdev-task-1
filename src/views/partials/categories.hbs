@@ -1,10 +1,10 @@
 <section class="categories">
     {{#each categories}}
-    <article class="categories__item">
-        <a href="{{this.name}}">
-            <img class="categories__item-icon" src="{{this.icon}}" alt="{{this.name}}">
-            <span class="categories__item-title">{{this.title}}</span>
-        </a>
-    </article>
+        <article class="categories__item">
+            <a class="categories__item-link link" href="{{this.name}}">
+                <img class="categories__item-icon" src="{{this.icon}}" alt="{{this.name}}">
+                <span class="categories__item-title">{{this.title}}</span>
+            </a>
+        </article>
     {{/each}}
 </section>

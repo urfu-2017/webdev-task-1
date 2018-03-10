@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+}
+
+.page {
+    padding: 15px;
+}
+
+.page__main {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

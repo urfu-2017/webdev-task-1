@@ -12,7 +12,6 @@ exports.list = async (req, res) => {
     }
 
     res.render('page-categories', {
-        title: 'Главная страница',
         categories: Category.all(),
         weather
     });
