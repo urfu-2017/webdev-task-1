@@ -1,11 +1,16 @@
 body
 {
     font: 2em/1.5em Arial, sans-serif;
+    background: #f0f0f0;
 }
 
 .weatherWidget {
     margin: 0 auto;
     width: 900px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 1px 2px #666;
+    border: 1px double #666;
 }
 
 .weatherWidget__todayTemperature {
@@ -80,6 +85,9 @@ body
 .newsItem {
     border: 1px solid black;
     padding: 10px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 8px;
 }
 
 .newsItem__upperBound {
@@ -90,9 +98,11 @@ body
 .newsItem__lowerBound {
     display: flex;
     margin-top: 20px;
+    position: relative;
 }
 
 .newsItem__title {
+    font-size: 22px;
     width: 400px;
 }
 
@@ -102,6 +112,9 @@ body
 
 .newsItem__source {
     margin-left: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 .newsItem__image {
