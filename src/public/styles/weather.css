@@ -2,6 +2,7 @@
     width: 500px;
     display: flex;
     padding: 10px;
+    border-radius: 5px;
     border: 1px solid #006df0;
 }
 
@@ -55,17 +56,16 @@
 }
 
 .forecasts {
-    border: 1px solid #006df0;
     border-collapse: collapse;
 }
 
 .forecasts__day {
     text-align: center;
-    border: 1px solid #006df0;
 }
 
 .forecasts__date {
     padding: 3px 5px;
+    border-radius: 10px;
     border-bottom: 1px solid #006df0;
 }
 

@@ -1,3 +1,13 @@
+.link_project {
+    color: #000;
+    font-size: 2.6rem;
+}
+
+.link_project:hover,
+.link_project:hover {
+    color: #000;
+}
+
 .header__title:first-letter {
     color: #f00;
 }
