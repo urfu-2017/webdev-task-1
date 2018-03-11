@@ -1,0 +1,10 @@
+.page
+{
+    padding: 15px 15px 15px 30px;
+}
+
+.page__main
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

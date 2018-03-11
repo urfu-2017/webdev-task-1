@@ -1,0 +1,22 @@
+<section class="weather">
+    <div class="weather__demo">
+        <div class="weather__city">{{city}}</div>
+        <img class="weather__icon" src="{{today.icon}}" alt="{{today.stateAltName}}">
+    </div>
+
+    <div class="weather__info">
+        <div class="weather__temperature">
+            <img src="/images/thermometer.svg" class="weather__temperature-icon"/>
+            <span class="weather__temperature-value">{{today.temperature}} ℃</span>
+        </div>
+
+        <div class="weather__wind">
+            <img src="/images/wind.svg" class="weather__wind-icon"/>
+            <span class="weather__wind-value">{{today.windSpeed}} м/c</span>
+        </div>
+
+        <div class="weather__forecasts">
+            {{> forecasts }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,11 @@
+<table class="forecasts">
+    <tr>
+        {{# each forecasts }}
+            <td class="forecasts__day">
+                <div class="forecasts__date">{{date}}</div>
+                <div class="forecasts__temperature">{{temperature}} ℃</div>
+                <div class="forecasts__wind">{{windSpeed}} м/c</div>
+            </td>
+        {{/each}}
+    </tr>
+</table>

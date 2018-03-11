@@ -1,0 +1,25 @@
+<section class="news">
+    {{#each this }}
+        <article class="publication">
+            <header class="publication__header">
+                <h2 class="publication__title"><a class="link" href="{{url}}">{{title}}</a></h2>
+            </header>
+
+            <section class="publication__content clearfix">
+                {{#if urlToImage }}
+                    <img src="{{urlToImage}}"
+                         onerror="this.style.display='none'"
+                         alt="{{title}}"
+                         class="publication__image"
+                    >
+                {{/if }}
+                <div class="publication__description">{{description}}</div>
+            </section>
+
+            <footer class="publication__footer">
+                <div class="publication__date">{{publishedAt}}</div>
+                <div class="publication__source">{{source.name}}</div>
+            </footer>
+        </article>
+    {{/each}}
+</section>
