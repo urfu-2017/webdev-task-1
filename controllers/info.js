@@ -5,35 +5,18 @@ const url = require('url');
 const newsProxy = require('../proxies/news-proxy');
 const weatherProxy = require('../proxies/weather-proxy');
 
-async function queryWeather(query, lat, lon) {
-    let weatherQueryResult;
-
+function queryWeather(query, lat, lon) {
     if (query) {
-        await weatherProxy.query(query)
-            .then(weather => {
-                weatherQueryResult = weather;
-            });
+        return weatherProxy.query(query);
     } else if (lat && lon) {
-        await weatherProxy.lattlong(`${lat},${lon}`)
-            .then(weather => {
-                weatherQueryResult = weather;
-            });
+        return weatherProxy.lattlong(`${lat},${lon}`);
     }
-
-    return weatherQueryResult;
 }
 
-async function queryNews(country, req) {
-    let newsQueryResult;
-
+function queryNews(country, req) {
     if (country) {
-        await newsProxy(req.params.category, country)
-            .then(news => {
-                newsQueryResult = news;
-            });
+        return newsProxy(req.params.category, country);
     }
-
-    return newsQueryResult;
 }
 
 function getSearchString(req) {
