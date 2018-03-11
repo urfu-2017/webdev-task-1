@@ -4,7 +4,7 @@ const got = require('got');
 
 const WeatherInfo = require('../models/weather-info');
 
-const metaweatherApiUrl = 'https://www.metaweather.com/api/';
+const metaweatherApiUrl = process.env.METAWEATHER_URL;
 const queryUrl = 'location/search/?query=';
 const lattlongUrl = 'location/search/?lattlong=';
 const locationUrl = 'location/';

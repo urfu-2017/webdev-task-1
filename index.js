@@ -20,6 +20,6 @@ app.use(express.static(publicDir));
 
 routes(app);
 
-hbs.registerPartials(partialsDir, () => app.listen(8080));
+hbs.registerPartials(partialsDir, () => app.listen(process.env.PORT));
 
 module.exports = app;

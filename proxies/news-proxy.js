@@ -2,9 +2,8 @@
 const NewsAPI = require('newsapi');
 
 const Article = require('../models/article');
-const { newsApiKey } = require('../api-keys');
 
-const newsapi = new NewsAPI(newsApiKey);
+const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
 module.exports = (category, country) => {
     return newsapi.v2.topHeadlines({
