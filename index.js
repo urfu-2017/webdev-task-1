@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 
 const path = require('path');
 
@@ -19,7 +20,7 @@ app.set('views', viewsDir);
 app.use(express.static(publicDir));
 
 routes(app);
-
+console.log(process.env.PORT);
 hbs.registerPartials(partialsDir, () => app.listen(process.env.PORT));
 
 module.exports = app;
