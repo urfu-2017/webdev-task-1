@@ -1,0 +1,58 @@
+.news-container > :not(:first-child) {
+    border-top: 1px solid #000;
+}
+
+.news-article {
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 1%;
+    grid-template-columns: 25% 48% 25%;
+    grid-template-areas: 
+        "title title date"
+        "image article article" 
+        "image source source";
+    padding: 1%;
+}
+
+.news-article_type_no-image {
+    grid-template-areas: 
+    "title title date"
+    "article article article" 
+    "source source source";
+}
+
+.news-article__title {
+    grid-area: title;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news-article__date {
+    grid-area: date;
+    text-align: right;
+}
+
+.news-article__image {
+    grid-area: image;
+    width: 100%;
+}
+
+.news-article__description {
+    grid-area: article;
+}
+
+.news-article__source {
+    grid-area: source;
+    position: relative;
+}
+
+.footer__bottom-right
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

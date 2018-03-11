@@ -7,15 +7,18 @@
 </head>
 <body>
     <main class="container">
-        {{> header document.header }}
-        {{> weather weather weather=document.weather}}
-        <section class="news-container">
-            <ul>
-                {{#each document.categories}}
-                    <li><a href="/{{ url }}{{ ../query }}">{{ name }}</a></li>
-                {{/each}}
-            </ul>
-        </section>
+        <header class="header header_type_one-item">
+            <h1 class="header__title">{{ document.header.title }}</h1>
+        </header>
+        {{> weather weather weather=document.weather }}
+        <nav class="categories">
+            {{#each document.categories }}
+            <a href="/{{ url }}{{ ../query }}" class="category link">
+                <img src="./{{ icon }}" alt="icon" class="category__icon">
+                <span class="category__link">{{ name }}</spab>
+            </a>
+            {{/each}}
+        </nav>
         {{> footer document.footer}}
     </main>
 </body>

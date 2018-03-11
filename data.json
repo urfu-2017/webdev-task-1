@@ -1,12 +1,12 @@
 {
     "categories": [
-        { "name": "Бизнесс", "url": "business", "category": "business" },
-        { "name": "Развлечения", "url": "entertainment", "category": "entertainment" },
-        { "name": "Общее", "url": "all", "category": "" },
-        { "name": "Здоровье", "url": "health", "category": "health" },
-        { "name": "Наука", "url": "science", "category": "science" },
-        { "name": "Спорт", "url": "sport", "category": "sport" },
-        { "name": "Технологии", "url": "technology", "category": "technology" }
+        { "name": "Бизнесс", "url": "business", "category": "business", "icon": "news.svg" },
+        { "name": "Развлечения", "url": "entertainment", "category": "entertainment", "icon": "newspaper.svg" },
+        { "name": "Общее", "url": "all", "category": "", "icon": "radio.svg" },
+        { "name": "Здоровье", "url": "health", "category": "health", "icon": "news.svg" },
+        { "name": "Наука", "url": "science", "category": "science", "icon": "newspaper.svg" },
+        { "name": "Спорт", "url": "sport", "category": "sport", "icon": "radio.svg" },
+        { "name": "Технологии", "url": "technology", "category": "technology", "icon": "news.svg" }
     ],
     "title": "Task-1",
     "header": {
