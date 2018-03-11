@@ -1,36 +1,42 @@
-@font-face {
+@font-face
+{
     font-family: 'Super Secret Sans Text';
     src: url('../fonts/text-regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {
+@font-face
+{
     font-family: 'Super Secret Sans Text';
     src: url('../fonts/text-bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
 }
 
-@font-face {
+@font-face
+{
     font-family: 'Super Secret Sans Display';
     src: url('../fonts/display-regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-:root {
+:root
+{
     font-size: 62.5%;
     font-family: 'Super Secret Sans Text', Arial, sans-serif;
 }
 
-:root {
+:root
+{
     font-size: 62.5%;
     font-family: 'Super Secret Sans Display', Arial, sans-serif;
 }
 
 html,
-body {
+body
+{
     margin: 0;
     padding: 0;
 }
@@ -38,56 +44,66 @@ body {
 h1,
 h2,
 .header1,
-.header2 {
+.header2
+{
     font-size: 2.6rem;
 }
 
 h3,
 h4,
 .header3,
-.header4 {
+.header4
+{
     font-size: 1.8rem;
 }
 
 h5,
 h6,
 .header5,
-.header6 {
+.header6
+{
     font-size: 1.6rem;
 }
 
 p,
 a,
 .link,
-.text {
+.text
+{
     font-size: 1.5rem;
 }
 
 a,
-.link {
+.link
+{
     color: #3757c5;
     text-decoration: none;
     transition: all .3s ease;
 }
 
-.bold {
+.bold
+{
     font-weight: bold;
 }
 
-.link_gray {
+.link_gray
+{
     color: #999;
 }
 
-.link_black {
+.link_black
+{
     color: #000;
 }
 
 a:hover,
-.link:hover {
+.link:hover
+{
     color: #f00;
 }
 
-.clearfix:after {
+.clearfix:after
+{
     content: '';
     display: table;
     clear: both;

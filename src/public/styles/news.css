@@ -1,29 +1,35 @@
-.news {
+.news
+{
     max-width: 500px;
 }
 
-.publication {
+.publication
+{
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
 }
 
-.publication__title {
+.publication__title
+{
     margin-top: 0;
 }
 
-.publication__content {
+.publication__content
+{
     display: flex;
     margin-bottom: 20px;
 }
 
-.publication__image {
+.publication__image
+{
     width: 200px;
     max-height: 200px;
     margin-right: 15px;
     object-fit: cover;
 }
 
-.publication__footer {
+.publication__footer
+{
     display: flex;
     justify-content: space-between;
 }

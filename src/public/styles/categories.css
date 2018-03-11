@@ -1,20 +1,24 @@
-.categories__item {
+.categories__item
+{
     margin: 10px 0;
 }
 
-.categories__item-link {
+.categories__item-link
+{
     display: table;
     list-style-type: none;
 }
 
-.categories__item-icon {
+.categories__item-icon
+{
     width: 25px;
     height: 25px;
     display: table-cell;
     vertical-align: middle;
 }
 
-.categories__item-title {
+.categories__item-title
+{
     padding-left: 7px;
     display: table-cell;
     vertical-align: middle;
