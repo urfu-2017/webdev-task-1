@@ -2,16 +2,23 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "lint": "stylelint **/*.css && eslint .",
+    "test": "npm run lint && mocha --exit tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "got": "^8.2.0",
+    "hbs": "^4.0.1",
+    "morgan": "^1.9.0",
+    "newsapi": "^2.2.0"
   },
   "devDependencies": {
+    "dotenv": "^5.0.1",
     "eslint": "^4.8.0",
     "eslint-config-hrundel": "^1.3.0",
     "mocha": "^5.0.1",
+    "stylelint": "7.3.1",
+    "stylelint-config-hrundel": "1.0.3",
     "supertest": "^3.0.0"
   }
 }
