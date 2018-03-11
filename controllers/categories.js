@@ -24,11 +24,13 @@ exports.get = (req, res) => {
         category
     };
 
+    let catName = categories.find((categoryObj, i) => supported[i] === category).name;
+
     news.getList(options)
         .then(newsList => {
             res.render('partials/includes/category', {
                 newsList,
-                catName: category
+                catName: `Новости: ${catName}`
             });
         })
         .catch(err => console.error(err));
