@@ -6,7 +6,12 @@
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "hbs": "^4.0.1",
+    "moment": "^2.21.0",
+    "newsapi": "^2.2.0",
+    "node-fetch": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^4.8.0",

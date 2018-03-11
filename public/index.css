@@ -1,0 +1,149 @@
+.app {
+  width: 600px;
+  border: 2px solid;
+  margin: 20px auto;
+  text-align: center;
+}
+.app_main-color-theme {
+  background: #c0e19d;
+  color: #008000;
+}
+.header {
+  position: relative;
+}
+.header__link {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  transform: translateY(-50%);
+}
+.header__link_main-theme {
+  text-decoration: none;
+  color: #008000;
+}
+.header__link_main-theme:hover {
+  text-decoration: underline;
+}
+.weather {
+  box-sizing: border-box;
+  width: 600px;
+  padding: 15px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  display: grid;
+  grid-template-areas: "town info info" "icon info info";
+}
+.weather_main-color-theme {
+  background: #c7ffe0;
+  color: #008000;
+}
+.weather__town {
+  margin: 0;
+  grid-area: town;
+}
+.weather__icon {
+  grid-area: icon;
+  justify-self: center;
+}
+.weather__info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weather__current-temp,
+.weather__current-wind {
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.weather-table {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+.weather-table__data,
+.weather-table__heading {
+  padding: 1px 2px;
+  border: 1px solid;
+}
+.index-main,
+.category-main {
+  border-bottom: 2px solid;
+}
+.categories {
+  width: 50%;
+  margin: 0 auto 20px;
+  padding: 0;
+  display: grid;
+  align-items: stretch;
+  grid-gap: 5px;
+  list-style-type: none;
+}
+.categories__link {
+  padding: 0 5px;
+  border: 2px solid;
+  border-radius: 20px;
+  display: block;
+  transition: color 0.5s, background-color 0.5s;
+}
+.categories__link_main-theme {
+  color: #008000;
+  border-color: #008000;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-family: "Arial", sans-serif;
+  transition: color 0.5s, background-color 0.5s;
+}
+.categories__link_main-theme:hover {
+  color: #c0e19d;
+  background: #008000;
+}
+.news-item {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-areas: "title date" "content content" ". source";
+}
+.news-item__link_main-theme {
+  color: #008000;
+  text-decoration: none;
+}
+.news-item__link_main-theme:hover {
+  text-decoration: underline;
+}
+.news-item__title {
+  margin: 0 0 10px;
+  grid-area: title;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.news-item__date {
+  grid-area: date;
+}
+.news-item__content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 33% 66%;
+}
+.news-item__image {
+  width: 100%;
+}
+.news-item__description {
+  padding: 0 5px;
+  grid-column-end: 3;
+}
+.news-item__source {
+  grid-area: source;
+  text-align: right;
+}
+.news-item:not(:last-child) {
+  border-bottom: 2px solid;
+}
+.footer {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}

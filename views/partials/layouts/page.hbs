@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="{{meta.charset}}">
+    <title>
+        {{#if catName}}
+            {{catName}}
+        {{else}}
+            {{title}}
+        {{/if}}
+    </title>
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+<div class="app app_main-color-theme">
+    {{> includes/header }}
+    {{> @partial-block }}
+    {{> includes/footer }}
+</div>
+</body>
+</html>

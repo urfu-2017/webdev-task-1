@@ -1,0 +1,25 @@
+<section class="weather weather_main-color-theme">
+    {{#with widget}}
+        <h2 class="weather__town">{{title}}</h2>
+        <img src="{{imageUrl}}" alt="Погода" class="weather__icon" width="100" height="100">
+        <section class="weather__info">
+            <div class="weather__current-temp">{{currentTemp}}&deg;C</div>
+            <div class="weather__current-wind">{{currentWind}} м/с</div>
+            <table class="weather-table">
+                <tr class="weather-table__row">
+                    {{#each weatherList}}
+                        <th class="weather-table__heading">{{applicable_date}}</th>
+                    {{/each}}
+                </tr>
+                <tr class="weather-table__row">
+                    {{#each weatherList}}
+                    <td class="weather-table__data">
+                        <span class="weather-table__wind">{{the_temp}}&deg;C</span><br>
+                        <span class="weather-table__temp">{{wind_speed}} м/с</span>
+                    </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </section>
+    {{/with}}
+</section>
