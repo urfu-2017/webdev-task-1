@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/weather.css">
+    <link rel="stylesheet" type="text/css" href="css/categories.css">
+    <title>{{ title }}</title>
+</head>
+<body>
+    {{> header }}
+    {{> weather }}
+    <div class="categories">
+        <div class="categories__caption">{{ categoryCaption }}</div>
+        {{#each categories }}
+            {{> category }}
+        {{/each }}
+    </div>
+    {{> footer }}
+</body>
+</html>

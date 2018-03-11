@@ -1,0 +1,44 @@
+.weather-widget {
+  display: grid;
+  grid-template-areas: 'city city city' 'weather-state temperature temperature-value' 'weather-state wind-speed wind-speed-value' 'weather-state next-days next-days';
+  grid-template-columns: 170px 32px auto;
+  grid-template-rows: auto 32px 32px auto;
+  line-height: 32px;
+  grid-column-gap: 15px;
+  grid-row-gap: 5px;
+}
+.weather-widget__city {
+  font-size: 28px;
+}
+.weather-widget__weather-state {
+  grid-area: weather-state;
+  width: 170px;
+}
+.weather-widget__temperature {
+  grid-area: temperature;
+}
+.weather-widget__temperature-value {
+  grid-area: temperature-value;
+}
+.weather-widget__wind-speed {
+  grid-area: wind-speed;
+}
+.weather-widget__wind-speed-value {
+  grid-area: wind-speed-value;
+}
+.weather-widget__next-days {
+  grid-area: next-days;
+  text-align: center;
+}
+.weather-widget__next-days table,
+.weather-widget__next-days th,
+.weather-widget__next-days td {
+  border: 1px solid #000;
+}
+.weather-widget__next-days table {
+  border-collapse: collapse;
+}
+.weather-widget__next-days td {
+  padding: 3px 10px;
+  line-height: auto;
+}
