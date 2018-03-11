@@ -1,0 +1,44 @@
+.article {
+    position: relative;
+    border-bottom: 1px solid #eee;
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+
+    &:nth-of-type(1) {
+        margin-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    &__image {
+        float: left;
+        max-width: 300px;
+        margin-right: 20px;
+    }
+
+    &__main {
+        overflow: auto;
+    }
+
+    &__date {
+        float: right;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__date,
+    &__title {
+        line-height: 40px;
+    }
+
+    &__source {
+        position: relative;
+        display: block;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+}

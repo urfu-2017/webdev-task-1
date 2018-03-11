@@ -6,15 +6,17 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/weather.css">
-    <link rel="stylesheet" type="text/css" href="css/news.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
     <title>{{ title }}</title>
 </head>
 <body>
     {{> header }}
     {{> weather }}
-    {{#each news}}
-        {{> newsItem }}
+    <section>
+    {{#each news }}
+        {{> article }}
     {{/each}}
+    </section>
     {{> footer }}
 </body>
 </html>
