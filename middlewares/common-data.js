@@ -1,18 +1,17 @@
 'use strict';
 
 const config = require('config');
-const weatherUrl = config.has('weatherUrl') ? config.get('weatherUrl') : '';
 const Weather = require('../models/Weahter');
 const layoutData = require('../layoutData');
 
-const weather = new Weather(weatherUrl);
+const weather = new Weather(config.get('weatherUrl'));
 
 module.exports = async (req, res, next) => {
     const data = {};
 
     try {
-        const weather = await getWeather(req.query);
-        data.weather = weather;
+        const weatherResult = await getWeather(req.query);
+        data.weather = weatherResult;
     } catch (error) {
         data.weather = {
             place: error.message,

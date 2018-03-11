@@ -3,6 +3,8 @@
 const path = require('path');
 const { readdirSync } = require('fs');
 
+checkConfig();
+
 const bodyParser = require('body-parser');
 const config = require('config');
 const hbs = require('hbs');
@@ -36,7 +38,7 @@ helpers(hbs);
 routes(app);
 
 registerAllPartials(partialsDir)
-    .then(() => app.listen(config.has('port') ? config.get('port') : 8080, () => console.log(`Server start!`)))
+    .then(() => app.listen(config.get('port')))
     .catch(error => console.error(error));
 
 module.exports = app;
@@ -59,4 +61,14 @@ function registerPartial(directory) {
             hbsutils.registerWatchedPartials(directory, resolve);
         }
     });
+}
+
+function checkConfig() {
+    process.env.NODE_CONFIG_DIR = path.join(__dirname, 'config');
+
+    const directoryItems = readdirSync(process.env.NODE_CONFIG_DIR);
+
+    if (directoryItems.map(item => item.split('.')[0]).indexOf(process.env.NODE_ENV) === -1) {
+        process.env.NODE_ENV = 'development';
+    }
 }
