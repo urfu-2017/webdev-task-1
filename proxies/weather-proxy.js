@@ -9,7 +9,7 @@ const queryUrl = 'location/search/?query=';
 const lattlongUrl = 'location/search/?lattlong=';
 const locationUrl = 'location/';
 
-const queryInternal = url => got(metaweatherApiUrl + url, { json: true });
+const queryInternal = url => got(`${metaweatherApiUrl}${url}`, { json: true });
 
 const apiQuery = url => queryInternal(url)
     .then(resp => {
