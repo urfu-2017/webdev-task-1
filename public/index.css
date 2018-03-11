@@ -1,0 +1,169 @@
+.page
+{
+    border: 1px solid;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 80%;
+    height: 100%;
+}
+
+.weather__right-column,
+.weather__left-column
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.page-header__back-link
+{
+    position: absolute;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+
+}
+
+.weather__today
+{
+    margin-bottom: 10px;
+}
+
+th
+{
+    padding: 5px;
+}
+
+.page-header
+{
+    position: relative;
+
+}
+
+.page-header__title
+{
+    display: inline-block;
+}
+
+.weather__left-column
+{
+    text-align: center;
+}
+
+.weather__right-column
+{
+    margin-left: 30px;
+}
+
+.weather__temp,
+.weather__wind
+{
+    text-align: initial;
+}
+
+.weather__prediction
+{
+    text-align: center;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.weather__prediction  thead
+{
+    border-bottom: 1px solid;
+}
+
+.weather__prediction th,
+.weather__prediction td
+{
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+
+.weather
+{
+    border-style: solid;
+    border-width: 1px 0px;
+    padding: 20px 40px; 
+}
+
+.weather__city
+{
+    margin-bottom: 10px;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+
+body
+{
+    padding-top: 40px;
+    text-align: center;
+}
+
+.categories__list li
+{
+    margin: 0 0 9px 0;
+}
+
+.categories__list a
+{
+    text-decoration: none;
+}
+
+.categories__header
+{
+    margin: 10px;
+}
+
+.categories
+{
+    text-align: initial;
+}
+
+.news__content
+{
+    display: flex;
+}
+
+.news__description
+{
+    margin: 5px 20px;
+}
+
+.news__header
+{
+    margin: 10px 20px;
+}
+
+.news__image img
+{
+    width: 400px;
+    margin: 5px 20px;
+}
+
+.news__source
+{
+    text-align: right;
+    margin: 10px 20px;
+}
+
+.footer
+{
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.news__note
+{
+    border-bottom: 1px solid;
+    text-align: initial;
+}

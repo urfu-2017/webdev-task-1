@@ -4,10 +4,27 @@
     <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
-    {{>weather}}
-    {{>categories}}
-    {{>footer}} 
+    <main class="page">
+        <div class="page-header">
+            {{#if news}}
+                <div class="page-header__back-link">
+                    <a href="/">На главную</a>
+                </div>
+            {{/if}}
+            <div class="page-header__title">
+                <h2>{{ title }}</h2>            
+            </div>
+        </div>
+        {{>weather}}
+        {{#if news}}
+            {{>news}}
+        {{else}}
+            {{>categories}}
+        {{/if}}
+        {{>footer}}
+    </main>
 </body>
 </html>

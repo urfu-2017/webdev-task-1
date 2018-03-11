@@ -5,21 +5,20 @@ const got = require('got');
 
 const defaultWoeid = 742676;
 
-class Weather {
-    static getWeather(query) {
-        return requestWoeid(query).then(woeid =>
-            got(`https://www.metaweather.com/api/location/${woeid}/`, { json: true })
-        )
-            .then(response => {
-                const body = response.body;
+function getWeather(query) {
+    return requestWoeid(query).then(woeid =>
+        got(`https://www.metaweather.com/api/location/${woeid}/`, { json: true })
+    )
+        .then(response => {
+            const body = response.body;
 
-                return {
-                    city: body.title,
-                    today: body.consolidated_weather[0]
-                };
-            });
-    }
+            return {
+                city: body.title,
+                daily: body.consolidated_weather
+            };
+        });
 }
+
 
 function getArgs(query) {
     if (query.query) {
@@ -39,4 +38,4 @@ function requestWoeid(query) {
         .catch(() => defaultWoeid);
 }
 
-module.exports = Weather;
+module.exports = getWeather;
