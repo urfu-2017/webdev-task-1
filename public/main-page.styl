@@ -1,47 +1,48 @@
 $width = 60%
 .main-page
 {
-    width: $width
-    background-color: #fff
+    width $width
+    background-color #fff
 
     &__header,
     &__weather-widget,
     &__footer
     {
-        width: $width
+        width $width
     }
 
     &__header,
     &__weather-widget
     {
-        background-color: #fff
+        background-color #fff
     }
 
     &__categories
     {
-        margin-left: 5%
+        margin-left 5%
     }
 
     &__categories-title
     {
-        margin-bottom: 5px
+        margin-bottom 5px
     }
 
     &__categories-list
     {
-        display: flex
-        flex-direction: column
-        margin-left: 5%
-        margin-bottom: 20px
+        display flex
+        flex-direction column
+        margin-left 5%
+        margin-bottom 20px
     }
 
     &__category-link
     {
-        color: #3072c4
-        text-decoration: none
-        &:hover
+        color #3072c4
+        text-decoration none
+
+        &hover
         {
-            text-decoration: underline
+            text-decoration underline
         }
     }
 }

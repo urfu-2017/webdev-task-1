@@ -1,6 +1,6 @@
 'use strict';
 
-const { getPage: info, news } = require('./controllers/info');
+const { info, news } = require('./controllers/info');
 const { error404 } = require('./controllers/error');
 
 module.exports = app => {

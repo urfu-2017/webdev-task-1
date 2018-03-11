@@ -3,9 +3,11 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const stylus = require('gulp-stylus');
+const svgmin = require('gulp-svgmin');
 
 gulp.task('copy-imgs', function () {
     return gulp.src('./public/images/*')
+        .pipe(svgmin())
         .pipe(gulp.dest('./bundle'));
 });
 

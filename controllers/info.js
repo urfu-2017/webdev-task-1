@@ -49,7 +49,7 @@ function getSearchString(req) {
     return url.parse(req.originalUrl).search;
 }
 
-exports.getPage = async (req, res) => {
+exports.info = async (req, res) => {
     let { query, lon, lat } = getQueryParams(req.query);
 
     let weatherQueryResult = await queryWeather(query, lat, lon);
