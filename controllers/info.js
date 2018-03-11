@@ -5,15 +5,6 @@ const url = require('url');
 const newsProxy = require('../proxies/news-proxy');
 const weatherProxy = require('../proxies/weather-proxy');
 
-function getQueryParams(query) {
-    return {
-        query: query.query,
-        lon: query.lon,
-        lat: query.lat,
-        country: query.country
-    };
-}
-
 async function queryWeather(query, lat, lon) {
     let weatherQueryResult;
 
@@ -50,7 +41,9 @@ function getSearchString(req) {
 }
 
 exports.info = async (req, res) => {
-    let { query, lon, lat } = getQueryParams(req.query);
+    let query = req.query.query;
+    let lon = req.query.lon;
+    let lat = req.query.lat;
 
     let weatherQueryResult = await queryWeather(query, lat, lon);
 
@@ -62,7 +55,10 @@ exports.info = async (req, res) => {
 };
 
 exports.news = async (req, res) => {
-    let { query, lon, lat, country } = getQueryParams(req.query);
+    let query = req.query.query;
+    let lon = req.query.lon;
+    let lat = req.query.lat;
+    let country = req.query.country;
 
     let newsQueryResult = await queryNews(country, req);
     let weatherQueryResult = await queryWeather(query, lat, lon);
@@ -74,5 +70,4 @@ exports.news = async (req, res) => {
         weatherQueryResult,
         title: 'Новости и погода'
     });
-}
-;
+};
