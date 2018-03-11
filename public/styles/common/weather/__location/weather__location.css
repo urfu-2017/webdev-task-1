@@ -1,6 +1,7 @@
 .weather__location
 {
     grid-area: l;
+    font-size: 26px;
     -webkit-margin-before: 0px;
     -webkit-margin-after: 5px;
 }

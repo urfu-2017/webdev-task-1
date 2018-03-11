@@ -1,6 +1,7 @@
 @import "common/main/main.css";
 
 @import "common/header/header.css";
+@import "common/header/__title/header__title.css";
 
 @import "common/weather/weather.css";
 @import "common/weather/__temp/weather__temp.css";
