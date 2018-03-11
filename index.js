@@ -8,6 +8,7 @@ const hbs = require('hbs');
 
 const home = require('./routes/home');
 const news = require('./routes/news');
+const errorHandler = require('./routes/errors');
 
 const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
@@ -26,6 +27,7 @@ app.use((err, req, res, next) => {
 
 app.use('/', home);
 app.use('/news', news);
+app.use(errorHandler);
 
 hbs.registerPartials(partialsDir, () => {
     app.listen(8080, () => {
