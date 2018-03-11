@@ -1,12 +1,11 @@
 'use strict';
 
-const config = require('config');
 const fetch = require('node-fetch');
 const dateformat = require('dateformat');
 
 const Weather = require('../models/weather');
 
-const API = config.get('weatherApi');
+const API = require('../config/default.json').weatherApi;
 
 dateformat.i18n = {
     dayNames: [

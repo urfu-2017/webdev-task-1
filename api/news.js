@@ -1,11 +1,10 @@
 'use strict';
 
-const config = require('config');
 const fetch = require('node-fetch');
 
 const Article = require('../models/article');
 
-const API = config.get('newsApi');
+const API = require('../config/default.json').newsApi;
 
 function parseFeed(apiData) {
     return apiData.articles.map(article => new Article({
