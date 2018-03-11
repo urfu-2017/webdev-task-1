@@ -5,7 +5,7 @@
     "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js --exit",
     "css": "gulp css",
-    "pack": "gulp pack"
+    "pack": "gulp"
   },
   "dependencies": {
     "express": "^4.16.2",
