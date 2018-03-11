@@ -3,12 +3,14 @@
 const got = require('got');
 const months = require('../mocks/months');
 
-const url = 'https://www.metaweather.com/api/location/search/?query=moscow';
+const locationUrl = process.env.locationUrl;
+const locationSearchUrl = process.env.locationSearchUrl;
+const weatherImageUrl = process.env.weatherImageUrl;
 
 exports.getConsolidatedWeather = () => {
     return getWeather()
         .then(data => {
-            return got(`https://www.metaweather.com/api/location/${data.woeid}/`, { json: true });
+            return got(`${locationUrl}${data.woeid}/`, { json: true });
         })
         .then(data => {
             let consolidatedWeather = getWeatherData(data.body.consolidated_weather);
@@ -17,7 +19,7 @@ exports.getConsolidatedWeather = () => {
             return {
                 consolidatedWeather,
                 title: data.body.title,
-                url: `https://www.metaweather.com/static/img/weather/${stateAbrr}.svg`
+                url: `${weatherImageUrl}${stateAbrr}.svg`
             };
         });
 };
@@ -40,7 +42,7 @@ function getWeatherData(weatherData) {
 }
 
 function getWeather() {
-    return got(url, { json: true })
+    return got(locationSearchUrl, { json: true })
         .then(data => {
             return {
                 woeid: data.body[0].woeid

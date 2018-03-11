@@ -3,7 +3,7 @@ body
     margin: 0;
 }
 
-.wrapper 
+main
 {
     width: 650px;
     display: flex;

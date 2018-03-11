@@ -32,10 +32,10 @@ app.use((err, req, res) => {
 });
 
 hbs.registerPartials(partialsDir, () => {
-
-    app.listen(8080, () => {
-        console.info(`Server started on ${8080}`);
-        console.info(`Open http://localhost:${8080}/`);
+    const port = 8080;
+    app.listen(port, () => {
+        console.info(`Server started on ${port}`);
+        console.info(`Open http://localhost:${port}/`);
     });
 });
 

@@ -8,18 +8,15 @@ const categories = require('../mocks/categories');
 const key = process.env.key;
 const newsApi = new NewsApi(key);
 
-function getFirstFiveArticles(articles) {
-    return articles.articles.slice(0, 5)
-        .map(article => {
-            return {
-                url: article.url,
-                title: article.title,
-                source: article.source.name,
-                imageUrl: article.urlToImage,
-                description: article.description,
-                publishedAt: new Date (article.publishedAt).toLocaleString()
-            };
-        });
+function normalizeArticle(article) {
+    return {
+        url: article.url,
+        title: article.title,
+        source: article.source.name,
+        imageUrl: article.urlToImage,
+        description: article.description,
+        publishedAt: new Date (article.publishedAt).toLocaleString()
+    };
 }
 
 exports.getAllCategories = () => {
@@ -31,5 +28,12 @@ exports.getArticles = (category, country, language) =>{
         category,
         language,
         country
-    }).then(res => res.totalResults > 5 ? getFirstFiveArticles(res) : res);
+    }).then(res => {
+        if (res.totalResults > 5) {
+            return res.articles.slice(0, 5)
+                .map(article => normalizeArticle(article));
+        }
+
+        return res.articles;
+    });
 };
