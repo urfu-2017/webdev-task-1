@@ -19,8 +19,16 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 
+app.use((req, res, next) => {
+    res.locals.meta = {
+        charset: 'utf-8'
+    };
+
+    next();
+});
+
 routes(app);
-console.log(process.env.PORT);
+
 hbs.registerPartials(partialsDir, () => app.listen(process.env.PORT));
 
 module.exports = app;
