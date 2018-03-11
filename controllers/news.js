@@ -4,7 +4,10 @@ const config = require('config');
 
 const News = require('../models/News');
 
-const news = new News(config.has('newsApiKey') ? config.get('newsApiKey') : '');
+const newsApiKey = config.has('newsApiKey') ? config.get('newsApiKey') : '';
+const newsUrl = config.has('newsUrl') ? config.get('newsUrl') : '';
+
+const news = new News(newsUrl, newsApiKey);
 
 exports.index = (req, res) => {
     const data = Object.assign({

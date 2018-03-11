@@ -15,7 +15,8 @@ const CATEGORIES = [
 ];
 
 class News {
-    constructor(apiKey) {
+    constructor(url, apiKey) {
+        this._url = url;
         this._apiKey = apiKey;
     }
 
@@ -29,7 +30,7 @@ class News {
             category,
             country
         });
-        const response = await requestify.get(`https://newsapi.org/v2/top-headlines?${query}`);
+        const response = await requestify.get(`${this._url}?${query}`);
 
         response.getBody();
         const json = JSON.parse(response.body);

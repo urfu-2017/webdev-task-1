@@ -1,7 +1,11 @@
 'use strict';
 
 const config = require('config');
+const weatherUrl = config.has('weatherUrl') ? config.get('weatherUrl') : '';
 const Weather = require('../models/Weahter');
+const layoutData = require('../layoutData');
+
+const weather = new Weather(weatherUrl);
 
 module.exports = async (req, res, next) => {
     const data = {};
@@ -17,38 +21,32 @@ module.exports = async (req, res, next) => {
     }
 
     data.staticBasePath = config.has('staticBasePath') ? config.get('staticBasePath') : '/';
-    const layoutConfig = config.has('layoutConfig') ? config.get('layoutConfig') : {
-        siteName: 'TEST',
-        charset: 'utf-8',
-        lang: 'en'
-    };
-
-    res.locals = Object.assign(res.locals, data, layoutConfig);
+    res.locals = Object.assign(res.locals, data, layoutData);
 
     next();
 };
 
 async function getWeather(query) {
-    let weather = null;
+    let weatherResult = null;
 
     if (query.query) {
-        weather = await Weather.getWeather({
+        weatherResult = await weather.getWeather({
             query: query.query
         });
     }
 
     if (query.lat && query.lon) {
-        weather = await Weather.getWeather({
+        weatherResult = await weather.getWeather({
             lat: query.lat,
             lon: query.lon
         });
     }
 
-    if (!weather) {
-        weather = await Weather.getWeather({
+    if (!weatherResult) {
+        weatherResult = await weather.getWeather({
             query: 'moscow'
         });
     }
 
-    return weather;
+    return weatherResult;
 }

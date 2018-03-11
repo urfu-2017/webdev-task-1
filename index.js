@@ -36,7 +36,7 @@ helpers(hbs);
 routes(app);
 
 registerAllPartials(partialsDir)
-    .then(() => app.listen(config.has('port') ? config.get('port') : 8080))
+    .then(() => app.listen(config.has('port') ? config.get('port') : 8080, () => console.log(`Server start!`)))
     .catch(error => console.error(error));
 
 module.exports = app;
