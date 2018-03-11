@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const hbs = require('hbs');
 
-const routes = require('./routes');
+const home = require('./routes/home');
+const news = require('./routes/news');
 
 const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
@@ -23,7 +24,8 @@ app.use((err, req, res, next) => {
     next();
 });
 
-routes(app);
+app.use('/', home);
+app.use('/news', news);
 
 hbs.registerPartials(partialsDir, () => {
     app.listen(8080, () => {

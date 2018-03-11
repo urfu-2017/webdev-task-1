@@ -6,7 +6,7 @@ const config = require('../config');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI(config.newsApiKey);
 
-exports.news = async (req, res) => {
+module.exports = async (req, res) => {
     const weather = await weatherProvider.getWeatherInfoAsync(req);
 
     const country = (req.query && req.query.country ? req.query.country : config.defaultCountry);
@@ -21,7 +21,5 @@ exports.news = async (req, res) => {
             urlToImage: a.urlToImage,
             publishedAt: a.publishedAt })));
 
-    const data = { weather: weather, news: news, title: 'Новости' };
-
-    res.render('index', data);
+    res.render('index', { weather: weather, news: news, title: 'Новости' });
 };

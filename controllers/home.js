@@ -4,7 +4,7 @@ const weatherProvider = require('../core/weather');
 const config = require('../config');
 const newsCategories = config.newsCategories;
 
-exports.home = async (req, res) => {
+module.exports = async (req, res) => {
     const weather = await weatherProvider.getWeatherInfoAsync(req);
 
     res.render('index',
