@@ -1,7 +1,7 @@
-<div class="news">
+<article class="news">
     <div class="news__header">
         <h2 class="news__title">{{title}}</h2>
-        <div class="news__date">{{publishedAt}}</div>
+        <time class="news__date">{{publishedAt}}</time>
     </div>
     <div class="news__content">
         {{#if urlToImage}}
@@ -10,4 +10,4 @@
         <div class="news__description">{{description}}</div>
         <div class="news__source">{{source}}</div>
     </div>
-</div>
+</article>

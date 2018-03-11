@@ -1,4 +1,4 @@
-<div class="weather-widget {{innerClass}}">
+<aside class="weather-widget {{innerClass}}">
     {{#if weatherQueryResult}}
         <div class="weather-widget__content-info">
             <div class="weather-widget__city">
@@ -8,7 +8,7 @@
                  src="https://www.metaweather.com/static/img/weather/{{
                  weatherQueryResult.today.weatherStateAbbr}}.svg"/>
         </div>
-        <div class="weather-widget__info">
+        <section class="weather-widget__info">
             <div class="weather-widget__temp">
                 <img class="weather-widget__term-icon" src="/thermometer.svg"/>
                     {{weatherQueryResult.today.temperature}}&deg;C
@@ -22,8 +22,8 @@
                     {{> daily_weather}}
                 {{/each}}
             </div>
-        </div>
+        </section>
     {{^}}
 
     {{/if}}
-</div>
+</aside>

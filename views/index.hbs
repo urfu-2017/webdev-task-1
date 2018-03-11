@@ -6,7 +6,7 @@
 </header>
 
 <main class="main-page">
-    <div class="weather-widget main-page__weather-widget">
+    <aside class="weather-widget main-page__weather-widget">
         {{#if weatherQueryResult}}
             <div class="weather-widget__content-info">
                 <div class="weather-widget__city">
@@ -16,7 +16,7 @@
                      src="https://www.metaweather.com/static/img/weather/{{
                      weatherQueryResult.today.weatherStateAbbr}}.svg"/>
             </div>
-            <div class="weather-widget__info">
+            <section class="weather-widget__info">
                 <div class="weather-widget__temp">
                     <img class="weather-widget__term-icon" src="/thermometer.svg"/>
                         {{weatherQueryResult.today.temperature}}&deg;C
@@ -30,12 +30,12 @@
                         {{> daily_weather}}
                     {{/each}}
                 </div>
-            </div>
+            </section>
         {{^}}
 
         {{/if}}
-    </div>
-    <div class="main-page__categories">
+    </aside>
+    <section class="main-page__categories">
         <h2 class="main-page__categories-title">Категории новостей</h2>
         <div class="main-page__categories-list">
             <span class="main-page__category">💼 <a href="/news/business{{search}}"
@@ -53,7 +53,7 @@
             <span class="main-page__category">🚀 <a href="/news/technology{{search}}"
                                                     class="main-page__category-link">Технологии</a></span>
         </div>
-    </div>
+    </section>
 </main>
 <footer class="footer main-page__footer">
     <span class="footer__copyright">&copy; Someone</span>
