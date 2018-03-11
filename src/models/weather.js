@@ -1,14 +1,14 @@
 'use strict';
 
 const moment = require('moment');
+const config = require('../config');
 const messages = require('../data/messages');
 const requests = require('../utils/requests');
 const exceptions = require('../utils/exceptions');
 
-const apiLocationUrl = 'https://www.metaweather.com/api/location/search/';
-const apiForecastUrl = 'https://www.metaweather.com/api/location/';
-const stateIconUrl = (state) => `https://www.metaweather.com/static/img/weather/${state}.svg`;
-const defaultQuery = 'moscow';
+const apiForecastUrl = `${config.weatherBaseUrl}api/location/`;
+const apiLocationUrl = `${config.weatherBaseUrl}api/location/search/`;
+const stateIconUrl = (state) => `${config.weatherBaseUrl}static/img/weather/${state}.svg`;
 
 class Weather {
     static async get(queryArgs) {
@@ -24,7 +24,7 @@ class Weather {
         if (queryArgs.lat && queryArgs.lon) {
             requestUrl = `${apiLocationUrl}?lattlong=${queryArgs.lat},${queryArgs.lon}}`;
         } else {
-            requestUrl = `${apiLocationUrl}?query=${queryArgs.query || defaultQuery}`;
+            requestUrl = `${apiLocationUrl}?query=${queryArgs.query || config.weatherDefaultQuery}`;
         }
 
         const response = await requests.jsonRequest(requestUrl);

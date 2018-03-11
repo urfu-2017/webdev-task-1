@@ -20,7 +20,7 @@ class News {
         const country = queryArgs.country || config.newsDefaultCountry;
 
         const response = await requests.jsonRequest(
-            `${config.newsApiBaseUrl}?category=${category}&country=${country}`,
+            `${config.newsBaseUrl}?category=${category}&country=${country}`,
             requestSettings
         );
 
