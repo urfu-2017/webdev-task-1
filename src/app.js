@@ -6,7 +6,7 @@ const express = require('express');
 const config = require('./config');
 const routes = require('./routes');
 const appHelpers = require('./utils/app-helpers');
-const { errorHandler } = require('./controllers/errors');
+const { errorHandler } = require('./middlewares/error-handler');
 
 const app = express();
 app.use(express.static(config.publicDir));
