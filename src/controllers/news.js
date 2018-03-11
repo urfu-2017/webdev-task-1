@@ -1,25 +1,15 @@
 'use strict';
 
+const News = require('../models/news');
 const Weather = require('../models/weather');
 const Category = require('../models/category');
-const News = require('../models/news');
+const { NotFound } = require('../utils/exceptions');
 
-exports.list = async (req, res) => {
+async function list(req, res) {
     const category = Category.get(req.params.category);
 
     if (!category) {
-        res.status(404).send('Указанная категория не найдена');
-
-        return;
-    }
-
-    let news;
-    let weather;
-    try {
-        news = await News.filter(category.name, req.query);
-        weather = await Weather.get(req.query);
-    } catch (error) {
-        console.error(error.message);
+        throw new NotFound('Указанная категория не найдена');
     }
 
     res.render('page-news', {
@@ -28,7 +18,9 @@ exports.list = async (req, res) => {
             url: '/',
             text: 'На главную'
         },
-        news,
-        weather
+        weather: await Weather.get(req.query),
+        news: await News.filter(category.name, req.query)
     });
-};
+}
+
+module.exports = { list };

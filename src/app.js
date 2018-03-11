@@ -6,6 +6,7 @@ const express = require('express');
 const config = require('./config');
 const routes = require('./routes');
 const appHelpers = require('./utils/app-helpers');
+const { errorHandler } = require('./controllers/errors');
 
 const app = express();
 app.use(express.static(config.publicDir));
@@ -14,6 +15,7 @@ app.set('views', config.viewsDir);
 appHelpers.registerPartialsSync(config.partialsDir, hbs);
 appHelpers.loadInitialData();
 routes(app);
+app.use(errorHandler);
 
 const server = app.listen(config.serverPort, config.serverHost, () => {
     const { address, port } = server.address();

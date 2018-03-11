@@ -1,11 +1,14 @@
 'use strict';
 
-const { error404 } = require('./controllers/errors');
 const { list: categoriesList } = require('./controllers/categories');
 const { list: newsList } = require('./controllers/news');
+const { wrapAsync } = require('./utils/async-wrapper');
+const { NotFound } = require('./utils/exceptions');
 
 module.exports = app => {
-    app.get('/', categoriesList);
-    app.get('/:category', newsList);
-    app.all('*', error404);
+    app.get('/', wrapAsync(categoriesList));
+    app.get('/:category', wrapAsync(newsList));
+    app.all('*', () => {
+        throw new NotFound('Страница не найдена');
+    });
 };

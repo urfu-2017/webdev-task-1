@@ -3,16 +3,11 @@
 const Weather = require('../models/weather');
 const Category = require('../models/category');
 
-exports.list = async (req, res) => {
-    let weather;
-    try {
-        weather = await Weather.get(req.query);
-    } catch (error) {
-        console.error(error.message);
-    }
-
+async function list(req, res) {
     res.render('page-categories', {
         categories: Category.all(),
-        weather
+        weather: await Weather.get(req.query)
     });
-};
+}
+
+module.exports = { list };
