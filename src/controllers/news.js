@@ -4,12 +4,13 @@ const News = require('../models/news');
 const Weather = require('../models/weather');
 const Category = require('../models/category');
 const { NotFound } = require('../utils/exceptions');
+const messages = require('../data/messages');
 
 async function list(req, res) {
     const category = Category.get(req.params.category);
 
     if (!category) {
-        throw new NotFound('Указанная категория не найдена');
+        throw new NotFound(messages.unknownCategory);
     }
 
     res.render('page-news', {

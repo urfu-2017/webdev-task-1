@@ -1,7 +1,9 @@
 'use strict';
 
 const moment = require('moment');
+const messages = require('../data/messages');
 const requests = require('../utils/requests');
+const exceptions = require('../utils/exceptions');
 
 const apiLocationUrl = 'https://www.metaweather.com/api/location/search/';
 const apiForecastUrl = 'https://www.metaweather.com/api/location/';
@@ -28,11 +30,11 @@ class Weather {
         const response = await requests.jsonRequest(requestUrl);
 
         if (response.status !== 200) {
-            throw new Error('Сервис погоды отдал некорректный ответ');
+            throw new exceptions.HttpError(messages.remoteServerError, response.status);
         }
 
         if (response.body.length === 0) {
-            throw new Error('Некорректный геолокационный запрос');
+            throw new exceptions.BadRequest(messages.wrongGeolocation);
         }
 
         return response.body[0].woeid;
@@ -43,7 +45,7 @@ class Weather {
         const response = await requests.jsonRequest(requestUrl);
 
         if (response.status !== 200) {
-            throw new Error('Сервис погоды отдал некорректный ответ');
+            throw new exceptions.HttpError(messages.remoteServerError, response.status);
         }
 
         return response.body;

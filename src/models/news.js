@@ -3,7 +3,9 @@
 const moment = require('moment');
 
 const config = require('../config');
+const messages = require('../data/messages');
 const requests = require('../utils/requests');
+const exceptions = require('../utils/exceptions');
 
 const apiUrl = 'https://newsapi.org/v2/top-headlines/';
 const requestSettings = {
@@ -24,7 +26,7 @@ class News {
         );
 
         if (response.status !== 200) {
-            throw new Error('Не удалось получить новости с удалённого сервера.');
+            throw new exceptions.HttpError(messages.remoteServerError, response.status);
         }
 
         return this._prepareToView(response.body.articles);
