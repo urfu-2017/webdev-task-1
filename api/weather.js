@@ -33,6 +33,7 @@ function parseWoeid(apiData) {
 }
 
 function parseMetcast(apiData) {
+    /* eslint-disable */
     const location = apiData.title;
     const metcast = [];
 
