@@ -1,3 +1,10 @@
-{{#each categories}}
-    <a href="news/{{name}}">{{name}}</a><br>
-{{/each}}
+<div class="categories-container">
+    <h2>Категории новостей</h2>
+    <div class="categories">
+    {{#each categories}}
+    <div class="category">
+        <i class="fas fa-lg fa-{{icon}} category-icon"></i><a class="category-name" href="news/{{name}}">{{text}}</a><br>
+    </div>
+    {{/each}}
+    </div>
+</div>
