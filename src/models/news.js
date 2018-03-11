@@ -7,7 +7,6 @@ const messages = require('../data/messages');
 const requests = require('../utils/requests');
 const exceptions = require('../utils/exceptions');
 
-const apiUrl = 'https://newsapi.org/v2/top-headlines/';
 const requestSettings = {
     method: 'GET',
     headers: {
@@ -18,10 +17,10 @@ const requestSettings = {
 
 class News {
     static async filter(category, queryArgs) {
-        const country = queryArgs.country || 'ru';
+        const country = queryArgs.country || config.newsDefaultCountry;
 
         const response = await requests.jsonRequest(
-            `${apiUrl}?category=${category}&country=${country}`,
+            `${config.newsApiBaseUrl}?category=${category}&country=${country}`,
             requestSettings
         );
 
