@@ -1,0 +1,15 @@
+{
+    "defaultCity": "london",
+    "defaultCountry": "gb",
+    "newsCategories": [
+        { "titleRu": "Бизнес",      "titleEn": "business" },
+        { "titleRu": "Развлечения", "titleEn": "entertainment" },
+        { "titleRu": "Общее",       "titleEn": "general" },
+        { "titleRu": "Здоровье",    "titleEn": "health" },
+        { "titleRu": "Наука",       "titleEn": "science" },
+        { "titleRu": "Спорт",       "titleEn": "sports" },
+        { "titleRu": "Технологии",  "titleEn": "technology" }
+    ],
+    "newsApiKey": "6722596c14cc49e49de9816ec3f5a236",
+    "metaweatherImagesSource": "https://www.metaweather.com/static/img/weather/"
+}
