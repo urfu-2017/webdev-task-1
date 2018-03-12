@@ -10,5 +10,6 @@
         { "titleRu": "Спорт",       "titleEn": "sports" },
         { "titleRu": "Технологии",  "titleEn": "technology" }
     ],
-    "newsApiKey": "6722596c14cc49e49de9816ec3f5a236"
+    "newsApiKey": "6722596c14cc49e49de9816ec3f5a236",
+    "metaweatherImagesSource": "https://www.metaweather.com/static/img/weather/"
 }

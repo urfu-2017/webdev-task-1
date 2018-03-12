@@ -1,17 +1,18 @@
 'use strict';
 
 const MetaWeather = require('metaweather');
-const mw = new MetaWeather();
 const WeatherInfo = require('../models/WeatherInfo');
 const config = require('../config');
+
+const mw = new MetaWeather();
 
 exports.getWeatherInfoAsync = async (req) => {
     let locations = [];
 
     if (req.query && req.query.lat && req.query.lon) {
-        const latitude = parseFloat(req.query.lat);
-        const longitude = parseFloat(req.query.lon);
-        locations = await mw.search().latLon({ lat: latitude, lon: longitude });
+        const lat = parseFloat(req.query.lat);
+        const lon = parseFloat(req.query.lon);
+        locations = await mw.search().latLon({ lat, lon });
     } else if (req.query && req.query.query) {
         locations = await mw.search().query(req.query.query);
     } else {

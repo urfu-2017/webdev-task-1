@@ -1,6 +1,8 @@
 'use strict';
 
-const METAWEATHER_SOURCE = 'https://www.metaweather.com/static/img/weather/';
+const config = require('../config');
+
+const metaweatherImagesSource = config.metaweatherImagesSource;
 const MONTHS = {
     '01': 'Января',
     '02': 'Февраля',
@@ -21,7 +23,7 @@ class WeatherInfo {
         this.date = this.getDate(applicableDate);
         this.temperature = Math.round(parseFloat(temperature));
         this.windSpeed = Math.round(parseFloat(windSpeed));
-        this.urlToImage = `${METAWEATHER_SOURCE}${weatherStateAbbr}.svg`;
+        this.urlToImage = `${metaweatherImagesSource}${weatherStateAbbr}.svg`;
     }
 
     getDate(applicableDate) {
