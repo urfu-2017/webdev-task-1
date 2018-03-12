@@ -1,0 +1,26 @@
+<article class="weather">
+    <div class="weather__city">{{ weather.city }}</div>
+    <div class="weather__icon-wrapper">
+        <img src="{{ weather.weatherIconLink }}" 
+            alt="картинка погоды" class="weather__icon" 
+            width="64" height="64">
+    </div>
+    <div class="weather__letter-t">t</div>
+    <div class="weather__temp-value">{{ weather.temp }} &#8451;</div>
+    <img src="/wind.svg" alt="ветерок" 
+        class="weather__wind_img" width="40" height="40">
+    <div class="weather__wind-speed-value-wrapper">
+        <div class="weather__wind-speed-value">
+            {{ weather.windSpeed }} м/c
+        </div>
+    </div>
+    <section class="weather__future-info">
+        {{#each weather.futureWeather }}
+        <div class="weather__future-info-item">
+            <time class="weather__date">{{ date }}</time>
+            <div class="weather__future-temperature">{{ temp }}&#8451;</div>
+            <div class="weather__future-wind">{{ windSpeed }} м/с</div>
+        </div>
+        {{/each}}
+    </section>
+</article>

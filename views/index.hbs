@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__text">{{ header }}</h1>
+    </header>
+
+    {{> weather }}
+
+    {{> categories }}
+
+    {{> footer }}
+</body>

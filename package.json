@@ -1,12 +1,16 @@
 {
   "private": true,
   "scripts": {
-    "start": "node index.js",
+    "start": "gulp scss && node index.js",
     "lint": "eslint .",
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.2.0",
+    "hbs": "^4.0.1",
+    "node-fetch": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^4.8.0",

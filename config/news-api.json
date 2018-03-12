@@ -1,0 +1,5 @@
+{
+    "apiLink": "https://newsapi.org/v2/top-headlines", 
+    "apiKey": "79ee48cc71eb417b9acb8b6600017a62",
+    "defaultCountry": "ru"
+}

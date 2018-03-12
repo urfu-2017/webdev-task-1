@@ -1,0 +1,242 @@
+$border2px: 2px solid black;
+$border1px: 1px solid black;
+$width: 426px;
+$nowWeatherFontSize: 22px;
+
+body
+{
+    width: $width;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: center;
+}
+
+.header
+{
+    width: $width;
+    border: $border2px;
+    border-bottom: none;
+
+    &__text
+    {
+        text-align: center;
+    }
+
+    &__return-link
+    {
+        text-align: left;
+        margin-left: 5px;
+    }
+}
+
+.footer
+{
+    width: $width;
+    border: $border2px;
+    border-top: none;
+    position: relative;
+
+    &__copyright
+    {
+        position: relative;
+        display: inline-block;
+        left: 20px;
+    }
+
+    &__date
+    {   
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+        
+    }
+}
+
+.categories 
+{
+    border: $border2px;
+    border-top: none;
+    width: $width;
+
+    &__header
+    {
+        margin-left: 10px;
+        margin-bottom: 4px;
+        margin-top: 7px;
+    }
+
+    &__list
+    {
+        margin-top: 0;
+        padding-left: 65px;
+    }
+
+    &__img
+    {
+        position: relative;
+        top: 5px;
+    }
+
+    &__list-item
+    {
+        list-style-type: none;
+    }
+
+    &__link
+    {
+        text-decoration: none;
+    }
+
+    &__name {
+        font-size: 24px;
+    }
+}
+
+.weather
+{
+    border: $border2px;
+    width: $width - 10px;
+    display: grid;
+    
+
+    grid-template-areas: "🎯 🎲 🎸 -"
+                         "⛳ 🎨 🎹 -"
+                         "⛳ 🎻 🎻 🎻";
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    padding: 5px;
+
+    &__city
+    {
+        grid-area: '🎯';
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__icon-wrapper
+    {
+        grid-area: ⛳;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    &__letter-t
+    {
+        grid-area: 🎲;
+        font-size: $nowWeatherFontSize;
+    }
+
+    &__temp-value
+    {
+        grid-area: 🎸;
+        font-size: $nowWeatherFontSize;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__wind_img 
+    {
+        grid-area: 🎨;
+    }
+
+    &__wind-speed-value-wrapper
+    {
+        grid-area: 🎹;
+        font-size: $nowWeatherFontSize;
+        display: flex;
+        align-items: center;
+    }
+
+    &__future-info
+    {
+        grid-area: 🎻;   
+        text-align: center;
+        display: flex;
+        border-left: $border1px;
+    }
+
+    &__future-info-item
+    {
+        border: $border1px;
+        border-left: none;
+    }
+
+    &__date
+    {
+        display: block;
+        padding: 1px;
+        border-bottom: $border1px;
+    }
+}
+
+.news 
+{
+    border: $border2px;
+    border-top: none;
+    border-bottom: none;
+    width: $width;
+
+    &__item
+    {
+        position: relative;
+        border-bottom: $border2px;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr 1fr;
+        grid-template-areas: "🎯 🎯 🎲 🎲"
+                             "⛳ ⛳ ⛳ ⛳"
+                             "🏹 🏹 🎻 🎻";
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding: 5px;
+    }
+
+    &__title
+    {
+        grid-area: 🎯;
+        margin: 0;
+        font-size: 16px;
+    }
+
+    &__title-link
+    {
+        text-decoration: none;
+    }
+
+    &__date
+    {
+        grid-area: 🎲;
+        text-align: right;
+    }
+
+    &__description-wrapper
+    {
+        grid-area: ⛳; 
+        display: flex;
+        align-items: center;
+    }
+
+    &__img
+    {
+        display: block;
+        margin-right: 10px;
+    }
+
+    &__description
+    {
+        display: block;
+        font-style: italic;
+    }
+
+    &__source
+    {
+        grid-area: 🎻;
+        text-align: right;
+    }
+}
