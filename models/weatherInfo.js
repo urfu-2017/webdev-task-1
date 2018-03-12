@@ -1,5 +1,6 @@
 'use strict';
 
+/* eslint-disable */
 const dateFormat = require('dateformat');
 const querystring = require('querystring');
 const nodeFetch = require('node-fetch');
