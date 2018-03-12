@@ -7,7 +7,6 @@
     "format": "eslint . --fix"
   },
   "dependencies": {
-    "apicache": "^1.2.0",
     "dotenv": "^5.0.1",
     "express": "4.16.2",
     "hbs": "4.0.1",

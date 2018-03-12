@@ -4,7 +4,6 @@ const path = require('path');
 
 const express = require('express');
 const hbs = require('hbs');
-const apicache = require('apicache');
 
 const formatters = require('./helpers/formatters');
 const routes = require('./routes');
@@ -19,7 +18,6 @@ app.set('view options', { layout: 'layouts/general' });
 app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
-app.use(apicache.middleware('5 minutes'));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
