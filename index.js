@@ -11,8 +11,6 @@ const { fetchWeather } = require('./middlewares/weather-fetcher');
 const { handleError } = require('./middlewares/error-handler');
 const { port } = require('./config/default.js');
 
-require('./scss-converter.js')();
-
 const app = express();
 
 const viewsDir = path.join(__dirname, 'views');
@@ -24,12 +22,12 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 
-app.use((req, res, next) => setHeaders(req, res, next));
-app.use((req, res, next) => fetchWeather(req, res, next));
+app.use(setHeaders);
+app.use(fetchWeather);
 
 routes(app);
 
-app.use((err, req, res) => handleError(err, req, res));
+app.use(handleError);
 
 hbs.registerPartials(partialsDir, () => {
     app.listen(port, () => {

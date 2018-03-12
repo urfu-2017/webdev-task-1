@@ -22,9 +22,7 @@ class Weather {
                     temp: Math.round(oldWeather.the_temp),
                     windSpeed: Math.round(oldWeather.wind_speed),
                     date: formatDate(new Date(oldWeather.applicable_date))
-                }
-            );
-
+                });
         });
     }
 }

@@ -7,18 +7,18 @@ const { apiLink, apiKey, defaultCountry } = require('../config/news-api');
 const { formatDate } = require('../middlewares/date');
 
 exports.news = (req, res) => {
-    let data = JSON.parse(JSON.stringify(res.locals));
+    const data = JSON.parse(JSON.stringify(res.locals));
 
     const query = {
         country: req.query.country || defaultCountry,
         category: req.params.category,
-        apiKey: apiKey
+        apiKey
     };
 
     const defaultQuery = {
         country: defaultCountry,
         category: req.params.category,
-        apiKey: apiKey
+        apiKey
     };
 
 

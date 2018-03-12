@@ -9,7 +9,7 @@ const { searchLocationLink, weatherLink } = require('../config/weather-api');
 const MOSCOW_WOEID = 2122265;
 
 exports.fetchWeather = (req, res, next) => {
-    let querystring = parseWeatherQuery(req.query);
+    const querystring = parseWeatherQuery(req.query);
 
     return fetch(`${searchLocationLink}/?${querystring}`)
         .then(response => response.json())

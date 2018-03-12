@@ -6,8 +6,8 @@ const MONTHS = [
 ];
 
 exports.formatDate = date => {
-    let dayNumber = date.getDate();
-    let monthNumber = date.getMonth();
+    const dayNumber = date.getDate();
+    const monthNumber = date.getMonth();
 
     return `${dayNumber} ${MONTHS[monthNumber]}`;
 };
