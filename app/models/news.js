@@ -13,7 +13,7 @@ class News {
     static find(country, category) {
         return new Promise((resolve, reject) => {
             const newsUrl = `https://newsapi.org/v2/top-headlines?
-                country=${country}&category=${category}&apiKey=${API_KEY}`;
+            country=${country}&category=${category}&apiKey=${API_KEY}`;
             request.get(newsUrl, (error, response, body) => {
                 if (body) {
                     resolve(JSON.parse(body));

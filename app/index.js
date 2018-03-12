@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 const hbs = require('hbs');
+const moment = require('moment');
 
 const routes = require('./routes');
 
@@ -17,6 +18,8 @@ const publicDir = path.join(__dirname, 'public');
 app.set('view engine', 'hbs');
 
 app.set('views', viewsDir);
+
+app.use(express.static(publicDir));
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -37,8 +40,31 @@ app.use((err, req, res, next) => {
     res.sendStatus(500);
 });
 
-hbs.registerHelper('toFixed', function (number) {
-    return number.toFixed(2);
+hbs.registerHelper('formatTemp', (number) => {
+    let str = '';
+    let value = Math.round(number);
+    if (value > 0) {
+        str += '+';
+    }
+    str += String(value);
+
+    return str;
+});
+
+hbs.registerHelper('formatWind', (number) => {
+    return Math.round(number);
+});
+
+hbs.registerHelper('formatDate', (date) => {
+    return moment(date)
+        .locale('ru')
+        .format('LL');
+});
+
+hbs.registerHelper('formatDateDays', (date) => {
+    return moment(date)
+        .locale('ru')
+        .format('Do MMMM');
 });
 
 hbs.registerPartials(partialsDir, () => {
@@ -46,7 +72,7 @@ hbs.registerPartials(partialsDir, () => {
 
     app.listen(port, () => {
         console.info(`Server started on ${port}`);
-        console.info(`Open http://localhost:${port}/`);
+        console.info(`Open http://localhost:${port}`);
     });
 });
 

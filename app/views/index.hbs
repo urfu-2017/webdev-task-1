@@ -2,20 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>App</title>
-    <meta name="description" content="App">
-    {{!-- <link rel="stylesheet" href="/styles.css" media="screen">
-    <link rel="icon" href="/favicon.ico"> --}}
+    <title>Home</title>
+    <meta name="description" content="Home">
+    <link rel="stylesheet" href="/css/styles.css" type="screen">
 </head>
 <body>
     <main>
         <header>
-            <h1>Сайт</h1>
+            <h1>Погода и новости</h1>
         </header>
-        {{> weather}}
-        {{> menu}}
+        <div class="main-info">
+            {{> weather}}
+            <div class="index-menu">
+                <h3 class="index-menu__title">Категории новостей:</h3>
+                <div class="index-menu__list">
+                    <a href="/news/business?query={{city}}&country={{country}}" class="index-menu__el">Бизнес</a>
+                    <a href="/news/entertainment?query={{city}}&country={{country}}" class="index-menu__el">Развлечения</a>
+                    <a href="/news/all?query={{city}}&country={{country}}" class="index-menu__el">Общее</a>
+                    <a href="/news/health?query={{city}}&country={{country}}" class="index-menu__el">Здоровье</a>
+                    <a href="/news/science?query={{city}}&country={{country}}" class="index-menu__el">Науки</a>
+                    <a href="/news/sport?query={{city}}&country={{country}}" class="index-menu__el">Спорт</a>
+                    <a href="/news/technology?query={{city}}&country={{country}}" class="index-menu__el">Технологии</a>
+                </div>
+            </div>
+        </div>
         <footer>
-            <h6>Носов Андрей, 2018</h6>
+            <h4>&copy; Носов Андрей, 2018</h4>
         </footer>
     </main>
 </body>

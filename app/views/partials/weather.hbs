@@ -1,21 +1,25 @@
-<div>
-    <div>
-        <div>{{ weather.title }}</div>
-        <img src="https://www.metaweather.com/static/img/weather/png/64/{{weather.consolidated_weather.0.weather_state_abbr}}.png">
-        <h4>{{ weather.consolidated_weather.0.the_temp }}°C</h3>
-        <h4>{{ weather.consolidated_weather.0.wind_speed }}М/С</h3>
+<div class="weather">
+    <div class="weather__main-info">
+        <div class="weather__first-column">
+            <h3 class="weather__city">{{ weather.title }}</h3>
+            <img class="weather__image" src="https://www.metaweather.com/static/img/weather/png/64/{{weather.consolidated_weather.0.weather_state_abbr}}.png">
+        </div>
+        <div class="weather__second-column">
+            <h4 class="weather__temp">{{ formatTemp weather.consolidated_weather.0.the_temp }}°C</h3>
+            <h4 class="weather__wind">{{ formatWind weather.consolidated_weather.0.wind_speed }} М/С</h3>
+        </div>
     </div>
-    <div>
+    <div class="weather__days">
         {{#if weather.consolidated_weather.length}}
             {{#each weather.consolidated_weather}}
-                <div>
-                    <p>{{ applicable_date }}</p>
-                    <p>{{ temp }}°C</p>
-                    <p>{{ wind }}М/С</p>
+                <div class="weather__day-el">
+                    <span>{{ formatDateDays applicable_date }}</span>
+                    <span>{{ formatTemp the_temp }}°C</span>
+                    <span>{{ formatWind wind_speed }} М/С</soan>
                 </div>
             {{/each}}
         {{^}}
-            <div>{{ weather.title }}</div>
+            <div class="weather__city">{{ weather.title }}</div>
         {{/if}}
     </div>
 </div>

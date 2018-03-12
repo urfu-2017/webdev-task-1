@@ -1,9 +1,15 @@
-<div>
-    <a href="{{ url }}">{{ title }}</a>
-    <div>{{ publishedAt }}</div>
-    {{#if urlToImage}}
-        <img src="{{ urlToImage }}" alt="image">
-    {{/if}}
-    <div>{{ description }}</div>
-    <div>{{ source.name }}</div>
+<div class="news-element">
+    <div class="first-row">
+        <a class="first-row__title" href="{{ url }}">{{ title }}</a>
+        <span class="first-row__date">{{ formatDate publishedAt }}</span>
+    </div>
+    <div class="second-row">
+        {{#if urlToImage}}
+            <img class="second-row__image" src="{{ urlToImage }}" alt="image">
+        {{/if}}
+        <div class="second-row__desc">{{ description }}</div>
+    </div>
+    <div class="third-row">
+        <span class="news-element__source">{{ source.name }}</span>
+    </div>
 </div>  
