@@ -15,4 +15,3 @@ module.exports = app => {
 
     app.all('*', error404);
 };
-

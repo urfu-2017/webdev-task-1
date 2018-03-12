@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Бизнес",
+        "url": "news/business"
+    },
+    {
+        "name": "Развлечения",
+        "url": "news/entertainment"
+    },
+    {
+        "name": "Общее",
+        "url": "news/general"
+    },
+    {
+        "name": "Здоровье",
+        "url": "news/health"
+    },
+    {
+        "name": "Науки",
+        "url": "news/science"
+    },
+    {
+        "name": "Спорт",
+        "url": "news/sport"
+    },
+    {
+        "name": "Технологии",
+        "url": "news/technology"
+    }
+]

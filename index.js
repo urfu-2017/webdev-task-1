@@ -1,19 +1,24 @@
 'use strict';
 
-
 const path = require('path');
-
 
 const express = require('express');
 const hbs = require('hbs');
-
+const config = require('config');
+const morgan = require('morgan');
 
 const routes = require('./routes');
-const { fetchWeather } = require('./middlewares/weatherFetcher');
-const info = require('./config/info');
+const { setHeaders } = require('./middlewares/headers-setter');
+const { fetchWeather } = require('./middlewares/weather-fetcher');
+const { handleError } = require('./middlewares/error-handler');
 
+require('./scss-converter.js')();
 
 const app = express();
+
+if (config.get('debug')) {
+    app.use(morgan('dev'));
+}
 
 const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
@@ -24,31 +29,17 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 
-app.use((req, res, next) => {
-    res.locals.meta = info.meta;
-    res.locals.title = info.title;
-    res.locals.header = info.header;
-    fetchWeather(req.query)
-        .then(weather => {
-            res.locals.weather = weather;
-            next();
-        });
-});
+app.use((req, res, next) => setHeaders(req, res, next));
+app.use((req, res, next) => fetchWeather(req, res, next));
 
 routes(app);
 
-app.use((err, req, res) => {
-    console.error(err.stack);
-
-    res.sendStatus(500);
-});
-
+app.use((err, req, res) => handleError(err, req, res));
 
 hbs.registerPartials(partialsDir, () => {
-    app.listen(8080, () => {
-        console.info('Open http://localhost:8080');
+    app.listen(config.get('port'), () => {
+        console.info(`Open http://localhost:${config.get('port')}`);
     });
 });
 
 module.exports = app; // чтобы тест проходился
-

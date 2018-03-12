@@ -8,13 +8,12 @@ class Weather {
         let weatherInfo = responseJSON.consolidated_weather;
 
         let weatherAbbr = weatherInfo[0].weather_state_abbr;
-        let weatherIconLink = `${weatherImgLink}/${weatherAbbr}.svg`;
 
         this.city = responseJSON.title;
         this.temp = Math.round(weatherInfo[0].the_temp);
         this.windSpeed = Math.round(weatherInfo[0].wind_speed);
         this.date = weatherInfo[0].applicable_date;
-        this.weatherIconLink = weatherIconLink;
+        this.weatherIconLink = `${weatherImgLink}/${weatherAbbr}.svg`;
 
         this.futureWeather = [];
         weatherInfo.slice(1).forEach(oldWeather => {

@@ -9,14 +9,17 @@ const { formatDate } = require('../middlewares/date');
 exports.news = (req, res) => {
     let data = JSON.parse(JSON.stringify(res.locals));
 
-    let query = {
+    const query = {
         country: req.query.country || defaultCountry,
         category: req.params.category,
         apiKey: apiKey
     };
 
-    let defaultQuery = JSON.parse(JSON.stringify(query));
-    defaultQuery.country = defaultCountry;
+    const defaultQuery = {
+        country: defaultCountry,
+        category: req.params.category,
+        apiKey: apiKey
+    };
 
 
     fetchNews(query)

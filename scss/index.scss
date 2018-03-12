@@ -5,8 +5,12 @@ $nowWeatherFontSize: 22px;
 
 body
 {
+    width: $width;
+    margin: 10px auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: center;
 }
 
 .content-wrapper
@@ -244,4 +248,3 @@ body
         text-align: right;
     }
 }
-

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ lang }}">
 <head>
     <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
@@ -7,15 +7,13 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-    <div class="content-wrapper">
-        <header class="header">
-            <h1 class="header__text">{{ header }}</h1>
-        </header>
+    <header class="header">
+        <h1 class="header__text">{{ header }}</h1>
+    </header>
 
-        {{> weather }}
+    {{> weather }}
 
-        {{> categories }}
+    {{> categories }}
 
-        {{> footer }}
-    </div>
+    {{> footer }}
 </body>

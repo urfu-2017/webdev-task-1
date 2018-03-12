@@ -1,7 +1,6 @@
 'use strict';
 
-const categories = require('../config/categories');
-
+const categories = require('../mocks/categories');
 
 exports.list = (req, res) => {
     let data = JSON.parse(JSON.stringify(res.locals));
