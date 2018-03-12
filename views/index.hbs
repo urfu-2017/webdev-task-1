@@ -6,14 +6,45 @@
 </head>
 
 <body>
-    {{> header }}
-    {{> weatherWidget weather}}
+    <header class="header"><h1>MyNews</h1></header>
+    <div class="weather-widget">
+        <h2 class="weather-widget__location-name">{{weather.locationName}}</h2>
+        <img class="weather-widget__ico" src={{weather.urlForIco}} alt={{weather.currentWeatherInfo.weather_state_abbr}}>
+
+        <div class="weather-widget__current-day">
+            <div class="category">
+                <img src="/icons/thermometer.svg" class="category__ico">
+                <p class="category__name">{{weather.currentWeatherInfo.the_temp}} &#8451;</p>
+            </div>
+
+            <div class="category">
+                <img src="/icons/wind.svg" class="category__ico">
+                <p class="category__name">{{weather.currentWeatherInfo.wind_speed}} м/c</p>
+            </div>
+        </div>
+
+        <div class="weather-widget__next-days">
+            {{#each weather.nextDaysWeather}}
+                <div class="weather-tile">
+                    <p class="weather-tile__date">{{this.applicable_date}}</p>
+                    <p class="weather-tile__temp">{{this.the_temp}} &#8451;</p>
+                    <p class="weather-tile__wind-speed">{{this.wind_speed}}  м/c</p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
 
     <h3>Категории новостей:</h3>
     {{#each categories}}
-        {{> category this}}
+        <a href={{this.link}} class="category">
+            <img class="category__ico" src="{{this.icoSrc}}" alt="{{this.icoAlt}}">
+            <p class="category__name">{{this.name}}</p>
+        </a>
     {{/each}}
 
-    {{> footer}}
+    <footer class="footer">
+        <a href="https://github.com/ArtyMgn">&#169;ArtyMgn</a>
+        <span>2018</span>
+    </footer>
 </body>
 </html>
