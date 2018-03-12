@@ -6,7 +6,6 @@
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
-    "config": "^1.30.0",
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.2.0",

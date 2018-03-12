@@ -4,12 +4,12 @@ const path = require('path');
 
 const express = require('express');
 const hbs = require('hbs');
-const config = require('config');
 
 const routes = require('./routes');
 const { setHeaders } = require('./middlewares/headers-setter');
 const { fetchWeather } = require('./middlewares/weather-fetcher');
 const { handleError } = require('./middlewares/error-handler');
+const { port } = require('./config/default.js');
 
 require('./scss-converter.js')();
 
@@ -32,8 +32,8 @@ routes(app);
 app.use((err, req, res) => handleError(err, req, res));
 
 hbs.registerPartials(partialsDir, () => {
-    app.listen(config.get('port'), () => {
-        console.info(`Open http://localhost:${config.get('port')}`);
+    app.listen(port, () => {
+        console.info(`Open http://localhost:${port}`);
     });
 });
 
