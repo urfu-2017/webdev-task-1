@@ -1,8 +1,9 @@
 'use strict';
 
-const { renderMain, renderNews } = require('./controllers/index');
+const main = require('./controllers/baseController');
+const news = require('./controllers/newsController');
 
 module.exports = (app) => {
-    app.get('/', renderMain);
-    app.get('/:category', renderNews);
+    app.get('/', main);
+    app.get('/:category', news);
 };

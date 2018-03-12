@@ -1,0 +1,8 @@
+<nav class="categories">
+    {{#each document.categories }}
+    <a href="/{{ url }}?{{ ../query }}" class="category link">
+        <img src="./{{ icon }}" alt="icon" class="category__icon">
+        <span class="category__link">{{ name }}</spab>
+    </a>
+    {{/each}}
+</nav>

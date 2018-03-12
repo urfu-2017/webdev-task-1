@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <title>{{ document.title }}</title>
     <link rel="stylesheet" type="text/css" href="./index.css">
+    <link rel="stylesheet" type="text/css" href="./articles.css">
 </head>
 <body>
     <main class="container">
-        <header class="header header_type_one-item">
+        {{#if homeLink}}
+            <header class="header"> 
+                <a href='/?{{query}}' class="link header__link">Назад</a>
+        {{else}}
+            <header class="header header_type_one-item">
+        {{/if}}
             <h1 class="header__title">{{ document.header.title }}</h1>
         </header>
         {{> weather weather weather=document.weather }}
-        <nav class="categories">
-            {{#each document.categories }}
-            <a href="/{{ url }}{{ ../query }}" class="category link">
-                <img src="./{{ icon }}" alt="icon" class="category__icon">
-                <span class="category__link">{{ name }}</spab>
-            </a>
-            {{/each}}
-        </nav>
+        {{{body}}}
         {{> footer document.footer}}
     </main>
 </body>

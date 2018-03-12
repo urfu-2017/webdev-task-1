@@ -7,7 +7,9 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.set('view engine', 'hbs');
-hbs.registerPartials(path.join(__dirname, '/views/partials'));
+hbs.registerPartials(path.join(__dirname, '/views/partials'), () => {
+    app.set('view options', { layout: 'main' });
+});
 require('./routes')(app);
 
 app.listen(8000);
