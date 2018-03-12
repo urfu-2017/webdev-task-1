@@ -1,0 +1,17 @@
+{{#if news.length}}
+    <div class="news">
+        {{#each news}}
+        <article class="news-item">
+            <a href="{{url}}" class="news-item__title">{{title}}</a>
+            <div class="news-item__time">{{time}}</div>
+            {{#if image}}
+                <img src="{{image}}" alt="{{title}}" class="news-item__image">
+            {{/if}}
+            <div class="news-item__description">{{description}}</div>
+            <div class="news-item__source">{{source}}</div>
+        </article>        
+        {{/each}}
+    </div>
+{{^}}
+    <div class="news">При загрузке новостей возникла ошибка</div>
+{{/if}}

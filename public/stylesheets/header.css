@@ -1,0 +1,21 @@
+.header
+{
+    border-bottom: 1px solid #000;
+    position: relative;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.header__home-link
+{
+    color: #00F;
+    text-decoration: none;
+    float: left;
+}
+.header__name
+{
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+}

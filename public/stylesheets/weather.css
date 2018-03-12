@@ -1,0 +1,68 @@
+.weather
+{
+    border-bottom: 1px solid #000;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 250px;
+    display: grid;
+    grid-template-columns: 250px 102px 408px;
+    grid-template-rows: 50px 50px 50px 100px;
+    grid-template-areas: 'city z z'
+        'bigIcon temp-icon temp'
+        'bigIcon ws-icon ws'
+        'bigIcon days days';
+}
+.weather__city
+{
+    grid-area: city;
+}
+.weather__icon
+{
+    grid-area: bigIcon;
+    width: 200px;
+    height: 200px;
+}
+.weather__temp-icon
+{
+    grid-area: temp-icon;
+    width: 50px;
+    height: 50px;
+}
+.weather__temp
+{
+    grid-area: temp;
+}
+.weather__ws-icon
+{
+    grid-area: ws-icon;
+    width: 50px;
+    height: 50px;
+}
+.weather__ws
+{
+    grid-area: ws;
+}
+.weather-days
+{
+    width: 510px;
+    height: 90px;
+    grid-area: days;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.weather-day
+{
+    width: 102px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    border-right: none;
+}
+.weather-day:last-of-type
+{
+    border-right: 1px solid #000;
+}
+.weather-day__date
+{
+    border-bottom: 1px solid #000;
+}

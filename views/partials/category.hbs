@@ -1,0 +1,11 @@
+<div class="news-category">
+    <div class="news-category__header">Категории новостей</div>
+    <ul class="categories">
+        {{#each category}}
+        <li class="categories__category-name">
+            <img src="/newsIcons/{{id}}.png" alt="{{id}}-icon" class="categories__category-icon">
+            <a href="/news/{{id}}" class="categories__category-link">{{name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

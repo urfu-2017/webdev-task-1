@@ -1,0 +1,21 @@
+{{#if weather}}
+    <div class="weather">
+        <div class="weather__city">{{weather.city}}</div>        
+        <img src="https://www.metaweather.com/static/img/weather/{{weather.weatherData.0.abbr}}.svg" alt="" class="weather__icon">        
+        <img src="/weatherIcons/temp.png" alt="" class="weather__temp-icon">
+        <div class="weather__temp">{{weather.weatherData.0.temp}}</div>
+        <img src="/weatherIcons/wind.png" alt="" class="weather__ws-icon">
+        <div class="weather__ws">{{weather.weatherData.0.ws}}</div>
+        <div class="weather-days">        
+        {{#each weather.weatherData}}
+            <div class="weather-day">
+                <div class="weather-day__date">{{date}}</div>
+                <div class="weather-day__temp">{{temp}}</div>
+                <div class="weather-day__ws">{{ws}}</div>
+            </div>
+        {{/each}}
+        </div>
+   </div>    
+{{^}}
+    <div class="weather">При загрузке погоды возникла ошибка</div>
+{{/if}}
