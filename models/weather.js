@@ -1,12 +1,10 @@
 'use strict';
 
 const fetch = require('node-fetch');
+const date = require('../helpers/date');
 
 class Weather {
-    static async getWeatherJSON(req) {
-        const query = req.query.query;
-        const lat = req.query.lat;
-        const lon = req.query.lon;
+    static async getWeatherData(query, lat, lon) {
         const searchBaseUrl = 'https://www.metaweather.com/api/location/search/?';
         let searchUrl = '';
         if (query) {
@@ -17,47 +15,22 @@ class Weather {
             searchUrl = searchBaseUrl + 'query=London';
         }
         const searchResponse = await fetch(searchUrl);
-        const searchJson = await searchResponse.json();
+        const searchJSON = await searchResponse.json();
+        const woeid = searchJSON[0].woeid;
         const locationBaseUrl = 'https://www.metaweather.com/api/location/';
-        const locationUrl = locationBaseUrl + searchJson[0].woeid;
-        const locationResponse = await fetch(locationUrl);
+        const locationResponse = await fetch(locationBaseUrl + woeid);
+        const weatherJSON = await locationResponse.json();
 
-        return await locationResponse.json();
-    }
-
-    static getWeatherData(weatherJSON) {
         const weatherData = weatherJSON.consolidated_weather.slice(0, 5).map(element => {
             return {
                 abbr: element.weather_state_abbr,
-                date: Weather.parseDate(element.applicable_date),
+                date: date.parseDate(element.applicable_date),
                 temp: Weather.parseTemperature(element.the_temp),
                 ws: Weather.parseWindSpeed(element.wind_speed)
             };
         });
 
         return { city: weatherJSON.title, weatherData: weatherData };
-    }
-
-    static parseDate(date) {
-        const months = [
-            'января',
-            'февраля',
-            'марта',
-            'апреля',
-            'мая',
-            'июня',
-            'июля',
-            'августа',
-            'сентября',
-            'октября',
-            'ноября',
-            'декабря'
-        ];
-        const [, month, day] = date.split('-');
-        const monthName = months[parseInt(month, 10) - 1];
-        const dayNumber = parseInt(day, 10);
-
-        return dayNumber + ' ' + monthName;
     }
 
     static parseTemperature(temperature) {

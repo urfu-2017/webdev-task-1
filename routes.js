@@ -1,7 +1,8 @@
 'use strict';
 
 const { error404 } = require('./controllers/errors');
-const { main, news } = require('./controllers/main');
+const { main } = require('./controllers/main');
+const { news } = require('./controllers/news');
 
 module.exports = app => {
     app.get('/', main);

@@ -7,7 +7,9 @@ const express = require('express');
 const hbs = require('hbs');
 const morgan = require('morgan');
 
+const locals = require('./locals');
 const routes = require('./routes');
+const weatherMiddleware = require('./middlewares/weatherMiddleware');
 
 const app = express();
 
@@ -33,13 +35,15 @@ app.use((req, res, next) => {
         description: 'webdev-task-1'
     };
 
-    res.locals.title = 'Погода и новости';
-    res.locals.header = 'Погода и новости';
-    res.locals.home = 'На главную';
-    res.locals.footer = '2018';
+    res.locals.title = locals.title;
+    res.locals.header = locals.header;
+    res.locals.home = locals.home;
+    res.locals.footer = locals.footer;
 
     next();
 });
+
+app.use(weatherMiddleware);
 
 routes(app);
 
