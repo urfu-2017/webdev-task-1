@@ -11,7 +11,7 @@ exports.news = (req, res) => {
         const widget = vals[0];
         const articles = vals[1];
         res.locals.nonMain = true;
-        const data = Object.assign({ widget, articles }, res.locals);
+        const data = Object.assign({ widget, articles }, res.locals, { title: 'Погода' });
         res.render('news', data);
     })
         .catch(err => {

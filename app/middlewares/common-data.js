@@ -6,8 +6,6 @@ module.exports = (req, res, next) => {
         description: 'Weather'
     };
 
-    res.locals.title = 'Weather';
-
     res.locals.staticBasePath = '/';
 
     res.locals.weatherApiBasePath = 'https://www.metaweather.com/';

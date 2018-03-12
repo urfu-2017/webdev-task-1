@@ -10,7 +10,7 @@ exports.mainPage = (req, res) => {
     ]).then(vals => {
         const widget = vals[0];
         const categories = vals[1];
-        const data = Object.assign({ widget, categories }, res.locals);
+        const data = Object.assign({ widget, categories }, res.locals, { title: 'Погода' });
         res.render('index', data);
     })
         .catch(err => {
