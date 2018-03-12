@@ -1,26 +1,17 @@
-/* eslint-disable max-len,no-unused-vars,indent */
 'use strict';
-const request = require('request');
-let MetaWeather = require('metaweather');
-const getWeather = require('./middlewares/getWeather');
 const frontPage = require('./mocks/front-info');
-var HandlebarsIntl = require('handlebars-intl');
-var moment = require('moment');
-let mw = new MetaWeather();
-let express = require('express');
-let path = require('path');
+const getWeather = require('./middlewares/getWeather');
+const HandlebarsIntl = require('handlebars-intl');
+const express = require('express');
+const moment = require('moment');
+const path = require('path');
+const Handlebars = require('handlebars');
+const exphbs = require('express-handlebars');
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('7003d399f6ae49cbbd75437b2fb4d33a');
+
 let app = express();
-var Handlebars = require('handlebars');
-app.use(getWeather);
-moment.locale('ru');
-Handlebars.registerHelper('sformatTime', (date, format) => {
-    var mmnt = moment(date);
 
-    return mmnt.format(format);
-});
-exports.error404 = (req, res) => res.sendStatus(404);
-
-let exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
     extname: 'handlebars',
     layoutDir: './views/layouts',
@@ -29,50 +20,53 @@ app.engine('handlebars', exphbs({
         './views/partials'
     ]
 }));
+
 app.set('view engine', 'handlebars');
-let options = { dotfiles: 'ignore', etag: false,
+let options = {
+    dotfiles: 'ignore', etag: false,
     extensions: 'html',
     index: false
 };
+
+app.use(getWeather);
+
+// Хэлпер Moment преобразует дату в верный форамат для каждого из языков
+Handlebars.registerHelper('sformatTime', (date, format) => {
+    let mmnt = moment(date);
+
+    return mmnt.format(format);
+});
+
+// Полезный хэлпер который много что умеет, например работа с датами,  цифрами
 HandlebarsIntl.registerWith(Handlebars);
-
-
-Handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
-
-global.country = '';
-global.category = '';
 
 app.use(express.static(path.join(__dirname, 'public'), options));
 
 
 app.get('/', (req, res) => {
+    global.userLang = req.headers['accept-language'];
+    moment.locale(global.userLang);
     res.render('main', frontPage); // this is the important part
 });
 
 app.get('/:category', async (req, res1) => {
-    global.country = req.query.country || 'ru';
-    console.info(req.params.category);
-    global.category = req.params.category;
-    await request(
-        'https://newsapi.org/v2/top-headlines?apiKey=7003d399f6ae49cbbd75437b2fb4d33a&country=' + global.country +
-        '&category=' + global.category,
-        { json: true },
-        (err, res, body) => {
-            if (err) {
-                return;
-            }
-            // console.info(body.url);
-            // console.info(body.articles);
-            let arti = body;
-            res1.render('news', arti);
-            // console.info(arti);
-            // console.info(req.query.country);
-        });
+    let country = req.query.country || 'ru';
+    let category = req.params.category;
+    newsapi.v2.topHeadlines({
+        category: category.toString(),
+        language: global.userLang,
+        country: country.toString()
+    }).then(response => {
+        let article = response;
+        res1.render('news', article);
+    });
 });
 
-    app.listen(8080, () => {
-        console.info(`Server started on ${8080}`);
-        console.info(`Open http://localhost:${8080}/`);
-    });
+
+app.listen(8080, () => {
+    console.info(' Server started\n Open http://localhost:8080/');
+});
+
+exports.error404 = (req, res) => res.sendStatus(404);
 
 module.exports = app;

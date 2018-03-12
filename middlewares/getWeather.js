@@ -2,44 +2,36 @@
 'use strict';
 let MetaWeather = require('metaweather');
 let mw = new MetaWeather();
-global.weather = '';
+let weather = '';
 module.exports = async (req, res, next)=> {
-    global.lattlong = req.query.lattlong;
-    global.query = req.query.query;
-    console.info(global.query);
-    // console.info(global.lattlong);
-
+    let lattlong = req.query.lattlong;
+    let query = req.query.query;
     try {
-        if (global.query) {
-            await mw.search().query(global.query)
+        if (query) {
+            await mw.search().query(query)
                 .then(async (response) =>{
-                    // console.info(global.query);
 
                     await (mw.location(response.body[0].woeid))
                         .then((response1)=> {
-                            global.weather = response1.body;
-                            // console.info(global.weather);
+                            weather = response1.body;
                         });
                 });
 
 
-        } else if (global.lattlong) {
-            await mw.search().latLon(global.lattlong)
+        } else if (lattlong) {
+            await mw.search().latLon(lattlong)
                 .then(async (response) =>{
-                    // console.info(global.lattlong);
 
                     await (mw.location(response.body[0].woeid))
                         .then((response1)=> {
-                            global.weather = response1.body;
-                            // console.info(global.weather);
+                            weather = response1.body;
                         });
                 });
 
 
         }
-        console.info(global.query);
-        res.locals.info = global.weather.consolidated_weather;
-        res.locals.city = global.weather.title;
+        res.locals.info = weather.consolidated_weather;
+        res.locals.city = weather.title;
         res.locals.img = res.locals.info[0].weather_state_abbr;
         res.locals.temp = res.locals.info[0].the_temp;
         res.locals.wind = res.locals.info[0].wind_speed;

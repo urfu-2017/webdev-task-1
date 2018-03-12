@@ -12,6 +12,7 @@
     "handlebars-intl": "^1.1.2",
     "metaweather": "0.0.2",
     "moment": "^2.21.0",
+    "newsapi": "^2.2.0",
     "request": "^2.83.0"
   },
   "devDependencies": {

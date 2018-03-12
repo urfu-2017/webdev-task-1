@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <a href="..">Main</a>
-<link rel="stylesheet" href="{{ staticBasePath }}hello.css" media="screen">
+<link rel="stylesheet" href="{{ staticBasePath }}index.css" media="screen">
 <header class="header">{{ category }}</header>
 <div class="weather">{{> weather}}</div>
-
 
 <table class='table___news'>
     {{#each articles}}
         <tr>
+            <td>{{title}}</td>
+            <td></td>
+            <td></td>
+            <td>{{sformatTime publishedAt "D MMMM"}}</td>
+        </tr>
         <tr>
-        <td >{{title}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>{{sformatTime publishedAt "D MMMM"}}</td>
-    </tr>
 
-            <td ><img src="{{urlToImage}}"></td>
-            <td >{{description}}</td>
+            <td><img src="{{urlToImage}}"></td>
+            <td>{{description}}</td>
         </tr>
     {{/each}}
 </table>

@@ -2,25 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{title}}</title> </head>
-   <link rel="stylesheet" href="{{ staticBasePath }}hello.css" media="screen">
+    <title>{{title}}</title></head>
+<link rel="stylesheet" href="{{ staticBasePath }}index.css" media="screen">
 <body>
 <header class="header main-page-header">{{header}}</header>
 
 <div class="weather">{{> weather}}</div>
 
-    <ul>Категории новостей
-        <li data-type="carrot"><a href="./business">{{business}}</a></li>
-        <li data-type="tomatos"><a href="./enjoy">{{Enjoy}}</a> </li>
-        <li data-type="potatos"><a href="./all">{{All}}</a> </li>
-        <li data-type="cucumber"><a href="./health">{{health}}</a> </li>
-        <li data-type="mushrooms"><a href="./science">{{science}}</a> </li>
-        <li data-type="broccoli"><a href="./sport">{{sports}}</a> </li>
-        <li data-type="carrot"><a href="./technology">{{tech}}</a> </li>
-
-
-
-    </ul>
+<ul>Категории новостей
+    <li data-type="carrot"><a href="./business">{{business}}</a></li>
+    <li data-type="tomatos"><a href="./enjoy">{{Enjoy}}</a></li>
+    <li data-type="potatos"><a href="./all">{{All}}</a></li>
+    <li data-type="cucumber"><a href="./health">{{health}}</a></li>
+    <li data-type="mushrooms"><a href="./science">{{science}}</a></li>
+    <li data-type="broccoli"><a href="./sport">{{sports}}</a></li>
+    <li data-type="carrot"><a href="./technology">{{tech}}</a></li>
+</ul>
 </body>
 <footer class="footer">
     <div class="footer__copyright">{{ copyright }}</div>
