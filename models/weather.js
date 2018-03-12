@@ -6,10 +6,10 @@ const baseUrl = 'https://www.metaweather.com/api/location/';
 class Weather {
     constructor(weatherData) {
         let weatherList = [];
-        weatherData.consolidated_weather.forEach(o => {
-            let theTemp = Math.round(o.the_temp);
-            let windSpeed = Math.round(o.wind_speed);
-            let date = o.applicable_date;
+        weatherData.consolidated_weather.forEach(elem => {
+            let theTemp = Math.round(elem.the_temp);
+            let windSpeed = Math.round(elem.wind_speed);
+            let date = elem.applicable_date;
             weatherList.push({ theTemp, windSpeed, date });
         });
         let svgFileName = weatherData.consolidated_weather[0].weather_state_abbr;
@@ -34,21 +34,15 @@ function buildUrl(options) {
     return `${baseUrl}search/?query=london`;
 }
 
-exports.getWeather = (options, cb) => {
-    let url = buildUrl(options);
-    fetch(url)
-        .then(u => u.json())
-        .then(weatherData => {
-            let woeidUrl = baseUrl + weatherData[0].woeid + '/';
+async function getWeather(options) {
+    const url = buildUrl(options);
+    const u = await fetch(url);
+    const weatherData = await u.json();
+    const woeidUrl = `${baseUrl}${weatherData[0].woeid}/`;
+    const data = await fetch(woeidUrl);
+    const weatherData1 = await data.json();
 
-            return fetch(woeidUrl);
-        })
-        .then(data => data.json())
-        .then(
-            function (weatherData) {
-                cb(new Weather(weatherData));
-            }
-        );
-};
+    return new Weather(weatherData1);
+}
 
-exports.Weather = Weather;
+module.exports = { Weather, getWeather };

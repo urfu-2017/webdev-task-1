@@ -23,11 +23,9 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 
-app.use((req, res, next) => {
-    getWeather(req.query, weather => {
-        res.locals.weather = weather;
-        next();
-    });
+app.use(async (req, res, next) => {
+    res.locals.weather = await getWeather(req.query);
+    next();
 });
 
 routes(app);

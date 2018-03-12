@@ -2,7 +2,7 @@
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('f8c7968376984c3db60b4759fa20cfe4');
 
-exports.getNews = (req, cb) => {
+function getNews(req) {
     const country = req.query.country || 'us';
     const options = {
         category: req.params.name,
@@ -10,8 +10,8 @@ exports.getNews = (req, cb) => {
         country: country,
         pageSize: 5
     };
-    newsapi.v2.topHeadlines(options)
-        .then(response => {
-            cb(response);
-        });
-};
+
+    return newsapi.v2.topHeadlines(options);
+}
+
+module.exports = { getNews };
