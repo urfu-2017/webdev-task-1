@@ -4,7 +4,7 @@ const icons = {
     'snow': 'sn',
     'sleet': 'sl',
     'hail': 'h',
-    'thunderstorm': 't',
+    'thunder': 't',
     'heavy rain': 'hr',
     'light rain': 'lr',
     'showers': 's',
@@ -12,6 +12,7 @@ const icons = {
     'light cloud': 'lc',
     'clear': 'c'
 };
+
 const iconsUrl = 'https://www.metaweather.com/static/img/weather/';
 
 module.exports = bh => bh.match('weather', (ctx, json) => {

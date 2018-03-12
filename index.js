@@ -25,6 +25,11 @@ app.get('/', newsController.index);
 app.get('/:category', newsController.category);
 app.get('*', errorsController.notFound);
 
+// eslint-disable-next-line
+app.use((err, req, res, next) => {
+    res.sendStatus(500);
+});
+
 // Run app
 app.listen(config.server.port, () => {
     console.info('Server run on ' + config.server.port + ' port');

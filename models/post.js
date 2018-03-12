@@ -1,8 +1,8 @@
 'use strict';
+const querystring = require('querystring');
 const fetch = require('node-fetch');
 
 const config = require('../config');
-const baseUrl = 'https://newsapi.org/v2/top-headlines?';
 
 class Post {
     constructor({ title, image, description, publishedDate, source }) {
@@ -14,14 +14,10 @@ class Post {
     }
 
     static async list(category, country) {
-        const response = await fetch(
-            `${baseUrl}category=${category}&country=${country}&apiKey=${config.newsApiKey}`
-        );
-        const json = await response.json();
+        const query = querystring.stringify({ category, country, apiKey: config.newsApiKey });
+        const response = await fetch(config.newsApiUrl + query);
 
-        if (json.status !== 'ok') {
-            throw new Error('Не удалось получить данные');
-        }
+        const json = await response.json();
 
         return json.articles.map(article => new Post({
             title: article.title,

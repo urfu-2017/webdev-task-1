@@ -1,7 +1,7 @@
 'use strict';
+const querystring = require('querystring');
 const fetch = require('node-fetch');
-
-const baseUrl = 'https://www.metaweather.com/api/location/';
+const config = require('../config');
 
 class Weather {
     constructor(city, days) {
@@ -11,21 +11,14 @@ class Weather {
 
     static async load({ query, lat, lon }) {
         try {
-            let url = null;
-
-            if (query) {
-                url = `search?query=${query}`;
-            } else if (lat && lon) {
-                url = `search?lattlong=${lat},${lon}`;
-            }
-
-            const queryResponse = await fetch(baseUrl + url);
+            const urlQuery = querystring.stringify({ query, lat, lon });
+            const queryResponse = await fetch(`${config.weatherApiUrl}search?${urlQuery}`);
             const location = await queryResponse.json();
 
             let woeid = location[0].woeid;
             let city = location[0].title;
 
-            const weatherResponse = await fetch(baseUrl + woeid);
+            const weatherResponse = await fetch(config.weatherApiUrl + woeid);
             const data = await weatherResponse.json();
             const days = data.consolidated_weather.map(day => ({
                 date: new Date(day.applicable_date),

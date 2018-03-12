@@ -7,8 +7,10 @@ module.exports = {
     },
 
     newsApiKey: process.env.NEWS_API_KEY,
-    staticBasePath: '/',
+    newsApiUrl: 'https://newsapi.org/v2/top-headlines?',
+    weatherApiUrl: 'https://www.metaweather.com/api/location/',
 
+    staticBasePath: '/',
     views: {
         lang: 'en',
         charset: 'utf-8',
