@@ -10,7 +10,6 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^3.2.0",
     "hbs": "^4.0.1",
-    "morgan": "^1.9.0",
     "node-fetch": "^2.0.0"
   },
   "devDependencies": {
