@@ -3,7 +3,7 @@ import express from 'express';
 import hbs from 'express-handlebars';
 
 import setupMiddleware from './middleware';
-import setupRoutes from './routes';
+import rootRouter from './controllers/root';
 
 dotenv.config();
 
@@ -17,6 +17,7 @@ app.engine('hbs', hbs({
 app.set('view engine', 'hbs');
 
 setupMiddleware(app);
-setupRoutes(app);
+
+app.use('/', rootRouter);
 
 export default app.listen(8080);

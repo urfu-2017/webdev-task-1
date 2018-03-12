@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
-import categoriesData from './mocks/newsCategories';
+import config from '../config';
 
-const BASE_URL = 'https://newsapi.org/v2';
+const BASE_URL = config.newsApi.baseUrl;
 
 export default class NewsAPI {
     static async getNewsAsync({ country = 'ru', category = 'general' }) {
@@ -13,7 +13,3 @@ export default class NewsAPI {
         return await newsResponse.json();
     }
 }
-
-export const categories = categoriesData;
-
-export const findCategory = (key) => (categories.find(x => x.key === key));

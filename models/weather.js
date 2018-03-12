@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
+import config from '../config';
 
-const BASE_URL = 'https://www.metaweather.com';
+const BASE_URL = config.metaweatherApi.baseUrl;
 
 export default class WeatherAPI {
     static async getWeatherAsync({ query = 'Albuquerque', lat, lon }) {
