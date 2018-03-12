@@ -1,6 +1,7 @@
 'use strict';
 
-const baseUrl = 'https://www.metaweather.com';
+const fetch = require('node-fetch');
+const baseUrl = 'https://www.metaweather.com/api/location/';
 
 class Weather {
     constructor(weatherData) {
@@ -17,8 +18,37 @@ class Weather {
         this.currentTemp = this.weatherList[0].theTemp;
         this.currentWind = this.weatherList[0].windSpeed;
         weatherList.shift();
-        this.imgUrl = `${baseUrl}/static/img/weather/${svgFileName}.svg`;
+        this.imgUrl = `https://www.metaweather.com/static/img/weather/${svgFileName}.svg`;
     }
 }
+
+function buildUrl(options) {
+    if (options.lat && options.lon) {
+        let lattlong = `${options.lat},${options.lon}`;
+
+        return `${baseUrl}search/?lattlong=${lattlong}`;
+    } else if (options.query) {
+        return `${baseUrl}search/?query=${options.query}`;
+    }
+
+    return `${baseUrl}search/?query=london`;
+}
+
+exports.getWeather = (options, cb) => {
+    let url = buildUrl(options);
+    fetch(url)
+        .then(u => u.json())
+        .then(weatherData => {
+            let woeidUrl = baseUrl + weatherData[0].woeid + '/';
+
+            return fetch(woeidUrl);
+        })
+        .then(data => data.json())
+        .then(
+            function (weatherData) {
+                cb(new Weather(weatherData));
+            }
+        );
+};
 
 exports.Weather = Weather;
