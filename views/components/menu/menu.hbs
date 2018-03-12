@@ -1,0 +1,8 @@
+<ul class="menu">
+    {{#each siteCategories }}
+        <li>
+            <i class="fa fa-{{ icon }}"></i>
+            <a href="/news/{{ toLowerCase name }}">{{ name }}</a>
+        </li>
+    {{/each}}
+</ul>

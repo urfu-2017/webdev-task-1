@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="{{ charset }}">
+    <title>{{ siteName }}</title>
+    <link rel="stylesheet" href="{{ staticBasePath }}index.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</head>
+<body>
+<div class="layout">
+    {{> head }}
+    {{> weather }}
+    {{> @partial-block }}
+    <div class="layout__bottom">
+        <div>(c) Test</div>
+        <div>2018</div>
+    </div>
+</div>
+</body>
+</html>
