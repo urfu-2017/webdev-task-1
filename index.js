@@ -4,8 +4,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
-const commonData = require('./middlewares/common-data');
-const routes = require('./routes');
+const commonData = require('./app/middlewares/common-data');
+const routes = require('./app/routes');
 
 const app = express();
 
