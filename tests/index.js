@@ -1,7 +1,7 @@
 'use strict';
 const request = require('supertest');
 
-const app = require('../app/index');
+const app = require('../index');
 
 describe('GET /', () => {
     it('respond with html page', done => {
