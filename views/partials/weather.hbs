@@ -1,10 +1,14 @@
 <div class="weather">
-    <div class="weather__city">{{ 0.city }}</div>
+    <div>
+        <div class="weather__city">{{ 0.city }}</div>
+        <div class="weather__now">
+            {{ 0.temp }} &deg;С<br>
+            {{ 0.windSpeed }} м/c
+        </div>
+    </div>
     <div class="weather__image">
         <img src="https://www.metaweather.com/static/img/weather/{{ 0.weatherStateAbbr }}.svg" alt="картинка погоды">
     </div>
-    <div class="weather__temp-now">{{ 0.temp }} &deg;С</div>
-    <div class="weather__wind-now">{{ 0.windSpeed }} м/c</div>
     <div class="wather__consolidation">
         {{#each this}}
             {{> weatherday this}}

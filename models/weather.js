@@ -1,8 +1,9 @@
 'use strict';
 
-const API_URI = 'https://www.metaweather.com/api/';
+const config = require('config');
 const fetch = require('node-fetch');
 
+const API_URI = 'https://www.metaweather.com/api/';
 const MONTHES = [
     'Января',
     'Февраля',
@@ -19,38 +20,56 @@ const MONTHES = [
 ];
 
 class Weather {
-    constructor(city, temp, windSpeed, date, weatherStateAbbr) { // eslint-disable-line max-params
+    constructor({ city, temp, windSpeed, date, weatherStateAbbr }) {
         this.city = city;
-        this.temp = Math.round(temp);
-        this.windSpeed = Math.round(windSpeed);
-        this.date = date.getDate() + ' ' + MONTHES[date.getMonth()];
+        this.temp = temp;
+        this.windSpeed = windSpeed;
+        this.date = date;
         this.weatherStateAbbr = weatherStateAbbr;
     }
 
-    static loadLocationByQuery(place) {
-        return getJson(`location/search/?query=${place}`)
-            .then(res => res[0]);
+    static async loadConsolidated(request) {
+        const locations = await loadLocations(request);
+        if (!locations) {
+            return this.createDefaultConsolidated();
+        }
+
+        const nearestLocation = locations[0];
+        const weather = await getJson(`location/${nearestLocation.woeid}`);
+
+        if (!weather) {
+            return this.createDefaultConsolidated();
+        }
+
+        return weather.consolidated_weather
+            .map(weaher => {
+                const date = new Date(weaher.applicable_date);
+
+                return new Weather({
+                    city: nearestLocation.title,
+                    temp: Math.round(weaher.the_temp),
+                    windSpeed: Math.round(weaher.wind_speed),
+                    date: `${date.getDate()} ${MONTHES[date.getMonth()]}`,
+                    weatherStateAbbr: weaher.weather_state_abbr
+                });
+            });
     }
 
-    static loadLocationByCords(latt, long) {
-        return getJson(`location/search/?lattlong=${latt},${long}`)
-            .then(res => res[0]);
-    }
-
-    static loadConsolidated(location) {
-        return getJson(`location/${location.woeid}`)
-            .then(res => res.consolidated_weather)
-            .then(weathers => weathers.map(weaher => new Weather(
-                location.title,
-                weaher.the_temp,
-                weaher.wind_speed,
-                new Date(weaher.applicable_date),
-                weaher.weather_state_abbr)));
+    static createDefaultConsolidated() {
+        return [1, 2, 3, 4, 5, 6].map(() => Object.assign({}, config.get('defaultWeather')));
     }
 }
 
-function getJson(requestUriPart) {
-    return fetch(API_URI + requestUriPart).then(res => res.json());
+async function loadLocations(request) {
+    if (request.query) {
+        return await getJson(`location/search/?query=${request.query}`);
+    } else if (request.lat && request.lon) {
+        return await getJson(`location/search/?lattlong=${request.lat},${request.lon}`);
+    }
+}
+
+async function getJson(requestUriPart) {
+    return (await fetch(API_URI + requestUriPart)).json();
 }
 
 module.exports = Weather;

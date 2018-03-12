@@ -1,7 +1,9 @@
 'use strict';
 
+const config = require('config');
+
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('3a4134a13319447b8a05a39f138f568a');
+const newsapi = new NewsAPI(config.newsApiKey);
 
 class News {
     constructor({ title, description, publishedAt, source, urlToImage }) {
@@ -12,12 +14,13 @@ class News {
         this.urlToImage = urlToImage;
     }
 
-    static loadAll(country, category) {
-        return newsapi.v2.topHeadlines({
-            country: country,
+    static async loadAll(country, category) {
+        const topHeadlines = await newsapi.v2.topHeadlines({
+            country: country || 'ru',
             category: category
-        }).then(res => res.articles)
-            .then(articles => articles.map(a => new News(a)));
+        });
+
+        return topHeadlines.articles.map(a => new News(a));
     }
 }
 

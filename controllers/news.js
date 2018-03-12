@@ -1,13 +1,17 @@
 'use strict';
 
-const categories = require('../common/categories.json');
-const News = require('../models/news');
+const config = require('config');
 
-exports.news = (req, res) => {
+const News = require('../models/news');
+const Weather = require('../models/weather');
+
+exports.news = async (req, res) => {
+    const consolidatedWeather = await Weather.loadConsolidated(req.query);
+
     res.render('news', {
         title: 'Новости',
-        categories: categories,
-        ...res.locals
+        categories: config.categories,
+        consolidatedWeather: consolidatedWeather
     });
 };
 
@@ -15,11 +19,12 @@ exports.category = async (req, res) => {
     const country = req.query.country;
     const category = req.params.category;
 
-    let news = await News.loadAll(country, category);
+    const news = await News.loadAll(country, category);
+    const consolidatedWeather = await Weather.loadConsolidated(req.query);
 
     res.render('categories', {
         title: category,
         news: news,
-        ...res.locals
+        consolidatedWeather: consolidatedWeather
     });
 };
