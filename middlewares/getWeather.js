@@ -1,4 +1,3 @@
-/* eslint-disable max-statements */
 'use strict';
 let MetaWeather = require('metaweather');
 let mw = new MetaWeather();

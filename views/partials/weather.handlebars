@@ -2,21 +2,21 @@
 <html lang="en">
 {{# if info}}
 <div class='table___weather'>
-    <div class="box1">
+    <div class="table___weather city">
         {{city}}
     </div>
-    <div class="box2">
+    <div class="table___weather weather-icon">
         <img src=https://www.metaweather.com/static/img/weather/{{img}}.svg>
     </div>
-    <div class="box3">
+    <div class="table___weather temperature">
         <span> t {{formatNumber temp}}&#8451;
 </span>
     </div>
-    <div class="box4">
+    <div class="table___weather windspeed">
         <span> 💨 {{formatNumber wind}} m/s
 </span>
 </div>
-    <div class="box5">
+    <div class="table___weather weather-highlights">
     <table border="1" width="420">
         <tr>
 

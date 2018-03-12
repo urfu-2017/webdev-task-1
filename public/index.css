@@ -54,7 +54,7 @@ table {
     width: 221px;
 }
 
-.box1
+.city
 {
     grid-column: 1;
     grid-row-start: 1;
@@ -62,26 +62,26 @@ table {
 
 }
 
-.box2{
+.weather-icon{
     grid-column: 1;
     grid-row-start: 2;
     grid-row-end: 5;
     width: 74px;
 }
 
-.box3{
+.temperature{
     grid-column: 2;
     grid-row: 2;
     
 }
 
-.box4
+.windspeed
 {
     grid-column: 2;
     grid-row: 3;
 }
 
-.box5
+.weather-highlights
 {
     grid-column: 2;
     grid-row: 4;
