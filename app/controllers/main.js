@@ -5,8 +5,8 @@ const Category = require('../models/category');
 
 exports.mainPage = (req, res) => {
     Promise.all([
-        Widget.build(req.query.query),
-        Category.getCategories(req.query.country)
+        Widget.get(req.query.query),
+        Category.get(req.query.country)
     ]).then(vals => {
         const widget = vals[0];
         const categories = vals[1];

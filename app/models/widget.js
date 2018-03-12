@@ -19,7 +19,7 @@ const monthMap = {
     12: 'декабря'
 };
 
-class Widget {
+class WeatherWidget {
     constructor({ title, countryCode, forecast }) {
         this.countryCode = countryCode;
         this.city = title;
@@ -30,13 +30,13 @@ class Widget {
         this.weatherForecast = forecast;
     }
 
-    static build(cityName) {
+    static get(cityName) {
         if (!cityName) {
             cityName = 'Moscow';
         }
 
         return getWeatherReport(cityName).then((weatherReport) => {
-            return new Widget(formatReport(weatherReport));
+            return new WeatherWidget(formatReport(weatherReport));
         });
     }
 }
@@ -96,4 +96,4 @@ function formatReport(weatherReport) {
     };
 }
 
-module.exports = Widget;
+module.exports = WeatherWidget;

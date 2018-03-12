@@ -26,7 +26,7 @@ class Category {
         this.urlName = urlName;
     }
 
-    static getCategories() {
+    static get() {
         return categories.map(name => {
             return new Category(russianCategories[name], name);
         });

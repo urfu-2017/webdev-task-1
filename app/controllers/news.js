@@ -5,8 +5,8 @@ const Widget = require('../models/widget');
 
 exports.news = (req, res) => {
     Promise.all([
-        Widget.build(req.query.query),
-        Article.getArticles(req.query.country, req.query.category)
+        Widget.get(req.query.query),
+        Article.get(req.query.country, req.query.category)
     ]).then(vals => {
         const widget = vals[0];
         const articles = vals[1];

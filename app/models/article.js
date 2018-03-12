@@ -15,7 +15,7 @@ class Article {
         this.urlToImg = headline.urlToImage;
     }
 
-    static getArticles(country, category) {
+    static get(country, category) {
         return getHeadlines(country, category)
             .then((headlines) => {
                 return headlines.map(headline => {
