@@ -1,0 +1,151 @@
+.container {
+    width: 80%;
+    margin: auto;
+    border: 1px solid #000;
+    overflow: hidden;
+    font-size: 20px;
+    box-shadow: 0 0 10px #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+}
+
+.container > :not(:first-child) {
+    border-top: 2px solid #000;
+}
+
+.header {
+    position: relative;
+    padding: 1.5%;
+}
+
+.header_type_one-item {
+    text-align: center;
+}
+
+.header__title {
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    width: 33.3333%;
+}
+
+.header__link {
+    display: inline-block;
+    width: 33.3333%;
+}
+
+.weather {
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "image temperature"
+        "image wind"
+        "image forecast";
+    grid-column-gap: 1%;
+    grid-row-gap: 10px;
+    grid-template-columns: 19% 80%;
+    padding: 1%;
+}
+
+.weather__title {
+    grid-area: title;
+    margin: 0; 
+}
+
+.weather__temperature {
+    font-size: 1.5em;
+    grid-area: temperature;
+    font-weight: bold;
+}
+
+.weather__temperature::before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background-image: url("./thermometer.svg");
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+}
+
+.weather__wind {
+    grid-area: wind;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.weather__wind::before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background-image: url("./waves.svg");
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+}
+
+.weather__icon {
+    box-sizing: border-box;
+    grid-area: image;
+    padding: 10%;
+    width: 100%;
+}
+
+.weather__forecast {
+    width: 80%;
+    text-align: center;
+    grid-area: forecast;
+    border-collapse: collapse;
+    border: 2px solid #000;
+}
+
+.weather__forecast th {
+    background-color: #6bdffc;
+    border: 2px solid #000;
+}
+
+.weather__forecast td {
+    border-right: 2px solid #000;
+}
+
+.categories {
+    padding: 2%;
+}
+
+.category {
+    padding-bottom: 1%;
+    display: block;
+}
+
+.category__icon {
+    width: 2em;
+    vertical-align: middle;
+}
+
+.category__icon,
+.category__link {
+    display: inline-block;
+}
+
+.main-footer {
+    box-sizing: border-box;
+    padding: 0px 20px;
+}
+
+.main-footer__author {
+    float: left;
+}
+
+.main-footer__year {
+    float: right;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #f00;
+}

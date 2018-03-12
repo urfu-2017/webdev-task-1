@@ -1,0 +1,15 @@
+{{#if urlToImage}}
+    <article class="news-article">
+{{else}}
+    <article class="news-article news-article_type_no-image">
+{{/if}}
+    <h3 class="news-article__title">{{title}}</h3>
+    <span class="news-article__date">{{publishedAt}}</span>
+{{#if urlToImage}}
+        <img class="news-article__image" src={{urlToImage}}>
+{{/if}}
+    <div class="news-article__description">{{description}}</div>
+    <footer class="news-article__source">
+        <a href="{{url}}" class="link footer__bottom-right">Source</a>
+    </footer>
+</article>
