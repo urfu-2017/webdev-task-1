@@ -5,7 +5,6 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const config = require('config');
-const morgan = require('morgan');
 
 const routes = require('./routes');
 const { setHeaders } = require('./middlewares/headers-setter');
@@ -15,10 +14,6 @@ const { handleError } = require('./middlewares/error-handler');
 require('./scss-converter.js')();
 
 const app = express();
-
-if (config.get('debug')) {
-    app.use(morgan('dev'));
-}
 
 const viewsDir = path.join(__dirname, 'views');
 const partialsDir = path.join(viewsDir, 'partials');
