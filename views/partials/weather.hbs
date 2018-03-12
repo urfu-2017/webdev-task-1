@@ -1,0 +1,18 @@
+<div class="weather page__weather">
+    <span class="weather__city">{{city}}</span>
+    {{#with todayForecast}}
+        <img class="weather__icon" src="{{iconSrc}}" alt="{{state}}">
+        <span class="weather__temperature">
+            <span class="weather__today-icon">t</span>
+            {{formatTemperature temperature}} &#8451;
+        </span>
+        <span class="weather__wind">
+            <img class="weather__today-icon" alt="wind" src="/svg/weather/wind.svg">
+            {{windSpeed}} м/c
+        </span>
+    {{/with}}
+    <div class="weather__forecasts">
+        {{>forecasts forecasts}}
+    </div>
+
+</div>

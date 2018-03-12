@@ -1,0 +1,30 @@
+.page
+{
+    display: grid;
+    grid-template-areas: "header" "weather" "content" "footer";
+    align-items: stretch;
+    grid-template-rows: auto auto 1fr 2em;
+    height: 100vh;
+    padding: 0 1rem;
+    margin: 0;
+}
+
+.page__header
+{
+    grid-area: header;
+}
+
+.page__weather
+{
+    grid-area: weather;
+}
+
+.page__content
+{
+    grid-area: content;
+}
+
+.page__footer
+{
+    grid-area: footer;
+}

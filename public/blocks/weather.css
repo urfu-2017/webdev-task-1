@@ -1,0 +1,53 @@
+.weather
+{
+    display: grid;
+    grid-template-areas: "city temp ."
+                         "icon wind ."
+                         "icon forecast forecast"
+                         "icon forecast forecast";
+
+    grid-template-columns: minmax(1fr, 7em) 1.5fr 1.5fr;
+    align-items: stretch;
+    border: 0.1em solid #697391;
+    border-radius: 0.1em;
+    padding: 0.25em;
+}
+
+.weather__icon
+{
+    height: 5em;
+    justify-self: center;
+    padding: 0.75em;
+}
+
+.weather__today-icon
+{
+    line-height: 1.25em;
+    height: 1.25em;
+    vertical-align: bottom;
+}
+
+.weather__city
+{
+    grid-area: city;
+}
+
+.weather__icon
+{
+    grid-area: icon;
+}
+
+.weather__forecasts
+{
+    grid-area: forecast;
+}
+
+.weather__wind
+{
+    grid-area: wind;
+}
+
+.weather__temperature
+{
+    grid-area: temp;
+}

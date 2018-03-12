@@ -1,0 +1,10 @@
+.text
+{
+    font-family: "Comic Sans MS", sans-serif;
+    color: #697391;
+}
+
+.text_nowrap
+{
+    white-space: nowrap;
+}

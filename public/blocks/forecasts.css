@@ -1,0 +1,33 @@
+.forecasts
+{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1.5fr 1.5fr;
+    border: 0.1em solid #697391;
+    border-radius: 0.1em;
+
+}
+
+.forecasts__item
+{
+    grid-row: 1/4;
+}
+
+.forecasts__date
+{
+    grid-row: 1/2;
+    padding: 0 0.25em;
+    border-bottom: 0.1em solid #697391;
+}
+
+.forecasts__temperature
+{
+    grid-row: 2/3;
+    padding: 0 0.25em;
+}
+
+.forecasts__wind
+{
+    grid-row: 3/4;
+    padding: 0 0.25em;
+}
