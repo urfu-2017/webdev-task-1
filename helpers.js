@@ -20,6 +20,10 @@ module.exports = hbs => {
         return number.toFixed(2);
     });
 
+    hbs.registerHelper('toLowerCase', function (string) {
+        return string.toLowerCase();
+    });
+
     hbs.registerHelper('getWeatherTable', function (days) {
         return days.map(day => {
             const [, m, d] = day.applicable_date.split('-');

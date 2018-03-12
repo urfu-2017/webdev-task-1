@@ -39,7 +39,7 @@ class News {
             return json.articles;
         }
 
-        throw new Error('Can\' get articles!');
+        throw new Error('Can\'t get articles!');
     }
 }
 
