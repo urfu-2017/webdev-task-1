@@ -11,8 +11,8 @@ const app = express();
 
 module.exports = app;
 
-const viewsDir = path.join(__dirname, 'views');
-const publicDir = path.join(__dirname, 'public');
+const viewsDir = path.join(__dirname, 'app/views');
+const publicDir = path.join(__dirname, 'app/public');
 const partialsDir = path.join(viewsDir, 'partials');
 
 app.set('view engine', 'hbs');
