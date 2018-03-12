@@ -2,7 +2,7 @@
 const Weather = require('../models/weather');
 const Header = require('../models/header');
 const Categories = require('../models/categories');
-const Publications = require('../models/publications');
+const Articles = require('../models/article');
 
 exports.categories = (req, res) => {
     Weather.getAsync(req.query).then(weather =>
@@ -15,17 +15,17 @@ exports.categories = (req, res) => {
 
 };
 
-exports.publications = (req, res, next) => {
+exports.articles = (req, res, next) => {
     if (!Categories.exists(req.params.category)) {
         return next();
     }
-    Publications.getAsync(req.params.category, req.query)
-        .then(publications => {
+    Articles.getAsync(req.params.category, req.query)
+        .then(articles => {
             Weather.getAsync(req.query).then(weather =>
-                res.render('publications', {
+                res.render('articles', {
                     header: Header.build(req.params),
                     weather,
-                    publications
+                    articles
                 })
             );
         });

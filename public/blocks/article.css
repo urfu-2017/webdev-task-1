@@ -1,4 +1,4 @@
-.publication
+.article
 {
     display: grid;
     grid-template-areas: "title title title date"
@@ -12,18 +12,18 @@
     grid-gap: 0.5em;
 }
 
-.publication_no-image
+.article_no-image
 {
     grid-template-areas: "title title title date"
                          "desc desc desc desc"
                          ". . . source";
 }
 
-.publication__image_error
+.article__image_error
 {
     display: none;
 }
-.publication__image
+.article__image
 {
     grid-area: image;
     max-height: 10em;
@@ -33,7 +33,7 @@
     justify-self: stretch;
 }
 
-.publication__date
+.article__date
 {
     grid-area: date;
     justify-self: right;
@@ -41,12 +41,12 @@
     opacity: 0.7;
 }
 
-.publication__description
+.article__description
 {
     grid-area: desc;
 }
 
-.publication__source
+.article__source
 {
     grid-area: source;
     justify-self: right;
@@ -54,7 +54,7 @@
     opacity: 0.7;
 }
 
-.publication__title
+.article__title
 {
     grid-area: title;
 }

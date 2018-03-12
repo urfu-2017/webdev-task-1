@@ -1,8 +1,8 @@
 <div class="forecasts">
     {{# each this }}
         <span class="forecasts__item">
-            <div class="forecasts__date text_nowrap">{{date}}</div>
-            <div class="forecasts__temperature text_nowrap">{{temperature}} &#8451;</div>
+            <div class="forecasts__date text_nowrap">{{formatDate date 'D MMMM'}}</div>
+            <div class="forecasts__temperature text_nowrap">{{formatTemperature temperature}} &#8451;</div>
             <div class="forecasts__wind text_nowrap">{{windSpeed}} м/c</div>
         </span>
     {{/each}}

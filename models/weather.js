@@ -1,23 +1,27 @@
 'use strict';
 const MetaWeather = require('metaweather');
 const mw = new MetaWeather();
-const { formatDate, formatTemperature } = require('../helpers/formatters');
 const Location = require('./location');
 
 function iconSrc(state) {
     return `https://www.metaweather.com/static/img/weather/${state}.svg`;
 }
 
+/* eslint-disable camelcase */
+function toForecasts({ the_temp, weather_state_abbr, wind_speed, applicable_date }) {
+    return ({
+        state: weather_state_abbr,
+        temperature: the_temp,
+        windSpeed: Math.round(wind_speed),
+        date: applicable_date,
+        iconSrc: iconSrc(weather_state_abbr)
+    });
+}
+
+/* eslint-enable camelcase */
+
 function weatherInfoToViewModel(weatherInfo) {
-    const forecasts = weatherInfo.consolidated_weather.map(
-        // eslint-disable-next-line camelcase
-        ({ the_temp, weather_state_abbr, wind_speed, applicable_date }) =>
-            ({
-                temperature: formatTemperature(the_temp),
-                windSpeed: Math.round(wind_speed),
-                date: formatDate(applicable_date, 'D MMMM'),
-                iconSrc: iconSrc(weather_state_abbr)
-            }));
+    const forecasts = weatherInfo.consolidated_weather.map(toForecasts);
 
     return {
         city: weatherInfo.title,

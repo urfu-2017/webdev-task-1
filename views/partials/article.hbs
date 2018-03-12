@@ -1,0 +1,9 @@
+<div class="article">
+    <a class="article__title text" href="{{url}}">{{title}}</a>
+    <div class="article__description">{{description}}</div>
+    <div class="article__date">{{formatDate publishedAt "DD MMMM"}}</div>
+    <div class="article__source">{{source.name}}</div>
+    <img class="article__image" src="{{urlToImage}}"
+         alt="{{title}}"
+         onerror="this.parentNode.className+=' article_no-image';this.className+=' article__image_error'">
+</div>

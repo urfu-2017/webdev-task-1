@@ -2,7 +2,6 @@
 require('dotenv').config();
 const path = require('path');
 
-const bodyParser = require('body-parser');
 const express = require('express');
 const hbs = require('hbs');
 const apicache = require('apicache');
@@ -21,7 +20,6 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 app.use(apicache.middleware('5 minutes'));
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -38,6 +36,7 @@ app.use((err, req, res) => {
 });
 
 hbs.registerHelper('formatDate', formatters.formatDate);
+hbs.registerHelper('formatTemperature', formatters.formatTemperature);
 hbs.registerPartials(partialsDir, () => {
     const port = 8080;
 

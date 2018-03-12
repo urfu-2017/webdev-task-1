@@ -4,7 +4,7 @@ const NewsAPI = require('newsapi');
 const apiKey = process.env.NEWS_API_KEY;
 const newsapi = new NewsAPI(apiKey);
 
-class Publications {
+class Articles {
 
     static getAsync(category, query) {
         const { country } = query;
@@ -17,4 +17,4 @@ class Publications {
 
 }
 
-module.exports = Publications;
+module.exports = Articles;
