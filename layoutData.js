@@ -2,13 +2,34 @@
 
 module.exports = {
     siteCategories: [
-        'Business',
-        'Entertainment',
-        'General',
-        'Health',
-        'Science',
-        'Sport',
-        'Technology'
+        {
+            name: 'Business',
+            icon: 'briefcase'
+        },
+        {
+            name: 'Entertainment',
+            icon: 'gamepad'
+        },
+        {
+            name: 'General',
+            icon: 'newspaper'
+        },
+        {
+            name: 'Health',
+            icon: 'medkit'
+        },
+        {
+            name: 'Science',
+            icon: 'flask'
+        },
+        {
+            name: 'Sport',
+            icon: 'volleyball-ball'
+        },
+        {
+            name: 'Technology',
+            icon: 'rocket'
+        }
     ],
     siteName: 'NEWS',
     charset: 'utf-8',
