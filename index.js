@@ -6,6 +6,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fetch = require('node-fetch');
 
+const config = require('./public/config/config');
 const News = require('./models/news');
 const topic = require('./mocks/news');
 const routes = require('./routes/routes');
@@ -30,6 +31,7 @@ app.use(express.static(publicDir));
 
 app.use((req, res, next) => {
     res.locals.url = req.originalUrl;
+    res.locals.meta = config.meta;
     next();
 });
 
@@ -39,7 +41,7 @@ app.use((req, res, next) => {
     } else {
         res.locals.urlLocation = res.locals.url;
     }
-    fetch('https://www.metaweather.com/api/location/search' + res.locals.urlLocation)
+    fetch(`${config.weatherApiUrl}search` + res.locals.urlLocation)
         .then(data => data.json())
         .then(json => {
             res.locals.title = json[0].title;
@@ -50,7 +52,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    fetch('https://www.metaweather.com/api/location/' + res.locals.woeid)
+    fetch(`${config.weatherApiUrl}` + res.locals.woeid)
         .then(data => data.json())
         .then(json => {
             json.consolidated_weather.length = 5;

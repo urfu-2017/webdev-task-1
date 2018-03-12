@@ -1,0 +1,10 @@
+{
+    "apiKey": "aed1f5bff66c481299f733632f0b89e7",
+    "newsApiUrl": "https://newsapi.org/v2/top-headlines",
+    "weatherApiUrl": "https://www.metaweather.com/api/location/",
+    "meta": {
+        "charset": "utf-8",
+        "lang": "ru",
+        "title": "Новости"
+    }
+}

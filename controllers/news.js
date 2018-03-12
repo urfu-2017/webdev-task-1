@@ -2,11 +2,12 @@
 
 const fetch = require('node-fetch');
 
+const config = require('../public/config/config');
 const NewsModel = require('../models/news');
 
 exports.startPage = (req, res) => {
-    let allNews = NewsModel.findAll();
-    let data = { allNews: allNews };
+    const allNews = NewsModel.findAll();
+    const data = { allNews };
     res.render('index', data);
 };
 
@@ -14,7 +15,7 @@ exports.item = (req, res) => {
     const name = req.params.name;
     const oneNews = NewsModel.find(name);
     const englishName = oneNews.englishName;
-    const data = { oneNews: oneNews };
+    const data = { oneNews };
 
     if (oneNews) {
         if (!res.locals.url.includes('country=')) {
@@ -23,8 +24,8 @@ exports.item = (req, res) => {
             res.locals.queryNews = res.locals.url;
         }
         res.locals.queryNews += '&category=' + englishName;
-        var url = 'https://newsapi.org/v2/top-headlines' +
-        `${res.locals.queryNews}&apiKey=aed1f5bff66c481299f733632f0b89e7`;
+        let url = `${config.newsApiUrl}` +
+            `${res.locals.queryNews}&apiKey=${config.apiKey}`;
         fetch(url)
             .then(body => body.json())
             .then(json => {
