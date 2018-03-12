@@ -1,0 +1,12 @@
+{
+    "newsApi": {
+        "baseUrl": "https://newsapi.org/v2"
+    },
+    "metaweatherApi": {
+        "baseUrl": "https://www.metaweather.com"
+    },
+    "view": {
+        "lang": "ru",
+        "charset": "utf-8"
+    }
+}

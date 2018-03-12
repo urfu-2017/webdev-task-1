@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ properties.lang }}">
+    <head>
+        <title>{{ title }}</title>
+        {{> general}}
+    </head>
+    <body>
+         <div class="wrapper">
+             {{> header}}
+             {{> weather}}
+             {{#if news.articles}}
+             <section class="content">
+                 <div class="content__title">
+                     <p>Горячие новости</p>
+                 </div>
+                 <div class="content__body">
+                     <article class="news">
+                         {{#each news.articles}}
+                             <div class="news__article">
+                             {{#if urlToImage}}
+                                 <img class="news__article_img" src="{{ urlToImage }}"/>
+                             {{^}}
+                                 <img class="news__article_img" src="/icons/noimage.svg"/>
+                             {{/if}}
+                                 <p class="news__article_title"><a href="{{ url }}" target="_blank">{{ title }}</a></p>
+                                 <p class="news__article_desc">{{ description }}</p>
+                             </div>
+                         {{/each}}
+                     </article>
+                 </div>
+             </section>
+             {{/if}}
+             {{> footer}}
+         </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+{{#if weather}}
+<section class="content">
+    <div class="content__title">
+        <p>Погода на {{ weather.summary.date }}</p>
+    </div>
+    <div class="content__body">
+        <div class="weather">
+            <div class="weather__city">
+                <p class="weather__city_name">{{ weather.summary.city }}</p>
+                <img class="weather__city_state" src="https://www.metaweather.com/static/img/weather/{{ weather.summary.state }}.svg"/>
+            </div>
+            <div class="weather__common">
+                <div>t</div>
+                <div>{{ weather.summary.temp }} °C</div>
+                <div><img class="weather__common_wind" src="/icons/wind-icon.svg"/></div>
+                <div>{{ weather.summary.wind }} м/с</div>
+            </div>
+            <div class="weather__days">
+                {{#each weather.days}}
+                    <div>
+                        <div class="weather__days_title">{{ date }}</div>
+                        <div class="weather__days_body">
+                            <p>t {{ temp }} °C</p>
+                            <p><img height="14" src="/icons/wind-icon.svg"/> {{ wind }} м/с</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}
