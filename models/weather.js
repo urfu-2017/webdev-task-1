@@ -18,31 +18,27 @@ module.exports.getWeather = async (req) => {
         url: `https://www.metaweather.com/api/location/search/?${endOfUrl}`,
         json: true
     };
-    const subOptions = await rp(options)
-        .then(function (response) {
+    const response = await rp(options);
+    const subOptions = {
+        method: 'GET',
+        url: 'https://www.metaweather.com/api/location/' + response[0].woeid,
+        json: true
+    };
+    const subResponse = await rp(subOptions);
+    /* eslint-disable */
+    subResponse.consolidated_weather = subResponse.consolidated_weather.map(element => {
+        element.the_temp = Math.round(element.the_temp) + ' °C';
+        element.wind_speed = Math.round(element.wind_speed) + ' m/c';
+        element.applicable_date = element.applicable_date.slice(5);
+        /* eslint-enable */
 
-            return {
-                method: 'GET',
-                url: 'https://www.metaweather.com/api/location/' + response[0].woeid,
-                json: true
-            };
-        });
-    const dataWeather = await rp(subOptions).then(function (subResponse) {
-        subResponse.consolidated_weather.forEach(element => {
-            /* eslint-disable */
-            element.the_temp = Math.round(element.the_temp) + ' °C';
-            element.wind_speed = Math.round(element.wind_speed) + ' m/c';
-            element.applicable_date = element.applicable_date.slice(5);
-            /* eslint-enable */
-        });
-
-        return subResponse;
+        return element;
     });
 
     return {
         endOfUrl: endOfUrl + '&country=' + req.query.country,
-        cityName: dataWeather.title,
-        today: dataWeather.consolidated_weather[0],
-        forecasts: dataWeather.consolidated_weather
+        cityName: subResponse.title,
+        today: subResponse.consolidated_weather[0],
+        forecasts: subResponse.consolidated_weather
     };
 };

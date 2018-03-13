@@ -3,10 +3,10 @@
 const { getWeather } = require('../models/weather');
 const { getNews } = require('../models/news');
 const fs = require('fs');
+const dataMain = JSON.parse(fs.readFileSync('./public/data.json'));
 
 module.exports.main = async (req, res) => {
     const dataWeather = await getWeather(req);
-    const dataMain = JSON.parse(fs.readFileSync('./public/data.json'));
     res.render('main', { dataMain, dataWeather });
 };
 

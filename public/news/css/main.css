@@ -1,64 +1,106 @@
-html {
-  background-color: #bb8e63; }
+html
+{
+    background-color: #bb8e63;
+}
 
-body {
-  margin: 0 0; }
+body
+{
+    margin: 0;
+}
 
-main {
-  height: auto;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 50px 200px auto 50px;
-  grid-template-areas: "header" "weather" "links" "footer"; }
+main
+{
+    position: fixed;
 
-.header {
-  grid-area: header;
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px black solid;
-  text-align: center;
-  font: 30px serif; }
+    display: grid;
 
-.weatherBar {
-  grid-area: weather;
-  width: 100%;
-  height: auto;
-  border-bottom: 1px black solid;
-  display: flex;
-  justify-content: space-around; }
+    width: 100%;
+    height: auto;
+    height: 100%;
 
-.categories {
-  grid-area: links;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
-  .categories__link {
-    font-size: 30px; }
-  .categories__head {
-    text-align: center; }
-  .categories__item {
-    align-self: center; }
-  .categories__item:hover {
-    background-color: black; }
-    .categories__item:hover .categories__link {
-      color: white; }
+    grid-template-columns: 100%;
+    grid-template-rows: 50px 200px auto 50px;
+    grid-template-areas: 'header' 'weather' 'links' 'footer';
+}
 
-.footer {
-  grid-area: footer;
-  width: 100%;
-  height: 50px;
-  border-top: 1px black solid; }
-  .footer__author {
+.header
+{
+    font: 30px serif; 
+
+    width: 100%;
+    height: 50px;
+
+    text-align: center;
+
+    border-bottom: 1px black solid;
+
+    grid-area: header;
+}
+
+.weatherBar
+{
+    display: flex;
+
+    width: 100%;
+    height: auto;
+
+    border-bottom: 1px black solid;
+
+    grid-area: weather;
+    justify-content: space-around;
+}
+
+.categories
+{
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+
+    grid-area: links;
+    justify-content: space-between;
+}
+.categories__link
+{
+    font-size: 30px;
+}
+.categories__head
+{
+    text-align: center;
+}
+.categories__item
+{
+    align-self: center;
+}
+.categories__item:hover
+{
+    background-color: black;
+}
+.categories__item:hover .categories__link
+{
+    color: white;
+}
+
+.footer
+{
+    width: 100%;
+    height: 50px;
+
+    border-top: 1px black solid; 
+
+    grid-area: footer;
+}
+.footer__author
+{
     position: relative;
+    top: 30%; 
     left: 5%;
-    top: 30%; }
-  .footer__year {
+}
+.footer__year
+{
     position: relative;
+    top: 30%; 
     left: 90%;
-    top: 30%; }
+}
 
 /*# sourceMappingURL=main.css.map */
