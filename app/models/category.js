@@ -1,14 +1,4 @@
-const categories = [
-  'business',
-  'entertainment',
-  'general',
-  'health',
-  'science',
-  'sports',
-  'technology',
-];
-
-const russianCategories = {
+const categories = {
   business: 'Бизнес',
   entertainment: 'Развлечения',
   health: 'Здоровье',
@@ -19,13 +9,13 @@ const russianCategories = {
 };
 
 class Category {
-  constructor(name, urlName) {
+  constructor(name, category) {
     this.name = name;
-    this.urlName = urlName;
+    this.category = category;
   }
 
   static get() {
-    return categories.map(name => new Category(russianCategories[name], name));
+    return Object.keys(categories).map(name => new Category(categories[name], name));
   }
 }
 
