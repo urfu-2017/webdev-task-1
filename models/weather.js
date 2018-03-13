@@ -1,30 +1,20 @@
 'use strict';
 
-const util = require('util');
-
-const request = require('request');
-
-const apiBaseUrl = 'https://www.metaweather.com/api/location';
-const apiUrlWoeidData = `${apiBaseUrl}/search/`;
+const MetaWeather = require('metaweather');
+const metaweather = new MetaWeather();
 
 class WeatherManager {
-    static getWeatherData({ query, lat, lon }) {
-        let params = {};
-        if (!util.isNullOrUndefined(query)) {
-            params.query = query;
+    static async getWeatherData({ query, lat, lon }) {
+        let response;
+        if (query) {
+            response = await metaweather.search().query(query);
         } else {
-            params.lattlong = `${lat},${lon}`;
+            response = await metaweather.search().latLon(`${lat},${lon}`);
         }
+        let woeid = response.body[0].woeid;
+        let locationResponse = await metaweather.location(woeid);
 
-        return new Promise ((resolve, reject) => {
-            request.get(apiUrlWoeidData, { qs: params }, (err, response, body) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(body);
-                }
-            });
-        });
+        return locationResponse.body;
     }
 }
 

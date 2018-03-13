@@ -1,13 +1,14 @@
 'use strict';
 
 const data = require('../data');
-// const weather = require('../models/weather');
 
-exports.list = (req, res) => {
-    // weather.WeatherManager.getWeatherData({query: 'london'}).then((response) => {
-    // });
+exports.list = async (req, res) => {
     res.render('categories', {
         title: 'Илон слишком занят',
-        categories: data.categories
+        categories: data.categories,
+        weatherData: req.weatherData,
+        dateOptions: {
+            lang: 'ru'
+        }
     });
 };

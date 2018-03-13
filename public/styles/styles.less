@@ -97,13 +97,25 @@ body {
         }
         &__details {
             width: 100%;
+            font-size: 16px;
+            &__temp,
             &__wind {
-                display: flex;
-                font-size: 16px;
-                &__icon {
-                    flex-basis: 10%;
-                }
+                padding-bottom: 5px;
             }
+        }
+    }
+}
+
+.weather-table {
+    display: flex;
+    &__cell {
+        &__date {
+            border: 1px solid;
+            padding: 0px 4px;
+        }
+        &__data {
+            text-align: center;
+            border: 1px solid;
         }
     }
 }

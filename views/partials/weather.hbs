@@ -1,22 +1,32 @@
 <div class="weather">
     <div class="weather__title">
-        {{!-- {{ country }} --}}
-        Екатеринбург
+        {{ weatherData.title }}
     </div>
     <div class="weather__body">
-        <img class="weather__body__image" src="https://www.metaweather.com/static/img/weather/lc.svg" width="100" height="100">
+        <img class="weather__body__image" 
+        src="https://www.metaweather.com/static/img/weather/{{ weatherData.current.iconState }}.svg" 
+        width="100" height="100">
         <div class="weather__body__details">
             <div class="weather__body__details__temp">
-                <div class="weather__body__details__temp__icon">t</div>
-                {{!-- {{ deg }} --}}
-                +3&#176;С
+                {{ weatherData.current.temperature }}&#176;С
             </div>
             <div class="weather__body__details__wind">
-                <div class="weather__body__details__wind__icon">&#127788;</div>
-                <div class="weather__body__details__wind__value">
-                    {{!-- {{ wind }} --}}
-                    4 м/с
-                </div>
+                {{ weatherData.current.windSpeed }}м/с
+            </div>
+            <div class="weather-table">
+                {{#each weatherData.fiveDays}}
+                    <div class="weather-table__cell">
+                        <div class="weather-table__cell__date">{{date date "D MMMM" ../dateOptions}}</div>
+                        <div class="weather-table__cell__data">
+                            <div class="weather-table__cell__temp">
+                                {{ temperature }}&#176;С
+                            </div>
+                            <div class="weather-table__cell__wind">
+                                {{ windSpeed }}м/с
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
         </div>
     </div>
