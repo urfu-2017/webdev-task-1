@@ -2,17 +2,10 @@
 
 const got = require('got');
 
-const defaultWoeid = 44418;
+const { url, defaultWoeid } = require('../weather-api');
 
-module.exports.getWeather = getWeather;
-
-function getWeather(query, lat, lon) {
-    return searchLocation(query, lat, lon)
-        .then(getWeatherByWoeid);
-}
-
-function getWeatherByWoeid(woeid) {
-    const weatherUrl = `https://www.metaweather.com/api/location/${woeid}/`;
+module.exports.getWeatherByWoeid = function getWeatherByWoeid(woeid) {
+    const weatherUrl = `${url}/location/${woeid}/`;
 
     return got(weatherUrl, { json: true })
         .then(response => {
@@ -22,7 +15,7 @@ function getWeatherByWoeid(woeid) {
                 week: response.body.consolidated_weather.slice(1).map(convertWeather)
             };
         });
-}
+};
 
 function convertWeather(source) {
     return {
@@ -34,21 +27,27 @@ function convertWeather(source) {
 }
 
 function prettifyDate(source) {
-    let [month, day] = source.split('-').slice(1);
+    const [month, day] = source.split('-').slice(1);
     const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
         'Июль', 'Август', 'Сентябрь', 'Ноябрь', 'Декабрь'];
 
     return parseInt(day) + ' ' + months[parseInt(month)];
 }
 
-function searchLocation(query, lat, lon) {
-    let queryString = `query=${query}`;
-    if (query === undefined) {
-        queryString = `lattlong=${lat},${lon}`;
+module.exports.searchLocation = function searchLocation(query) {
+    const locationName = query.query;
+    let queryString = '';
+
+    if (locationName !== undefined) {
+        queryString = `query=${locationName}`;
+    } else if (query.lat !== undefined && query.lon !== undefined) {
+        queryString = `lattlong=${query.lat},${query.lon}`;
+    } else {
+        return Promise.resolve(defaultWoeid);
     }
-    const weatherUrl = `https://www.metaweather.com/api/location/search/?${queryString}`;
+    const weatherUrl = `${url}/location/search/?${queryString}`;
 
     return got(weatherUrl, { json: true })
         .then(response => response.body[0].woeid)
         .catch(() => defaultWoeid);
-}
+};
