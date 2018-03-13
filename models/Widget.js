@@ -1,33 +1,47 @@
+'use strict';
+
 const numberMonth = require('./numberMonth');
 
-class OneOfNextDay {
-    constructor(oneDay) {
-        this.temperature = Math.round(oneDay.the_temp);
-        this.wind = Math.round(oneDay.wind_speed);
-
-        let today = new Date(oneDay.applicable_date);
-        this.day = today.getUTCDate();
-        this.month = numberMonth(today.getUTCMonth());
+function getTempWithSign(temperature) {
+    if (temperature < 0) {
+        return '-' + temperature;
+    } else if (temperature > 0) {
+        return '+' + temperature;
     }
+
+    return ' ' + temperature;
+}
+
+function getNextDay(oneDay) {
+    const today = new Date(oneDay.applicable_date);
+
+    return {
+        temperature: getTempWithSign(Math.round(oneDay.the_temp)),
+        wind: Math.round(oneDay.wind_speed),
+        day: today.getUTCDate(),
+        month: numberMonth(today.getUTCMonth())
+    };
 }
 
 class Widget {
     constructor(weather) {
         this.city = weather.title;
 
-        let stateAbbr = weather.consolidated_weather[0].weather_state_abbr;
+        const arrNextDays = weather.consolidated_weather;
+        const weatherToday = arrNextDays.shift();
+
+        this.temperature = getTempWithSign(Math.round(weatherToday.the_temp));
+        this.wind = Math.round(weatherToday.wind_speed);
+
+        const stateAbbr = weatherToday.weather_state_abbr;
         this.stateUrl = `https://www.metaweather.com/static/img/weather/${stateAbbr}.svg`;
 
-        this.temperature = Math.round(weather.consolidated_weather[0].the_temp);
-        this.wind = Math.round(weather.consolidated_weather[0].wind_speed);
-
-        let today = new Date(weather.time);
+        const today = new Date(weather.time);
         this.day = today.getUTCDate();
         this.month = numberMonth(today.getUTCMonth());
 
-        let arrNextDays = weather.consolidated_weather;
-        arrNextDays.shift();
-        this.next5Days = arrNextDays.map((item) => new OneOfNextDay(item));
+        this.next5Days = arrNextDays.map(item => getNextDay(item));
+
     }
 }
 

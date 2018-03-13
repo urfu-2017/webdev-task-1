@@ -1,17 +1,17 @@
+'use strict';
+
 class General {
-    constructor(name, developer, year) {
+    constructor(gereralInfo) {
         let header = {
-            name: name
+            name: gereralInfo.name
         };
         let footer = {
-            dev: developer,
-            year: year
+            dev: gereralInfo.developer,
+            year: gereralInfo.year
         };
         this.header = header;
         this.footer = footer;
     }
 }
 
-// const gen = new General('PogodaNovosti', 'spt30', 2018);
-// console.log(gen.getInfo(gen.footer));
 module.exports = General;

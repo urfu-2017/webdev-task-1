@@ -1,0 +1,20 @@
+<head>
+    <link rel="stylesheet" href="css-for-partials/news.css" media="screen">
+</head>
+
+{{#each news}}
+    <article class="one-news">
+        <div class="one-news__header">
+            <a href="{{url}}" class="one-news__title">{{title}}</a>
+            <div class="one-news__source">
+                Источник: <a href="{{sourceUrl}}" class="one-news__source_url">{{source}}</a>
+            </div>
+        </div>
+        <div class="one-news__body">
+            <img src="{{urlToImage}}" class="one-news__picture" alt="">
+            <div class="one-news__more">{{description}}</div>
+        </div>
+        <div class="one-news__publish-date">{{publishedAt}}</div>
+    </article>
+    <hr class="line-for-news">
+{{/each}}

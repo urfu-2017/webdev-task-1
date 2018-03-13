@@ -1,0 +1,12 @@
+.footer
+{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.editor,
+.year
+{
+    margin: 5px 50px 8px;
+}

@@ -1,30 +1,32 @@
-<article class="widget-place">
-    <div class="widget">
-        <figure class="widget__left-side">
-            <figcaption class="widget__city">{{weather.city}}</figcaption>
-            <img src={{weather.stateUrl}} class="widget__state-ico" alt="Рисунок погоды"/>
-        </figure>
-        <div class="widget__right-side">
-            <div class="widget__temp">
-                <img src="temp.png" class="widget__temp_ico" alt="Температура:"/>
-                <div>{{weather.temperature}}&#x2103;</div>
-                </div>
-            <div class="widget__wind">
-                <img src="wind.png" class="widget__wind_ico" alt="Ветер:"/>
-                <div>{{weather.wind}}м/с</div>
+<head>
+    <link rel="stylesheet" href="css-for-partials/weather.css" media="screen">
+</head>
+
+<article class="widget">
+    <figure class="widget__left-side">
+        <figcaption class="widget__city">{{weather.city}}</figcaption>
+        <img src={{weather.stateUrl}} class="widget__state-ico" alt="Рисунок погоды"/>
+    </figure>
+    <div class="widget__right-side">
+        <div class="widget__temp">
+            <img src="temp.png" class="widget__temp_ico" alt="Температура:"/>
+            <div>{{weather.temperatureSign}}{{weather.temperature}}&#x2103;</div>
             </div>
-            <div class="widget__next-days">
-                {{#each weather.next5Days}}
-                    <div class="widget__one-of-next">
-                        <div class="widget__one-of-next_date">{{day}} {{month}}</div>
-                        <hr>
-                        <div>
-                            <div class="widget__one-of-next_temp">{{temperature}}&#x2103;</div>
-                            <div class="widget__one-of-next_wind">{{wind}}м/с</div>
-                        </div>
+        <div class="widget__wind">
+            <img src="wind.png" class="widget__wind_ico" alt="Ветер:"/>
+            <div>{{weather.wind}}м/с</div>
+        </div>
+        <div class="widget__next-days">
+            {{#each weather.next5Days}}
+                <div class="widget__one-of-next">
+                    <div class="widget__one-of-next_date">{{day}} {{month}}</div>
+                    <hr>
+                    <div>
+                        <div class="widget__one-of-next_temp">{{temperatureSign}}{{temperature}}&#x2103;</div>
+                        <div class="widget__one-of-next_wind">{{wind}}м/с</div>
                     </div>
-                {{/each}}
-            </div>
+                </div>
+            {{/each}}
         </div>
     </div>
 </article>

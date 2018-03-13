@@ -1,0 +1,13 @@
+<head>
+    <link rel="stylesheet" href="css-for-partials/news-list.css" media="screen">
+</head>
+
+<h2>Категории новостей</h2>
+<nav class="categories-list">
+    {{#each newsCategories}}
+        <a href="/{{href}}" class="category">
+            <img src="categories-icons/{{href}}.png" class="category__picture" alt="icon is not loaded"/>
+            <div>{{categoryTitle}}</div>
+        </a>
+    {{/each}}
+</nav>

@@ -8,10 +8,6 @@ body
 {
     margin: 3px 0 auto calc((100% - 600px) / 2);
     font-family: Antipasto;
-}
-
-main
-{
     width: 600px;
     border: 2px solid black;
     border-radius: 10px;
@@ -20,107 +16,4 @@ main
 hr
 {
     border: 1px solid;
-}
-
-/*------------------------------header------------------------------*/
-
-.header__name-service
-{
-    text-align: center;
-    margin-top: 10px;
-    font-size: 24px;
-}
-
-/*------------------------------widget------------------------------*/
-
-.widget
-{
-    display: grid;
-    grid-template-columns: 200px 400px;
-}
-/*--------------------left side--------------------*/
-.widget__left-side
-{
-    margin: 5px 10px;
-    text-align: center;
-}
-
-.widget__city
-{
-    font-size: 32px;
-    font-weight: bold;
-    margin: 10px auto 10px;
-}
-
-.widget__state-ico
-{
-    width: 70%;
-    margin-top: 10%;
-}
-/*--------------------right side--------------------*/
-.widget__temp,
-.widget__wind
-{
-    font: 32px sans-serif;
-    margin: 5px;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.widget__temp > img,
-.widget__wind > img
-{
-    padding-left: 20px;
-}
-
-.widget__temp > div,
-.widget__wind > div
-{
-    padding-left: 40px;
-}
-
-.widget__wind > div
-{
-    margin-top: 4px;
-}
-
-.widget__next-days
-{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.widget__one-of-next
-{
-    width: 65px;
-    padding: 3px;
-    border: 1.5px solid black;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.widget__one-of-next_date
-{
-    margin-top: 7px;
-}
-
-.widget__one-of-next_temp,
-.widget__one-of-next_wind
-{
-    font: 20px sans-serif;
-}
-
-/*------------------------------footer------------------------------*/
-
-.footer
-{
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-}
-
-.editor,
-.year
-{
-    margin: 5px 50px 8px;
 }

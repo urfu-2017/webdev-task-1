@@ -4,18 +4,17 @@
     <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/generalStyles.css" media="screen">
-    <link rel="stylesheet" href="/index.css" media="screen">
+    <link rel="stylesheet" href="/page-with-news.css" media="screen">
 </head>
 <body>
         {{> header }}
         <hr>
         {{> weather }}
         <hr>
-        <main>
-            {{> newslist}}
+        <main class="news-list">
+            {{> news}}
         </main>
         <hr>
         {{> footer }}
     </main>
 </body>
-</html>
