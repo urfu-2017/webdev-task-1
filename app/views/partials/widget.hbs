@@ -1,0 +1,26 @@
+<div class="widget">
+    <div class="widget-content">
+        <div class="weather-icon-container">
+            <span class="city-name">{{ widget.city }}</span>
+            <img src="{{weatherApiBasePath}}static/img/weather/{{widget.currentDayWeatherType}}.svg"
+                class="weather-icon">
+        </div>
+        <div class="weather-measures-container">
+            <div class="weather-measures">
+                <div class="temperature">
+                    <span class="temp-sign">t</span>
+                    <span class="temp-measure">{{widget.currentDayTemp}} &deg;с</span>
+                </div>
+                <div class="wind">
+                    <span class="wind-sign"></span>
+                    <span class="wind-measure">{{widget.currentDayWind}} м/с</span>
+                </div>
+            </div>
+            <div class="sub-widgets-container">
+                {{#each widget.weatherForecast}}
+                    {{>subWidget this}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
