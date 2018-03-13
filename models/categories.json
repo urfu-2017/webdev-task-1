@@ -1,0 +1,37 @@
+[
+    { 
+        "text": "Бизнес",
+        "icon": "briefcase",
+        "name": "business"
+    },
+    {
+        "text": "Развлечения",
+        "icon": "smile",
+        "name": "entertainment"
+    },
+    {
+        "text": "Общее",
+        "icon": "clipboard-list",
+        "name": "general"
+    },
+    {
+        "text": "Здоровье",
+        "icon": "heartbeat",
+        "name": "health"
+    },
+    {
+        "text": "Наука",
+        "icon": "flask",
+        "name": "science"
+    },
+    {
+        "text": "Спорт",
+        "icon": "futbol",
+        "name": "sports"
+    },
+    {
+        "text": "Технологии",
+        "icon": "rocket",
+        "name": "technology"
+    }
+]

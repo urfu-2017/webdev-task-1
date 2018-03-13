@@ -1,0 +1,132 @@
+.content {
+    width: 700px;
+    margin: auto;
+    border: 2px solid black;
+}
+
+.category__icon {
+    width: 50px;
+}
+
+.category__name {
+    font-size: 1.5em;
+}
+
+.categories {
+    padding-left: 30px;
+    list-style-type: none;
+}
+
+.category {
+    padding: 10px 0;
+}
+
+.categories-container {
+    padding-left: 30px;
+}
+
+.news {
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+    min-height: 160px;
+}
+
+.news__image {
+    max-width: 200px;
+    max-height: 100px;
+    float: left;
+    padding: 0 10px 0 10px;
+}
+
+.news__header {
+    position: relative;
+    height: 30px;
+}
+
+.news__source {
+    float: right;
+}
+
+.news__description {
+    padding-left: 30px;
+}
+
+.news__date {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: -20px;
+}
+
+.title {
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.weather {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.weather__city {
+    font-size: 2em;
+}
+
+.weather__image {
+    width: 100px;
+}
+
+.weather__description {
+    display: inline-block;
+}
+
+.weather__wind-image {
+    width: 32px;
+}
+
+.weather-small {
+    display: inline-block;
+    font-size: 12px;
+    border: 2px solid black;
+}
+
+.weather-small-container {
+    font-size: 0;
+}
+
+.weather-small__day {
+    border-bottom: 2px solid black;
+    padding: 2px;
+}
+
+.weather-small__info {
+    height: 40px;
+    font-size: 1.2em;
+}
+
+.temp-letter {
+    font-size: 2em;
+}
+.weather__info {
+    display: inline-block;
+}
+
+.footer {
+    border-top: 2px solid black;
+    font-size: 20px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.footer__year {
+    position: absolute;
+    display: inline-block;
+    right: 20px;
+}
+
+.footer__author {
+    display: inline-block;
+    padding-left: 10px;
+}

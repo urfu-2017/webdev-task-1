@@ -1,0 +1,10 @@
+<div class="categories-container">
+    <h2>Категории новостей</h2>
+    <ul class="categories">
+        {{#each categories}}
+        <li class="category">
+            <i class="fas fa-lg fa-{{icon}} category__icon"></i><a class="category__name" href="news/{{name}}">{{text}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
