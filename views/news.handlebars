@@ -1,10 +1,10 @@
 {{#each news}}
-<div class="news">
+<article class="news">
     <div class="news-header">
         <h3 class="news-title">{{title}}</h3>
         <div class="news-date">{{publishedAt}}</div>
     </div>
     <p class="news-description">{{description}}</p>
     <div class="news-source">{{source.name}}</div>
-</div>
+</article>
 {{/each}}

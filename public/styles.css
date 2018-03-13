@@ -10,6 +10,7 @@
 
 .categories {
     padding-left: 30px;
+    list-style-type: none;
 }
 
 .category-name {
@@ -37,9 +38,6 @@
 
 .news-source {
     float: right;
-}
-
-.news-title {
 }
 
 .news-description {

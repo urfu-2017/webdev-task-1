@@ -8,37 +8,35 @@
 </head>
 <body>
 <div class="content">
-    <div class="header">
+    <header class="header">
         <h1 class="title"><a href="/">Желтая пресса</a></h1>
         <div class="weather">
-            <div class="">
-                <div class="weather-description">
-                    <div class="weather-city">{{weather.cityName}}</div>
-                    <img class="weather-image" src="https://www.metaweather.com/static/img/weather/{{weather.current.stateAbbr}}.svg">
-                </div>
-                <div class="weather-info">
-                    <div><span class="temp-letter">t </span>{{weather.current.temp}}&deg;С</div>
-                    <div><img class="weather-wind-image" src="/images/wind.png">{{weather.current.wind}}<sup>м</sup>/<sub>с</sub></div>
-                    <div class="weather-small-container">
-                        {{#each weather.week}}
-                        <div class="weather-small">
-                            <div class="weather-small-day">{{date}}</div>
-                            <div class="weather-small-info">
-                                <div>{{temp}}&deg;C</div>
-                                <div>{{wind}}<sup>м</sup>/<sub>с</sub></div>
-                            </div>
+            <div class="weather-description">
+                <div class="weather-city">{{weather.cityName}}</div>
+                <img class="weather-image" src="https://www.metaweather.com/static/img/weather/{{weather.current.stateAbbr}}.svg">
+            </div>
+            <div class="weather-info">
+                <div><span class="temp-letter">t </span>{{weather.current.temp}}&deg;С</div>
+                <div><img class="weather-wind-image" src="/images/wind.png">{{weather.current.wind}}<sup>м</sup>/<sub>с</sub></div>
+                <div class="weather-small-container">
+                    {{#each weather.week}}
+                    <article class="weather-small">
+                        <div class="weather-small-day">{{date}}</div>
+                        <div class="weather-small-info">
+                            <div>{{temp}}&deg;C</div>
+                            <div>{{wind}}<sup>м</sup>/<sub>с</sub></div>
                         </div>
-                        {{/each}}
-                    </div>
+                    </article>
+                    {{/each}}
                 </div>
             </div>
         </div>
-    </div>
+    </header>
     {{{body}}}
-    <div class="footer">
+    <footer class="footer">
         <div class="footer-author">@mokosha</div>
         <div class="footer-year">2018</div>
-    </div>
+    </footer>
 </div>
 </body>
 </html>
