@@ -2,7 +2,6 @@
 
 const queryString = require('query-string');
 const formatDate = require('../config/date-format');
-
 const fetch = require('node-fetch');
 const baseURL = 'https://www.metaweather.com/api/location';
 const defaultCity = 'Moscow';
@@ -67,8 +66,8 @@ class WeatherModel {
         const tempToday = parseInt(weather.consolidated_weather[0].the_temp);
         const windToday = parseInt(weather.consolidated_weather[0].wind_speed);
         const dates = getDates(weather.consolidated_weather, 'applicable_date');
-        const temps = getWeatherValue(weather.consolidated_weather, 'the_temp', false);
-        const winds = getWeatherValue(weather.consolidated_weather, 'wind_speed', false);
+        const temps = getWeatherValue(weather.consolidated_weather, 'the_temp');
+        const winds = getWeatherValue(weather.consolidated_weather, 'wind_speed');
 
         return { city, image, tempToday, windToday, dates, temps, winds };
     }
