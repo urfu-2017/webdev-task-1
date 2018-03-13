@@ -31,6 +31,9 @@ app.use((req, res, next) => setSettings(req, res, next, startupSettings));
 app.use(getWeatherInfo);
 routes(app);
 
-hbs.registerPartials(partialsDir);
+hbs.registerPartials(partialsDir, () => {
+    app.listen(8080);
+    console.info('http://localhost:8080');
+});
 
 module.exports = app;

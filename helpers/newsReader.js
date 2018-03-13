@@ -1,8 +1,8 @@
 'use strict';
 
 const fetch = require('node-fetch');
+const config = require('../public/settings/config');
 
-const API_KEY = '123ce955c36e452094dac4fb923a91d6';
 const DEFAULT_COUNTRY = 'ru';
 
 class NewsReader {
@@ -11,10 +11,10 @@ class NewsReader {
             country = DEFAULT_COUNTRY;
         }
 
-        var url = 'https://newsapi.org/v2/top-headlines?' +
+        let url = `${config.newsApiUrl}` +
             `country=${country}&` +
             `category=${topic}&` +
-            `apiKey=${API_KEY}`;
+            `apiKey=${config.apiKey}`;
 
         return await fetch(url)
             .then(response => response.json())

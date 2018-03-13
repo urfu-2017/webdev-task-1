@@ -2,17 +2,16 @@
 
 const fetch = require('node-fetch');
 const WeatherHelper = require('../helpers/weatherHelper');
-
-const TEMPLATE_URL = 'https://www.metaweather.com/api/location/';
+const config = require('../public/settings/config');
 
 exports.getWeatherInfo = (req, res, next) => {
     let queryForLocation = WeatherHelper.getQueryForLocation(res.locals.queryParams);
-    fetch(`${TEMPLATE_URL}search/${queryForLocation}`)
+    fetch(`${config.weatherApiUrl}search/${queryForLocation}`)
         .then(data => data.json())
         .then(json => {
             res.locals.cityForWeather = json[0].title;
 
-            return fetch(`${TEMPLATE_URL}${json[0].woeid}/`);
+            return fetch(`${config.weatherApiUrl}${json[0].woeid}/`);
         })
         .then(data => data.json())
         .then(json=> {
