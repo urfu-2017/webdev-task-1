@@ -1,6 +1,6 @@
 'use strict';
 
-const formatDate = require('./date-format');
+const formatDate = require('../config/date-format');
 const request = require('request');
 const keyString = '&apiKey=6ccd50aa452a4d48827db4c4a86077d5';
 const baseUrl = 'https://newsapi.org/v2/top-headlines?category=';
