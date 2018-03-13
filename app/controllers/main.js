@@ -5,11 +5,10 @@ exports.mainPage = (req, res) => {
   Promise.all([
     Widget.get(req.query.query),
     Category.get(req.query.country),
-  ]).then((vals) => {
-    const widget = vals[0];
-    const categories = vals[1];
-    const data = Object.assign({ widget, categories }, res.locals, { title: 'Погода' });
-    res.render('index', data);
+  ]).then(([widget, categories]) => {
+    res.render('index', {
+      ...res.locals, widget, categories, ...{ title: 'Погода' },
+    });
   }).catch((err) => {
     res.redirect('error', err);
   });

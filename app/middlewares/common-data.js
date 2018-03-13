@@ -6,6 +6,8 @@ module.exports = (req, res, next) => {
 
   res.locals.staticBasePath = '/';
 
+  res.locals.nonMain = req.path !== '/';
+
   res.locals.weatherApiBasePath = 'https://www.metaweather.com/';
 
   next();
