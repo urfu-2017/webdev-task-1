@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('config');
+const config = require('../config/default');
 const fetch = require('node-fetch');
 
 const API_URI = 'https://www.metaweather.com/api/';
@@ -56,7 +56,7 @@ class Weather {
     }
 
     static createDefaultConsolidated() {
-        return [1, 2, 3, 4, 5, 6].map(() => Object.assign({}, config.get('defaultWeather')));
+        return [1, 2, 3, 4, 5, 6].map(() => Object.assign({}, config.defaultWeather));
     }
 }
 

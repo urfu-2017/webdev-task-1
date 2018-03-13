@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('config');
+const config = require('./config/default');
 
 const { error404 } = require('./controllers/errors');
 const { news, category } = require('./controllers/news');

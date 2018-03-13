@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('config');
+const config = require('../config/default');
 
 const News = require('../models/news');
 const Weather = require('../models/weather');
