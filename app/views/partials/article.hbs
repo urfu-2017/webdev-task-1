@@ -1,23 +1,23 @@
 <div class="article-item">
-    <div class="top-line">
-        <a target="_blank" class="headline-link" href="{{this.url}}">
-            <h2 class="article-title">{{this.title}}</h2>
+    <div class="article-item__top-line">
+        <a target="_blank" class="article-item__headline-link" href="{{this.url}}">
+            <h2 class="article-item__title">{{this.title}}</h2>
         </a>
-        <span class="publish-date">{{this.publishDate}}</span>
+        <span class="article-item__publish-date">{{this.publishDate}}</span>
     </div>
-    <div class="bottom-line">
+    <div class="article-item__bottom-line">
         {{#if this.urlToImg}}
-            <figure class="article-image-wrap">
-                <img class="article-image" src="{{this.urlToImg}}">
+            <figure class="article-item__image-wrapper">
+                <img class="article-item__image" src="{{this.urlToImg}}">
             </figure>
         {{/if}}
         {{#if this.description}}
-            <div class="article-description-wrap">
-                <span class="article-description">{{this.description}}</span>
+            <div class="article-item__description-wrapper">
+                <span class="article-item__description">{{this.description}}</span>
             </div>
         {{/if}}
     </div>
-    <div class="source-line">
-        <span class="source">{{this.source}}</span>
+    <div class="article-item__source-line">
+        <span class="article-item__source">{{this.source}}</span>
     </div>
 </div>
