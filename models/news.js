@@ -1,9 +1,7 @@
 'use strict';
 
-const config = require('config');
-
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI(config.newsApiKey);
+const newsapi = new NewsAPI('3a4134a13319447b8a05a39f138f568a');
 
 class News {
     constructor({ title, description, publishedAt, source, urlToImage }) {
