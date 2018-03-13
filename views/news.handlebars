@@ -1,14 +1,14 @@
 {{#each news}}
 <article class="news">
-    <div class="news-header">
-        <h3 class="news-title">{{title}}</h3>
-        <div class="news-date">{{publishedAt}}</div>
+    <div class="news__header">
+        <h3 class="news__title">{{title}}</h3>
+        <div class="news__date">{{publishedAt}}</div>
     </div>
     
-    <p class="news-description">
-        <img class="news-image" src="{{urlToImage}}">
+    <p class="news__description">
+        <img class="news__image" src="{{urlToImage}}">
         {{description}}
     </p>
-    <div class="news-source">{{source.name}}</div>
+    <div class="news__source">{{source.name}}</div>
 </article>
 {{/each}}
