@@ -1,0 +1,26 @@
+<div class="weather-widget">
+    <h2 class="weather-widget__location-name">{{locationName}}</h2>
+    <img class="weather-widget__ico" src={{urlForIco}} alt={{currentWeatherInfo.weather_state_abbr}}>
+
+    <div class="weather-widget__current-day">
+        <div class="category">
+            <img src="/icons/thermometer.svg" class="category__ico">
+            <p class="category__name">{{currentWeatherInfo.the_temp}} &#8451;</p>
+        </div>
+
+        <div class="category">
+            <img src="/icons/wind.svg" class="category__ico">
+            <p class="category__name">{{currentWeatherInfo.wind_speed}} м/c</p>
+        </div>
+    </div>
+
+    <div class="weather-widget__next-days">
+        {{#each nextDaysWeather}}
+            <div class="weather-tile">
+                <p class="weather-tile__date">{{this.applicable_date}}</p>
+                <p class="weather-tile__temp">{{this.the_temp}} &#8451;</p>
+                <p class="weather-tile__wind-speed">{{this.wind_speed}}  м/c</p>
+            </div>
+        {{/each}}
+    </div>
+</div>

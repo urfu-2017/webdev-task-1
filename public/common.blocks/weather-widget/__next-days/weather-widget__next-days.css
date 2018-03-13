@@ -1,0 +1,7 @@
+.weather-widget__next-days {
+    grid-area: nextDays;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
