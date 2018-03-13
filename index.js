@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
     res.render('index', frontPage);
 });
 app.get('/:category', (req, res) => {
-    res.locals.category = req.path.substr(1, req.path.indexOf('&') - 1) || req.path.substr(1);
     fetchNews(req, res)
         .then(result => {
             res.locals.newsArticles = result;

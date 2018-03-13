@@ -7,7 +7,6 @@ const defaultCity = 'Moscow';
 
 const getLocationId = async (query, lat, lon) => {
     let url = null;
-    console.info(query);
 
     if (lat && !Number.isNaN(lat) && lon && !Number.isNaN(lon)) {
         url = baseUrl + `location/search/?lattlong=${lat},${lon}`;
