@@ -1,3 +1,5 @@
+'use strict';
+
 const queryString = require('querystring');
 const { getWeather } = require('../models/weather');
 const { getNews } = require('../models/news');

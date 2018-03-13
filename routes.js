@@ -1,5 +1,6 @@
-const controllers = require('./controllers/pages');
+'use strict';
 
+const controllers = require('./controllers/pages');
 
 module.exports = app => {
     app.get('/', controllers.renderMainPage);
