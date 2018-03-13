@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic");
+
+.page {
+    margin: 0;
+    font-family: Helvetica Neue, Helvetica, 'Open Sans', Arial, serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    color: #333333;
+    background: #f5f5f5;
+}
+
+.page__container {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 16px 20px;
+
+    width: 880px;
+}
+
+.page__header,
+.page__widget {
+    margin-bottom: 48px;
+}
+
+.link {
+    text-decoration: none;
+    color: #2196F3;
+    transition: color 300ms ease-in-out;
+}
+
+.link:hover {
+    color: #90CAF9;
+}
+
+.header {
+    box-sizing: border-box;
+    padding: 20px 40px;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.header__title {
+    margin: 0;
+    font-size: 42px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.header__home_link {
+    margin-top: 20px;
+}
+
+.category {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #333333;
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.category__icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+}
+
+.category__name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+
+    border-bottom: 3px solid transparent;
+    transition: border-color 300ms ease-in-out;
+}
+
+.category:hover > .category__name {
+    border-color: #90CAF9
+}
+
+.categories {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.categories__item {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+    margin-right: 40px;
+}
+
+.categories__item:nth-child(2n) {
+    margin-right: 0;
+}
+
+.categories__item:nth-last-child(-2n) {
+    margin-bottom: 0;
+}
+
+.posts__item:not(:last-child) {
+    margin-bottom: 48px;
+}
+
+.post {
+    box-sizing: border-box;
+    padding: 20px;
+
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.post__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post__title {
+    margin: 0 40px 0 0;
+    font-size: 24px;
+}
+
+.post__date {
+    display: inline-block;
+    background: #2196F3;
+    border-radius: 5px;
+    padding: 6px 10px;
+    color: #ffffff;
+}
+
+.post__content {
+    margin-top: 24px;
+}
+
+.post__thumb {
+    display: block;
+    margin: 0 auto 16px auto;
+    max-width: 100%;
+}
+
+.post__description {
+    font-size: 18px;
+    margin: 0;
+}
+
+.post__footer {
+    margin-top: 24px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.weather {
+    box-sizing: border-box;
+    padding: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    background: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.weather__error {
+    font-size: 24px;
+    color: red;
+    margin: auto;
+}
+
+.weather__city {
+    flex: 1 0 100%;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.weather__icon_state {
+    width: 128px;
+    height: 128px;
+    margin-right: 40px;
+}
+
+.weather__data {
+    width: calc(100% - 40px - 128px);
+}
+
+.weather__days {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.weather__day {
+    flex: 0 1 100%;
+    text-align: center;
+}
+
+.weather__day:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.weather__day_date {
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.weather__day_value {
+    padding: 5px;
+}
