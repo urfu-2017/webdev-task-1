@@ -5,11 +5,11 @@
         </div>
         <div class="category-list">
             {{#each categories}}
-                <a href="/news/?query={{../widget.city}}&category={{this.urlName}}&country={{../widget
+                <a href="/news/?query={{../widget.city}}&category={{this.category}}&country={{../widget
                 .countryCode}}"
                     class="category-item">
                     <span class="category-icon">
-                        <img src="/{{this.urlName}}.svg">
+                        <img src="/{{this.category}}.svg">
                     </span>
                     <span class="category-link">{{this.name}}</span>
                 </a>

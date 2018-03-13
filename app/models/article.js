@@ -1,24 +1,10 @@
-const request = require('request');
+const axios = require('axios');
 
-const apiBasePath = 'https://newsapi.org/v2/top-headlines';
-const apiKey = '8f7d1baa6a2745228cedc52c73ddd738';
+const config = require('../../config/localhost');
 
-function getHeadlines(country, category) {
-  return new Promise((resolve, reject) => {
-    request(
-      `${apiBasePath}?country=${country}&category=${category}&apiKey=${apiKey}`,
-      (error, response, body) => {
-        let articles = null;
-        try {
-          articles = JSON.parse(body);
-        } catch (err) {
-          reject(err);
-        }
-        resolve(articles.articles);
-      },
-    );
-  });
-}
+const apiBasePath = config.newsApiBasePath;
+const { apiKey } = config;
+
 
 class Article {
   constructor(headline) {
@@ -30,9 +16,15 @@ class Article {
     this.urlToImg = headline.urlToImage;
   }
 
+
   static get({ country, category }) {
-    return getHeadlines(country, category)
+    return Article.fetch(country, category)
       .then(headlines => headlines.map(headline => new Article(headline)));
+  }
+
+  static fetch(country, category) {
+    return axios.get(apiBasePath, { params: { country, category, apiKey } })
+      .then(response => response.data.articles);
   }
 }
 
