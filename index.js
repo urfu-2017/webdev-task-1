@@ -6,8 +6,8 @@ const hbs = require('hbs');
 const app = express();
 
 const weatherMiddleware = require('./middlewares/weather-middleware');
-const fetchNews = require('./middlewares/news-fetcher');
-const commonData = require('./middlewares/common-data');
+const fetchNews = require('./config/news-fetcher');
+const commonData = require('./config/common-data');
 
 const frontPage = require('./mocks/front-page');
 
