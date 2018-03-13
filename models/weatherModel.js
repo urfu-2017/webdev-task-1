@@ -9,7 +9,7 @@ const defaultCity = 'Moscow';
 
 const getLocationId = async (query, lat, lon) => {
     let currentURL = null;
-    if (lat && !Number.isNaN(lat) && lon && !Number.isNaN(lon)) {
+    if (lat && lon) {
         currentURL = `${baseURL}/search/?${queryString.stringify({ lattlong:
             `${lat},${lon}` })}`;
     } else {
@@ -25,9 +25,8 @@ const getLocationId = async (query, lat, lon) => {
 
 const getWeather = async (placeId) => {
     const response = await fetch(`${baseURL}/${placeId}`);
-    const json = await response.json();
 
-    return json;
+    return await response.json();
 };
 
 const getInfo = (oldArray, field, isDate) => {
