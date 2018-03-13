@@ -5,10 +5,11 @@ const hbs = require('hbs');
 
 const commonData = require('./app/middlewares/common-data');
 const routes = require('./app/routes');
+const config = require('./config/localhost');
+const errorHandler = require('./app/middlewares/handle-errors');
 
 const app = express();
 
-module.exports = app;
 
 const viewsDir = path.join(__dirname, 'app/views');
 const publicDir = path.join(__dirname, 'app/public');
@@ -19,21 +20,17 @@ app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
 app.use(commonData);
+app.use(errorHandler);
 
 routes(app);
 
-app.use((err, req, res, next) => {
-  /* eslint no-unused-vars: 0 */
-  console.error(err.stack);
-
-  res.sendStatus(500);
-});
-
 hbs.registerPartials(partialsDir, () => {
-  const port = 8080;
+  const { port } = config;
 
   app.listen(port, () => {
     console.info(`Server started on ${port}`);
     console.info(`Open http://localhost:${port}/`);
   });
 });
+
+module.exports = app;
