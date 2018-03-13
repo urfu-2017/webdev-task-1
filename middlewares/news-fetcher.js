@@ -2,27 +2,17 @@
 
 const queryString = require('query-string');
 const formatDate = require('../config/date-format');
-const request = require('request');
+const fetch = require('node-fetch');
 const keyString = '6ccd50aa452a4d48827db4c4a86077d5';
 const baseUrl = 'https://newsapi.org/v2/top-headlines?';
 const defaultCountry = 'us';
 
-const getNews = url => new Promise((resolve, reject) => {
-    request(url, (err, response, body) => {
-        if (err) {
-            reject(new Error('Request failed'));
+const getNews = async url => {
+    const response = await fetch(url);
+    const body = await response.json();
 
-            return;
-        }
-        body = JSON.parse(body);
-        if (Array.isArray(body.articles)) {
-            resolve(body.articles);
-
-            return;
-        }
-        reject(new Error('Response no data'));
-    });
-});
+    return body.articles;
+};
 
 const getFirstFiveNews = data => {
     const articles = [];
@@ -44,7 +34,6 @@ module.exports = async function renderNews(req) {
     }
     const category = req.params.category;
     const url = `${baseUrl}${queryString.stringify({ category, country, apiKey: keyString })}`;
-    console.info(url.toString());
     const news = await getNews(url);
 
     return getFirstFiveNews(news);
