@@ -29,15 +29,24 @@ const getWeather = async (placeId) => {
     return await response.json();
 };
 
-const getInfo = (oldArray, field, isDate) => {
+const getWeatherValue = (data, field) => {
     const elements = [];
-    oldArray.forEach(element => {
-        if (isDate) {
-            elements.push(formatDate(element[field]));
-        } else {
+    if (data.length) {
+        data.forEach(element => {
             elements.push(parseInt(element[field]));
-        }
-    });
+        });
+    }
+
+    return elements.splice(1, 5);
+};
+
+const getDates = (data, field) => {
+    const elements = [];
+    if (data.length) {
+        data.forEach(element => {
+            elements.push(formatDate(element[field]));
+        });
+    }
 
     return elements.splice(1, 5);
 };
@@ -57,9 +66,9 @@ class WeatherModel {
         const image = weather.consolidated_weather[0].weather_state_abbr;
         const tempToday = parseInt(weather.consolidated_weather[0].the_temp);
         const windToday = parseInt(weather.consolidated_weather[0].wind_speed);
-        const dates = getInfo(weather.consolidated_weather, 'applicable_date', true);
-        const temps = getInfo(weather.consolidated_weather, 'the_temp', false);
-        const winds = getInfo(weather.consolidated_weather, 'wind_speed', false);
+        const dates = getDates(weather.consolidated_weather, 'applicable_date');
+        const temps = getWeatherValue(weather.consolidated_weather, 'the_temp', false);
+        const winds = getWeatherValue(weather.consolidated_weather, 'wind_speed', false);
 
         return { city, image, tempToday, windToday, dates, temps, winds };
     }
