@@ -1,3 +1,5 @@
+/* eslint-disable strict */
+
 'use strict';
 
 const express = require('express');
@@ -22,7 +24,7 @@ if (require.main === module) {
     const port = 8080;
     const url = `http://localhost:${port}/`;
     // eslint-disable-next-line no-console
-    app.listen(port, () => console.log(`Сервис работает на адресе:\n${url}`));
+    app.listen(port, () => console.log(`Сервис работает по адрес:\n${url}`));
 }
 
 module.exports = app;

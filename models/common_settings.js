@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports.ERROR_PACKET = { status: 'error' }; // for handlebars
 module.exports.INCORRECT_PACKET = { status: 'incorrect' }; // for handlebars
 module.exports.OK_PACKET = { status: 'ok' }; // for handlebars

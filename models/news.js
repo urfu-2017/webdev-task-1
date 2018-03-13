@@ -1,5 +1,3 @@
-'use strict';
-
 const rp = require('request-promise');
 const { URL } = require('url');
 
@@ -19,9 +17,5 @@ module.exports.getNews = req => {
     const options = Object.assign({ url }, OPTIONS_OF_GET_REQUEST);
 
     return rp(options)
-        .catch(() => {
-            return {
-                metaNews: ERROR_PACKET
-            };
-        });
+        .catch(() => ({ metaNews: ERROR_PACKET }));
 };

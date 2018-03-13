@@ -1,5 +1,3 @@
-'use strict';
-
 const rp = require('request-promise');
 const { URL } = require('url');
 
@@ -25,31 +23,21 @@ function sendRequestForWeather(req) {
     return rp(optionsForPlace)
         .then(resForPlace => {
             if (!Object.keys(resForPlace).length) {
-                return {
-                    metaWeather: INCORRECT_PACKET
-                };
+                return { metaWeather: INCORRECT_PACKET };
             }
             const urlForWoeid =
                 new URL(`https://www.metaweather.com/api/location/${resForPlace[0].woeid}`);
             const optionsForWoeid = Object.assign({ url: urlForWoeid }, OPTIONS_OF_GET_REQUEST);
 
             return rp(optionsForWoeid)
-                .catch(() => {
-                    return {
-                        metaWeather: ERROR_PACKET
-                    };
-                });
+                .catch(() => ({ metaWeather: ERROR_PACKET }));
         })
-        .catch(() => {
-            return {
-                metaWeather: ERROR_PACKET
-            };
-        });
+        .catch(() => ({ metaWeather: ERROR_PACKET }));
 }
 
 function parseWeatherFromWoeidResponse(woeidResponse) {
-    let currentDay = woeidResponse.consolidated_weather[0];
-    let nextDays = woeidResponse.consolidated_weather.slice(1);
+    const currentDay = woeidResponse.consolidated_weather[0];
+    const nextDays = woeidResponse.consolidated_weather.slice(1);
 
     return {
         metaWeather: OK_PACKET,
@@ -58,13 +46,11 @@ function parseWeatherFromWoeidResponse(woeidResponse) {
             `https://www.metaweather.com/static/img/weather/${currentDay.weather_state_abbr}.svg`,
         currentTemperature: Math.round(currentDay.the_temp),
         currentWind: Math.round(currentDay.wind_speed),
-        nextWeather: nextDays.map(day => {
-            return {
-                date: createLocaleDate(new Date(day.applicable_date)),
-                temperature: Math.round(day.the_temp),
-                wind: Math.round(day.wind_speed)
-            };
-        })
+        nextWeather: nextDays.map(day => ({
+            date: createLocaleDate(new Date(day.applicable_date)),
+            temperature: Math.round(day.the_temp),
+            wind: Math.round(day.wind_speed)
+        }))
     };
 }
 

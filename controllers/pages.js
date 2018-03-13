@@ -1,5 +1,3 @@
-'use strict';
-
 const queryString = require('querystring');
 const { getWeather } = require('../models/weather');
 const { getNews } = require('../models/news');
@@ -40,7 +38,7 @@ exports.error404 = (req, res) => {
 };
 
 exports.renderMainPage = async (req, res) => {
-    let diContainer = Object.assign({}, META_DATA);
+    const diContainer = Object.assign({}, META_DATA);
     saveQueryParameters(diContainer, req);
     Object.assign(diContainer, await getWeather(req));
     res.render('home', diContainer);
@@ -52,10 +50,10 @@ exports.renderNewsPage = async (req, res) => {
 
         return;
     }
-    let diContainer = Object.assign({}, META_DATA);
+    const diContainer = Object.assign({}, META_DATA);
     saveQueryParameters(diContainer, req);
-    let weather = getWeather(req).then(result => Object.assign(diContainer, result));
-    let news = getNews(req).then(result => Object.assign(diContainer, result));
+    const weather = getWeather(req).then(result => Object.assign(diContainer, result));
+    const news = getNews(req).then(result => Object.assign(diContainer, result));
     await weather;
     await news;
     res.render('news', diContainer);
