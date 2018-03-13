@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/news.css">
+        <title>News</title>
+    </head>
+    <body>
+        <main>
+            <header class="header">
+                Сервис погоды и новостей 
+                <a class="linkToMain" href="/?{{dataNews.endOfUrl}}">На главную</a>
+                </header>
+            <div class="weatherBar">{{> weatherBar}}</div>
+            <section class="news">
+                {{#each dataNews.articles}}
+                    <div class="event">
+                        <span class="event__name">{{title}}</span>
+                        <div class="event__date">{{publishedAt}}</div>
+                        <div class="event__description">
+                            <img class="event__description__image" src="{{urlToImage}}">
+                            <p class="event__description__text">{{{description}}}</p>
+                        </div>
+                        <div class="event__source"><a href="{{url}}">{{source.name}}</a></div>
+                    </div>
+                {{/each}}
+            </section>
+            <footer class="footer">
+                <span class="author">&copy;Author</span>
+                <span class="year">2018</span>
+            </footer>
+        </main>
+    </body>
+</html>

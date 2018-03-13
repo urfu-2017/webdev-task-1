@@ -1,0 +1,65 @@
+.window
+{
+    width: 500px;
+    height: 180px;
+    display: grid;
+    grid-template-rows: 10% 20% 20% 50%;
+    grid-template-columns: 30% 13% 13% 13% 13% 13% 5%; 
+    grid-template-areas: 
+    "city empty empty empty empty empty empty"
+    "weatherPic logoTemp temp _empty _empty _empty _empty"
+    "weatherPic logoWind windSpeed _empty _empty _empty _empty"
+    "weatherPic forecasts forecasts forecasts forecasts forecasts __empty";
+}
+
+.cityName
+{
+    grid-area: city;
+}
+
+.weatherPicture
+{
+    grid-area: weatherPic;
+}
+
+.weatherPicture > img{
+    width: 100%;
+    height: 100%;
+}
+
+.logoTemperature
+{
+    grid-area: logoTemp;
+    height: 50px;
+    width: 50px;
+    background-image: url(../images/weather/temperature.png);
+    background-size: 50px 50px;
+}
+
+.temperature
+{
+    grid-area: temp;
+    margin: 15px 0 0 0;
+}
+
+.logoWind
+{
+    height: 50px;
+    width: 50px;
+    grid-area: logoWind;
+    background-image: url(../images/weather/wind.png);
+    background-size: 50px 50px; 
+}
+
+.windSpeed
+{
+    margin: 15px 0 0 0;     
+    grid-area: windSpeed;
+}
+
+.forecasts
+{
+    grid-area: forecasts;
+    align-content: center;
+    border: 1px black solid;
+}
