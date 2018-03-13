@@ -1,5 +1,6 @@
 'use strict';
-const { URL } = require('url');
+
+const queryString = require('query-string');
 const formatDate = require('../config/date-format');
 
 const fetch = require('node-fetch');
@@ -7,12 +8,13 @@ const baseURL = 'https://www.metaweather.com/api/location';
 const defaultCity = 'Moscow';
 
 const getLocationId = async (query, lat, lon) => {
-    let currentURL = new URL(baseURL);
-    currentURL.pathname += '/search';
+    let currentURL = null;
     if (lat && !Number.isNaN(lat) && lon && !Number.isNaN(lon)) {
-        currentURL.search = `lattlong=${lat},${lon}`;
+        currentURL = `${baseURL}/search/?${queryString.stringify({ lattlong:
+            `${lat},${lon}` })}`;
     } else {
-        currentURL.search = `query=${query || defaultCity}`;
+        const location = query || defaultCity;
+        currentURL = `${baseURL}/search/?${queryString.stringify({ query: location })}`;
     }
 
     const response = await fetch(currentURL);
@@ -22,9 +24,7 @@ const getLocationId = async (query, lat, lon) => {
 };
 
 const getWeather = async (placeId) => {
-    let weatherURl = new URL(baseURL);
-    weatherURl.pathname += `/${placeId}`;
-    const response = await fetch(weatherURl);
+    const response = await fetch(`${baseURL}/${placeId}`);
     const json = await response.json();
 
     return json;

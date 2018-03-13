@@ -1,9 +1,10 @@
 'use strict';
 
+const queryString = require('query-string');
 const formatDate = require('../config/date-format');
 const request = require('request');
-const keyString = '&apiKey=6ccd50aa452a4d48827db4c4a86077d5';
-const baseUrl = 'https://newsapi.org/v2/top-headlines?category=';
+const keyString = '6ccd50aa452a4d48827db4c4a86077d5';
+const baseUrl = 'https://newsapi.org/v2/top-headlines?';
 const defaultCountry = 'us';
 
 const getNews = url => new Promise((resolve, reject) => {
@@ -41,7 +42,9 @@ module.exports = async function renderNews(req) {
     if (!country) {
         country = defaultCountry;
     }
-    const url = baseUrl + req.path.substr(1) + '&country=' + country + keyString;
+    const category = req.params.category;
+    const url = `${baseUrl}${queryString.stringify({ category, country, apiKey: keyString })}`;
+    console.info(url.toString());
     const news = await getNews(url);
 
     return getFirstFiveNews(news);
