@@ -1,4 +1,3 @@
-'use strict';
 const path = require('path');
 
 const express = require('express');
@@ -24,17 +23,17 @@ app.use(commonData);
 routes(app);
 
 app.use((err, req, res, next) => {
-    /* eslint no-unused-vars: 0 */
-    console.error(err.stack);
+  /* eslint no-unused-vars: 0 */
+  console.error(err.stack);
 
-    res.sendStatus(500);
+  res.sendStatus(500);
 });
 
 hbs.registerPartials(partialsDir, () => {
-    const port = 8080;
+  const port = 8080;
 
-    app.listen(port, () => {
-        console.info(`Server started on ${port}`);
-        console.info(`Open http://localhost:${port}/`);
-    });
+  app.listen(port, () => {
+    console.info(`Server started on ${port}`);
+    console.info(`Open http://localhost:${port}/`);
+  });
 });
