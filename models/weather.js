@@ -1,6 +1,8 @@
 'use strict';
 
 const got = require('got');
+const moment = require('moment');
+require('moment/locale/ru');
 
 const { url, defaultWoeid } = require('../weather-api');
 
@@ -18,8 +20,13 @@ module.exports.getWeatherByWoeid = function getWeatherByWoeid(woeid) {
 };
 
 function convertWeather(source) {
+    let formattedTemp = Math.round(source.the_temp);
+    if (formattedTemp >= 0) {
+        formattedTemp = `+${formattedTemp}`;
+    }
+
     return {
-        temp: Math.round(source.the_temp),
+        temp: formattedTemp,
         wind: Math.round(source.wind_speed),
         date: prettifyDate(source.applicable_date),
         stateAbbr: source.weather_state_abbr
@@ -27,11 +34,7 @@ function convertWeather(source) {
 }
 
 function prettifyDate(source) {
-    const [month, day] = source.split('-').slice(1);
-    const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
-        'Июль', 'Август', 'Сентябрь', 'Ноябрь', 'Декабрь'];
-
-    return parseInt(day) + ' ' + months[parseInt(month)];
+    return moment(source).format('DD MMMM');
 }
 
 module.exports.searchLocation = function searchLocation(query) {

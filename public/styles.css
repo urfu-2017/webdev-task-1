@@ -13,6 +13,13 @@
     list-style-type: none;
 }
 
+.news-image {
+    max-width: 200px;
+    max-height: 100px;
+    float: left;
+    padding: 0 10px 0 10px;
+}
+
 .category-name {
     font-size: 1.5em;
 }
@@ -29,6 +36,7 @@
     padding: 10px;
     padding-bottom: 20px;
     border-bottom: 2px solid black;
+    min-height: 160px;
 }
 
 .news-header {

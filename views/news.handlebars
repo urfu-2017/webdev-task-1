@@ -4,7 +4,11 @@
         <h3 class="news-title">{{title}}</h3>
         <div class="news-date">{{publishedAt}}</div>
     </div>
-    <p class="news-description">{{description}}</p>
+    
+    <p class="news-description">
+        <img class="news-image" src="{{urlToImage}}">
+        {{description}}
+    </p>
     <div class="news-source">{{source.name}}</div>
 </article>
 {{/each}}

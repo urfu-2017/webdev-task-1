@@ -9,7 +9,8 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "got": "^8.2.0",
-    "handlebars": "^4.0.11"
+    "handlebars": "^4.0.11",
+    "moment": "^2.21.0"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
