@@ -30,7 +30,7 @@ class Article {
     this.urlToImg = headline.urlToImage;
   }
 
-  static get(country, category) {
+  static get({ country, category }) {
     return getHeadlines(country, category)
       .then(headlines => headlines.map(headline => new Article(headline)));
   }
