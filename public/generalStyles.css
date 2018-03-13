@@ -1,0 +1,19 @@
+@font-face
+{
+    font-family: Antipasto;
+    src: url('Antipasto/Zetafonts - Antipasto Pro DemiBold.ttf');
+}
+
+body
+{
+    margin: 3px 0 auto calc((100% - 600px) / 2);
+    font-family: Antipasto;
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+hr
+{
+    border: 1px solid;
+}
