@@ -1,7 +1,5 @@
-'use strict';
-
 module.exports = {
-    debug: true,
-    port: 8080,
-    staticBasePath: '/'
+  debug: true,
+  port: 8080,
+  staticBasePath: '/',
 };
