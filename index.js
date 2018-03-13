@@ -23,4 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./routes')(app);
 require('moment').locale('ru');
 
+app.listen(8080, () => console.info('Server launched'));
+
 module.exports = app;
