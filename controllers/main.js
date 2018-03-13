@@ -8,12 +8,10 @@ module.exports.main = async (req, res) => {
     res.locals.weather = await getWeather(req.query);
 
     const newsCategoriesBlock = {
-        newsCategoriesTitle: newsCategoriesTitle,
+        newsCategoriesTitle,
         newsCategories: newsCategories.map(category => {
             category.country = req.query.country;
-            category.location = res.locals.weather.today === undefined
-                ? undefined
-                : res.locals.weather.today.location;
+            category.location = res.locals.weather.today && res.locals.weather.today.location;
 
             return category;
         })

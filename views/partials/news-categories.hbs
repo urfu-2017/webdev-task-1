@@ -1,0 +1,11 @@
+<div class="news-categories">
+    <h2 class="news-categories__title">{{ newsCategoriesTitle }}</h2>
+    {{#each newsCategories}}
+    <div class="category">
+        <a href="/news/{{ originalName }}?query={{ location }}&country={{ country }}" class="link">
+            <img src="/images/{{ originalName }}.png" alt="{{ name }}" class="category__icon">
+            <span class="category__name">{{ name }}</span>
+        </a>
+    </div>
+    {{/each}}
+</div>

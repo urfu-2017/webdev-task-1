@@ -4,9 +4,11 @@
     {{^}}
     <h3 class="weather__location">{{ weather.today.location }}</h3>
 
-    <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
-         alt="{{ weather.today.state.name }}"
-         class="weather__state">
+    <div class="weather__state">
+        <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
+            alt="{{ weather.today.state.name }}"
+            class="weather__state_icon">
+    </div>
 
     <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
     <div class="weather__wind">{{ weather.today.windSpeed }} м/с</div>

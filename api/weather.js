@@ -1,38 +1,21 @@
 'use strict';
 
 const fetch = require('node-fetch');
-const dateformat = require('dateformat');
+const moment = require('moment');
+const querystring = require('querystring');
 
 const Weather = require('../models/weather');
+const config = require('../config/default.json');
 
-const API = require('../config/default.json').weatherApi;
+const API = config.weatherApi;
 
-dateformat.i18n = {
-    dayNames: [
-        'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб',
-
-        'Воскресенье', 'Понедельник', 'Вторник', 'Среда',
-        'Четверг', 'Пятница', 'Суббота'
-    ],
-    monthNames: [
-        'Янв', 'Фев', 'Март', 'Апр', 'Мая', 'Июня', 'Июля', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек',
-
-        'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля',
-        'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
-    ],
-    timeNames: [
-        'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
-    ]
-};
+moment.locale(config.lang);
 
 function parseWoeid(apiData) {
-    return apiData['0'] === undefined
-        ? undefined
-        : apiData['0'].woeid;
+    return apiData['0'] && apiData['0'].woeid;
 }
 
 function parseMetcast(apiData) {
-    /* eslint-disable */
     const location = apiData.title;
     const metcast = [];
 
@@ -40,11 +23,11 @@ function parseMetcast(apiData) {
         const weatherData = apiData.consolidated_weather[i];
         const stateAbbr = weatherData.weather_state_abbr;
         const temp = Math.round(weatherData.the_temp);
-        const date = new Date(weatherData.applicable_date);
+        const date = moment(weatherData.applicable_date);
 
         const weather = new Weather({
             location,
-            date: dateformat(date, 'd mmmm').toLowerCase(),
+            date: date.format('D MMMM').toLowerCase(),
             temp: temp > 0 ? `+${temp}` : `${temp}`,
             state: { abbr: stateAbbr, name: API.states[stateAbbr] },
             windSpeed: Math.round(weatherData.wind_speed)
@@ -56,33 +39,35 @@ function parseMetcast(apiData) {
     return metcast;
 }
 
-async function getMetcastAsync(request) {
-    let apiData = await fetch(request).then(result => result.json());
+async function getMetcastAsync(query) {
+    let requestUrl = API.url + API.locationSearch + query;
+    let apiData = await fetch(requestUrl).then(result => result.json());
     const woeid = parseWoeid(apiData);
 
     if (woeid === undefined) {
         return undefined;
     }
 
-    request = API.url + API.idSearch + String(woeid);
-    apiData = await fetch(request).then(result => result.json());
+    query = String(woeid);
+    requestUrl = API.url + API.idSearch + query;
+    apiData = await fetch(requestUrl).then(result => result.json());
     const metcast = parseMetcast(apiData);
 
-    return metcast === undefined
-        ? { message: API.locationNotFound }
-        : { today: metcast[0], metcast };
+    return metcast
+        ? { today: metcast[0], metcast }
+        : { message: API.locationNotFound };
 }
 
 async function getWeatherByLoc(location) {
-    const apiRequest = API.url + API.querySearch + location;
+    const query = querystring.stringify({ query: location });
 
-    return await getMetcastAsync(apiRequest);
+    return await getMetcastAsync(query);
 }
 
 async function getWeatherByCoords(lat, lon) {
-    const apiRequest = API.url + API.lattlongSearch + `${lat},${lon}`;
+    const query = querystring.stringify({ lattlong: `${lat},${lon}` });
 
-    return await getMetcastAsync(apiRequest);
+    return await getMetcastAsync(query);
 }
 
 module.exports.getWeather = async ({ query, lat, lon }) => {

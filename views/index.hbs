@@ -21,9 +21,11 @@
             {{^}}
             <h3 class="weather__location">{{ weather.today.location }}</h3>
 
-            <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
-                alt="{{ weather.today.state.name }}"
-                class="weather__state">
+            <div class="weather__state">
+                <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
+                    alt="{{ weather.today.state.name }}"
+                    class="weather__state_icon">
+            </div>
 
             <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
             <div class="weather__wind">{{ weather.today.windSpeed }} м/с</div>
@@ -41,12 +43,12 @@
         </div>
 
         {{#if isMainPage}}
-        <div class="newsCategories">
-            <h2 class="newsCategories__title">{{ newsCategoriesTitle }}</h2>
+        <div class="news-categories">
+            <h2 class="news-categories__title">{{ newsCategoriesTitle }}</h2>
             {{#each newsCategories}}
             <div class="category">
-                <a href="/news/{{ originalName }}?query={{ location }}&country={{ country }}" class="category__link">
-                    <img src="../../public/images/{{ originalName }}.png" alt="{{ name }}" class="category__icon">
+                <a href="/news/{{ originalName }}?query={{ location }}&country={{ country }}" class="link">
+                    <img src="/images/{{ originalName }}.png" alt="{{ name }}" class="category__icon">
                     <span class="category__name">{{ name }}</span>
                 </a>
             </div>
@@ -59,8 +61,8 @@
             {{^}}
             {{#each news.feed}}
             <div class="article">
-                <h3 class="article__title">{{ title }}</h3>
-                <img src="{{ image }}" alt="preview" class="article__image">
+                <h3 class="article__title"><a href="{{ url }}" class="link">{{ title }}</a></h3>
+                <div class="article__preview"><img src="{{ image }}" alt="preview" class="article__preview_image"></div>
                 <div class="article__description">{{ description }}</div>
                 <div class="article__source">{{ source }}</div>
                 <div class="article__publish">{{ publishDatetime }}</div>
