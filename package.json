@@ -3,10 +3,14 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "test": "npm run lint && mocha --exit tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "config": "^1.30.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "newsapi": "^2.2.0",
+    "node-fetch": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^4.8.0",

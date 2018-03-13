@@ -1,0 +1,30 @@
+.weather {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 18px;
+    width: 650px;
+    padding: 5px;
+}
+
+.weather__city {
+    display: inline-block;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.weather__image {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 120px;
+    height: 120px;
+}
+
+.weather__now {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+.wather__consolidation {
+    display: inline-block;
+}

@@ -1,0 +1,13 @@
+.weatherday {
+    border: 1px solid #000;
+    padding: 3px;
+    display: inline-block;
+}
+
+.weatherday__date {
+    border-bottom: 1px solid #000;
+}
+
+.weatherday__info {
+    padding: 4px;
+}

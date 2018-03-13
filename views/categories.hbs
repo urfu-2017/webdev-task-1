@@ -1,0 +1,21 @@
+{{#> layout this}}
+    <div class="categories">
+        {{#each news}}
+            <div class="categories__category">
+                <div>
+                    <div class="categroies__category-title">{{ title }}</div>
+                    <div class="categroies__category-date">{{ publishedAt }}</div>
+                </div>
+                <div>
+                    <div class="categroies__category-description">
+                        <img class="categroies__category-image" src="{{ urlToImage }}">
+                        {{ description }}
+                    </div>
+                </div>
+                <div>
+                    <div class="categroies__category-source">{{ source }}</div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/layout}}
