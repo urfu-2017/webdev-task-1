@@ -3,10 +3,11 @@ const path = require('path');
 
 const express = require('express');
 const hbs = require('hbs');
-const morgan = require('morgan');
 
 const routes = require('./routes');
 const weather = require('./middlewares/weather');
+const initData = require('./middlewares/initData');
+
 
 const port = 8080;
 
@@ -22,9 +23,9 @@ app.use(express.static(publicDir));
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
-app.use(morgan('dev'));
-
 app.use(weather.loader);
+app.use(initData.loader);
+
 routes(app);
 hbs.registerPartials(partialsDir, () => {
     app.listen(port, () => {
