@@ -9,7 +9,7 @@ exports.mainPage = (req, res) => {
     res.render('index', {
       ...res.locals, widget, categories, ...{ title: 'Погода' },
     });
-  }).catch((err) => {
-    res.redirect('error', err);
+  }).catch(() => {
+    res.redirect(404, 'error');
   });
 };

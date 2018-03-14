@@ -9,7 +9,7 @@ exports.news = (req, res) => {
     res.render('news', {
       ...res.locals, widget, articles, ...{ title: 'Новости' },
     });
-  }).catch((err) => {
-    res.redirect('error', err);
+  }).catch(() => {
+    res.redirect(404, 'error');
   });
 };
