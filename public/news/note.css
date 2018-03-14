@@ -1,6 +1,6 @@
 .note
 {
-    border: 4px solid #000;
+    border: 4px solid #dbd3d3;
     margin: 50px;
     display: grid;
     padding: 20px;
@@ -24,11 +24,13 @@
 .note__title
 {
     grid-area: c;
+    font: bold italic 24px Arial sans-serif;
 }
 
 .note__date
 {
     grid-area: t;
+    color: #808080;
 }
 
 .note__picture
@@ -39,16 +41,17 @@
 .note__picture_contain
 {
     border: 1px solid #000;
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
 }
 
 .note__description
 {
     grid-area: d;
+    font-size: 20px;
 }
 
 .note__source
 {
     grid-area: s;
+    color: #808080;
 }

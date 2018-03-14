@@ -1,23 +1,34 @@
 'use strict';
 
 const rp = require('request-promise');
-const { URL } = require('url');
 
-const API_KEY = 'e16a8489b56441648aa91419cd3e1350';
-const ABBR_DEFAULT_COUNTRY = 'ru';
-const { ERROR_PACKET, OPTIONS_OF_GET_REQUEST } = require('./common_settings');
+const config = require('../config.json');
 
-module.exports.getNews = req => {
-    const url = new URL('https://newsapi.org/v2/top-headlines?');
-    if (req.query.country) {
-        url.searchParams.append('country', req.query.country);
-    } else {
-        url.searchParams.append('country', ABBR_DEFAULT_COUNTRY);
+
+module.exports.News = class {
+    static fetch({ country, category }) {
+        const urlOptions = {
+            uri: config.newsUrl,
+            qs: {}
+        };
+        if (country) {
+            urlOptions.qs.country = country;
+        } else {
+            urlOptions.qs.country = config.abbrDefaultCountry;
+        }
+        urlOptions.qs.category = category;
+        urlOptions.qs.apiKey = config.apiKey;
+        Object.assign(urlOptions, config.getRequestOptions);
+
+        return rp(urlOptions)
+            .then(result => {
+                result.articles.forEach(article => {
+                    article.formattedNote = new Date(article.publishedAt)
+                        .toLocaleString('en', config.dateFormatOptions);
+                });
+
+                return result;
+            })
+            .catch(() => ({ metaNews: config.pageStatuses.ERROR }));
     }
-    url.searchParams.append('category', req.params.category);
-    url.searchParams.append('apiKey', API_KEY);
-    const options = Object.assign({ url }, OPTIONS_OF_GET_REQUEST);
-
-    return rp(options)
-        .catch(() => ({ metaNews: ERROR_PACKET }));
 };

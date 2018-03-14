@@ -1,15 +1,5 @@
 {
     "extends": "hrundel/node",
-//    "rules": {
-//        "indent": ["error", 4],
-//        "arrow-parens": ["error", "as-needed"],
-//        "comma-dangle": ["error", "never"],
-//        "no-use-before-define": ["error", { "functions": false, "classes": false, "variables": true }],
-//        "arrow-body-style": ["error", "as-needed"],
-//        "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
-//        "no-param-reassign": ["error", { "props": false }]
-////        "strict": [2, "global" ]
-//    },
     "globals": {
         "describe": true,
         "it": true

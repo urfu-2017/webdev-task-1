@@ -1,70 +1,67 @@
 'use strict';
 
 const rp = require('request-promise');
-const { URL } = require('url');
 
-const DEFAULT_CITY = 'moscow';
-const OPTIONS_OF_DATE_FORMAT = {
-    month: 'long',
-    day: 'numeric'
-};
-const { ERROR_PACKET, INCORRECT_PACKET, OK_PACKET, OPTIONS_OF_GET_REQUEST } =
-    require('./common_settings');
+const config = require('../config.json');
 
-function sendRequestForWeather(req) {
-    const urlForPlace = new URL('https://www.metaweather.com/api/location/search/?');
-    if (req.query.query) {
-        urlForPlace.searchParams.append('query', req.query.query);
-    } else if (req.query.lat !== undefined && req.query.lon !== undefined) {
-        urlForPlace.searchParams.append('lattlong', `${req.query.lat},${req.query.lon}`);
-    } else {
-        urlForPlace.searchParams.append('query', DEFAULT_CITY);
-    }
-    const optionsForPlace = Object.assign({ url: urlForPlace }, OPTIONS_OF_GET_REQUEST);
 
-    return rp(optionsForPlace)
-        .then(resForPlace => {
-            if (!Object.keys(resForPlace).length) {
-                return { metaWeather: INCORRECT_PACKET };
-            }
-            const urlForWoeid =
-                new URL(`https://www.metaweather.com/api/location/${resForPlace[0].woeid}`);
-            const optionsForWoeid = Object.assign({ url: urlForWoeid }, OPTIONS_OF_GET_REQUEST);
+module.exports.Weather = class Weather {
+    static async fetch(query) {
+        let weather = await Weather._sendRequestForWeather(query);
+        if (!('status' in weather) || weather.status === config.pageStatuses.OK) {
+            weather = Weather._parseWeatherFromWoeidResponse(weather);
+        }
 
-            return rp(optionsForWoeid)
-                .catch(() => ({ metaWeather: ERROR_PACKET }));
-        })
-        .catch(() => ({ metaWeather: ERROR_PACKET }));
-}
-
-function parseWeatherFromWoeidResponse(woeidResponse) {
-    const currentDay = woeidResponse.consolidated_weather[0];
-    const nextDays = woeidResponse.consolidated_weather.slice(1);
-
-    return {
-        metaWeather: OK_PACKET,
-        locationName: woeidResponse.title,
-        urlToWeatherPicture:
-            `https://www.metaweather.com/static/img/weather/${currentDay.weather_state_abbr}.svg`,
-        currentTemperature: Math.round(currentDay.the_temp),
-        currentWind: Math.round(currentDay.wind_speed),
-        nextWeather: nextDays.map(day => ({
-            date: createLocaleDate(new Date(day.applicable_date)),
-            temperature: Math.round(day.the_temp),
-            wind: Math.round(day.wind_speed)
-        }))
-    };
-}
-
-function createLocaleDate(date) {
-    return date.toLocaleString('en', OPTIONS_OF_DATE_FORMAT);
-}
-
-module.exports.getWeather = async req => {
-    let weather = await sendRequestForWeather(req);
-    if (weather.metaWeather !== ERROR_PACKET && weather.metaWeather !== INCORRECT_PACKET) {
-        weather = parseWeatherFromWoeidResponse(weather);
+        return weather;
     }
 
-    return weather;
+    static _sendRequestForWeather(query) {
+        const urlForPlaceOptions = {
+            uri: config.weatherUrlForPlace,
+            qs: {}
+        };
+        if (query.query) {
+            urlForPlaceOptions.qs.query = query.query;
+        } else if (query.lat !== undefined && query.lon !== undefined) {
+            urlForPlaceOptions.qs.lattlong = `${query.lat},${query.lon}`;
+        } else {
+            urlForPlaceOptions.qs.query = config.defaultCity;
+        }
+        Object.assign(urlForPlaceOptions, config.getRequestOptions);
+
+        return rp(urlForPlaceOptions)
+            .then(resForPlace => {
+                if (!Object.keys(resForPlace).length) {
+                    return { status: config.pageStatuses.INVALID_DATA };
+                }
+                const urlForWoeidOptions = {
+                    uri: `${config.weatherUrlForWoeid}/${resForPlace[0].woeid}`
+                };
+                Object.assign(urlForWoeidOptions, config.getRequestOptions);
+
+                return rp(urlForWoeidOptions)
+                    .catch(() => ({ status: config.pageStatuses.ERROR }));
+            })
+            .catch(() => ({ status: config.pageStatuses.ERROR }));
+    }
+
+    static _parseWeatherFromWoeidResponse(woeidResponse) {
+        const currentDay = woeidResponse.consolidated_weather[0];
+        const nextDays = woeidResponse.consolidated_weather.slice(1);
+
+        return {
+            status: config.pageStatuses.OK,
+            locationName: woeidResponse.title,
+            urlToWeatherPicture:
+                `${config.weatherUrlForImage}/${currentDay.weather_state_abbr}.svg`,
+            currentTemperature: Math.round(currentDay.the_temp),
+            currentWind: Math.round(currentDay.wind_speed),
+            nextWeather: nextDays.map(day => ({
+                date: new Date(day.applicable_date)
+                    .toLocaleString('en', config.dateFormatOptions),
+                temperature: Math.round(day.the_temp),
+                wind: Math.round(day.wind_speed)
+            }))
+        };
+    }
 };

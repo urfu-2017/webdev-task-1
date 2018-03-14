@@ -1,0 +1,35 @@
+{
+  "title": "Илон слишком занят",
+  "serverHost": "localhost",
+  "serverPort": 8080,
+  "categories": {
+    "business": "Бизнес",
+    "entertainment": "Развлечения",
+    "general": "Общее",
+    "health": "Здоровье",
+    "science": "Наука",
+    "sports": "Спорт",
+    "technology": "Технологии"
+  },
+  "getRequestOptions": {
+    "method": "GET",
+    "timeout": 2000,
+    "json": true
+  },
+  "pageStatuses": {
+    "INVALID_DATA": "invalid",
+    "ERROR": "error",
+    "OK": "ok"
+  },
+  "defaultCity": "moscow",
+  "dateFormatOptions": {
+    "month": "long",
+    "day": "numeric"
+  },
+  "abbrDefaultCountry": "ru",
+  "apiKey": "e16a8489b56441648aa91419cd3e1350",
+  "weatherUrlForPlace": "https://www.metaweather.com/api/location/search",
+  "weatherUrlForWoeid": "https://www.metaweather.com/api/location",
+  "weatherUrlForImage": "https://www.metaweather.com/static/img/weather",
+  "newsUrl": "https://newsapi.org/v2/top-headlines"
+}
