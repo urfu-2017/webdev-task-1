@@ -1,4 +1,3 @@
-/* eslint-disable indent,no-trailing-spaces */
 'use strict';
 const MetaWeather = require('metaweather');
 let mw = new MetaWeather();
@@ -9,10 +8,10 @@ module.exports = async (req, res, next)=> {
     try {
         if (query) {
             await mw.search().query(query)
-                .then(async (response) => {
+                .then(async (response) =>{
 
                     await (mw.location(response.body[0].woeid))
-                        .then((response1) => {
+                        .then((response1)=> {
                             weather = response1.body;
                         });
                 });
@@ -20,10 +19,10 @@ module.exports = async (req, res, next)=> {
 
         } else if (lattlong) {
             await mw.search().latLon(lattlong)
-                .then(async (response) => {
+                .then(async (response) =>{
 
                     await (mw.location(response.body[0].woeid))
-                        .then((response1) => {
+                        .then((response1)=> {
                             weather = response1.body;
                         });
                 });
@@ -41,4 +40,4 @@ module.exports = async (req, res, next)=> {
     } finally {
         next();
     }
-    };
+};

@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 'use strict';
-
 const getWeather = require('./middlewares/getWeather');
 const express = require('express');
 const path = require('path');
@@ -24,6 +22,8 @@ app.set('view engine', 'handlebars');
 
 app.use(getWeather);
 
+// Хэлпер Moment преобразует дату в верный форамат для каждого из языков
+
 
 app.use(express.static(path.join(__dirname, 'public'), {
     dotfiles: 'ignore', etag: false,
@@ -41,12 +41,8 @@ app.listen(8080, () => {
     console.info(' Server started\n Open http://localhost:8080/');
 });
 
-app.use(function (req, res) {
-    res.status(404);
-    res.send({ error: 'Not found' });
+exports.error404 = (req, res) => res.sendStatus(404);
 
-    return;
-});
-
+exports.settings = handlebarsSettings;
 
 module.exports = app;
