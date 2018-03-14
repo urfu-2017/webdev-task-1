@@ -3,14 +3,13 @@
 const moment = require('moment');
 const querystring = require('querystring');
 const got = require('got');
-
-const defaultWoeid = 742676;
+const { weatherApiUrl, defaultWoeid } = require('../api.json');
 
 class Weather {
     static async getData(query) {
         const woeid = await this.requestWoeid(query);
         const response = await got(
-            `https://www.metaweather.com/api/location/${woeid}/`, { json: true });
+            `${weatherApiUrl}/${woeid}/`, { json: true });
         const body = response.body;
         const today = body.consolidated_weather[0];
         const days = body.consolidated_weather.slice(1).map(day => ({
@@ -32,7 +31,7 @@ class Weather {
         const args = query
             ? { query }
             : { latlong: `${lat},${lon}` };
-        const url = 'https://www.metaweather.com/api/location/search/?' +
+        const url = `${weatherApiUrl}/search/?` +
             querystring.stringify(args);
 
         return got(url, { json: true })
