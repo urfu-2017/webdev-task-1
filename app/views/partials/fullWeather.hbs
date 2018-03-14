@@ -1,20 +1,20 @@
 <div class="weather">
     <div class="main-info">
         <h1 class="main-info__title">{{weather.title}}</h1>
-        <img class="main-info__ico" src='../{{weather.consolidated_weather.0.weather_state_abbr}}.png'/>
+        <img class="main-info__ico" src='../weatherImg/{{weather.consolidated_weather.0.weather_state_abbr}}.png'/>
     </div>
-    <div class="additional-info">
-        <h3>🌡 {{tempFixed weather.consolidated_weather.0.the_temp}}°C</h3>
-        <h3>💨 {{tempFixed weather.consolidated_weather.0.wind_speed}} м/с</h3>
-        <div class="mini-weather">
+    <div class="weather-items">
+        <h3>🌡 {{weather.consolidated_weather.0.the_temp}}°C</h3>
+        <h3>💨 {{weather.consolidated_weather.0.wind_speed}} м/с</h3>
+        <div class="weather-item">
             {{#each weather.consolidated_weather}}
-                <div class="mini-weather__item">
-                    <div class="mini-weather__date">
-                        <span>{{prettyData applicable_date}}</span>
+                <div class="weather-item__item">
+                    <div class="weather-item__date">
+                        <span>{{applicable_date}}</span>
                     </div>
-                    <div class="mini-weather__info">
-                        <span>{{tempFixed the_temp}}°C</span>
-                        <span>{{tempFixed wind_speed}} м/с</span>
+                    <div class="weather-item__info">
+                        <span>{{the_temp}}°C</span>
+                        <span>{{wind_speed}} м/с</span>
                     </div>
                 </div>
             {{/each}}

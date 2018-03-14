@@ -1,28 +1,31 @@
 'use strict';
 
-var request = require('request');
+const request = require('request');
+// ! axios посмотрел - в следующих работах буду его использовать
+const { newsUrl, apiToken } = require('../../config');
 
 class News {
-    constructor({ category, country }) {
-        this.category = category;
-        this.country = country;
+    constructor() {
+        this.country = 'ru';
     }
-    static find(category, country) {
-        let url = 'https://newsapi.org/v2/top-headlines?';
-        if (country) {
-            url += `country=${country}`;
-        } else {
-            url += 'country=ru';
-        }
+    static find({ category, country }) {
+        let url = newsUrl + `country=${country || this.country}`;
         if (category !== 'all') {
             url += `&category=${category}`;
         }
-        url += '&apiKey=d333fab019c840009dd5a977f05c7280';
+        url += apiToken;
 
         return new Promise((resolve, reject) => {
             request.get(url, (error, response, body) => {
+                body = JSON.parse(body);
+                for (let i = 0; i < body.articles.length; i++) {
+                    const options = { month: 'long', day: 'numeric' };
+                    const date = new Date(body.articles[i].publishedAt);
+                    const formattedDate = date.toLocaleDateString('en-US', options);
+                    body.articles[i].publishedAt = formattedDate;
+                }
                 if (body) {
-                    resolve(JSON.parse(body));
+                    resolve(body);
                 } else {
                     reject('err');
                 }

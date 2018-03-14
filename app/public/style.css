@@ -18,6 +18,8 @@
     height: 200px;
     display: flex;
     flex-direction: row;
+    background: lightblue;
+    margin: 40px 0;
 }
 
 .main-info
@@ -33,18 +35,18 @@
     height: 100px;
 }
 
-.additional-info
+.weather-items
 {
     width: 600px;
 }
 
-.mini-weather
+.weather-item
 {
     display: flex;
     flex-direction: row;
 }
 
-.mini-weather__item
+.weather-item__item
 {
     margin: 0 4px;
     width: 80px;
@@ -52,14 +54,14 @@
     background: floralwhite;
 }
 
-.mini-weather__date
+.weather-item__date
 {
     background: dodgerblue;
     color: white;
     text-align: center;
 }
 
-.mini-weather__info
+.weather-item__info
 {
     display: flex;
     flex-direction: column;

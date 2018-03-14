@@ -3,7 +3,7 @@
         <div class="news-item">
             <div class="news-item__header">
                 <span>{{title}}</span>
-                <span>{{prettyData publishedAt}}</span>
+                <span>{{publishedAt}}</span>
             </div>
             <div class="news-item__body">
                 {{#if urlToImage}}
@@ -15,7 +15,7 @@
                     {{description}}
                 </div>
                 <div class="news-item__author">
-                    <span></span>{{source.name}}</span>
+                    <span>{{source.name}}</span>
                 </div>
             </div>
         </div>
