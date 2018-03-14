@@ -1,5 +1,5 @@
 'use strict';
-let MetaWeather = require('metaweather');
+const MetaWeather = require('metaweather');
 let mw = new MetaWeather();
 let weather = '';
 module.exports = async (req, res, next)=> {
@@ -29,12 +29,14 @@ module.exports = async (req, res, next)=> {
 
 
         }
-        res.locals.info = weather.consolidated_weather;
-        res.locals.city = weather.title;
-        res.locals.img = res.locals.info[0].weather_state_abbr;
-        res.locals.temp = res.locals.info[0].the_temp;
-        res.locals.wind = res.locals.info[0].wind_speed;
-        res.locals.date = res.locals.info[0].applicable_date;
+        Object.assign(res.locals, {
+            info: weather.consolidated_weather,
+            city: weather.title,
+            img: weather.consolidated_weather[0].weather_state_abbr,
+            temp: weather.consolidated_weather[0].the_temp,
+            wind: weather.consolidated_weather[0].wind_speed,
+            date: weather.consolidated_weather[0].applicable_date
+        });
     } finally {
         next();
     }

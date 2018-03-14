@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 {{# if info}}
-<div class='table___weather'>
-    <div class="table___weather city">
-        {{city}}
-    </div>
-    <div class="table___weather weather-icon">
-        <img src=https://www.metaweather.com/static/img/weather/{{img}}.svg>
-    </div>
-    <div class="table___weather temperature">
+    <div class='table___weather'>
+        <div class="table___weather city">
+            {{city}}
+        </div>
+        <div class="table___weather weather-icon">
+            <img src=https://www.metaweather.com/static/img/weather/{{img}}.svg>
+        </div>
+        <div class="table___weather temperature">
         <span> t {{formatNumber temp}}&#8451;
 </span>
-    </div>
-    <div class="table___weather windspeed">
+        </div>
+        <div class="table___weather windspeed">
         <span> 💨 {{formatNumber wind}} m/s
 </span>
-</div>
-    <div class="table___weather weather-highlights">
-    <table border="1" width="420">
-        <tr>
+        </div>
+        <div class="table___weather weather-highlights">
+            <table border="1" width="420">
+                <tr>
+                    {{#each info}}
+                        <th>{{sformatTime applicable_date "D MMMM" }}</th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each info}}
 
-        {{#each info}}
-
-                <th>{{sformatTime applicable_date "D MMMM" }}</th>
-        {{/each}}
-    </tr>
-        <tr>
-            {{#each info}}
-
-                <td>{{formatNumber the_temp }}&nbsp;&#8451;
-                    {{formatNumber wind_speed }}&nbsp;m/s</td>
-            {{/each}}
-
-
-        </tr>
-
-    </table>
-
-
-        </table>
-
-
-    </div>
-
+                        <td>{{formatNumber the_temp }}&nbsp;&#8451;
+                            {{formatNumber wind_speed }}&nbsp;m/s
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
         <td></td>
-    </tr>
-    {{else}}
+{{else}}
         <div class="weather else-div">Please provide your location to see what the weather like today
-
         </div>
 {{/if}}
 </div>

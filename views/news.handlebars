@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="{{ staticBasePath }}index.css" media="screen">
 <header class="header">{{ category }}</header>
 <div class="weather">{{> weather}}</div>
-
 <table class='table___news'>
     {{#each articles}}
         <tr>
@@ -14,7 +13,6 @@
             <td>{{sformatTime publishedAt "D MMMM"}}</td>
         </tr>
         <tr>
-
             <td><img src="{{urlToImage}}"></td>
             <td>{{description}}</td>
         </tr>
