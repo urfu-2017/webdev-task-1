@@ -1,0 +1,5 @@
+{
+    "newsApiKey": "edf21ea8b1fe463eb20ad939bcf524f2",
+    "weatherApiUrl": "https://www.metaweather.com/api/location",
+    "defaultWoeid": "742676"
+}

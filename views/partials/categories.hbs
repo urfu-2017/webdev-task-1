@@ -1,0 +1,13 @@
+<main class="categories">
+    <h4 class="categories__header">Категории новостей</h4>
+    <div class="categories__list">
+        <ul>
+            {{#each categories}}
+                <li>
+                    <a href="/{{ name }}">{{ displayName }}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    
+</main>

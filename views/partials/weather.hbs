@@ -1,0 +1,38 @@
+<section class="weather">
+    {{#with weather}}
+    <div class="weather__left-column">
+        <div class="weather__city">{{city}}</div>
+        <div class="weather__image">
+            <img src="https://www.metaweather.com/static/img/weather/png/64/{{
+                stateAbbr }}.png">
+        </div>
+    </div>
+    <div class="weather__right-column">
+        <div class="weather__today">
+            <div class="weather__temp">{{temp}} °C</div>
+            <div class="weather__wind">{{wind}} м/с</div>    
+        </div>
+        <table class="weather__prediction">
+            <thead>
+            <tr>
+                {{#each days}}
+                    <th>{{date}}</th>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                {{#each days}}
+                    <td>{{temp}}°C</td>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each days}}
+                    <td>{{wind}} м/с</td>
+                {{/each}}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    {{/with}}
+</section>

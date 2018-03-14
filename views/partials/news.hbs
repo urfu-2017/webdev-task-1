@@ -1,0 +1,21 @@
+<main class="news">
+    {{#each news}}
+        <article class="news__note">
+            <div class="news__header">
+                <a href="{{url}}" target="_blank" class="news__link">{{title}}</a>                
+            </div>
+            <div class="news__content">
+                {{#if urlToImage}}
+                    <div class="news__image">
+                        <img src="{{urlToImage}}" alt="">
+                    </div>
+                {{/if}}
+
+                <div class="news__description">
+                    {{ description }}
+                </div>
+            </div>
+            <div class="news__source">{{ source.name }}</div>
+        </article>
+    {{/each}}
+</main>
