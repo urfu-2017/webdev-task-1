@@ -22,8 +22,6 @@ app.set('view engine', 'handlebars');
 
 app.use(getWeather);
 
-// Хэлпер Moment преобразует дату в верный форамат для каждого из языков
-
 
 app.use(express.static(path.join(__dirname, 'public'), {
     dotfiles: 'ignore', etag: false,
