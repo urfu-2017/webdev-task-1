@@ -12,7 +12,7 @@ class Weather {
                 if (body) {
                     resolve(JSON.parse(body));
                 } else {
-                    reject('err');
+                    reject(new Error('CITY_NOT_FOUND'));
                 }
             });
         }).then((cityList) => {
@@ -36,7 +36,7 @@ class Weather {
                         if (body) {
                             resolve(body);
                         } else {
-                            reject('err');
+                            reject(new Error('WEATHER_NOT_LOADED'));
                         }
                     });
                 });

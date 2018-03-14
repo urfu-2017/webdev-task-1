@@ -1,8 +1,7 @@
 'use strict';
 
 const request = require('request');
-// ! axios посмотрел - в следующих работах буду его использовать
-const { newsUrl, apiToken } = require('../../config');
+const { newsUrl, newsApiToken } = require('../../config');
 
 class News {
     constructor() {
@@ -13,7 +12,7 @@ class News {
         if (category !== 'all') {
             url += `&category=${category}`;
         }
-        url += apiToken;
+        url += newsApiToken;
 
         return new Promise((resolve, reject) => {
             request.get(url, (error, response, body) => {
@@ -27,7 +26,7 @@ class News {
                 if (body) {
                     resolve(body);
                 } else {
-                    reject('err');
+                    reject(new Error('NEWS_NOT_FOUND'));
                 }
             });
         });
