@@ -1,0 +1,37 @@
+[
+    {
+      "name": "Бизнес",
+      "englishName": "business",
+      "image": "business-icon.png"
+    },
+    {
+      "name": "Развлечения",
+      "englishName": "entertainment",
+      "image": "entertainments.png"
+    },
+    {
+      "name": "Общее",
+      "englishName": "general",
+      "image": "general.png"
+    },
+    {
+      "name": "Здоровье",
+      "englishName": "health",
+      "image": "health.png"
+    },
+    {
+      "name": "Науки",
+      "englishName": "science",
+      "image": "sciences.png"
+    },
+    {
+      "name": "Спорт",
+      "englishName": "sports",
+      "image": "sport.png"
+    },
+    {
+      "name": "Технологии",
+      "englishName": "technology",
+      "image": "technologies.png"
+    }
+]

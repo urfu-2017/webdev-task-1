@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang={{ meta.lang }}>
+    <head>
+        <meta charset={{ meta.charset }}>
+        <title>{{ oneNews.name }}</title>
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/categories.css">
+        <link rel="stylesheet" href="css/weather.css">
+        <link rel="stylesheet" href="css/news.css">
+    </head>
+    <body>
+        <main class="news">
+            <a href="/">На главную</a>
+            <header class="news__header">{{ oneNews.name }}</header>
+            {{> weather}}
+            {{> allNews}}
+            {{> footer}}
+        </main>
+    </body>
+</html>

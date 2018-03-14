@@ -1,0 +1,22 @@
+<div class="weather">
+    <div class="weather__city">{{ title }}</div>
+    <img class="weather__img" src="https://www.metaweather.com/static/img/weather/png/64/{{
+        infoToday.weather_state_abbr }}.png">
+    <img class="weather__temp-icon" src="/images/temp-icon.png">
+    <div class="weather__temp">{{ infoToday.temp }} °C</div>
+    <img class="weather__wind-icon" src="/images/wind-icon.png">
+    <div class="weather__wind">{{ infoToday.windSpeed }} м/c</div>
+    <div class="weather__forecast">
+        <table class="weather__forecast-table">
+            <tr>
+                {{#each forecast}}
+                <td class="forecast__columns">
+                    <p class="forecast__date">{{ applicable_date }}</p>
+                    <p class="forecast__temp">{{ temp }} °C</p>
+                    <p class="forecast__windSpeed">{{ windSpeed }} м/c</p>
+                </td>
+                {{/each}}
+            </tr>
+        </table>
+    </div>
+</div>

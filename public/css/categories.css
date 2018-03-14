@@ -1,0 +1,23 @@
+.categories
+{
+    padding: 20px;
+    
+}
+
+.categories__image
+{
+    vertical-align: middle;
+    padding-bottom: 15px;
+}
+
+.categories__link
+{
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+}
+
+.categories__link_hover:hover
+{
+    color: rgb(59, 59, 187);
+}
