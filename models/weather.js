@@ -21,6 +21,7 @@ class Weather {
                     return parseJSON(fields);
                 });
         }
+
         return fetch(config.apiLink + search)
             .then(response => response.json())
             .then(fields => fields[0].woeid)
