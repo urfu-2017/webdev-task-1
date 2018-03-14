@@ -1,0 +1,23 @@
+{{> head}}
+</head>
+<body>
+    <div class="main-page">
+        <div class="main-page__item">
+            {{> header }}
+        </div>
+        <div class="main-page__item">
+            {{> fullWeather}}
+        </div>
+        <div class="main-page__item">
+            <div class="category-list">
+                {{#each category}}
+                <a href="{{href}}?query={{../city}}&country={{../country}}">{{name}}</a>
+                {{/each}}
+            </div>
+        </div>
+        <div class="main-page__item">
+            {{> footer }}
+        </div>
+    </div>
+</body>
+</html>
