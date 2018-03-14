@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header__title">Новости</h1>
+        <h1 class="header__title"> <a href="/">На главную</a></h1>
     </header>
     <section class="weather">
         {{> weatherWidget }}
@@ -18,15 +18,17 @@
         <div class="news-container">
             {{#each news}}
                 <div class="news-item">
-                    <a href="{{ url }}" class="news-item__wrapper">
+                    <div class="news-item__wrapper">
                         <div class="news-item__head">
                             <span class="news-item__title">{{ title }}</span>
                             <span class="news-item__date">{{ publishedAt }}</span>
                         </div>
                         <div class="news-item__body">
+                            {{#if urlToImage.length}}
                             <div class="news-item__image">
                                 <img src="{{ urlToImage }}" alt="{{ title }}">
                             </div>
+                            {{/if}}
                             <div class="news-item__description">
                                 {{ description }}
                             </div>
@@ -34,8 +36,9 @@
                         <div class="news-item__footer">
                             <span class="news-item__author">{{ author }}</span>
                         </div>
-                    </a>
-                    <a href="{{ url }}" target="_blank">{{ title }}</a>
+                        <a class="news-item__source" href="{{ url }}" target="_blank">{{ source.name }}</a>
+                    </div>
+                    
                 </div>
             {{/each}}
         </div>

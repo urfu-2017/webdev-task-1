@@ -1,18 +1,18 @@
 'use strict';
 
+const categories = require('../mocks/categories');
+
 const storage = [];
 
+for (const category of categories) {
+    storage.push({
+        title: category.title,
+        name: category.name
+    });
+}
+
 class Category {
-    constructor({ title, name }) {
-        this.title = title;
-        this.name = name;
-    }
-
-    save() {
-        storage.push(this);
-    }
-
-    static findAll() {
+    static getAll() {
         return storage;
     }
 }

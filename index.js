@@ -2,20 +2,13 @@
 
 const path = require('path');
 
-const bodyParser = require('body-parser');
 const config = require('config');
 const express = require('express');
 const hbs = require('hbs');
 const morgan = require('morgan');
 
-const Category = require('./models/category');
-const categories = require('./mocks/categories');
 const routes = require('./routes');
 const weatherWidget = require('./repository/weatherWidget');
-
-for (const category of categories) {
-    new Category(category).save();
-}
 
 const app = express();
 
@@ -35,16 +28,11 @@ if (config.get('debug')) {
 
 app.use(express.static(publicDir));
 
-app.use(bodyParser.json());
-
 app.use((err, req, res, next) => {
     console.error(err.stack);
 
     next();
 });
-
-// console.log((getWeatherData));
-// getWeatherData.then(console.log, null);
 
 app.use(weatherWidget);
 
@@ -68,7 +56,6 @@ app.use((err, req, res) => {
 });
 
 hbs.registerPartials(partialsDir, () => {
-    // Запускаем сервер на порту 8080
     app.listen(8080, () => {
         console.info('Open http://localhost:8080/');
     });

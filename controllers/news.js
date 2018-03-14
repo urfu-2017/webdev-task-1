@@ -2,11 +2,11 @@
 
 const getNewsByCategory = require('../repository/newsRepository');
 
-exports.newsList = (req, res) => {
-    var categoryName = req.params.name;
-    getNewsByCategory(categoryName)
+exports.getList = (req, res) => {
+    const categoryName = req.params.name;
+    const country = req.query.country;
+    getNewsByCategory(categoryName, country)
         .then(news => {
-            // console.log(news);
             const data = { news, ...res.locals };
 
             res.render('news', data);

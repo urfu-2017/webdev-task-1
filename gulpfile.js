@@ -8,6 +8,7 @@ const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const cache = require('gulp-cache');
 const autoprefixer = require('gulp-autoprefixer');
+const nodemon = require('gulp-nodemon');
 
 gulp.task('stylus', function () {
     return gulp.src('front_src/stylus/*.styl')
@@ -22,15 +23,11 @@ gulp.task('stylus', function () {
         .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('browser-sync', function () {
-    // browserSync({
-    //     server: {
-    //         baseDir: 'public'
-    //     },
-    //     notify: false
-    // });
+gulp.task('browser-sync', ['nodemon'], function () {
     browserSync.init(null, {
-        proxy: 'http://localhost:8080'
+        proxy: 'http://localhost:8080',
+        files: ['public/**/*.*'],
+        port: 7000
     });
 });
 
@@ -86,4 +83,18 @@ gulp.task('default', ['watch']);
 gulp.task('clear', function () {
 
     return cache.clearAll();
+});
+
+gulp.task('nodemon', function (cb) {
+
+    let started = false;
+
+    return nodemon({
+        script: 'index.js'
+    }).on('start', function () {
+        if (!started) {
+            cb();
+            started = true;
+        }
+    });
 });
