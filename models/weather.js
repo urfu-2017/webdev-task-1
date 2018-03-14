@@ -74,7 +74,11 @@ class Weather {
         } else if (lat && lon) {
             query = querystring.stringify({ lattlong: `${lat},${lon}` });
         }
-        const { woeid } = (await searchWeather(query))[0];
+        const searchingResult = await searchWeather(query);
+        if (!searchingResult[0]) {
+            return Promise.reject(new Error('Cant search weather'));
+        }
+        const { woeid } = (searchingResult)[0];
         const data = await loadWeather(woeid);
         const weathers = data.consolidated_weather;
         const city = data.title;

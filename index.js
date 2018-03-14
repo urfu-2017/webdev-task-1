@@ -8,6 +8,7 @@ const hbs = require('hbs');
 const routes = require('./routes');
 const config = require('./config');
 const initialData = require('./middlewares/setInitialData');
+const handleErrors = require('./middlewares/handleErrors');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.set('views', viewsDir);
 app.use(express.static(publicDir));
 app.use(initialData);
 routes(app);
+app.use(handleErrors);
 
 const port = config.port || 8080;
 // Подключаем директорию с отдельными частями шаблонов
