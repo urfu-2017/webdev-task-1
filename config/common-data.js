@@ -1,9 +1,7 @@
 'use strict';
 
-module.exports = (req, res, next) => {
-    const categories = ['business', 'entertainment', 'general', 'health',
-        'science', 'sports', 'technology'];
-    res.locals.categories = categories;
+const categories = ['business', 'entertainment', 'general', 'health',
+    'science', 'sports', 'technology'];
 
-    next();
-};
+module.exports = categories;
+
