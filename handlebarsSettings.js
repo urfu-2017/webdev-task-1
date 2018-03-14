@@ -6,6 +6,7 @@ const moment = require('moment');
 // Хэлпер Moment преобразует дату в верный форамат для каждого из языков
 Handlebars.registerHelper('sformatTime', (date, format) => {
     let mmnt = moment(date);
+    mmnt.locale('ru');
 
     return mmnt.format(format);
 });
