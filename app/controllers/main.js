@@ -7,9 +7,12 @@ exports.mainPage = (req, res) => {
     Category.get(req.query.country),
   ]).then(([widget, categories]) => {
     res.render('index', {
-      ...res.locals, widget, categories, ...{ title: 'Погода' },
+      ...res.locals,
+      widget,
+      categories,
+      title: 'Погода',
     });
   }).catch(() => {
-    res.redirect(404, 'error');
+    res.sendStatus(500);
   });
 };

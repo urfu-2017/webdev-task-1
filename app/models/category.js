@@ -1,12 +1,4 @@
-const categories = {
-  business: 'Бизнес',
-  entertainment: 'Развлечения',
-  health: 'Здоровье',
-  general: 'Общее',
-  science: 'Наука',
-  sports: 'Спорт',
-  technology: 'Технологии',
-};
+const { categories } = require('../../config');
 
 class Category {
   constructor(name, category) {

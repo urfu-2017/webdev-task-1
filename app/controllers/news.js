@@ -2,14 +2,18 @@ const Article = require('../models/article');
 const Widget = require('../models/widget');
 
 exports.news = (req, res) => {
+  const { query, category, country } = req.query;
   Promise.all([
-    Widget.get(req.query.query),
-    Article.get(req.query),
+    Widget.get(query),
+    Article.get({ country, category }),
   ]).then(([widget, articles]) => {
     res.render('news', {
-      ...res.locals, widget, articles, ...{ title: 'Новости' },
+      ...res.locals,
+      widget,
+      articles,
+      title: 'Новости',
     });
   }).catch(() => {
-    res.redirect(404, 'error');
+    res.sendStatus(500);
   });
 };

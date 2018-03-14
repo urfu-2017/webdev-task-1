@@ -1,4 +1,4 @@
-const config = require('../../config/localhost');
+const { staticBasePath, weatherBasePath } = require('../../config');
 
 module.exports = (req, res, next) => {
   res.locals.meta = {
@@ -6,11 +6,11 @@ module.exports = (req, res, next) => {
     description: 'Weather',
   };
 
-  res.locals.staticBasePath = config.staticBasePath;
+  res.locals.staticBasePath = staticBasePath;
 
-  res.locals.nonMain = req.path !== config.staticBasePath;
+  res.locals.nonMain = req.path !== staticBasePath;
 
-  res.locals.weatherApiBasePath = config.weatherApiBasePath;
+  res.locals.weatherBasePath = weatherBasePath;
 
   next();
 };

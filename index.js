@@ -5,7 +5,7 @@ const hbs = require('hbs');
 
 const commonData = require('./app/middlewares/common-data');
 const routes = require('./app/routes');
-const config = require('./config/localhost');
+const config = require('./config');
 const errorHandler = require('./app/middlewares/handle-errors');
 
 const app = express();

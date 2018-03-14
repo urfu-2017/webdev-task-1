@@ -1,10 +1,6 @@
 const axios = require('axios');
 
-const config = require('../../config/localhost');
-
-const apiBasePath = config.newsApiBasePath;
-const { apiKey } = config;
-
+const { newsApiKey, newsApiBasePath } = require('../../config');
 
 class Article {
   constructor(headline) {
@@ -23,7 +19,7 @@ class Article {
   }
 
   static fetch(country, category) {
-    return axios.get(apiBasePath, { params: { country, category, apiKey } })
+    return axios.get(newsApiBasePath, { params: { country, category, apiKey: newsApiKey } })
       .then(response => response.data.articles);
   }
 }

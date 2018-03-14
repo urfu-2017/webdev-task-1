@@ -2,9 +2,7 @@ const axios = require('axios');
 const cities = require('all-the-cities');
 const moment = require('moment');
 
-const config = require('../../config/localhost');
-
-const apiBasePath = `${config.weatherApiBasePath}api/location/`;
+const { weatherApiLocation, weatherApiSearch, weatherDefaultCity } = require('../../config');
 
 class WeatherWidget {
   constructor({ title, countryCode, forecast }) {
@@ -17,14 +15,10 @@ class WeatherWidget {
     this.weatherForecast = forecast;
   }
 
-  static get(cityName) {
-    if (!cityName) {
-      // eslint-disable-next-line no-param-reassign
-      cityName = config.defaultCity;
-    }
-    return axios.get(`${apiBasePath}search/`, { params: { query: cityName } })
+  static get(cityName = weatherDefaultCity) {
+    return axios.get(weatherApiSearch, { params: { query: cityName } })
       .then(response => response.data[0].woeid)
-      .then(woeid => axios.get(apiBasePath + woeid))
+      .then(woeid => axios.get(weatherApiLocation + woeid))
       .then(response => response.data)
       .then(weatherReport => new WeatherWidget(WeatherWidget.format(weatherReport)));
   }
