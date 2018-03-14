@@ -1,24 +1,25 @@
 {{#if weathers.length}}
     <section class="weather">
-        <article class="weatherState">
-            <img src="{{ weathers.[0].stateName }}.svg" alt="Состояние погоды" class="weatherState__image">
+        <article class="today-weather">
+            <div class="today-weather__city">{{ weathers.[0].city }}</div>
+            <img src="weather-icons/{{ weathers.[0].stateName }}.svg" alt="Состояние погоды" class="today-weather__image">
         </article>
         <div>
-            <article class="weatherIndicators">
+            <article class="weather-indicators">
                 <div>
-                    <img src="temp.jpg" alt="Значок температуры" class="weatherIndicators__image">
-                    {{ weathers.[0].temp }} °C
+                    <img src="temp.jpg" alt="Значок температуры" class="weather-indicators__image">
+                    {{ weathers.[0].temperature }} °C
                 </div>
                 <div>
-                    <img src="wind.jpg" alt="Значок ветра" class="weatherIndicators__image">
+                    <img src="wind.jpg" alt="Значок ветра" class="weather-indicators__image">
                     {{ weathers.[0].windSpeed }} м/с
                 </div>
             </article>
-            <div class="weatherWidgets">
+            <div class="weather-widgets">
                 {{#each weathers}}
                     <article class="widget">
                         <div class="widget__date">{{ date }}</div>
-                        <div class="widget__temp">{{ temp }} °C</div>
+                        <div class="widget__temp">{{ temperature }} °C</div>
                         <div class="widget__wind">{{ windSpeed }} м/с</div>
                     </article>
                 {{/each}}

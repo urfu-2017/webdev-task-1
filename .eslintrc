@@ -1,7 +1,0 @@
-{
-    "extends": "hrundel/node",
-    "globals": {
-        "describe": true,
-        "it": true
-    }
-}

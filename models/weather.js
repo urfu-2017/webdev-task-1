@@ -1,38 +1,16 @@
+/* eslint-disable strict, indent */
+
 'use strict';
 
 const request = require('request');
 const querystring = require('querystring');
+const config = require('config');
 
-const URL = 'https://www.metaweather.com/api/location/';
-
-function weatherSearchHelper(query) {
-    let resultUrl = URL;
-    if (query) {
-        resultUrl += `search/?${query}`;
-    }
-    const options = {
-        method: 'GET',
-        url: resultUrl,
-        json: true
-    };
-
-    return createRequestPromise(options);
-}
-
-function weatherHelper(woeid) {
-    let resultUrl = URL + woeid + '/';
-    const options = {
-        method: 'GET',
-        url: resultUrl,
-        json: true
-    };
-
-    return createRequestPromise(options);
-}
+const URL = config.get('weatherURL');
 
 function createRequestPromise(options) {
     return new Promise((resolve) => {
-        request(options, function (err, res, body) {
+        request(options, (err, res, body) => {
             if (err) {
                 return resolve(err);
             }
@@ -42,44 +20,75 @@ function createRequestPromise(options) {
     });
 }
 
+function searchWeather(query) {
+    let resultUrl = URL;
+    if (query) {
+        resultUrl += `search/?${query}`;
+    }
+    const options = {
+        method: 'GET',
+        url: resultUrl,
+        json: true,
+    };
+
+    return createRequestPromise(options);
+}
+
+function loadWeather(woeid) {
+    const resultUrl = `${URL + woeid}/`;
+    const options = {
+        method: 'GET',
+        url: resultUrl,
+        json: true,
+    };
+
+    return createRequestPromise(options);
+}
+
 
 function defaultQuery(queryCountry, lat, lon) {
     if (queryCountry) {
         return queryCountry;
     }
-    if (!queryCountry && !lat && !lon) {
-        return 'moscow';
+    if (!lat || !lon) {
+        return config.get('defaultCity');
     }
+
+    return undefined;
 }
 
 class Weather {
-    constructor({ temp, date, windSpeed, stateName }) {
-        this.temp = temp;
+    constructor({
+        temperature, date, windSpeed, stateName, city,
+    }) {
+        this.temperature = temperature;
         this.date = date;
         this.windSpeed = windSpeed;
         this.stateName = stateName;
+        this.city = city;
     }
 
-    static async findAll(queryCountry, lat, lon) {
+    static async findAll({ queryCountry, lat, lon }) {
         queryCountry = defaultQuery(queryCountry, lat, lon);
-        let storage = [];
         let query;
         if (queryCountry) {
-            query = querystring.stringify({ 'query': queryCountry });
-        } else {
-            query = querystring.stringify({ 'lattlong': `${lat},${lon}` });
+            query = querystring.stringify({ query: queryCountry });
+        } else if (lat && lon) {
+            query = querystring.stringify({ lattlong: `${lat},${lon}` });
         }
-        let woeid = (await weatherSearchHelper(query))[0].woeid;
-        let weathers = (await weatherHelper(woeid)).consolidated_weather;
-        for (const weather of weathers) {
-            weather.temp = Math.round(weather.the_temp);
+        const { woeid } = (await searchWeather(query))[0];
+        const data = await loadWeather(woeid);
+        const weathers = data.consolidated_weather;
+        const city = data.title;
+
+        return weathers.map((weather) => {
+            weather.temperature = Math.round(weather.the_temp);
             weather.date = weather.applicable_date;
             weather.windSpeed = Math.round(weather.wind_speed);
             weather.stateName = weather.weather_state_abbr;
-            storage.push(new Weather(weather));
-        }
-
-        return Promise.resolve(storage);
+            weather.city = city;
+            return new Weather(weather);
+        });
     }
 }
 

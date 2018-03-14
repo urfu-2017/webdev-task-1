@@ -1,4 +1,4 @@
-.pageName
+.page-name
 {
     display: flex;
     justify-content: center;
@@ -12,13 +12,13 @@
     list-style-type: none;
 }
 
-.categories__category
+.categories__item
 {
     font: 30px serif;
     text-decoration: none;
 }
 
-.categories__category:hover
+.categories__item:hover
 {
     text-shadow: blue 1px 1px 1px;
 }

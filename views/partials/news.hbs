@@ -1,18 +1,18 @@
 {{#if news.length}}
     {{#each news}}
         <section class="news">
-            <div class="newsHeader">
-                <div class="newsHeader__title">{{ title }}</div>
+            <div class="news-header">
+                <div class="news-header__title">{{ title }}</div>
                 {{#if urlToImage}}
-                    <img class="newsHeader__img" src="{{ urlToImage }}" alt="Картинка для новости">
+                    <img class="news-header__img" src="{{ urlToImage }}" alt="{{ title }}">
                 {{/if}}
             </div>
-            <div class="newsMain">
-                <div class="newsMain__description">{{ description }}</div>
+            <div class="news-main">
+                <div class="news-main__description">{{ description }}</div>
             </div>
-            <div class="newsFooter">
-                <div class="newsFooter__date"> {{ publishedAt }}</div>
-                <div class="newsFooter__source">{{ sourceName }}</div>
+            <div class="news-footer">
+                <div class="news-footer__date"> {{ publishedAt }}</div>
+                <div class="news-footer__source">{{ sourceName }}</div>
             </div>
         </section>
     {{/each}}
