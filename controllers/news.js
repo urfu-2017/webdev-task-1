@@ -1,12 +1,11 @@
 'use strict';
-const categories = require('../mocks/categories');
+const categories = require('../models/categories');
 const { getNews } = require('../models/news');
 
 async function listNews(req, res) {
-    const locals = res.locals;
     const weatherList = res.locals.weather.weatherList;
     const news = await getNews(req);
-    const data = { categories, locals, weatherList, news: news.articles };
+    const data = { categories, weatherList, news: news.articles };
     res.render('category', data);
 }
 

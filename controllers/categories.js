@@ -1,10 +1,9 @@
 'use strict';
-const categories = require('../mocks/categories');
+const categories = require('../models/categories');
 
 function listCategories(req, res) {
-    const locals = res.locals;
     const weatherList = res.locals.weather.weatherList;
-    const data = { categories, locals, weatherList };
+    const data = { categories, weatherList };
     res.render('index', data);
 }
 
