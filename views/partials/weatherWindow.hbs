@@ -1,0 +1,27 @@
+<article class="weather-info">
+    <div class="weather-info__general-info">
+        <header class="weather-header">{{ weather.city }}</header>
+        <img class="weather-image" src="https://www.metaweather.com/static/img/weather/{{ weather.image }}.svg">
+    </div>
+    <div class="weather-content">
+        <div class="weather-content__temp">Temperature: {{ weather.tempToday }}°C</div>
+        <div class="weather-content__wind">Wind: {{ weather.windToday }}m/s</div>
+        <table class="weather-content__future table">
+            <tr>
+                {{#each weather.dates}}
+                <th class="table__element table__{{ this }}">{{ this }}</th>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each weather.temps}}
+                <td class="table__element temp table__{{ this }}">{{ this }}°C</td>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each weather.winds}}
+                <td class="table__element wind table__this">{{ this }}m/s</td>                
+                {{/each}}
+                </tr>
+        </table>
+    </div>
+</article>

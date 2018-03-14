@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ staticBasePath }}styles.css" media="screen">
+</head>
+
+<body>
+    <section class="body start-page">
+        <header class="header main-page-header">{{ header }}</header>
+        <article class="header weather-widget">{{ weatherHeader }}</article>
+        <div class="weather-widget__link">{{> weatherWindow }}</div>
+        <article class="header news">{{ newsHeader }}</article>
+        {{#each categories}}
+        <a class="news__link" href="/{{ this }}">
+            <div class="block block_dark {{ this }}">
+                <div class="block__header {{ this }}__header">{{ this }}</div>
+                <div class="icon {{ this }}__icon"></div>
+            </div>
+        </a>
+        {{/each}}
+        <footer class="footer">
+            <div class="footer__copyright">{{ copyright }}</div>
+            <div class="footer__year">{{ year }}</div>
+        </footer>
+    </section>
+</body>
+
+</html>
