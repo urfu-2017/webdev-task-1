@@ -1,5 +1,4 @@
 {
-//    "extends": "hrundel/node",
     "extends": "airbnb",
     "globals": {
         "describe": true,
