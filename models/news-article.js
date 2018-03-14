@@ -1,5 +1,3 @@
-/* eslint-disable strict, indent */
-
 'use strict';
 
 const request = require('request');
@@ -28,7 +26,7 @@ function loadNews(query) {
     const options = {
         method: 'GET',
         url: resultUrl,
-        json: true,
+        json: true
     };
 
     return createRequestPromise(options);
@@ -49,11 +47,11 @@ function formatDate(date) {
     }
 
     return `${dd}.${mm}.${yy}`;
-  }
+}
 
 class NewsArticle {
     constructor({
-        sourceName, title, description, urlToImage, publishedAt,
+        sourceName, title, description, urlToImage, publishedAt
     }) {
         this.sourceName = sourceName;
         this.title = title;
@@ -66,13 +64,14 @@ class NewsArticle {
         const query = querystring.stringify({
             apiKey: config.get('key'),
             country: country || config.get('defaultCountry'),
-            category,
+            category
         });
         const news = (await loadNews(query)).articles;
 
         return news.map((newsArticle) => {
             newsArticle.publishedAt = formatDate(new Date(newsArticle.publishedAt));
             newsArticle.sourceName = newsArticle.source.name;
+
             return new NewsArticle(newsArticle);
         });
     }

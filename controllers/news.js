@@ -1,5 +1,3 @@
-/* eslint-disable strict, indent */
-
 'use strict';
 
 const NewsArticle = require('../models/news-article');

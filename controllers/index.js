@@ -1,5 +1,3 @@
-/* eslint-disable strict, indent */
-
 'use strict';
 
 const config = require('config');

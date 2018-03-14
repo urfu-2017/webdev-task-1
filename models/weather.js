@@ -1,5 +1,3 @@
-/* eslint-disable strict, indent */
-
 'use strict';
 
 const request = require('request');
@@ -28,7 +26,7 @@ function searchWeather(query) {
     const options = {
         method: 'GET',
         url: resultUrl,
-        json: true,
+        json: true
     };
 
     return createRequestPromise(options);
@@ -39,7 +37,7 @@ function loadWeather(woeid) {
     const options = {
         method: 'GET',
         url: resultUrl,
-        json: true,
+        json: true
     };
 
     return createRequestPromise(options);
@@ -59,7 +57,7 @@ function defaultQuery(queryCountry, lat, lon) {
 
 class Weather {
     constructor({
-        temperature, date, windSpeed, stateName, city,
+        temperature, date, windSpeed, stateName, city
     }) {
         this.temperature = temperature;
         this.date = date;
@@ -87,6 +85,7 @@ class Weather {
             weather.windSpeed = Math.round(weather.wind_speed);
             weather.stateName = weather.weather_state_abbr;
             weather.city = city;
+
             return new Weather(weather);
         });
     }

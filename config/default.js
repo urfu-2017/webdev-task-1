@@ -1,5 +1,3 @@
-/* eslint-disable strict, indent */
-
 'use strict';
 
 module.exports = {
@@ -15,7 +13,7 @@ module.exports = {
         { href: '../health', categoryName: 'Здоровье' },
         { href: '../science', categoryName: 'Наука' },
         { href: '../sport', categoryName: 'Спорт' },
-        { href: '../technology', categoryName: 'Технологии' },
+        { href: '../technology', categoryName: 'Технологии' }
     ],
-    defaultCountry: 'ru',
+    defaultCountry: 'ru'
 };
