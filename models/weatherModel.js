@@ -1,7 +1,7 @@
 'use strict';
 
 const queryString = require('query-string');
-const formatDate = require('../config/date-format');
+const formatDate = require('../utils/date-format');
 const fetch = require('node-fetch');
 const baseURL = 'https://www.metaweather.com/api/location';
 const defaultCity = 'Moscow';
