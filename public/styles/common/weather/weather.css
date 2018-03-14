@@ -9,11 +9,10 @@
     display: grid;
     grid-column-gap: 30px;
     grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-        "l o"
-        "s t"
-        "s w"
-        "s m";
+    grid-template-areas: 'l o'
+        's t'
+        's w'
+        's m';
 }
 
 .weather .metcast

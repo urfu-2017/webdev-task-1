@@ -20,10 +20,7 @@ function parseFeed(apiData) {
 }
 
 module.exports.getNews = async (category, country) => {
-    const query = querystring.stringify({
-        apiKey: API.apiKey,
-        category: category,
-        country: country });
+    const query = querystring.stringify({ apiKey: API.apiKey, category, country });
     const requestUrl = API.url + API.search + query;
     const apiData = await fetch(requestUrl).then(result => result.json());
 

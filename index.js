@@ -6,7 +6,7 @@ const hbs = require('hbs');
 const express = require('express');
 
 const routes = require('./routes');
-const config = require('./config/default.json');
+const { port } = require('./config/default.json');
 const { info, serverError } = require('./middlewares');
 
 const app = express();
@@ -19,7 +19,7 @@ app.use('/', routes);
 app.use(serverError);
 
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'), () => {
-    app.listen(process.env.PORT || config.port);
+    app.listen(process.env.PORT || port);
 });
 
 module.exports = app;

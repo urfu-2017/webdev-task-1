@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint .",
+    "lint": "eslint . && stylelint **/*.css",
     "test": "npm run lint && mocha tests/*.js --exit"
   },
   "dependencies": {
