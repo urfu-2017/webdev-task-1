@@ -1,0 +1,5 @@
+.article__publish
+{
+    grid-area: p;
+    text-align: right;
+}

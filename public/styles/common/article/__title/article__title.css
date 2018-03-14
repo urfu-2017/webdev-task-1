@@ -1,0 +1,5 @@
+.article__title
+{
+    grid-area: t;
+    -webkit-margin-before: 0;
+}

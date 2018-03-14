@@ -1,0 +1,5 @@
+.weather__state
+{
+    grid-area: s;
+    text-align: right;
+}

@@ -1,0 +1,15 @@
+<div class="feed">
+    {{#if news.message}}
+    <div class="feed__message">{{ news.message }}</div>
+    {{^}}
+    {{#each news.feed}}
+    <div class="article">
+        <h3 class="article__title"><a href="{{ url }}" class="link">{{ title }}</a></h3>
+        <div class="article__preview"><img src="{{ image }}" alt="preview" class="article__preview_image"></div>
+        <div class="article__description">{{ description }}</div>
+        <div class="article__source">{{ source }}</div>
+        <div class="article__publish">{{ publishDatetime }}</div>
+    </div>
+    {{/each}}
+    {{/if}}
+</div>

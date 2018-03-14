@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang={{ lang }}>
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="/styles/index.css">
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            {{#if isMainPage}}
+            {{^}}
+            <a href="/?query={{ weather.today.location }}&country={{ country }}" class="header__back">{{ backText }}</a>
+            {{/if}}
+            <h1 class="header__title">{{ title }}</h1>
+        </header>
+
+        <div class="weather">
+            {{#if weather.message}}
+            <div class="weather__message">{{ weather.message }}</div>
+            {{^}}
+            <h3 class="weather__location">{{ weather.today.location }}</h3>
+
+            <div class="weather__state">
+                <img src="https://www.metaweather.com/static/img/weather/{{ weather.today.state.abbr }}.svg"
+                    alt="{{ weather.today.state.name }}"
+                    class="weather__state_icon">
+            </div>
+
+            <div class="weather__temp">{{ weather.today.temp }}&deg;C</div>
+            <div class="weather__wind">{{ weather.today.windSpeed }} м/с</div>
+
+            <div class="metcast">
+                {{#each weather.metcast}}
+                <div class="metcast-item">
+                    <div class="metcast-item__date">{{ date }}</div>
+                    <div class="metcast-item__temp">{{ temp }}&deg;C</div>
+                    <div class="metcast-item__wind">{{ windSpeed }} м/с</div>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+
+        {{#if isMainPage}}
+        <div class="news-categories">
+            <h2 class="news-categories__title">{{ newsCategoriesTitle }}</h2>
+            {{#each newsCategories}}
+            <div class="category">
+                <a href="/news/{{ originalName }}?query={{ location }}&country={{ country }}" class="link">
+                    <img src="/images/{{ originalName }}.png" alt="{{ name }}" class="category__icon">
+                    <span class="category__name">{{ name }}</span>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+        {{^}}
+        <div class="feed">
+            {{#if news.message}}
+            <div class="feed__message">{{ news.message }}</div>
+            {{^}}
+            {{#each news.feed}}
+            <div class="article">
+                <h3 class="article__title"><a href="{{ url }}" class="link">{{ title }}</a></h3>
+                <div class="article__preview"><img src="{{ image }}" alt="preview" class="article__preview_image"></div>
+                <div class="article__description">{{ description }}</div>
+                <div class="article__source">{{ source }}</div>
+                <div class="article__publish">{{ publishDatetime }}</div>
+            </div>
+            {{/each}}
+            {{/if}}
+        </div>
+        {{/if}}
+
+        <footer class="footer">
+            <div class="footer__author">&copy;{{ author }}</div>
+            <div class="footer__year">{{ year }}</div>
+        </footer>
+    </main>
+</body>
+</html>

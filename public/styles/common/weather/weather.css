@@ -1,0 +1,21 @@
+.weather
+{
+    font-size: 22px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-width: 1px 2px;
+    border-style: solid;
+    border-color: #ddd;
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 'l o'
+        's t'
+        's w'
+        's m';
+}
+
+.weather .metcast
+{
+    grid-area: m;
+}

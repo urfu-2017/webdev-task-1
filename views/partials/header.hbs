@@ -1,0 +1,7 @@
+<header class="header">
+    {{#if isMainPage}}
+    {{^}}
+    <a href="/?query={{ weather.today.location }}&country={{ country }}" class="header__back">{{ backText }}</a>
+    {{/if}}
+    <h1 class="header__title">{{ title }}</h1>
+</header>

@@ -1,0 +1,9 @@
+<div class="metcast">
+    {{#each weather.metcast}}
+    <div class="metcastItem">
+        <div class="metcastItem__date">{{ date }}</div>
+        <div class="metcastItem__temp">{{ temp }}&deg;C</div>
+        <div class="metcastItem__windSpeed">{{ windSpeed }} м/с</div>
+    </div>
+    {{/each}}
+</div>
