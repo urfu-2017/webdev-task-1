@@ -1,0 +1,43 @@
+<div class="weather">
+    <div class="weather__content">
+        <h1 class="weather__city">{{cityForWeather}}</h1>
+        <img class="weather__img" src="https://www.metaweather.com/static/img/weather/png/64/{{
+            firstDay.state }}.png">
+    </div>
+    <div class="weather__info">
+        <div class="weather__today">
+            <div class="weather__temp">
+                <img class="weather__todayTemp" src="/images/temp.png" alt="погода" /> 
+                {{ firstDay.tepmSign }} {{firstDay.temp}}&#176;C</div>
+            <div class="weather__windSpeed">
+                <img class="weather__todayWind" src="/images/wind.svg" alt="ветер" /> 
+                {{firstDay.windSpeed}} м/c
+            </div>
+        </div>
+        <div class="weather__allDays">
+            <table>
+                <tr>
+                    {{#each weatherInfoForFiveDays}}
+                    <td class="weather__columns">
+                        <p class="weather__date">{{date}}</p>
+                    </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each weatherInfoForFiveDays}}
+                    <td class="weather__columns">
+                        <div class="weather__oneDayTemp">
+                            <img class="weather__odeDayTempImg" src="/images/temp.png" alt="погода" /> 
+                            {{ tepmSign }} {{temp}}&#176;C
+                        </div>
+                        <div class="weather__oneDayWindSpeed">
+                            <img class="weather__oneDayWindImg" src="/images/wind.svg" alt="ветер" /> 
+                            {{windSpeed}} м/c
+                        </div>
+                    </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

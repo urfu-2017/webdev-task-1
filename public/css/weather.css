@@ -1,0 +1,61 @@
+.weather
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.weather__info,
+.weather__content
+{
+    margin: 0 15px;
+}
+
+.weather__img
+{
+    width: 100px;
+}
+
+.weather__columns
+{
+    padding-right: 10px;
+}
+
+.weather__allDays
+{
+    border: 2px solid black;
+}
+
+td
+{
+    border: 2px solid black;
+    text-align: center;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+.weather__today
+{
+    font-size: 30px;
+}
+
+.weather__todayWind,
+.weather__todayTemp
+{
+    width: 50px;
+    vertical-align: middle;
+}
+
+.weather__oneDayWindImg,
+.weather__odeDayTempImg
+{
+    width: 20px;
+}
+
+.app__name
+{
+    text-align: center;
+}

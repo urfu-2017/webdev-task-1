@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang={{app.lang}}>
+
+<head>
+    <meta charset={{app.meta.charset}}>
+    <title>{{app.title.home}}</title>
+    <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/topics.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <h1 class="app__name">{{app.appName}}</h1>
+    {{> weatherWidget}}
+    {{> topics}}
+    {{> footer}}
+</body>
+
+</html>

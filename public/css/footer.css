@@ -1,0 +1,14 @@
+.footer__author
+{
+    float: left;
+}
+
+.footer__years
+{
+    float: right;
+}
+
+.footer
+{
+    margin-top: 40px;
+}

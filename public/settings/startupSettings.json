@@ -1,0 +1,12 @@
+{
+    "lang": "en",
+    "meta": {
+        "charset": "utf-8",
+        "description": "Awesome app"
+    },
+    "title": {
+        "home": "Главная",
+        "news": "Новости"
+    },
+    "appName": "Илон Маск возьми меня на Марс"
+}
