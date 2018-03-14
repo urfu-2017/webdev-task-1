@@ -7,6 +7,7 @@ const hbs = require('hbs');
 
 const routes = require('./routes');
 const config = require('./config');
+const initialData = require('./middlewares/setInitialData');
 
 const app = express();
 
@@ -19,11 +20,7 @@ app.set('views', viewsDir);
 
 
 app.use(express.static(publicDir));
-app.use((req, res, next) => {
-    res.locals.title = 'Новости';
-
-    next();
-});
+app.use(initialData);
 routes(app);
 
 const port = config.port || 8080;
