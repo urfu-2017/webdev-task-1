@@ -1,14 +1,16 @@
 'use strict';
 
-const data = require('../data');
+import data from '../data';
+import config from '../config';
+import { WeatherManager } from '../models/weather';
 
 exports.list = async (req, res) => {
     res.render('categories', {
         title: 'Илон слишком занят',
         categories: data.categories,
-        weatherData: req.weatherData,
+        weatherData: await WeatherManager.getWeatherData(req.params),
         dateOptions: {
-            lang: 'ru'
+            lang: config.language
         }
     });
 };

@@ -1,14 +1,16 @@
 'use strict';
 
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('4c0a86d23c184ab2bbddacb91c2405fa');
+import NewsAPI from 'newsapi';
+import config from '../config';
+
+const newsapi = new NewsAPI(config.apiKey);
 
 class NewsManager {
     static async findByCategory(name) {
         return newsapi.v2.topHeadlines({
             category: name,
-            language: 'ru',
-            country: 'ru'
+            language: config.language,
+            country: config.language
         });
     }
 }
