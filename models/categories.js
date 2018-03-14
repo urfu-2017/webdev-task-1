@@ -1,5 +1,10 @@
 'use strict';
+const fs = require('fs');
 
-const categories = require('../mocks/categories');
+module.exports = class Categories {
+    static getCategories() {
+        const data = fs.readFileSync('./mocks/categories.json');
 
-module.exports = categories;
+        return JSON.parse(data);
+    }
+};
