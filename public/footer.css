@@ -1,0 +1,22 @@
+footer
+{
+    min-height: 40px;
+}
+
+.footer__about-service
+{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.footer__about-service-left-part
+{
+    padding-left: 15px;
+    float: left;
+}
+
+.footer__about-service-right-part
+{
+    padding-right: 15px;
+    float: right;
+}

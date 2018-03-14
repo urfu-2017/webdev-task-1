@@ -1,0 +1,57 @@
+.note
+{
+    border: 4px solid #dbd3d3;
+    margin: 50px;
+    display: grid;
+    padding: 20px;
+    grid-gap: 15px;
+    grid-template-areas: 'c c e1 e1 t'
+    'p p d d e2'
+    'p p d d e2'
+    'p p d d s';
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /*
+    c - caption
+    t - time
+    p - picture
+    d - description
+    s - source
+    e - empty
+    */
+}
+
+.note__title
+{
+    grid-area: c;
+    font: bold italic 24px Arial sans-serif;
+}
+
+.note__date
+{
+    grid-area: t;
+    color: #808080;
+}
+
+.note__picture
+{
+    grid-area: p;
+}
+
+.note__picture_contain
+{
+    border: 1px solid #000;
+    width: 100%;
+}
+
+.note__description
+{
+    grid-area: d;
+    font-size: 20px;
+}
+
+.note__source
+{
+    grid-area: s;
+    color: #808080;
+}

@@ -1,0 +1,12 @@
+<link href="/news/categories-news.css" rel="stylesheet">
+<div class="news">
+    <div class="news__title">Категории новостей</div>
+    {{#each metaData.categories}}
+        <a class="news__category" href='/{{@key}}?{{../query}}'>
+            <div class="news__picture-category">
+                <img src="pictures/category/{{@key}}.png" alt="{{this}}">
+            </div>
+            <div class="news__name-category">{{this}}</div>
+        </a>
+    {{/each}}
+</div>

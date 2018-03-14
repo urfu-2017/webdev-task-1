@@ -1,0 +1,110 @@
+.weather
+{
+    width: 800px;
+    margin: 30px auto;
+    border: 4px double #000;
+    background: #e3fdff;
+}
+
+.weather_status_loaded
+{
+    display: grid;
+    padding: 20px 5px;
+    grid-gap: 15px;
+    grid-template-areas: 'c c t t e1'
+    'i i w w e1'
+    'i i d d d'
+    'e2 e2 d d d';
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /*
+    c - city
+    i - icon
+    t - temperature
+    e - empty
+    w - wind
+    d - days
+     */
+}
+
+.weather__name-city
+{
+    grid-area: c;
+    align-self: center;
+    justify-self: center;
+    font-size: 28px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weather__icon
+{
+    grid-area: i;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+}
+
+.weather__current-temperature
+{
+    grid-area: t;
+    align-self: flex-end;
+    justify-self: flex-start;
+    font-size: 32px;
+}
+
+.weather__current-wind
+{
+    grid-area: w;
+    align-self: center;
+    justify-self: flex-start;
+    font-size: 32px;
+}
+
+.weather__current-wind-picture
+{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.weather__wind_vertical-aligin_top
+{
+    display: inline-block;
+    vertical-align: top
+}
+
+.weather__days
+{
+    grid-area: d;
+    align-self: flex-end;
+    justify-self: flex-start;
+}
+
+.weather__days-table_border
+{
+    border-collapse: collapse;
+    border: 2px solid #000;
+    text-align: center;
+}
+
+.weather__days_cell_size
+{
+    width: 90px;
+    height: 30px;
+    border: 1px solid #000;
+}
+
+.weather__days_cell_border
+{
+    border-top: none;
+    border-bottom: none;
+}
+
+.weather__log-message
+{
+    text-align: center;
+    font-size: 28px;
+    margin: auto;
+}

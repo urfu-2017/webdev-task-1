@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link href="common.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
+    <link href="header.css" rel="stylesheet">
+    <title>{{ metaData.title }}</title>
+</head>
+<body>
+    <header>
+        {{#isnt pageName 'main'}}
+            <a class="header__button-to-home" href="../?{{query}}">На главную</a>
+        {{/isnt}}
+        <div class="header__service-title">Сервис "Илон слишком занят"</div>
+    </header>
+    {{{body}}}
+    <hr>
+    <footer>
+        <div class="footer__about-service footer__about-service-left-part">© graf-m-96</div>
+        <div class="footer__about-service footer__about-service-right-part">2018</div>
+    </footer>
+</body>
+</html>

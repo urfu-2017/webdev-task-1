@@ -1,0 +1,11 @@
+body
+{
+    margin: 0;
+    min-width: 900px;
+}
+
+hr
+{
+    background: #dcdcdc;
+    height: 1px;
+}

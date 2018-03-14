@@ -1,0 +1,45 @@
+<link href="/weather/weather.css" rel="stylesheet">
+{{#eq weather.status 'ok'}}
+    <div class="weather weather_status_loaded">
+        <div class="weather__name-city">{{ weather.locationName }}</div>
+        <img class="weather__icon" src="{{ weather.urlToWeatherPicture }}" alt="Иконка погоды">
+        <div class="weather__current-temperature">t&nbsp;&nbsp;&nbsp;&nbsp; {{ weather.currentTemperature }}&#8451;</div>
+        <div class="weather__current-wind">
+            <div class="weather__wind_vertical-aligin_top">
+                <img class="weather__current-wind-picture" src="/pictures/wind.png" alt="Иконка ветра">
+            </div>
+            <div class="weather__wind_vertical-aligin_top">&nbsp;{{ weather.currentWind }}<sup>м</sup>&frasl;<sub>с</sub></div>
+        </div>
+        <table class="weather__days weather__days-table_border">
+            <tr>
+                {{#each weather.nextWeather}}
+                <th class="weather__days_cell_size weather__days_cell_border"> {{ date }}</th>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each weather.nextWeather}}
+                <td class="weather__days_cell_size weather__days_cell_border">
+                    {{ temperature }}&#8451;
+                </td>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each weather.nextWeather}}
+                <td class="weather__days_cell_size weather__days_cell_border">
+                    &nbsp;&nbsp;{{ wind }}<sup>м</sup>&frasl;<sub>с</sub>
+                </td>
+                {{/each}}
+            </tr>
+        </table>
+    </div>
+{{/eq}}
+{{#eq weather.status 'error'}}
+    <div class="weather">
+        <div class="weather__log-message">Произошла ошибка при запросе к сервису погоды</div>
+    </div>
+{{/eq}}
+{{#eq weather.status 'invalid'}}
+    <div class="weather">
+        <div class="weather__log-message">Некорректные query параметры при запросе к сервису погоды</div>
+    </div>
+{{/eq}}

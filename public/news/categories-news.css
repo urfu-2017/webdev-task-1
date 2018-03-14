@@ -1,0 +1,27 @@
+.news
+{
+    margin: 20px 0 20px;
+}
+
+.news__title
+{
+    font-size: 36px;
+    font-weight: 500;
+    margin: 15px 0 15px 70px;
+}
+
+.news__category
+{
+    display: block;
+    text-decoration: none;
+    font-size: 36px;
+    margin: 15px 0 0 150px;
+    cursor: pointer;
+}
+
+.news__picture-category,
+.news__name-category
+{
+    display: inline-block;
+    vertical-align: middle;
+}

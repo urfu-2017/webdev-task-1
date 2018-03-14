@@ -1,0 +1,16 @@
+<link href="/news/note.css" rel="stylesheet">
+{{#each news.articles}}
+    <div class="note">
+        <div class="note__title">{{author}}</div>
+        {{#if urlToImage}}
+            <img class="note__picture note__picture_contain" src="{{urlToImage}}" alt="{{title}}">
+        {{/if}}
+        {{#if description}}
+            <div class="note__picture note__description">{{description}}</div>
+        {{else}}
+            <a href="{{url}}" target="_blank">Ссылка на официальную статью</a>
+        {{/if}}
+        <div class="note__date">{{formattedNote}}</div>
+        <div class="note__source">{{source.name}}</div>
+    </div>
+{{/each}}
