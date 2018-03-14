@@ -2,9 +2,9 @@
 
 const request = require('request');
 const querystring = require('querystring');
-const config = require('config');
+const config = require('../config');
 
-const URL = config.get('newsURL');
+const URL = config.newsURL;
 
 function createRequestPromise(options) {
     return new Promise((resolve) => {
@@ -62,8 +62,8 @@ class NewsArticle {
 
     static async findAll({ category, country }) {
         const query = querystring.stringify({
-            apiKey: config.get('key'),
-            country: country || config.get('defaultCountry'),
+            apiKey: config.key,
+            country: country || config.defaultCountry,
             category
         });
         const news = (await loadNews(query)).articles;

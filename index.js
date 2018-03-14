@@ -4,9 +4,9 @@ const path = require('path');
 
 const express = require('express');
 const hbs = require('hbs');
-const config = require('config');
 
 const routes = require('./routes');
+const config = require('./config');
 
 
 const app = express();
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 routes(app);
 
-const port = config.get('port');
+const port = config.port;
 // Подключаем директорию с отдельными частями шаблонов
 // Этот метод асинхронный и мы запускаем сервер только после того,
 // как все частичные шаблоны будут прочитаны

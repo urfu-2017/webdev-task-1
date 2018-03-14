@@ -2,9 +2,9 @@
 
 const request = require('request');
 const querystring = require('querystring');
-const config = require('config');
+const config = require('../config');
 
-const URL = config.get('weatherURL');
+const URL = config.weatherURL;
 
 function createRequestPromise(options) {
     return new Promise((resolve) => {
@@ -49,7 +49,7 @@ function defaultQuery(queryCountry, lat, lon) {
         return queryCountry;
     }
     if (!lat || !lon) {
-        return config.get('defaultCity');
+        return config.defaultCity;
     }
 
     return undefined;
