@@ -6,14 +6,18 @@ const baseUrl = config.weather;
 
 module.exports = class Weather {
     static async getWeather(options) {
-        const url = this.buildUrl(options);
-        let data = await fetch(url);
-        let weatherData = await data.json();
-        const woeidUrl = `${baseUrl}${weatherData[0].woeid}/`;
-        data = await fetch(woeidUrl);
-        weatherData = await data.json();
+        const woeidUrl = await this.getWoeid(options);
+        const data = await fetch(woeidUrl);
+        const weatherData = await data.json();
 
         return this.buildWeatherData(weatherData);
+    }
+    static async getWoeid(options) {
+        const url = this.buildUrl(options);
+        const data = await fetch(url);
+        const weatherData = await data.json();
+
+        return `${baseUrl}${weatherData[0].woeid}/`;
     }
     static buildUrl(options) {
         if (options.lat && options.lon) {
