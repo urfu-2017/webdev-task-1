@@ -11,6 +11,7 @@ const Topic = require('./models/topic');
 const { getWeatherInfo } = require('./middlewares/weatherMiddleware');
 const { setSettings } = require('./middlewares/startupMiddleware');
 const startupSettings = require('./public/settings/startupSettings');
+const config = require('./public/settings/config');
 
 
 for (const topic of topics) {
@@ -32,8 +33,9 @@ app.use(getWeatherInfo);
 routes(app);
 
 hbs.registerPartials(partialsDir, () => {
-    app.listen(8080);
-    console.info('http://localhost:8080');
+    let port = config.port;
+    app.listen(port);
+    console.info(`http://localhost:${port}`);
 });
 
 module.exports = app;

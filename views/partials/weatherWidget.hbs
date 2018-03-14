@@ -7,10 +7,10 @@
     <div class="weather__info">
         <div class="weather__today">
             <div class="weather__temp">
-                <img class="weather__today__temp" src="/images/temp.png" alt="погода" /> 
+                <img class="weather__todayTemp" src="/images/temp.png" alt="погода" /> 
                 {{ firstDay.tepmSign }} {{firstDay.temp}}&#176;C</div>
             <div class="weather__windSpeed">
-                <img class="weather__today__wind" src="/images/wind.svg" alt="ветер" /> 
+                <img class="weather__todayWind" src="/images/wind.svg" alt="ветер" /> 
                 {{firstDay.windSpeed}} м/c
             </div>
         </div>
@@ -19,19 +19,19 @@
                 <tr>
                     {{#each weatherInfoForFiveDays}}
                     <td class="weather__columns">
-                        <p class="weather_date">{{date}}</p>
+                        <p class="weather__date">{{date}}</p>
                     </td>
                     {{/each}}
                 </tr>
                 <tr>
                     {{#each weatherInfoForFiveDays}}
                     <td class="weather__columns">
-                        <div class="weather__oneDay__temp">
-                            <img class="weather__odeDay__temp-img" src="/images/temp.png" alt="погода" /> 
+                        <div class="weather__oneDayTemp">
+                            <img class="weather__odeDayTempImg" src="/images/temp.png" alt="погода" /> 
                             {{ tepmSign }} {{temp}}&#176;C
                         </div>
-                        <div class="weather__oneDay__windSpeed">
-                            <img class="weather__oneDay__wind" src="/images/wind.svg" alt="ветер" /> 
+                        <div class="weather__oneDayWindSpeed">
+                            <img class="weather__oneDayWindImg" src="/images/wind.svg" alt="ветер" /> 
                             {{windSpeed}} м/c
                         </div>
                     </td>
@@ -39,6 +39,5 @@
                 </tr>
             </table>
         </div>
-
     </div>
 </div>

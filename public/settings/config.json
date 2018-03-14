@@ -1,5 +1,6 @@
 {
     "apiKey": "123ce955c36e452094dac4fb923a91d6",
     "weatherApiUrl": "https://www.metaweather.com/api/location/",
-    "newsApiUrl": "https://newsapi.org/v2/top-headlines?"
+    "newsApiUrl": "https://newsapi.org/v2/top-headlines?",
+    "port": "8080"
 }

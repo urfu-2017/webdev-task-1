@@ -2,7 +2,7 @@
 {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .weather__info,
@@ -42,15 +42,15 @@ table
     font-size: 30px;
 }
 
-.weather__today__wind,
-.weather__today__temp
+.weather__todayWind,
+.weather__todayTemp
 {
     width: 50px;
     vertical-align: middle;
 }
 
-.weather__oneDay__wind,
-.weather__odeDay__temp-img
+.weather__oneDayWindImg,
+.weather__odeDayTempImg
 {
     width: 20px;
 }
