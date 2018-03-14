@@ -2,27 +2,30 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js"
+    "test": "npm run lint && mocha tests/*.js --exit",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "config": "^1.30.0",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
-    "express-bem": "^1.1.0",
     "express-handlebars": "^3.0.0",
-    "generator-bem-stub": "^0.12.0",
-    "google-translate-api": "^2.3.0",
-    "handlebars": "^4.0.11",
-    "hbs-json": "^0.1.1",
+    "lru-cache": "^4.1.2",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
-    "urlencode": "^1.1.0",
+    "stylelint": "^9.1.1",
+    "stylelint-config-hrundel": "^1.0.3",
     "yandex-translate-api": "^1.0.1"
   },
   "devDependencies": {
-    "enb": "^1.5.1",
     "eslint": "^4.8.0",
     "eslint-config-hrundel": "^1.3.0",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^1.0.2",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.4",
     "mocha": "^5.0.1",
     "nodemon": "^1.17.1",
     "supertest": "^3.0.0"

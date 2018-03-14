@@ -1,0 +1,7 @@
+{
+    "extends": "stylelint-config-hrundel",
+    "rules": {
+       "declaration-block-no-ignored-properties": null
+    }
+}
+  

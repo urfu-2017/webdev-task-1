@@ -1,17 +1,11 @@
 <section class="forecast">
-{{#if weatherToday.length}}
-    
+    {{#if weatherToday.length}}
         {{#each weatherToday}}
             <div class="forecast__town">{{ town }}</div>
             <div class="forecast__weather"><img src = {{ weather }}></div>
-            <div class="forecast__windDirection">{{ windDirection }}</div>
             <div class="forecast__date">{{ date }}</div>
             <div class="forecast__temp">{{ temp }}&#176;C</div>
-            <div class="forecast__windSpeed">{{ windSpeed }}<sup>м</sup>/<sub>с</sub></div>
-            <div class="forecast__air">{{ air }} мм рт ст</div>
-            <div class="forecast__humidity">{{ humidity }}%</div>
         {{/each}}
-
         <table class="forecast__forecastForWeek"> 
             <tr>
                 {{#each weatherOther}}
@@ -31,8 +25,7 @@
                 {{/each}}
             </tr>            
         </table>
-    
     {{^}}
-    <p>Weather not found :c</p>
-{{/if}}
+        <p>Weather not found :c</p>
+    {{/if}}
 </section>

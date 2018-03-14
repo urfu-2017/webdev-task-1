@@ -4,50 +4,17 @@
 <hr>
 {{> weather}}
 <hr>
+<div>Категории новостей</div>
+<hr>
 <section class="news">
-    <div>Категории новостей</div>
-    <article>
-        <a href="/news/business">
-            <div class="business icon"></div>
-            <div class="news__topic">Бизнес</div>
-        </a>
-    </article>
-    <article>
-        <a href="/news/entertainment">
-            <div class="entertainment icon"></div>
-            <div class="news__topic">Развлечения</div>
-        </a>
-    </article>    
-    <article>
-        <a href="/news/general">
-            <div class = "other icon"></div>
-            <div class="news__topic">Общее</div>
-        </a>
-    </article>
-    <article>
-        <a href="/news/health">
-            <div class = "health icon"></div>
-            <div class="news__topic">Здоровье</div>
-        </a>
-    </article>
-    <article>
-        <a href="/news/science">
-            <div class = "science icon"></div>
-            <div class="news__topic">Наука</div>
-        </a>
-    </article>
-    <article>
-        <a href="/news/sport">
-            <div class = "sport icon"></div>
-            <div class="news__topic">Спорт</div>
-        </a>
-    </article>
-    <article>
-        <a href="/news/technology">
-            <div class = "tech icon"></div>
-            <div class="news__topic">Технологии</div>
-        </a>
-    </article>
+    {{#each newsItems}}
+        <article class="news__category">
+            <a href={{ link }}>
+                <img class="news__icon" src={{ icon }} alt="Красивая картиночка">
+                <div class="news__topic">{{ topic }}</div>
+            </a>
+        </article>
+    {{/each}}
 </section>
 <section class="footer">
     &copy; chrighter 2018

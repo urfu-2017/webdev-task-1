@@ -1,13 +1,11 @@
 'use strict';
 
-const { getNews } = require('../models/news');
-const { getWeather } = require('../models/weather');
+const News = require('../models/news');
 
 exports.renderNews = async (req, res) => {
-    let news = await getNews(req);
-    let weather = await getWeather(req);
+    let news = await News.getNews(req);
     let container = {};
-    Object.assign(container, weather);
+    Object.assign(container, req.weather);
     Object.assign(container, { news });
     res.render('news', container);
 };

@@ -1,0 +1,143 @@
+ @font-face
+   font-family RobotoCondensed
+   font-style normal
+   src url(fonts/RobotoCondensed.ttf)
+
+body
+    font-family RobotoCondensed, Arial, sans-serif
+    min-width 800px
+    margin auto
+    font-size 20px
+    width 50%
+    padding 10px
+
+a
+    text-decoration none
+
+article div
+    display inline-block
+    vertical-align top
+
+section
+    height 60px
+
+.weather img
+    height 70px
+
+.footer
+    position fixed
+    bottom 0
+    left 0
+
+.back
+    position fixed
+    top 0
+    left 0
+
+.news
+    position absolute
+    top 450px
+    width 800px
+
+    &__title
+    &__date
+        display inline-block
+        vertical-align top
+
+    &__title
+        width 70.5%
+
+    &__translateTitle
+        color #ff0080
+
+    &__date
+        width 25%
+
+    &__author
+        width 25%
+
+    &__description
+        width 40%
+
+    &__description
+    &__author
+    &__img
+        display inline-block
+        vertical-align top
+
+    &__img img
+        width 200px
+
+    &__img
+        width 30%
+
+    &__icon
+        width 30px
+        height 30px
+
+    &__category
+        text-align center    
+
+    &__category:hover
+        border .5px ridge #ff0080
+
+
+.forecast
+    display grid
+    width 100%
+    height 300px
+    grid-template-areas 'location          date'\
+        'weatherForToday   tempForToday'\
+        'none weatherForWeek'
+
+    grid-template-rows 40px 80px 40px 40px 1fr
+    grid-template-columns 150px 1fr
+
+    &__weather
+        grid-area weatherForToday
+
+    &__weather img
+        width 80px
+
+    &__temp
+        grid-area tempForToday
+
+    &__windDirection
+        grid-area windDirectionForToday
+
+    &__windSpeed
+        grid-area windSpeedForToday
+
+    &__forecastForWeek
+        grid-area weatherForWeek
+
+    &__date
+        grid-area date
+
+    &__air
+        grid-area air
+
+    &__humidity
+        grid-area humidity
+
+    &__town
+        grid-area: location
+
+    &__forecastForWeek
+    &__forecastForWeek th
+    &__forecastForWeek td
+        border .5px ridge #ff0080
+    
+.forecastOther
+    grid-area weatherForWeek
+
+.forecastToday__windDirection
+.forecastToday__windSpeed
+    display inline-block
+
+.header
+    text-align center
+
+.header::first-letter
+    font-size 55px
+    color #ff0080

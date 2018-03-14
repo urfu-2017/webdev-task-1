@@ -1,56 +1,85 @@
 'use strict';
 
-const { getResponse } = require('./sendResponse');
-const config = require('./default');
-const { URL } = require('url');
+const { format } = require('url');
+const path = require('path');
 
-let townForWeather = config.townForWeather;
-let urlForWeatherPic = new URL(config.urlForWeatherPic);
-let cache = {};
-let dayOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-let today = 0;
+const dotenv = require('dotenv');
+const lru = require('lru-cache');
+const request = require('request-promise-native');
 
-module.exports.getWeather = async req => {
-    let town = req.query.town ? req.query.town : townForWeather;
-    let date = new Date().toLocaleDateString('en-US', dayOptions);
-    if (!(Object.keys(cache).includes(town) && date === cache[town].weatherToday[0].date)) {
-        let urlTownId = new URL(config.urlTownId);
-        let urlForWeatherinTown = new URL(config.urlForWeatherinTown);
-        urlTownId.searchParams.append('query', town);
-        let location = await getResponse(urlTownId.href);
-        urlForWeatherinTown.href += location[0].woeid;
-        let forecast = getObjectForRenderWeather(await getResponse(urlForWeatherinTown.href));
-        let todayWeather = forecast[0];
-        let weekWeather = forecast[1];
-        cache[town] = { weatherToday: todayWeather, weatherOther: weekWeather };
+const defaultValues = dotenv.config({ path: path.join(__dirname, '../.env') }).parsed;
+const dayOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+const today = 0;
+const options = { max: 500,
+    maxAge: 1000 * 60 * 60 * 12 };
+let cache = lru(options);
+
+class Weather {
+    static async getWeather(req) {
+        let town = req.query.town ? req.query.town : defaultValues.TOWN_FOR_WEATHER;
+        let date = new Date().toLocaleDateString(dayOptions);
+        if (!(Object.keys(cache).includes(town) && date === cache[town].weatherToday[0].date)) {
+            let location = (await getResponse(
+                setUrl(defaultValues.HOST_FOR_WEATHER,
+                    defaultValues.PATHNAME_FOR_TOWN_ID,
+                    null,
+                    { query: req.query.town || defaultValues.TOWN_FOR_WEATHER }
+                )))[0].woeid;
+            let urlForWeatherinTown = setUrl(defaultValues.HOST_FOR_WEATHER,
+                defaultValues.PATHNAME_FOR_WEATHER_IN_TOWN + `/${location}`,
+                null);
+            let forecast = getObjectForRenderWeather(await getResponse(urlForWeatherinTown));
+            let todayWeather = forecast[0];
+            let weekWeather = forecast[1];
+            cache.set(town, { weatherToday: todayWeather, weatherOther: weekWeather });
+        }
+
+        return cache.get(town);
     }
+}
 
-    return cache[town];
-};
+function setUrl(host, pathname, kek, params) {
+    const url = format({
+        protocol: defaultValues.PROTOCOL,
+        host,
+        pathname,
+        query: params
+    });
+
+    return url;
+}
 
 function getObjectForRenderWeather(data) {
-    let town = data.title;
     let forecast = data.consolidated_weather;
     let objectForRenderTodayWeather = [];
     let objectForRenderWeekWeather = [];
-    objectForRenderTodayWeather.push({ town: town, weather:
-        getWeatherPicture(forecast[today].weather_state_abbr),
-    date: new Date(forecast[today].applicable_date).toLocaleDateString('en-US', dayOptions),
-    temp: Math.round(forecast[today].the_temp), windSpeed: Math.round(forecast[today].wind_speed),
-    air: Math.round(forecast[today].air_pressure),
-    humidity: forecast[today].humidity });
+    objectForRenderTodayWeather.push({ town: data.title,
+        weather: getWeatherPicture(forecast[today].weather_state_abbr),
+        date: new Date(forecast[today].applicable_date).toLocaleDateString(dayOptions),
+        temp: Math.round(forecast[today].the_temp)
+    });
 
     for (let i = 1; i < forecast.length; i++) {
-        let date = new Date(forecast[today].applicable_date)
-            .toLocaleDateString('en-US', dayOptions);
-        let theTemp = Math.round(forecast[i].the_temp);
-        let windSpeed = Math.round(forecast[i].wind_speed);
-        objectForRenderWeekWeather.push({ temp: theTemp, windSpeed, date });
+        objectForRenderWeekWeather.push({ temp: Math.round(forecast[i].the_temp),
+            windSpeed: Math.round(forecast[i].wind_speed),
+            date: new Date(forecast[today].applicable_date)
+                .toLocaleDateString(dayOptions) });
     }
 
     return [objectForRenderTodayWeather, objectForRenderWeekWeather];
 }
 
 function getWeatherPicture(abbr) {
-    return `${urlForWeatherPic}${abbr}.svg`;
+    return setUrl(defaultValues.HOST_FOR_WEATHER,
+        defaultValues.PATHNAME_FOR_WEATHER_PICTURE + `/${abbr}.svg`,
+        null
+    );
 }
+
+function getResponse(url) {
+    return request(url)
+        .then(response => JSON.parse(response))
+        .catch(err => err);
+}
+
+module.exports = Weather;
