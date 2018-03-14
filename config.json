@@ -1,0 +1,5 @@
+{
+    "weather": "https://www.metaweather.com/api/location/",
+    "newsApiKey": "f8c7968376984c3db60b4759fa20cfe4",
+    "weatherImg": "https://www.metaweather.com/static/img/weather/"
+}

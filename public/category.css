@@ -1,0 +1,50 @@
+body {
+    margin: 6%;
+}
+
+.new {
+    border: solid 1px;
+    display: grid;
+    grid-template-columns:  37% 37% 26%;
+    grid-template-areas: 'a b c'
+    'e e f'
+    'e e g';
+    padding: 2%;
+}
+
+.new__title {
+    font-size: 1.5em;
+    grid-area: a;
+    overflow: hidden;
+}
+
+.new__content {
+    grid-area: e;
+    margin-top: 2%;
+    overflow: hidden;
+}
+
+.new__content__image {
+    float: left;
+    max-width: 50%;
+    margin-right: 2%;
+}
+
+.new__link {
+    font-size: 2em;
+    grid-area: g;
+    text-decoration: none;
+}
+
+.new__link__value {
+    float: right;
+    padding-top: 40%; 
+}
+
+.new__publishedAt {
+    grid-area: c;
+}
+
+.new__publishedAt__value {
+    float: right;
+}

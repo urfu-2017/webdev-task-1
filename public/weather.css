@@ -1,0 +1,69 @@
+.weather {
+    padding-left: 3%;
+    border: solid 1px;
+    display: grid;
+    grid-template-columns:  20% 20% 30% 30%;
+    grid-template-areas: 'a b b b';
+}
+
+.weather__header {
+    grid-area: a;
+    font-size: 3em;
+}
+
+.weather__header__img {
+    width: 130px;
+        
+}
+
+.weather__info {
+    margin-left: 50px;
+    margin-top: 10px;
+    grid-area: b;
+}
+
+.weather__info__currentTemp {
+    font-size: 2em;
+}
+
+.weather__info__windImg {
+    width: 50px;
+}
+
+.weather__info__currentWind {
+    display: inline-block;
+    position: relative;
+    font-size: 2em;
+    top: -16px;
+}
+
+.weather__info__almanac
+{
+    font-size: 0;
+    border-left: 1px solid;
+    margin-bottom: 20px;
+}
+
+.weather__info__almanac_day
+{
+    width: 60px;
+    font-size: 1rem;
+    display: inline-block;
+    text-align: center;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.weather__info__almanac__date
+{
+    padding: 10px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+}
+
+.weather__info__almanac__temp,
+.weather__info__almanac__wind
+{
+    padding: 5px;
+    border-right: 1px solid;
+}

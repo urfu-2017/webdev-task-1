@@ -1,0 +1,13 @@
+.header {
+    border: solid 1px;
+}
+.header__link {
+    font-size: 1.6em;
+    margin-left: 2%;
+    margin-top: 2%;
+    position: absolute;
+}
+
+.header__name {
+    text-align: center;
+}

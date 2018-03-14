@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ilon Mask</title>
+    <link rel="stylesheet" href="/header.css" media="screen">
+    <link rel="stylesheet" href="/weather.css" media="screen">
+    <link rel="stylesheet" href="/category.css" media="screen">
+    <link rel="stylesheet" href="/footer.css" media="screen">
+</head>
+{{> header}}
+
+<body>
+    <main>
+        {{> weather}}
+        {{#each news}}
+        <article class="new">
+            <h1 class="new__title">{{ title }}</h1>
+            <p class="new__content">
+                {{#if urlToImage}}
+                <img src="{{urlToImage}}" alt="{{title}}" class="new__content__image"> {{/if}}
+                <span class="new__content__description">{{description}}</span>
+            </p>
+            <div class="new__link">
+                <a href="{{url}}" class="new__link__value">
+                    Источник
+                </a>
+            </div>
+            <div class="new__publishedAt">
+                <span class="new__publishedAt__value">{{publishedAt}}</span>
+            </div>
+        </article>
+        {{/each}}
+    </main>
+</body>
+{{> footer}}
+
+</html>
