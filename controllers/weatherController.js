@@ -10,6 +10,4 @@ module.exports = async (req, res) => {
     res.locals.categories = categories;
     res.locals.weather = weatherData;
     res.render('index', frontPage);
-
-    return;
 };

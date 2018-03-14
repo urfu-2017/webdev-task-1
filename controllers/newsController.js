@@ -10,6 +10,4 @@ module.exports = async (req, res) => {
     res.locals.newsArticles = fetchedData[0];
     res.locals.weather = fetchedData[1];
     res.render('category');
-
-    return;
 };
