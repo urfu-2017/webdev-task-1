@@ -36,7 +36,7 @@ section
 
 .news
     position absolute
-    top 450px
+    top 390px
     width 800px
 
     &__title
@@ -47,7 +47,7 @@ section
     &__title
         width 70.5%
 
-    &__translateTitle
+    &__translate-title
         color #ff0080
 
     &__date
@@ -85,55 +85,36 @@ section
 .forecast
     display grid
     width 100%
-    height 300px
+    height 220px
     grid-template-areas 'location          date'\
-        'weatherForToday   tempForToday'\
-        'none weatherForWeek'
+        'weather-for-today   temp-for-today'\
+        'none weather-for-week'
 
-    grid-template-rows 40px 80px 40px 40px 1fr
+    grid-template-rows 40px 80px 1fr
     grid-template-columns 150px 1fr
 
     &__weather
-        grid-area weatherForToday
+        grid-area weather-for-today
 
     &__weather img
         width 80px
 
     &__temp
-        grid-area tempForToday
+        grid-area temp-for-today
 
-    &__windDirection
-        grid-area windDirectionForToday
-
-    &__windSpeed
-        grid-area windSpeedForToday
-
-    &__forecastForWeek
-        grid-area weatherForWeek
+    &__forecast-for-week
+        grid-area weather-for-week
 
     &__date
         grid-area date
 
-    &__air
-        grid-area air
-
-    &__humidity
-        grid-area humidity
-
     &__town
         grid-area: location
 
-    &__forecastForWeek
-    &__forecastForWeek th
-    &__forecastForWeek td
+    &__forecast-for-week
+    &__forecast-for-week th
+    &__forecast-for-week td
         border .5px ridge #ff0080
-    
-.forecastOther
-    grid-area weatherForWeek
-
-.forecastToday__windDirection
-.forecastToday__windSpeed
-    display inline-block
 
 .header
     text-align center
