@@ -6,8 +6,6 @@ const express = require('express');
 const hbs = require('hbs');
 
 const routes = require('./routes');
-// const config = require('./config');
-
 
 const app = express();
 
