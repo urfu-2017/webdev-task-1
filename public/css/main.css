@@ -10,6 +10,7 @@ header {
   max-width: 900px;
   margin: 0 auto;
   border: 1px solid #000;
+  background-color: #ccc;
 }
 .header__title {
   text-align: center;
@@ -48,6 +49,7 @@ header {
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 10px 0;
+  background-color: #ddd;
 }
 .weather__right {
   width: 30%;
