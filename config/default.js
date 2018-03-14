@@ -1,11 +1,13 @@
 'use strict';
 
+require('dotenv').config();
+
 module.exports = {
-    port: 8080,
+    port: process.env.PORT,
     defaultCity: 'moscow',
     weatherURL: 'https://www.metaweather.com/api/location/',
     newsURL: 'https://newsapi.org/v2/top-headlines',
-    key: '312ce60d1fca4335896fee931ab1a01b',
+    key: process.env.NEWSAPI_KEY,
     categories: [
         { href: '../business', categoryName: 'Бизнес' },
         { href: '../entertainment', categoryName: 'Развлечение' },

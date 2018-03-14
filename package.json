@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "config": "1.29.4",
+    "dotenv": "^5.0.1",
     "express": "4.16.2",
     "hbs": "4.0.1",
     "mocha": "^5.0.4",
