@@ -1,10 +1,33 @@
 'use strict';
 
 const fetch = require('node-fetch');
-const baseUrl = 'https://www.metaweather.com/api/location/';
+const config = require('../config');
+const baseUrl = config.weather;
 
-class Weather {
-    constructor(weatherData) {
+module.exports = class Weather {
+    static async getWeather(options) {
+        const url = this.buildUrl(options);
+        let data = await fetch(url);
+        let weatherData = await data.json();
+        const woeidUrl = `${baseUrl}${weatherData[0].woeid}/`;
+        data = await fetch(woeidUrl);
+        weatherData = await data.json();
+
+        return this.buildWeatherData(weatherData);
+    }
+    static buildUrl(options) {
+        if (options.lat && options.lon) {
+            const lattlong = `${options.lat},${options.lon}`;
+
+            return `${baseUrl}search/?lattlong=${lattlong}`;
+        } else if (options.query) {
+            return `${baseUrl}search/?query=${options.query}`;
+        }
+
+        return `${baseUrl}search/?query=london`;
+    }
+
+    static buildWeatherData(weatherData) {
         let weatherList = [];
         weatherData.consolidated_weather.forEach(elem => {
             let theTemp = Math.round(elem.the_temp);
@@ -12,37 +35,16 @@ class Weather {
             let date = elem.applicable_date;
             weatherList.push({ theTemp, windSpeed, date });
         });
-        let svgFileName = weatherData.consolidated_weather[0].weather_state_abbr;
-        this.title = weatherData.title;
-        this.weatherList = weatherList;
-        this.currentTemp = this.weatherList[0].theTemp;
-        this.currentWind = this.weatherList[0].windSpeed;
-        weatherList.shift();
-        this.imgUrl = `https://www.metaweather.com/static/img/weather/${svgFileName}.svg`;
+        const svgFileName = weatherData.consolidated_weather[0].weather_state_abbr;
+        const data = {
+            title: weatherData.title,
+            weatherList: weatherList,
+            currentTemp: weatherList[0].theTemp,
+            currentWind: weatherList[0].windSpeed,
+            imgUrl: `${config.weatherImg}${svgFileName}.svg`
+        };
+        data.weatherList.shift(0);
+
+        return data;
     }
-}
-
-function buildUrl(options) {
-    if (options.lat && options.lon) {
-        let lattlong = `${options.lat},${options.lon}`;
-
-        return `${baseUrl}search/?lattlong=${lattlong}`;
-    } else if (options.query) {
-        return `${baseUrl}search/?query=${options.query}`;
-    }
-
-    return `${baseUrl}search/?query=london`;
-}
-
-async function getWeather(options) {
-    const url = buildUrl(options);
-    const u = await fetch(url);
-    const weatherData = await u.json();
-    const woeidUrl = `${baseUrl}${weatherData[0].woeid}/`;
-    const data = await fetch(woeidUrl);
-    const weatherData1 = await data.json();
-
-    return new Weather(weatherData1);
-}
-
-module.exports = { Weather, getWeather };
+};

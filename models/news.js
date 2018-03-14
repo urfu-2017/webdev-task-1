@@ -1,6 +1,7 @@
 'use strict';
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('f8c7968376984c3db60b4759fa20cfe4');
+const config = require('../config');
+const newsapi = new NewsAPI(config.newsApiKey);
 
 function getNews(req) {
     const country = req.query.country || 'us';

@@ -8,7 +8,7 @@ const hbs = require('hbs');
 
 
 const routes = require('./routes');
-const { getWeather } = require('./models/weather');
+const Weather = require('./models/weather');
 
 
 const app = express();
@@ -24,7 +24,7 @@ app.set('views', viewsDir);
 app.use(express.static(publicDir));
 
 app.use(async (req, res, next) => {
-    res.locals.weather = await getWeather(req.query);
+    res.locals.weather = await Weather.getWeather(req.query);
     next();
 });
 

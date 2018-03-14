@@ -5,9 +5,8 @@ const { getNews } = require('../models/news');
 async function listNews(req, res) {
     const locals = res.locals;
     const weatherList = res.locals.weather.weatherList;
-    let data = { categories, locals, weatherList };
-    let news = await getNews(req);
-    data.news = news.articles;
+    const news = await getNews(req);
+    const data = { categories, locals, weatherList, news: news.articles };
     res.render('category', data);
 }
 
