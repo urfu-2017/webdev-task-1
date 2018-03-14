@@ -5,17 +5,13 @@ const rp = require('request-promise');
 const config = require('../config.json');
 
 
-module.exports.News = class {
+class News {
     static fetch({ country, category }) {
         const urlOptions = {
             uri: config.newsUrl,
             qs: {}
         };
-        if (country) {
-            urlOptions.qs.country = country;
-        } else {
-            urlOptions.qs.country = config.abbrDefaultCountry;
-        }
+        urlOptions.qs.country = country || config.abbrDefaultCountry;
         urlOptions.qs.category = category;
         urlOptions.qs.apiKey = config.apiKey;
         Object.assign(urlOptions, config.getRequestOptions);
@@ -31,4 +27,6 @@ module.exports.News = class {
             })
             .catch(() => ({ metaNews: config.pageStatuses.ERROR }));
     }
-};
+}
+
+module.exports = News;

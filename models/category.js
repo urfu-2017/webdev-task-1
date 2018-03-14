@@ -3,7 +3,7 @@
 const { categories } = require('../config.json');
 
 
-module.exports.Category = class {
+class Category {
     static findByName(name) {
         return categories[name];
     }
@@ -11,4 +11,6 @@ module.exports.Category = class {
     static findAll() {
         return categories;
     }
-};
+}
+
+module.exports = Category;

@@ -1,10 +1,10 @@
 'use strict';
 
-const { handleMainPage } = require('./controllers/main');
-const { handleNewsPage } = require('./controllers/news');
+const { main } = require('./controllers/main');
+const { findAll } = require('./controllers/news');
 
 
 module.exports = app => {
-    app.get('/', handleMainPage);
-    app.get('/:category', handleNewsPage);
+    app.get('/', main);
+    app.get('/:category', findAll);
 };

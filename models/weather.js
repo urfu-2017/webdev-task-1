@@ -5,7 +5,7 @@ const rp = require('request-promise');
 const config = require('../config.json');
 
 
-module.exports.Weather = class Weather {
+class Weather {
     static async fetch(query) {
         let weather = await Weather._sendRequestForWeather(query);
         if (!('status' in weather) || weather.status === config.pageStatuses.OK) {
@@ -64,4 +64,6 @@ module.exports.Weather = class Weather {
             }))
         };
     }
-};
+}
+
+module.exports = Weather;

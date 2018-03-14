@@ -1,9 +1,9 @@
 'use strict';
 
-const { Weather } = require('../models/weather');
+const Weather = require('../models/weather');
 
 
-module.exports.getWeather = (req, res, next) => {
-    req.locals.weather = Weather.fetch(req.query);
+module.exports.getWeather = async (req, res, next) => {
+    req.locals.weather = await Weather.fetch(req.query);
     next();
 };
