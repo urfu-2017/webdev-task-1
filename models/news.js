@@ -5,7 +5,7 @@ const newsapi = new NewsAPI(config.apiKey);
 
 class News {
 
-    static getCategory() {
+    static getCategories() {
         return [
             { url: 'business', title: 'Бизнес' },
             { url: 'entertainment', title: 'Развлечения' },

@@ -2,30 +2,29 @@
 
 const fetch = require('node-fetch');
 
-const apiLink = 'https://www.metaweather.com/api/location/';
+const config = require('../config/common');
 
 class Weather {
     static getWeather(params) {
 
-        let search = 'search/?';
+        let search = '';
 
         if (params.query) {
-            search += 'query=' + params.query;
+            search = `search/?query=${params.query}`;
         } else if (params.lat && params.lon) {
-            search += 'lattlong=' + params.lat + ',' + params.lon;
+            search = `search/?lattlong=${params.lat},${params.lon}`;
         } else {
-            return fetch(apiLink + '2487956/')
+            return fetch(config.apiLink + config.defaultCityWoeid)
                 .then(response => response.json())
                 .then(fields => {
 
                     return parseJSON(fields);
                 });
         }
-
-        return fetch(apiLink + search)
+        return fetch(config.apiLink + search)
             .then(response => response.json())
             .then(fields => fields[0].woeid)
-            .then(woeid => fetch(apiLink + woeid))
+            .then(woeid => fetch(config.apiLink + woeid))
             .then(response => response.json())
             .then(fields => {
 
