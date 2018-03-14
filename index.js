@@ -41,7 +41,13 @@ app.listen(8080, () => {
     console.info(' Server started\n Open http://localhost:8080/');
 });
 
-exports.error404 = (req, res) => res.sendStatus(404);
+app.use(function (req, res) {
+    res.status(404);
+    log.debug('Not found URL: %s', req.url);
+    res.send({ error: 'Not found' });
+
+    return;
+});
 
 exports.settings = handlebarsSettings;
 
