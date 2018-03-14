@@ -6,7 +6,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fetch = require('node-fetch');
 
-const config = require('./public/config/config');
+const config = require('./config/config');
 const News = require('./models/news');
 const topic = require('./mocks/news');
 const routes = require('./routes/routes');
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
     } else {
         res.locals.urlLocation = res.locals.url;
     }
-    fetch(`${config.weatherApiUrl}search` + res.locals.urlLocation)
+    fetch(`${config.weatherApiUrl}search${res.locals.urlLocation}`)
         .then(data => data.json())
         .then(json => {
             res.locals.title = json[0].title;
@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    fetch(`${config.weatherApiUrl}` + res.locals.woeid)
+    fetch(`${config.weatherApiUrl}${res.locals.woeid}`)
         .then(data => data.json())
         .then(json => {
             json.consolidated_weather.length = 5;
@@ -70,8 +70,8 @@ app.use((req, res, next) => {
 routes(app);
 
 hbs.registerPartials(partialsDir, () => {
-    app.listen(8080, () => {
-        console.info('Open http://localhost:8080');
+    app.listen(config.port, () => {
+        console.info(`Open http://localhost:${config.port}`);
     });
 });
 

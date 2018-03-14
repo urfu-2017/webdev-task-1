@@ -6,5 +6,6 @@
         "charset": "utf-8",
         "lang": "ru",
         "title": "Новости"
-    }
+    },
+    "port": 8080
 }

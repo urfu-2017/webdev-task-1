@@ -2,7 +2,7 @@
 
 const fetch = require('node-fetch');
 
-const config = require('../public/config/config');
+const config = require('../config/config');
 const NewsModel = require('../models/news');
 
 exports.startPage = (req, res) => {
@@ -24,8 +24,7 @@ exports.item = (req, res) => {
             res.locals.queryNews = res.locals.url;
         }
         res.locals.queryNews += '&category=' + englishName;
-        let url = `${config.newsApiUrl}` +
-            `${res.locals.queryNews}&apiKey=${config.apiKey}`;
+        const url = `${config.newsApiUrl}${res.locals.queryNews}&apiKey=${config.apiKey}`;
         fetch(url)
             .then(body => body.json())
             .then(json => {

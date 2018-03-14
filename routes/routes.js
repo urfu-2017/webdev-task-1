@@ -10,4 +10,3 @@ module.exports = function (app) {
 
     app.all('*', error404);
 };
-
