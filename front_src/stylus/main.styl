@@ -1,0 +1,110 @@
+html
+  font-size: 18px
+  font-family: Verdana,sans-serif
+
+body
+  background-color: #aa;
+
+section, header
+  max-width: 900px;
+  margin: 0 auto
+  border: 1px solid #0
+  background-color: #ccc
+// header
+.header__title
+  text-align: center;
+// category
+.category-container
+  ul
+    list-style: none
+.category-item
+  padding: 10px 20px
+  a
+    text-decoration: none
+.category-item_text
+  text-decoration: none
+  font-size: 24px
+  color: #0
+.category-item_icon
+  display: inline-block
+  width: 20px
+  height: 20px
+  background-image: url(../img/business.svg)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+  margin-right: 15px
+
+// weather
+.weather
+  width: 100%
+  display: flex
+  flex-direction: row
+  padding: 10px 0
+  background-color: #d
+  &__right
+    width: 30%
+    display: flex
+    flex-direction: column 
+    justify-content: flex-start
+  &__city-name
+    font-size: 1.2em
+    text-align: center
+  &__picture
+    width: 50%
+    margin: 0 auto;
+    img
+      margin: 0 auto
+  &__left
+    width: 70%
+    display: flex
+    flex-direction: column
+    justify-content: space-around    
+  &__table
+    display: flex
+    overflow-x: auto
+  &__table-item    
+    border: 1px solid black
+  &__table-item-header
+    border-bottom: 1px solid black
+    padding: 5px
+  &__table-item-body
+    padding: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__wind
+    margin-bottom: 10px
+
+// news
+.news-item:first-of-type
+  border-top: none
+
+.news-item
+  padding: 20px
+  border-top: 1px dashed #0  
+  &__wrapper
+    display: flex;
+    flex-direction: column;
+    color: #111
+    text-decoration: none
+  &__head
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+  &__title
+    display: inline-block;
+    max-width: 60%;
+  &__body
+    padding: 20px 0;
+  &__image
+    max-width: 30%
+    float: left
+    margin-right: 20px
+    img
+      width: 100%
+  &__desription
+    max-width 70%
+    margin-left: 10px
+  &__source
+    text-align: right

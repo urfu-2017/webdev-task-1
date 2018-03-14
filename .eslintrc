@@ -3,5 +3,11 @@
     "globals": {
         "describe": true,
         "it": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+          "experimentalObjectRestSpread": true
+      }
     }
 }

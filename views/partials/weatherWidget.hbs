@@ -1,0 +1,32 @@
+<div class="weather">
+    <div class="weather__right">
+        <div class="weather__city-name">
+            <span>{{ weatherWidget.city }}</span>
+        </div>
+        <div class="weather__picture">
+            <img src='https://www.metaweather.com/static/img/weather/{{{ weatherWidget.currentDayData.iconAbbr }}}.svg' alt="">
+        </div>
+    </div>
+    <div class="weather__left">
+        
+        <div class="weather__temp">
+            <span class="weather__temp-text">Температура:</span>
+            <span class="weather__temp-value">{{ weatherWidget.currentDayData.temp }} C<sup>o</sup></span>
+        </div>
+        <div class="weather__wind">
+            <span class="weather__wind-text">Скорость ветра</span>
+            <span class="weather__wind-value">{{ weatherWidget.currentDayData.windSpeed }} <sup>м</sup>/<sub>c</sub></span>
+        </div>
+        <div class="weather__table">
+            {{#each weatherWidget.dataPerDay}}
+            <div class="weather__table-item">
+                <div class="weather__table-item-header">{{ date }}</div>
+                <div class="weather__table-item-body">
+                    <span class="weather__table-item-body-temp">{{ temp }} C<sup>o</sup></span>
+                    <span class="weather__table-item-body-wind">{{ windSpeed }} <sup>м</sup>/<sub>c</sub></span>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" href="css/main.css" media="screen">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title"> <a href="/">На главную</a></h1>
+    </header>
+    <section class="weather">
+        {{> weatherWidget }}
+    </section>
+    <section class="news">
+    {{#if news.length}}
+        <div class="news-container">
+            {{#each news}}
+                <div class="news-item">
+                    <div class="news-item__wrapper">
+                        <div class="news-item__head">
+                            <span class="news-item__title">{{ title }}</span>
+                            <span class="news-item__date">{{ publishedAt }}</span>
+                        </div>
+                        <div class="news-item__body">
+                            {{#if urlToImage.length}}
+                            <div class="news-item__image">
+                                <img src="{{ urlToImage }}" alt="{{ title }}">
+                            </div>
+                            {{/if}}
+                            <div class="news-item__description">
+                                {{ description }}
+                            </div>
+                        </div>
+                        <div class="news-item__footer">
+                            <span class="news-item__author">{{ author }}</span>
+                        </div>
+                        <a class="news-item__source" href="{{ url }}" target="_blank">{{ source.name }}</a>
+                    </div>
+                    
+                </div>
+            {{/each}}
+        </div>
+    {{^}}
+        <p>Новостей не найдено!</p>
+    {{/if}}
+    </section>
+</body>
+</html>
+
