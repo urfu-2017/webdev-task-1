@@ -6,6 +6,7 @@ const express = require('express');
 const hbs = require('hbs');
 
 const routes = require('./routes');
+const config = require('./config');
 
 const app = express();
 
@@ -16,16 +17,16 @@ const publicDir = path.join(__dirname, 'public');
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
+
 app.use(express.static(publicDir));
 app.use((req, res, next) => {
     res.locals.title = 'Новости';
 
     next();
 });
-
 routes(app);
 
-const port = 8080;
+const port = config.port || 8080;
 // Подключаем директорию с отдельными частями шаблонов
 // Этот метод асинхронный и мы запускаем сервер только после того,
 // как все частичные шаблоны будут прочитаны
