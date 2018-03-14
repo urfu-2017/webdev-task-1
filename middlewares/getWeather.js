@@ -1,3 +1,4 @@
+/* eslint-disable indent,no-trailing-spaces */
 'use strict';
 const MetaWeather = require('metaweather');
 let mw = new MetaWeather();
@@ -5,7 +6,6 @@ let weather = '';
 module.exports = async (req, res, next)=> {
     let lattlong = req.query.lattlong;
     let query = req.query.query;
-    try {
         if (query) {
             await mw.search().query(query)
                 .then(async (response) =>{
@@ -37,7 +37,6 @@ module.exports = async (req, res, next)=> {
             wind: weather.consolidated_weather[0].wind_speed,
             date: weather.consolidated_weather[0].applicable_date
         });
-    } finally {
+
         next();
-    }
-};
+    };

@@ -17,14 +17,8 @@
   },
   "devDependencies": {
     "eslint": "^4.18.2",
-    "express-handlebars": "^3.0.0",
-    "handlebars-dateformat": "^1.1.1",
     "eslint-config-hrundel": "^1.3.0",
-    "handlebars-intl": "^1.1.2",
-    "metaweather": "0.0.2",
     "mocha": "^5.0.3",
-    "moment": "^2.21.0",
-    "request": "^2.83.0",
     "supertest": "^3.0.0"
   }
 }
