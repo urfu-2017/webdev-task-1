@@ -1,3 +1,11 @@
 'use strict';
 
-module.exports = require('../content/categories.json');
+const categories = require('../content/categories.json');
+
+class Categories {
+    static getData() {
+        return categories;
+    }
+}
+
+module.exports = Categories;
