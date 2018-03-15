@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 
 app.use(async (req, res, next) => {
     res.locals.weather = await weatherModels.getWeather(req.query);
-    next();
+    await next();
 });
 
 app.get('/', mainController);
