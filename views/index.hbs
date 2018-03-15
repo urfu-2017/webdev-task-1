@@ -9,19 +9,16 @@
 <header>
     <h1 class="page-name">{{ title }}</h1>
 </header>
-<hr>
 <main>
     <div>
         {{> weather}}
     </div>
-    <hr>
     <ul class="categories">
         {{#each categories}}
             <li><a class="categories__item" href="{{ href }}">{{ categoryName }}</a></li>
         {{/each}}
     </ul>
 </main>
-<hr>
 <footer class="footer">
     <div>Нуриев</div>
     <div>2018</div>
