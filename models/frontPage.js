@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 'use strict';
-const fetch = require('node-fetch');
+const page = require('../mocks/front-info');
 
-module.exports = class FrontPage {
-    fetch() {
-        return require('../mocks/front-info');
+module.exports = class Front {
+    static fetch() {
+        return page;
     }
 };
