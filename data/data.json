@@ -1,0 +1,44 @@
+{
+    "document": 
+    {
+        "lang": "ru",
+        "title": "News",
+        
+        "meta": 
+        {
+            "charset": "UTF-8"
+        },
+
+        "categories":
+        {
+            "title": "Категории новостей",
+            "items":
+            [
+                { "name": "Бизнес", "value": "business"},
+                { "name": "Развлечения", "value": "entertainment"},
+                { "name": "Общее", "value": "general"},
+                { "name": "Здоровье", "value": "health"},
+                { "name": "Наука", "value": "science"},
+                { "name": "Спорт", "value": "sports"},
+                { "name": "Технологии", "value": "technology"}
+            ]
+        },
+
+        "header":
+        {
+            "title": "News"
+        },
+
+        "footer":
+        {
+            "author": "fng3r",
+            "year": 2018
+        }
+    },
+
+    "weatherApi": 
+    {
+        "staticUrl": "https://www.metaweather.com/static/img/weather",
+        "imageExt": "svg"
+    }
+}

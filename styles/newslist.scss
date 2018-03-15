@@ -1,0 +1,35 @@
+$source-font-weight: 700;
+
+.news-item {
+    display: grid;
+    grid-template-columns: 20% 20% 45% auto;
+    grid-template-areas: 
+    "h h . t"
+    "c c c ."
+    "c c c ."
+    ". . . s";
+    justify-items: start;
+
+    &__title {
+        grid-area: h;
+    }
+
+    &__publication-time {
+        grid-area: t;
+        justify-self: end;
+    }
+
+    &__content-wrapper {
+        grid-area: c;
+    }
+
+    &__image {
+        float: left;
+    }
+
+    &__source {
+        grid-area: s;
+        font-weight: $source-font-weight;
+        justify-self: end;
+    }
+}
