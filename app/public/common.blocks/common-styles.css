@@ -1,0 +1,61 @@
+.wrapper
+{
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+
+    border: 2px solid #48aab9;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px #bbb;
+
+    font-family: sans-serif;
+}
+
+.header
+{
+    text-align: center;
+    position: relative;
+}
+
+.header__main-page-link
+{
+    position: absolute;
+    left: 5%;
+    margin: 0;
+}
+
+.footer
+{
+    padding: 10px;
+    text-align: right;
+}
+
+.categories
+{
+    padding: 0 10%;
+}
+
+.daily-weather
+{
+    border: 1px solid #ecb78c;
+}
+
+.daily-weather__date
+{
+    border-bottom: 1px solid #f2d5c2;
+}
+
+.weather,
+.news,
+.footer
+{
+    border-top: 1px solid #ccc;
+}
+
+.categories__link
+{
+    padding: 2%;
+    font-size: 36px;
+    text-decoration: none;
+    color: #000;
+}

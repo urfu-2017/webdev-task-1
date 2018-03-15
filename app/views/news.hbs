@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="{{ meta.charset }}">
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" href="{{ staticBasePath }}common.blocks/common-styles.css" media="screen">
+    <link rel="stylesheet" href="{{ staticBasePath }}common.blocks/weather/weather.css" media="screen">
+    <link rel="stylesheet" href="{{ staticBasePath }}common.blocks/daily-weather/daily-weather.css" media="screen">
+    <link rel="stylesheet" href="{{ staticBasePath }}common.blocks/news/news.css" media="screen">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <h2 class="header__main-page-link">
+            <a href="/{{#if linkToMain}}?{{ linkToMain }}{{/if}}">На главную</a>
+        </h2>
+        <h1 class="header__title">{{ title }}</h1>
+    </header>
+    <main class="content">
+        <article class="weather">
+            {{> weather/weather }}
+        </article>
+
+        {{#each articles}}
+            <article class="news">
+                {{> news/news }}
+            </article>
+        {{/each}}
+    </main>
+    <footer class="footer">
+        &copy;{{ year }}
+    </footer>
+</div>
+</body>
+</html>

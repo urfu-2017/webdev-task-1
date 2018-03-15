@@ -1,0 +1,48 @@
+{
+    "debug": true,
+    "port": 8080,
+    "language": "ru",
+    "newsApi": {
+        "key": "e39d2025cd894808b733aafe8f80320f",
+        "url": "https://newsapi.org/v2/top-headlines/"
+    },
+    "weatherApi": {
+        "url": "https://www.metaweather.com/",
+        "weather": "api/location/",
+        "location": "api/location/search/"
+    },
+    "apiRequestTimeout": 8000,
+    "staticBasePath": "/",
+    "defaultQuery": {
+        "query": "Moscow",
+        "country": "ru"
+    },
+    "newsCategories": {
+        "business": "Бизнес",
+        "entertainment": "Развлечения",
+        "general": "Общее",
+        "health": "Здоровье",
+        "science": "Наука",
+        "sports": "Спорт",
+        "technology": "Технологии"
+    },
+    "meta": {
+        "charset": "utf-8",
+        "description": "Local news and weather"
+    },
+    "title": "Название",
+    "monthNames": [
+        "января",
+        "февраля",
+        "марта",
+        "апреля",
+        "мая",
+        "июня",
+        "июля",
+        "августа",
+        "сентября",
+        "октября",
+        "ноября",
+        "декабря"
+    ]
+}

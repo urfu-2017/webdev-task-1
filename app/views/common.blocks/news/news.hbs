@@ -1,0 +1,17 @@
+<header class="news__headline">
+    <h3 class="news__title" title="{{ title }}">{{ title }}</h3>
+    <div class="news__date" datetime="{{ publicationDateIso }}">{{ publicationDate }}</div>
+</header>
+<main class="news__content">
+    {{#if image}}
+        <figure class="news__picture-box">
+            <img class="news__picture" src="{{ image }}" alt="{{ title }}" title="">
+        </figure>
+    {{/if}}
+    <p class="news__text">
+        {{ text }}
+    </p>
+</main>
+<footer class="news__footer">
+    <a href="{{ sourceUrl }}">Источник</a>
+</footer>
