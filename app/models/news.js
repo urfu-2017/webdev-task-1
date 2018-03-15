@@ -1,19 +1,19 @@
-'use strict';
-const config = require('../../config');
+import config from '../../config';
 
-const apiQuery = require('../libs/api-query');
-const { getDateString, getTimeString } = require('../libs/date-formatter');
-const filterEmptyParams = require('../libs/filter-empty-params');
+import apiQuery from '../libs/api-query';
+import { getDateString, getTimeString } from '../libs/date-formatter';
+import filterEmptyParams from '../libs/filter-empty-params';
 
 
 class NewsArticle {
-    /* eslint-disable max-params */
-    constructor(title, text, sourceUrl, image, date) {
-        this.title = title;
-        this.text = text;
-        this.sourceUrl = sourceUrl;
-        this.image = image;
-        this._date = date;
+    constructor(...params) {
+        [
+            this.title,
+            this.text,
+            this.sourceUrl,
+            this.image,
+            this._date
+        ] = params;
     }
 
     get publicationDateIso() {
@@ -37,13 +37,13 @@ class NewsArticle {
 
 
 async function _getNews({ language = config.language, country = null, category = null }) {
-    const request = { apiKey: config.newsApiKey, language };
+    const request = { apiKey: config.newsApi.key, language };
     Object.assign(request, filterEmptyParams({ country, category }));
-    const apiResponse = await apiQuery(config.newsApiDomain, request);
+    const apiResponse = await apiQuery(config.newsApi.url, request);
 
     return apiResponse.articles
         .map(NewsArticle.fromApiResponse);
 }
 
 
-module.exports = _getNews;
+export default _getNews;

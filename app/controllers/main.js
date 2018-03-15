@@ -1,19 +1,18 @@
-'use strict';
-const querystring = require('querystring');
+import querystring from 'querystring';
 
-const config = require('../../config');
-const weather = require('../models/weather');
-const news = require('../models/news');
-const filterEmptyParams = require('../libs/filter-empty-params');
+import config from '../../config';
+import weather from '../models/weather';
+import news from '../models/news';
+import filterEmptyParams from '../libs/filter-empty-params';
 
 
-const _transformQuery = (query, category) => {
+const _prepareQueryForApi = (query, category) => {
     let result = null;
-    if (!query.query && (!query.lat || !query.lon)) {
-        result = config.defaultQuery;
+    if (!(query.query || query.lat && query.lon)) {
+        result = { ...config.defaultQuery };
     } else {
         result = query.query
-            ? Object.assign({}, query)
+            ? { ...query }
             : { lattlong: `${query.lat},${query.lon}` };
     }
     Object.assign(
@@ -28,19 +27,16 @@ const _transformQuery = (query, category) => {
 const _withTimeoutPromise = (innerPromise, timeout) =>
     new Promise(async (resolve, reject) => {
         setTimeout(() => reject(), timeout);
-        await innerPromise
+        const result = await innerPromise
             .catch(() => reject());
-        resolve();
+        resolve(result);
     });
 
 
-const index = async (req, res) => {
-    const query = _transformQuery(req.query);
-    const weatherPromise = weather(query);
-
-    await _withTimeoutPromise(weatherPromise, config.apiRequestTimeout);
-
-    const data = await weatherPromise;
+const _index = async (req, res) => {
+    const query = _prepareQueryForApi(req.query);
+    const data = await _withTimeoutPromise(
+        weather(query), config.apiRequestTimeout);
     data.categories = Object.entries(config.newsCategories)
         .map(([categoryEn, categoryRu]) => ({
             categoryEn,
@@ -51,8 +47,17 @@ const index = async (req, res) => {
 };
 
 
-const newsCategory = async (req, res) => {
-    const query = _transformQuery(req.query, req.params.category);
+const _getLinkToMainPage = (query, params) => {
+    const originalQuery = { ...query };
+    Object.keys(params)
+        .map(p => delete originalQuery[p]);
+
+    return querystring.encode(originalQuery);
+};
+
+
+const _newsCategory = async (req, res) => {
+    const query = _prepareQueryForApi(req.query, req.params.category);
     const weatherPromise = weather(query);
     const newsPromise = news(query);
 
@@ -64,15 +69,12 @@ const newsCategory = async (req, res) => {
     const data = await weatherPromise;
     data.articles = await newsPromise;
 
-    const originalQuery = Object.assign({}, req.query);
-    Object.keys(req.params)
-        .map(p => delete originalQuery[p]);
-    data.linkToMain = querystring.encode(originalQuery);
+    data.linkToMain = _getLinkToMainPage(req.query, req.params);
     res.render('news', data);
 };
 
 
-const _errorsHandler = func => async (req, res) => {
+const _promiseRejectionHandler = func => async (req, res) => {
     try {
         await func(req, res);
     } catch (exc) {
@@ -81,5 +83,5 @@ const _errorsHandler = func => async (req, res) => {
 };
 
 
-exports.index = _errorsHandler(index);
-exports.newsCategory = _errorsHandler(newsCategory);
+export const index = _promiseRejectionHandler(_index);
+export const newsCategory = _promiseRejectionHandler(_newsCategory);

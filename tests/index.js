@@ -1,7 +1,6 @@
-'use strict';
-const request = require('supertest');
+import request from 'supertest';
 
-const app = require('../app/index');
+import app from '../app/index';
 
 describe('GET /', () => {
     it('respond with html page', done => {

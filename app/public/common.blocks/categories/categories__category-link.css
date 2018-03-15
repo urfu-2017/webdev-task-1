@@ -1,0 +1,29 @@
+.categories__link
+{
+    overflow: hidden;
+    display: flex;
+    padding: 2%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.categories__link:hover
+{
+    box-shadow: 0 0 5px #bbb;
+}
+
+.categories__icon-box
+{
+    flex: 0 0 20%;
+    margin: 0 5% 0 0;
+}
+
+.categories__icon
+{
+    max-width: 100%;
+}
+
+.categories__title
+{
+    flex-grow: 1;
+}

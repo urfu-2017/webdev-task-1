@@ -1,9 +1,8 @@
-'use strict';
-const { index, newsCategory } = require('./controllers/main');
-const { error404 } = require('./controllers/errors');
+import { index, newsCategory } from './controllers/main';
+import { error404 } from './controllers/errors';
 
 
-module.exports = app => {
+export default app => {
     app.get('/', index);
     app.get('/:category', newsCategory);
 

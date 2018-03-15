@@ -1,8 +1,7 @@
-'use strict';
-const config = require('../../config');
-const apiQuery = require('../libs/api-query');
-const { getDateString } = require('../libs/date-formatter');
-const filterEmptyParams = require('../libs/filter-empty-params');
+import config from '../../config';
+import apiQuery from '../libs/api-query';
+import { getDateString } from '../libs/date-formatter';
+import filterEmptyParams from '../libs/filter-empty-params';
 
 
 const MS_TO_MPH_RATIO = 0.447;
@@ -11,10 +10,10 @@ const MS_TO_MPH_RATIO = 0.447;
 const _getResponse = async ({ query = null, lattlong = null }) => {
     const queryObj = filterEmptyParams({ query, lattlong });
     const queryRes = await apiQuery(
-        config.weatherApiDomain + config.locationSearchApi, queryObj);
+        config.weatherApi.url + config.weatherApi.location, queryObj);
     const woeid = queryRes[0].woeid;
 
-    return await apiQuery(config.weatherApiDomain + config.weatherApi + woeid, {});
+    return await apiQuery(config.weatherApi.url + config.weatherApi.weather + woeid, {});
 };
 
 
@@ -76,4 +75,4 @@ const _getWeather = async query =>
     AggregatedWeatherData.fromApiResponse(await _getResponse(query));
 
 
-module.exports = _getWeather;
+export default _getWeather;

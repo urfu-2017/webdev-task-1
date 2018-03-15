@@ -23,7 +23,8 @@
 
 .news__date
 {
-    flex: 0 0 15%;
+    text-align: right;
+    flex: 0 0 20%;
 }
 
 .news__title
@@ -35,13 +36,13 @@
     margin-right: 2%;
 }
 
-.news__picture
+.news__picture-box
 {
     flex: 0 0 30%;
     margin: 0 2% 0 0;
 }
 
-.news__picture img
+.news__picture
 {
     max-width: 100%;
 }

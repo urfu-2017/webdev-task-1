@@ -1,13 +1,12 @@
-'use strict';
-const path = require('path');
+import path from 'path';
 
-const hbs = require('hbs');
-const morgan = require('morgan');
-const express = require('express');
+import hbs from 'hbs';
+import morgan from 'morgan';
+import express from 'express';
 
-const config = require('../config');
-const routes = require('./routes');
-const commonData = require('./middlewares/common-data');
+import config from '../config';
+import routes from './routes';
+import commonData from './middlewares/common-data';
 
 
 const viewsDir = path.join(__dirname, 'views');
@@ -40,4 +39,4 @@ hbs.registerPartials(partialsDir, () => {
 });
 
 
-module.exports = app;
+export default app;

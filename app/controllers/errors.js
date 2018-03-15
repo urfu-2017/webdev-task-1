@@ -1,3 +1,1 @@
-'use strict';
-
-exports.error404 = (req, res) => res.sendStatus(404);
+export const error404 = (req, res) => res.sendStatus(404);

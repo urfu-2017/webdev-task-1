@@ -1,13 +1,13 @@
-'use strict';
+export default obj => Object.entries(obj)
+    .filter(
+        ([, val]) => val
+    )
+    .reduce(
+        (acc, curr) => {
+            const [key, val] = curr;
+            acc[key] = val;
 
-
-module.exports = obj => {
-    const result = {};
-    for (let [prop, value] of Object.entries(obj)) {
-        if (value) {
-            result[prop] = value;
-        }
-    }
-
-    return result;
-};
+            return acc;
+        },
+        {}
+    );

@@ -16,9 +16,8 @@
     align-items: flex-start;
 }
 
-.weather__location h2
+.weather__location-name
 {
-
     font-weight: normal;
     max-width: 100%;
     overflow: hidden;
@@ -26,12 +25,12 @@
     text-overflow: ellipsis;
 }
 
-.weather__picture
+.weather__picture-box
 {
     max-width: 70%;
 }
 
-.weather__picture img
+.weather__picture
 {
     max-width: 100%;
 }
@@ -64,12 +63,12 @@
     font-weight: bolder;
 }
 
-.weather__wind-sign
+.weather__wind-sign-box
 {
     grid-area: wind-sign;
 }
 
-.weather__wind-sign img
+.weather__wind-sign
 {
     max-width: 100%;
 }

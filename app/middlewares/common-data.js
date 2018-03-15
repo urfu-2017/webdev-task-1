@@ -1,8 +1,7 @@
-'use strict';
-const config = require('../../config');
+import config from '../../config';
 
 
-module.exports = (req, res, next) => {
+export default (req, res, next) => {
     res.locals.language = config.language;
     res.locals.meta = config.meta;
     res.locals.title = config.title;

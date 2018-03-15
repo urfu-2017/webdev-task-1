@@ -1,15 +1,16 @@
 <aside class="weather__location">
-    <h2>{{ location }}</h2>
-    <div class="weather__picture">
-        <img src="http://metaweather.com/static/img/weather/png/{{ today.weatherStateAbbr }}.png">
+    <h2 class="weather__location-name">{{ location }}</h2>
+    <div class="weather__picture-box">
+        <img class="weather__picture"
+             src="http://metaweather.com/static/img/weather/png/{{ today.weatherStateAbbr }}.png">
     </div>
 </aside>
 <header class="weather__now">
     <div class="weather__temp-sign">
         &nbsp;t
     </div>
-    <div class="weather__wind-sign">
-        <img src="{{ staticBasePath }}icons/wind.png">
+    <div class="weather__wind-sign-box">
+        <img class="weather__wind-sign" src="{{ staticBasePath }}common.blocks/weather/weather__wind-sign.png">
     </div>
     <div class="weather__current-temp">
             {{ today.tempSign }}&thinsp;{{ today.absTemperature }} °C

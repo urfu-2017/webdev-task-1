@@ -1,9 +1,10 @@
-<a href="{{ categoryLink }}">
-    <figure class="category-link__icon">
-        <img src="icons/{{ categoryEn }}.png" alt="{{ categoryEn }}"
+<a class="categories__link" href="{{ categoryLink }}">
+    <figure class="categories__icon-box">
+        <img class="categories__icon" alt="{{ categoryEn }}"
+             src="{{ staticBasePath }}/common.blocks/categories/icons/{{ categoryEn }}.png"
              title="Go to {{ categoryEn }} category">
     </figure>
-    <p class="category-link__title">
+    <p class="categories__title">
         {{ categoryRu }}
     </p>
 </a>

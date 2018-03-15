@@ -1,9 +1,8 @@
-'use strict';
-const request = require('request-promise');
-const escape = require('escape-html');
+import request from 'request-promise';
+import escape from 'escape-html';
 
 
-module.exports = async (uri, query) => {
+export default async (uri, query) => {
     const options = {
         uri: uri,
         method: 'GET',
