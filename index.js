@@ -1,5 +1,4 @@
 'use strict';
-const getWeather = require('./middlewares/getWeather');
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -21,7 +20,6 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 
-
 app.use(express.static(path.join(__dirname, 'public'), {
     dotfiles: 'ignore', etag: false,
     extensions: 'html',
@@ -29,8 +27,11 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 app.use(async (req, res, next) => {
-    res.locals.weather = await weatherModels.getWeather(req.query);
-    await next();
+    try {
+        res.locals.weather = await weatherModels.getWeather(req.query);
+    } finally {
+        next();
+    }
 });
 
 app.get('/', mainController);

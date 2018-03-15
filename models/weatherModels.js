@@ -1,6 +1,5 @@
 'use strict';
 
-const fetch = require('node-fetch');
 const MetaWeather = require('metaweather');
 let mw = new MetaWeather();
 
