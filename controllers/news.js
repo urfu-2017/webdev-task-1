@@ -3,10 +3,9 @@
 const NewsArticle = require('../models/news-article');
 
 exports.list = async (req, res) => {
-    const { query } = req;
+    const { country } = req.query;
     const { category } = req.params;
-    const news = await NewsArticle.findAll({ category, country: query.country });
-    const resultData = Object.assign({ news }, res.locals);
+    const news = await NewsArticle.findAll({ category, country });
 
-    res.render('category', resultData);
+    res.render('category', Object.assign(res.locals, { news }));
 };

@@ -66,11 +66,11 @@ class Weather {
         this.city = city;
     }
 
-    static async findAll({ queryCountry, lat, lon }) {
-        queryCountry = defaultQuery(queryCountry, lat, lon);
+    static async findAll({ queryCity, lat, lon }) {
+        queryCity = defaultQuery(queryCity, lat, lon);
         let query;
-        if (queryCountry) {
-            query = querystring.stringify({ query: queryCountry });
+        if (queryCity) {
+            query = querystring.stringify({ query: queryCity });
         } else if (lat && lon) {
             query = querystring.stringify({ lattlong: `${lat},${lon}` });
         }

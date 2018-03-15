@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
     try {
         const { query } = req;
         const weathers = await Weather.findAll(
-            { queryCountry: query.query, lat: query.lat, lon: query.lon });
+            { queryCity: query.query, lat: query.lat, lon: query.lon });
         res.locals.weathers = weathers;
 
         next();

@@ -62,7 +62,7 @@ class NewsArticle {
 
     static async findAll({ category, country }) {
         const query = querystring.stringify({
-            apiKey: config.key,
+            apiKey: config.newsKey,
             country: country || config.defaultCountry,
             category
         });

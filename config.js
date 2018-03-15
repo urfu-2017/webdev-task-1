@@ -7,15 +7,15 @@ module.exports = {
     defaultCity: 'moscow',
     weatherURL: 'https://www.metaweather.com/api/location/',
     newsURL: 'https://newsapi.org/v2/top-headlines',
-    key: process.env.NEWSAPI_KEY,
+    newsKey: process.env.NEWSAPI_KEY,
     categories: [
-        { href: '../business', categoryName: 'Бизнес' },
-        { href: '../entertainment', categoryName: 'Развлечение' },
-        { href: '../general', categoryName: 'Общее' },
-        { href: '../health', categoryName: 'Здоровье' },
-        { href: '../science', categoryName: 'Наука' },
-        { href: '../sport', categoryName: 'Спорт' },
-        { href: '../technology', categoryName: 'Технологии' }
+        { key: 'business', categoryName: 'Бизнес' },
+        { key: 'entertainment', categoryName: 'Развлечение' },
+        { key: 'general', categoryName: 'Общее' },
+        { key: 'health', categoryName: 'Здоровье' },
+        { key: 'science', categoryName: 'Наука' },
+        { key: 'sport', categoryName: 'Спорт' },
+        { key: 'technology', categoryName: 'Технологии' }
     ],
     defaultCountry: 'ru'
 };
