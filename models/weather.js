@@ -5,21 +5,16 @@ let mw = new MetaWeather();
 
 module.exports = class Weather {
     static async getWeather(options) {
-        const data = await this.getWoeid(options);
-        const weatherData = await data;
-        // console.info(weatherData);
+        const weatherData = await this.getWoeid(options);
 
         return this.buildWeatherData(weatherData);
     }
     static async getWoeid(options) {
-        const data = this.buildUrl(options);
-        const weatherData = await data;
-        // console.info(weatherData[0]);
+        const weatherData = await this.buildWeatherBody(options);
 
         return mw.location(weatherData[0].woeid);
     }
-    static buildUrl(options) {
-        // console.info(options);
+    static buildWeatherBody(options) {
         if (options.lat && options.lon) {
             return mw.search().latLon(options.lat, options.lon)
                 .then((response) => {
@@ -41,7 +36,6 @@ module.exports = class Weather {
 
     static buildWeatherData(weatherData) {
         let data = {};
-        // console.info(weatherData.body);
         Object.assign(data, {
             info: weatherData.body.consolidated_weather,
             city: weatherData.body.title,
@@ -50,7 +44,6 @@ module.exports = class Weather {
             wind: weatherData.body.consolidated_weather[0].wind_speed,
             date: weatherData.body.consolidated_weather[0].applicable_date
         });
-        console.info(data);
 
         return data;
     }

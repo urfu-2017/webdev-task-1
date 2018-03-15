@@ -4,8 +4,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const mainController = require('./controllers/mainController');
 const newsController = require('./controllers/newsController');
-const handlebarsSettings = require('./handlebarsSettings');
-const weatherModels = require('./models/weatherModels');
+require('./handlebarsSettings');
 const app = express();
 
 app.engine('handlebars', exphbs({
@@ -26,13 +25,6 @@ app.use(express.static(path.join(__dirname, 'public'), {
     index: false
 }));
 
-app.use(async (req, res, next) => {
-    try {
-        res.locals.weather = await weatherModels.getWeather(req.query);
-    } finally {
-        next();
-    }
-});
 
 app.get('/', mainController);
 
@@ -49,7 +41,5 @@ app.use(function (req, res) {
 
     return;
 });
-
-exports.settings = handlebarsSettings;
 
 module.exports = app;
