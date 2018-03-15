@@ -5,8 +5,8 @@ require('dotenv').config();
 const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
-const config = require('config');
 
+const config = require('./config/config.json');
 const data = require('./data/data.json');
 const weatherMiddleware = require('./middlewares/weather');
 
@@ -24,6 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./routes')(app);
 require('moment').locale('ru');
 
-app.listen(config.get('port'), () => console.info('Server launched'));
+app.listen(config.port, () => console.info(`Server launched on ${config.port} port`));
 
 module.exports = app;
