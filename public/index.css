@@ -49,6 +49,51 @@ body
     background-image: linear-gradient(to right, rgba(211, 212, 218, 0), rgba(211, 212, 218, 0.8) 40%, rgba(211, 212, 218, 0.8) 60%, rgba(211, 212, 218, 0));
 }
 
+
+.news
+{
+    background: #a8a4b7 radial-gradient(ellipse farthest-corner at right bottom, #ADC0CE 0%, #656170 50%, #E4E4E4 100%);
+    display: flex;
+    margin: 10px;
+    border-radius: 5px;
+    border: solid #727984 1px;
+}
+
+.news:hover
+{
+    box-shadow: #3d414d 0 0 3px;
+}
+
+.news-header
+{
+    width: 35%;
+    border-right: solid #727984 1px;
+    border-radius: 25px;
+    margin-right: 2px;
+}
+
+.news-main
+{
+    width: 55%;
+    border-right: solid #727984 1px;
+    border-radius: 25px;
+    margin-right: 2px;
+}
+
+.news-footer
+{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news-header__img
+{
+    max-width: 400px;
+    max-height: 300px;
+}
+
 .categories
 {
     display: flex;

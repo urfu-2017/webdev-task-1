@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="category.css">
-    <link rel="stylesheet" href="weather.css">
-</head>
+{{> head}}
 <body>
 <header>
     <a href="/..">Вернуться на главную</a>
@@ -18,9 +14,6 @@
     {{> news}}
 </main>
 <hr>
-<footer class="footer">
-    <div>Нуриев</div>
-    <div>2018</div>
-</footer>
+{{> footer}}
 </body>
 </html>
