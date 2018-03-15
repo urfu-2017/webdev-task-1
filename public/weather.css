@@ -1,0 +1,59 @@
+.weather
+{
+    display: flex;
+    justify-content: center;
+}
+
+.today-weather__city
+{
+    font: 20px serif;
+}
+
+.today-weather__image
+{
+    width: 200px;
+    margin-right: 10px;
+}
+
+.weather-widgets
+{
+    display: flex;
+}
+
+.weather-indicators
+{
+    font: 30px serif;
+}
+
+.weather-indicators__image
+{
+    width: 60px;
+    height: 40px;
+}
+
+.widget
+{
+    background: #a2aeb7 radial-gradient(ellipse farthest-corner at right bottom, #afb8ce 0%, #ac9daf 50%, #dee4d4 100%);
+    border: solid #727984 1px;
+    height: 100px;
+}
+
+.widget__date
+{
+    border-radius: 5px;
+    border-bottom: solid #727984 1px;
+    margin-bottom: 10px;
+}
+
+.widget__temp
+{
+    text-align: center;
+    font: 15px serif;
+    margin-bottom: 10px;
+}
+
+.widget__wind
+{
+    text-align: center;
+    font: 20px serif;
+}

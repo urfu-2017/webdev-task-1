@@ -1,0 +1,31 @@
+{{#if weathers.length}}
+    <section class="weather">
+        <article class="today-weather">
+            <div class="today-weather__city">{{ weathers.[0].city }}</div>
+            <img src="weather-icons/{{ weathers.[0].stateName }}.svg" alt="Состояние погоды" class="today-weather__image">
+        </article>
+        <div>
+            <article class="weather-indicators">
+                <div>
+                    <img src="temp.png" alt="Значок температуры" class="weather-indicators__image">
+                    {{ weathers.[0].temperature }} °C
+                </div>
+                <div>
+                    <img src="wind.png" alt="Значок ветра" class="weather-indicators__image">
+                    {{ weathers.[0].windSpeed }} м/с
+                </div>
+            </article>
+            <div class="weather-widgets">
+                {{#each weathers}}
+                    <article class="widget">
+                        <div class="widget__date">{{ date }}</div>
+                        <div class="widget__temp">{{ temperature }} °C</div>
+                        <div class="widget__wind">{{ windSpeed }} м/с</div>
+                    </article>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+{{^}}
+    <p>Погода не найдена :(</p>
+{{/if}}

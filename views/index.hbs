@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+{{> head}}
+<body>
+<header>
+    <h1 class="page-name">{{ title }}</h1>
+</header>
+<main>
+    <div>
+        {{> weather}}
+    </div>
+    <ul class="categories">
+        {{#each categories}}
+            <li><a class="categories__item" href="../{{ key }}">{{ categoryName }}</a></li>
+        {{/each}}
+    </ul>
+</main>
+{{> footer}}
+</body>
+</html>

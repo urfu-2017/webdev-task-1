@@ -1,0 +1,21 @@
+{{#if news.length}}
+    {{#each news}}
+        <section class="news">
+            <div class="news-header">
+                <div class="news-header__title">{{ title }}</div>
+                {{#if urlToImage}}
+                    <img class="news-header__img" src="{{ urlToImage }}" alt="{{ title }}">
+                {{/if}}
+            </div>
+            <div class="news-main">
+                <div class="news-main__description">{{ description }}</div>
+            </div>
+            <div class="news-footer">
+                <div class="news-footer__date"> {{ publishedAt }}</div>
+                <div class="news-footer__source">{{ sourceName }}</div>
+            </div>
+        </section>
+    {{/each}}
+{{^}}
+    <p>Новости не найдены :(</p>
+{{/if}}
