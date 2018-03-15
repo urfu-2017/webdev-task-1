@@ -1,0 +1,183 @@
+.page-head {
+  margin: auto;
+  border-bottom: solid gray 2px;
+}
+
+.page-head__content {
+  position: relative;
+  width: 700px;
+  height: 100px
+}
+
+.page-head__back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.page-wrapper {
+  box-shadow: 5px 10px 18px #888888;
+  margin: auto;
+  width: 700px;
+  border: solid gray 2px;
+}
+
+.widget {
+  margin: auto;
+  width: 700px;
+  border-bottom: solid gray 2px;
+}
+
+.weather-icon-container__city-name,
+.weather-measures-container__temp-sign,
+.weather-measures-container__temp-measure,
+.weather-measures-container__wind-measure {
+  font-size: 20px;
+}
+
+.widget__content {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.weather-icon-container {
+  width: 150px;
+  height: 100px;
+}
+
+.weather-measures-container {
+  flex-direction: column;
+  width: 400px;
+}
+
+.weather-measures-container__temperature,
+.weather-measures-container__wind,
+.article-item__top-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-measures-container__measures {
+  max-width: 150px;
+  margin: 10px;
+}
+
+.weather-measures-container__wind-sign {
+  width: 52px;
+  height: 52px;
+  align-self: center;
+  background: url("wind.svg") no-repeat;
+}
+
+.page-head__header,
+.weather-measures-container__wind-measure,
+.weather-measures-container__temp-measure,
+.sub-widgets-container__item,
+.news__category-link,
+.news__category-icon,
+.article-item__headline-link,
+.article-item__publish-date,
+.article-item__description-wrapper {
+  align-self: center;
+}
+
+.news,
+.weather-measures-container,
+.sub-widgets-container__content,
+.news__content,
+.page-head,
+.page-head__content {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-widgets-container {
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sub-widgets-container__content {
+  flex-direction: column;
+  border: solid pink;
+  width: 70px;
+  height: 70px;
+}
+
+.news {
+  margin: auto;
+  width: 700px;
+}
+
+.news__content {
+  flex-direction: column;
+  margin: auto;
+}
+
+.news__category-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.news__category-item {
+  border-radius: 5px;
+  margin: 10px;
+  border: solid gray 2px;
+  box-shadow: 5px 5px 8px #888888;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  width: 200px;
+}
+
+.articles-container {
+  width: 700px;
+}
+
+.article-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid gray 2px;
+  padding: 15px;
+  width: 670px;
+  height: 200px;
+}
+
+.article-item__headline-link {
+  width: 490px;
+  height: 70px;
+}
+
+.article-item__title {
+  font-size: 18px;
+}
+
+.article-item__bottom-line {
+  display: flex;
+  height: 140px;
+}
+
+.article-item__image-wrapper {
+  width: 200px;
+  height: 120px;
+}
+
+.article-item__image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.article-item__top-line {
+  height: 60px;
+}
+
+.article-item__description-wrapper {
+  width: 400px;
+}
+
+.article-item__source-line {
+  align-self: flex-end;
+}
+
+

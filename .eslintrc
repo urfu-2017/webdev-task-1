@@ -1,5 +1,5 @@
 {
-    "extends": "hrundel/node",
+  "extends": "airbnb-base",
     "globals": {
         "describe": true,
         "it": true

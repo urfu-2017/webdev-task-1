@@ -1,0 +1,11 @@
+{{#> layouts/base}}
+  {{#*inline "content"}}
+    {{> head}}
+    {{> weatherWidget}}
+    <div class="articles-container">
+      {{#each articles}}
+        {{>article this}}
+      {{/each}}
+    </div>
+  {{/inline}}
+{{/layouts/base}}
