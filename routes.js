@@ -10,4 +10,3 @@ module.exports = app => {
         .get('/news/:category', list)
         .all('*', error404);
 };
-
