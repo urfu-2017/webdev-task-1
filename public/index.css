@@ -1,0 +1,112 @@
+body {
+    width: 600px;
+    border: 2px solid #000;
+    margin: 30px auto 0;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.header {
+    padding: 10px;
+    border-bottom: 2px solid #000;
+}
+
+.header__title {
+    text-align: center;
+}
+
+.weather {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: 20px 15px 15px 50px 20px;
+    grid-template-areas:
+        "city ."
+        "image temp"
+        "image wind"
+        "image table"
+        "state table";
+    padding: 10px;
+    border-bottom: 2px solid #000;
+}
+
+.weather-state__name {
+    grid-area: state
+}
+
+.weather-state__city {
+    grid-area: city;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.weather-state__image {
+    grid-area: image;
+    width: 70px;
+    display:block;
+    margin:auto;
+}
+
+.weather-info__temp {
+    grid-area: temp;
+}
+
+.weather-info__wind {
+    grid-area: wind;
+}
+
+.weather-info__table {
+    grid-area: table;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    justify-self: center;
+    align-self: center;
+}
+
+.weather-info__table-cell {
+    border: 1px solid #000;
+}
+
+.categories {
+    padding: 10px;
+}
+
+.news {
+    padding: 10px;
+}
+
+.news-item {
+    display: grid;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    border-top: 1px solid #000;
+}
+
+.news-item__header {
+    font-size: 20px;
+}
+
+.news-item__image {
+    float: left;
+    width: 40%;
+    padding-top: 5px;
+    padding-right: 15px;
+}
+
+.news-item__source {
+    font-style: italic;
+}
+
+.news-item__date {
+    float: right;
+    font-style: italic;
+}
+
+.footer {
+    padding: 10px;
+    border-top: 2px solid #000;
+}
+
+.footer__right {
+    float: right;
+}
