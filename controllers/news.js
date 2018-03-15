@@ -2,16 +2,13 @@
 
 const { News } = require('../models/news');
 const { meta } = require('../utils/meta');
-const url = require('url');
-const qs = require('querystring');
+const { weatherFetcher } = require('../models/weather');
 
-exports.renderNews = (req, res) => {
-    const category = req.params.category;
-    const parsedUrl = url.parse(req.url);
-    const query = qs.parse(parsedUrl.query);
+exports.renderNews = async (req, res) => {
+    const query = req.query;
     const country = query.country || 'ru';
-    News.getNews(category, country)
-        .then(data => {
-            res.render('news', { articles: data, meta, ...res.locals });
-        });
+    const category = req.params.category;
+    const weather = await weatherFetcher.getWeather(query);
+    const articles = await News.getNews(category, country);
+    res.render('news', { articles, meta, weather });
 };

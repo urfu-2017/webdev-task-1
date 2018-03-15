@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 class Category {
-    constructor(title, value, icon) {
+    constructor({ title, value, icon }) {
         this.title = title;
         this.value = value;
         this.icon = icon;
@@ -13,7 +13,7 @@ class Category {
         try {
             const readCats = JSON.parse(data);
             const categories = readCats.reduce((result, current) => {
-                const category = new Category(current.title, current.value, current.icon);
+                const category = new Category(current);
                 result.push(category);
 
                 return result;
@@ -28,4 +28,4 @@ class Category {
     }
 }
 
-exports.Category = Category;
+exports.categories = Category.loadAll('categories.json');
