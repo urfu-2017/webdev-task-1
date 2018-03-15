@@ -2,7 +2,7 @@
 
 const gotJson = require('../utils/got-json');
 
-const API_BASE_PATH = 'https://www.metaweather.com/api/';
+const API_BASE_PATH = require('config').get('weatherApiUrl');
 
 const callApi = async (method, options) => await gotJson(`${API_BASE_PATH}${method}`, options);
 const getLocation = async query => (await callApi('/location/search/', { query }))[0];

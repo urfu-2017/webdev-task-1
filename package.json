@@ -6,6 +6,7 @@
     "test": "npm run lint && mocha tests/*.js --exit"
   },
   "dependencies": {
+    "config": "^1.30.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "got": "^8.2.0",
