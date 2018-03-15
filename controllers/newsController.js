@@ -1,15 +1,14 @@
 'use strict';
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('7003d399f6ae49cbbd75437b2fb4d33a');
+const News = require('../models/newsModels.js');
 
 module.exports = async (req, res) => {
-    let country = req.query.country || 'ru';
-    let category = req.params.category;
-    let article = await newsapi.v2.topHeadlines({
-        category: category.toString(),
-        language: req.headers['accept-language'],
-        country: country.toString()
+    const info = res.locals.weather.info;
+
+    let article = await News.getNews(req);
+    Object.assign(article, {
+        info: info
     });
     res.render('news', article);
+
 };
 

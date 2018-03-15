@@ -3,10 +3,10 @@ const getWeather = require('./middlewares/getWeather');
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
-let mainController = require('./controllers/mainController');
-let newsController = require('./controllers/newsController');
+const mainController = require('./controllers/mainController');
+const newsController = require('./controllers/newsController');
 const handlebarsSettings = require('./handlebarsSettings');
-
+const weatherModels = require('./models/weatherModels');
 const app = express();
 
 app.engine('handlebars', exphbs({
@@ -20,7 +20,6 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars');
 
-app.use(getWeather);
 
 
 app.use(express.static(path.join(__dirname, 'public'), {
@@ -29,6 +28,10 @@ app.use(express.static(path.join(__dirname, 'public'), {
     index: false
 }));
 
+app.use(async (req, res, next) => {
+    res.locals.weather = await weatherModels.getWeather(req.query);
+    next();
+});
 
 app.get('/', mainController);
 

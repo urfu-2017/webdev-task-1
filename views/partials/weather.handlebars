@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-{{# if info}}
+{{# if weather.info}}
     <div class='table___weather'>
         <div class="table___weather city">
-            {{city}}
+            {{weather.city}}
         </div>
         <div class="table___weather weather-icon">
-            <img src=https://www.metaweather.com/static/img/weather/{{img}}.svg>
+            <img src=https://www.metaweather.com/static/img/weather/{{weather.img}}.svg>
         </div>
         <div class="table___weather temperature">
-        <span> t {{formatNumber temp}}&#8451;</span>
+        <span> t {{formatNumber weather.temp}}&#8451;</span>
         </div>
         <div class="table___weather windspeed">
-        <span> 💨 {{formatNumber wind}} m/s</span>
+        <span> 💨 {{formatNumber weather.wind}} m/s</span>
         </div>
         <div class="table___weather weather-highlights">
             <table border="1" width="420">
                 <tr>
-                    {{#each info}}
+                    {{#each weather.info}}
                         <th>{{sformatTime applicable_date "D MMMM" }}</th>
                     {{/each}}
                 </tr>
                 <tr>
-                    {{#each info}}
+                    {{#each weather.info}}
 
                         <td>{{formatNumber the_temp }}&nbsp;&#8451;
                             {{formatNumber wind_speed }}&nbsp;m/s

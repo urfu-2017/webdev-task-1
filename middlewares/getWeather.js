@@ -38,6 +38,6 @@ module.exports = async (req, res, next)=> {
             date: weather.consolidated_weather[0].applicable_date
         });
     } finally {
-        next();
+        await next();
     }
 };
