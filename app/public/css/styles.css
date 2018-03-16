@@ -1,0 +1,99 @@
+html {
+    font-size: 20px;
+}
+
+main {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
+
+.index-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-menu__el {
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+}
+
+.weather__main-info {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+}
+
+.weather__first-column {
+    margin-right: 20px;
+}
+
+.weather__days {
+    display: flex;
+    flex-direction: row;
+    margin-top: 22px;
+    font-size: 18px;
+}
+
+.weather__day-el {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-element {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background: #F6F6E9
+}
+
+.first-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.second-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.second-row__image {
+    margin: 15px;
+    max-width: 280px;
+    max-height: 180px;
+}
+
+.third-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

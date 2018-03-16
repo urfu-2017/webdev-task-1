@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>News</title>
+    <meta name="description" content="News">
+    <link rel="stylesheet" href="/css/styles.css" type="screen">
+</head>
+<body>
+    <header>
+        <h1>Погода и новости</h1>
+    </header>
+    <main>
+        <a href="/" class="back">На главную</a>
+        {{>weather}}
+        {{#if news.length}}
+            <div class="news">
+                {{#each news}}
+                    {{>newsEl}}     
+                {{/each}}
+            </div>
+        {{^}}
+            <div class="news-error">Нет новостей!</div>
+        {{/if}}
+    </main>
+    <footer>
+        <h4>&copy; Носов Андрей, 2018</h4>
+    </footer>
+</body>
+</html>
