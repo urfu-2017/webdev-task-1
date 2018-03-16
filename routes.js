@@ -1,12 +1,9 @@
 'use strict';
-
-const { error404 } = require('./controllers/errors');
-const { categories, news } = require('./controllers/data');
+import { error404 } from './controllers/errors';
+import { categories, news } from './controllers/data';
 
 module.exports = app => {
     app.get('/', categories);
     app.get('/:category', news);
-
-
     app.all('*', error404);
 };

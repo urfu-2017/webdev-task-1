@@ -1,9 +1,8 @@
 'use strict';
-const Weather = require('../models/getWeather');
-const Categories = require('../models/getCategories');
-const News = require('../models/getNews');
-const Header = require('../models/getHeader');
-const moment = require('moment');
+import Weather from '../models/weather';
+import getNews from '../models/news';
+import Header from '../models/header';
+import moment from 'moment';
 
 let getDate = (date) => {
     return moment(date).format('D MMMM');
@@ -15,12 +14,11 @@ exports.categories = async (req, res) => {
         res.render('categories', {
             header: Header.head(),
             weather,
-            categories: Categories.cat()
+            categories: res.locals
         })
     );
 
 };
-
 
 exports.news = async (req, res) => {
     let weather;
@@ -32,7 +30,7 @@ exports.news = async (req, res) => {
         });
 
     let newsResult;
-    await News.getNews(req.params.category, 'ru')
+    await getNews(req.params.category, 'ru')
         .then(news => {
             for (let i = 0; i < news.articles.length; i++) {
                 news.articles[i].publishedAt = getDate(news.articles[i].publishedAt);

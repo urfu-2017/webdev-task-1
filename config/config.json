@@ -1,0 +1,23 @@
+{
+    "apiKey": "464f888a3f1c43fe940b633d0c941896",
+    "urlAbbr":  {
+        "protocol": "https:",
+        "slashes": true,
+        "host": "www.metaweather.com",
+        "pathname": "/static/img/weather/"
+    },
+    "urlLocation":  {
+        "protocol": "https:",
+        "slashes": true,
+        "host": "www.metaweather.com",
+        "pathname": "api/location/search/"
+    },
+    "urlWoeid":  {
+        "protocol": "https:",
+        "slashes": true,
+        "host": "www.metaweather.com",
+        "pathname": "api/location/"
+    },
+    "country": "ru",
+    "language": "ru"
+}

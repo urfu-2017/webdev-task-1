@@ -1,9 +1,9 @@
-{
-    "business":"Бизнес",
-    "entertainment":"Развлечения",
-    "general":"Общее",
-    "health":"Здоровье",
-    "science":"Науки",
-    "sport":"Спорт",
-    "technology":"Технологии"
-}
+[
+    {"hrefItem":"business", "category":"Бизнес"},
+    {"hrefItem":"entertainment", "category":"Развлечения"},
+    {"hrefItem":"general", "category":"Общее"},
+    {"hrefItem":"health", "category":"Здоровье"},
+    {"hrefItem":"science", "category":"Науки"},
+    {"hrefItem":"sport", "category":"Спорт"},
+    {"hrefItem":"technology", "category":"Технологии"}
+]
