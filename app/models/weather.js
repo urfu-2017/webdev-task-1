@@ -1,6 +1,9 @@
 'use strict';
 
+const { URL } = require('url');
+
 const request = require('request');
+const queryString = require('query-string');
 
 class Weather {
     constructor(query) {
@@ -8,9 +11,16 @@ class Weather {
     }
 
     static find(query) {
+
+        let url = new URL('https://www.metaweather.com/api/location/search/?');
+
+        let parsed = {};
+        parsed.query = query;
+
+        url += queryString.stringify(parsed);
+
         return new Promise((resolve, reject) => {
-            const weatherUrl = `https://www.metaweather.com/api/location/search/?query=${query}`;
-            request.get(weatherUrl, (error, response, body) => {
+            request.get(url, (error, response, body) => {
                 if (body) {
                     resolve(JSON.parse(body));
                 } else {
@@ -18,9 +28,11 @@ class Weather {
                 }
             });
         }).then((result) => {
+            let secondUrl = new URL('https://www.metaweather.com/');
+            secondUrl.pathname = `api/location/${result[0].woeid}/`;
+
             return new Promise((resolve, reject) => {
-                let secondUrl = `https://www.metaweather.com/api/location/${result[0].woeid}/`;
-                request.get(secondUrl, (error, response, body) => {
+                request.get(secondUrl.href, (error, response, body) => {
                     if (body) {
                         resolve(JSON.parse(body));
                     } else {

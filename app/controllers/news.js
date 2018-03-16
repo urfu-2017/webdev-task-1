@@ -8,17 +8,17 @@ exports.list = (req, res) => {
     const category = req.params.category ? req.params.category : 'all';
     const query = req.query.query ? req.query.query : 'miami';
 
-    News.find(country, req.params.category)
-        .then((resultNews) => {
-            Weather.find(query)
-                .then((resultWeather) => {
-                    res.setHeader('content-type', 'text/html');
-                    res.render('news', {
-                        news: resultNews.articles,
-                        country: country,
-                        category: category,
-                        weather: resultWeather
-                    });
-                });
+    Promise.all([
+        News.find(country, req.params.category),
+        Weather.find(query)
+    ])
+        .then(result => {
+            res.setHeader('content-type', 'text/html');
+            res.render('news', {
+                news: result[0].articles,
+                country: country,
+                category: category,
+                weather: result[1]
+            });
         });
 };
