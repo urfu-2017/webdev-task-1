@@ -46,7 +46,11 @@
     margin: 2px;
 }
 
+<<<<<<< HEAD
+.weather-list {
+=======
 .weather-five-days {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     grid-area: wd;
     display: flex;
     flex-direction: row;
@@ -54,31 +58,55 @@
     margin: 5px;
 }
 
+<<<<<<< HEAD
+.weather-list__item {
+=======
 .weather-one-day {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
+<<<<<<< HEAD
+.weather-list__item {
+=======
 .weather-one-day {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     border-right: 1px solid #000;
     flex-grow: 1;
 }
 
+<<<<<<< HEAD
+.weather-list__item:last-child {
+    border-right: none;
+}
+
+.weather-list__date {
+=======
 .weather-one-day:last-child {
     border-right: none;
 }
 
 .weather-five-days__date {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     border-bottom: 1px solid #000;
     padding: 2px;
     text-align: center;
 }
 
+<<<<<<< HEAD
+.weather-list__data {
+=======
 .weather-five-days__data {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     padding: 2px;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54

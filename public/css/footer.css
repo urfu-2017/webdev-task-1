@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+.footer {
+=======
 footer {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     background: #474747;
     color: #fff;
     grid-area: f;
@@ -8,4 +12,8 @@ footer {
     padding: 5px;
     margin: 0;
     font-size: 15px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54

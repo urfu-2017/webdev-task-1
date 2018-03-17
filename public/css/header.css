@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+.header {
+=======
 header {
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     background: #474747;
     color: #fff;
     grid-area: h;
@@ -18,4 +22,8 @@ header {
     color: #777676;
     position: absolute;
     left: 10px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
