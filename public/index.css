@@ -4,7 +4,7 @@ body
     background: #f0f0f0;
 }
 
-.weatherWidget {
+.weather-widget {
     margin: 0 auto;
     width: 900px;
     background: #fff;
@@ -13,76 +13,67 @@ body
     border: 1px double #666;
 }
 
-.weatherWidget__todayTemperature {
+.weather-widget__today-temperature {
     display: inline-block;
     margin-right: 70px;
 }
 
-.weatherWidget__todayTemperature:after {
+.weather-widget__today-temperature:after {
     content: '\00b0 C';
 }
 
-.weatherWidget__todayIcon {
+.weather-widget__today-icon {
     height: 40px;
 }
 
-.weatherWidget__todayWind {
+.weather-widget__today-wind {
     display: inline-block;
 }
 
-.weatherWidget__todayWind:after {
+.weather-widget__today-wind:after {
     content: 'м/с';
 }
 
-.weatherWidget__todayLogo {
+.weather-widget__today-logo {
     width: 100px;
     margin-right: 200px;
     display: inline-block;
 }
 
-.weatherWidget .weatherDays {
-    display: block;
-    list-style: none;
-}
-
-.weatherDay {
+.weather-day {
     display: inline-block;
     border: 1px solid black;
 }
 
-.weatherDay__temperature:after {
+.weather-day__temperature:after {
     content: '\00b0 C';
 }
 
-.weatherDay__wind:after {
+.weather-day__wind:after {
     content: 'м/с';
 }
 
-.weatherDay__date {
+.weather-day__date {
     border-bottom: 2px solid black;
 }
 
-.categoriesList {
+.categories-list {
     list-style: none;
     width: 400px;
     margin: 0 auto;
     line-height: 70px;
 }
 
-.categoryItem {
+.category-item {
     font-size: 40px;
 }
 
-.categoryItem__link {
+.category-item__link {
     text-decoration: none;
     color: black;
 }
 
-.newsList {
-    list-style: none;
-}
-
-.newsItem {
+.news-item {
     border: 1px solid black;
     padding: 10px;
     font-size: 18px;
@@ -90,34 +81,34 @@ body
     margin-bottom: 8px;
 }
 
-.newsItem__upperBound {
+.news-item__upper-bound {
     display: flex;
     justify-content: space-between;
 }
 
-.newsItem__lowerBound {
+.news-item__lower-bound {
     display: flex;
     margin-top: 20px;
     position: relative;
 }
 
-.newsItem__title {
+.news-item__title {
     font-size: 22px;
     width: 400px;
 }
 
-.newsItem__description {
+.news-item__description {
     margin-left: 20px;
 }
 
-.newsItem__source {
+.news-item__source {
     margin-left: 20px;
     position: absolute;
     bottom: 10px;
     right: 10px;
 }
 
-.newsItem__image {
+.news-item__image {
     height: 200px;
 }
 

@@ -6,6 +6,7 @@ class WeatherInfo {
         this.t = t.toFixed(1);
         this.windMpH = windMpH.toFixed(2);
         this.date = date;
+        this.windKmpH = this.windKmpH();
     }
 
     windKmpH() {

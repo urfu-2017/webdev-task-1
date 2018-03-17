@@ -1,29 +1,29 @@
 {{#if weather.length}}
-    <div class="weatherWidget">
-        <div class="weatherWidget__todayLogo">
-            <img class="weatherWidget__todayImage" src="https://www.metaweather.com/static/img/weather/{{todayWeather.abbr}}.svg" alt"weather" />
+    <div class="weather-widget">
+        <div class="weather-widget__today-logo">
+            <img class="weather-widget__today-image" src="https://www.metaweather.com/static/img/weather/{{todayWeather.abbr}}.svg" alt="погода сегодня" />
         </div>
-        <div class="weatherWidget__todayTemperature">
-            <img class="weatherWidget__todayIcon" src="/temperature.png" alt="temperature" />
-            {{ todayWeather.t }}
+        <div class="weather-widget__today-temperature">
+            <img class="weather-widget__today-icon" src="/temperature.png" alt="температура" />
+            {{ withSign todayWeather.t }}
         </div>
-        <div class="weatherWidget__todayWind">
-            <img class="weatherWidget__todayIcon" src="/wind.png" alt="wind" />
+        <div class="weather-widget__today-wind">
+            <img class="weather-widget__today-icon" src="/wind.png" alt="ветер" />
             {{ todayWeather.windKmpH }}
         </div>
-        <ul class="weatherDays">
+        <section class="weather-days">
         {{#each weather}}
-            <li class="weatherDay">
-                <div class="weatherDay__date">
+            <article class="weather-day">
+                <div class="weather-day__date">
                     {{ moment date "DD MMMM" lang="ru" }}
                 </div>
-                <div class="weatherDay__temperature">
-                    {{ t }}
+                <div class="weather-day__temperature">
+                    {{ withSign t }}
                 </div>
-                <div class="weatherDay__wind">
+                <div class="weather-day__wind">
                     {{ windKmpH }}
                 </div>
-            </li>
+            </article>
         {{/each}}
         </ul>
     </div>

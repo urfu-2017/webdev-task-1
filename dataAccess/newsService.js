@@ -3,17 +3,14 @@
 const NewsApi = require('newsapi');
 
 const newsClient = new NewsApi('2eef427492534f2eb16daae98202528b');
-let choosedCountry = 'ru';
+const defaultCountry = 'ru';
 
 class NewsService {
-    static setCountry(country) {
-        choosedCountry = country;
-    }
 
-    async getByCategory(category) {
+    async getByCategory(category, country) {
         const newsResponse = await newsClient.v2.topHeadlines({
             category: category.name,
-            country: choosedCountry
+            country: country || defaultCountry
         });
 
         return newsResponse.status === 'ok'

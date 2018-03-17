@@ -11,7 +11,7 @@ class WeatherService {
         this.locationName = '';
     }
 
-    async configureLocationByQuery(locationQuery) {
+    async setLocationByQuery(locationQuery) {
         try {
             const locationInfo = await weatherClient.search().query(locationQuery);
             this.setLocation(locationInfo.body[0].woeid, locationInfo.body[0].title);
@@ -20,7 +20,7 @@ class WeatherService {
         }
     }
 
-    async configureLocationByLatLong({ lat, long }) {
+    async setLocationByLatLong({ lat, long }) {
         const locationInfo = await weatherClient.search().latLon({ lat, long });
         this.setLocation(locationInfo.body[0].woeid, locationInfo.body[0].title);
     }

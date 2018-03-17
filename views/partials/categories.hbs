@@ -1,9 +1,9 @@
 {{#if categories.length}}
-    <ul class="categoriesList">
+    <ul class="categories-list">
         {{#each categories}}
-            <li class="categoryItem">
-                <a class="categoryItem__link" href="/news/{{ name }}/{{ country }}">
-                    <i class="fas fa-{{ icon }} categoryItem__icon"></i>
+            <li class="category-item">
+                <a class="category-item__link" href="/news/{{ name }}/{{ country }}">
+                    <i class="fas fa-{{ icon }} category-item__icon"></i>
                     {{ label }}
                 </a>
             </li>

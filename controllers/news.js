@@ -7,7 +7,7 @@ const newsService = new NewsService();
 
 exports.news = async (req, res) => {
     const category = categoriesRepository.get(req.params.category);
-    const news = await newsService.getByCategory(category);
+    const news = await newsService.getByCategory(category, req.query.country);
     const data = { news, ...res.locals };
 
     res.render('news', data);
