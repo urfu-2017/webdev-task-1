@@ -1,0 +1,114 @@
+body
+{
+    font: 2em/1.5em Arial, sans-serif;
+    background: #f0f0f0;
+}
+
+.weather-widget {
+    margin: 0 auto;
+    width: 900px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 1px 2px #666;
+    border: 1px double #666;
+}
+
+.weather-widget__today-temperature {
+    display: inline-block;
+    margin-right: 70px;
+}
+
+.weather-widget__today-temperature:after {
+    content: '\00b0 C';
+}
+
+.weather-widget__today-icon {
+    height: 40px;
+}
+
+.weather-widget__today-wind {
+    display: inline-block;
+}
+
+.weather-widget__today-wind:after {
+    content: 'м/с';
+}
+
+.weather-widget__today-logo {
+    width: 100px;
+    margin-right: 200px;
+    display: inline-block;
+}
+
+.weather-day {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.weather-day__temperature:after {
+    content: '\00b0 C';
+}
+
+.weather-day__wind:after {
+    content: 'м/с';
+}
+
+.weather-day__date {
+    border-bottom: 2px solid black;
+}
+
+.categories-list {
+    list-style: none;
+    width: 400px;
+    margin: 0 auto;
+    line-height: 70px;
+}
+
+.category-item {
+    font-size: 40px;
+}
+
+.category-item__link {
+    text-decoration: none;
+    color: black;
+}
+
+.news-item {
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.news-item__upper-bound {
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-item__lower-bound {
+    display: flex;
+    margin-top: 20px;
+    position: relative;
+}
+
+.news-item__title {
+    font-size: 22px;
+    width: 400px;
+}
+
+.news-item__description {
+    margin-left: 20px;
+}
+
+.news-item__source {
+    margin-left: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.news-item__image {
+    height: 200px;
+}
+

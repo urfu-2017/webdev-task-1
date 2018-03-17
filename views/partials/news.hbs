@@ -1,0 +1,30 @@
+{{#if news.length}}
+    <main class="news-list">
+        {{#each news}}
+            <article class="news-item">
+                <div class="news-item__upper-bound">
+                    <h3 class="news-item__title">
+                        {{ title }}
+                    </h3>
+                    <div class="news-item__date">
+                        {{ moment publishedAt "DD.MM.YYYY" }}
+                    </div>
+                </div>
+                <div class="news-item__lower-bound">
+                    <img class="news-item__image" src="{{ urlToImage }}" alt="изображение новости" />
+                
+                    <div class="news-item__description">
+                        {{ description }}
+                    </div>
+                
+                    <div class="news-item__source">
+                        {{ source.name }}
+                    </div>
+                </div>
+                
+            </article>
+        {{/each}}
+    </main>
+{{^}}
+    <p>News not found!</p>
+{{/if}}

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "business",
+    "label": "Бизнес", 
+    "icon": "briefcase"
+  },
+  {
+    "name": "sport",
+    "label": "Спорт", 
+    "icon": "volleyball-ball"
+  }
+]
