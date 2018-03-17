@@ -1,8 +1,4 @@
 .categories {
-<<<<<<< HEAD
-=======
-    background: #fff;
->>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
     grid-area: c;
     display: flex;
     flex-direction: column;
@@ -32,8 +28,4 @@
 
 .categories__name {
     font-size: 20px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54

@@ -1,6 +1,5 @@
 .news {
     padding: 1em;
-<<<<<<< HEAD
     grid-area: c;
 }
 
@@ -8,16 +7,3 @@
     display: flex;
     flex-direction: column;
 }
-=======
-}
-
-/*.news__header {
-    font-size: 20px;
-    font-weight: bolder;
-}*/
-
-.news__list {
-    display: flex;
-    flex-direction: column;
-}
->>>>>>> a2fefc59ae1d93e7c33b0d9143af6f5deeaedd54
