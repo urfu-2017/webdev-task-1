@@ -1,6 +1,6 @@
 'use strict';
 import Weather from '../models/weather';
-import getNews from '../models/news';
+import news from '../models/news';
 import Header from '../models/header';
 import moment from 'moment';
 
@@ -30,7 +30,7 @@ exports.news = async (req, res) => {
         });
 
     let newsResult;
-    await getNews(req.params.category, 'ru')
+    await news(req.params.category, 'ru')
         .then(news => {
             for (let i = 0; i < news.articles.length; i++) {
                 news.articles[i].publishedAt = getDate(news.articles[i].publishedAt);

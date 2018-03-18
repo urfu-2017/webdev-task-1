@@ -26,12 +26,10 @@ class WeatherBlock {
 class Weather {
     static getWeather(myLocation) {
         return fetch(url.format(config.urlLocation) + `?query=${myLocation}`)
-            .then(response => response.text())
-            .then(text => JSON.parse(text))
+            .then(response => response.json())
             .then(el => el[0].woeid)
             .then(woeid => fetch(url.format(config.urlWoeid) + `${woeid}/`))
-            .then(response => response.text())
-            .then(text => JSON.parse(text))
+            .then(response => response.json())
             .then(data => new WeatherBlock(data));
     }
 }

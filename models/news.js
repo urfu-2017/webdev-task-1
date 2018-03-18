@@ -3,7 +3,7 @@ import NewsAPI from 'newsapi';
 import config from '../config/config';
 const newsapi = new NewsAPI(config.apiKey);
 
-const getNews = (category, country) => {
+const news = (category, country) => {
         return newsapi.v2.topHeadlines({
             category: category,
             language: config.language,
@@ -11,4 +11,4 @@ const getNews = (category, country) => {
         });
 }
 
-module.exports = getNews;
+module.exports = news;
