@@ -1,9 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "start": "node index.js",
+    "start": "node start.js",
     "lint": "eslint .",
-    "test": "npm run lint && mocha tests/*.js --timeout 3000 --exit"
+    "test": "npm run lint && mocha tests/*.js --timeout 3000 --exit",
+    "stylus": "stylus -o public/css stylus/"
   },
   "dependencies": {
     "express": "^4.16.2",

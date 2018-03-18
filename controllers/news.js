@@ -2,20 +2,18 @@
 const generic = require('../data/generic');
 const header = require('../data/header');
 const footer = require('../data/footer');
-const { WeatherWidget } = require('../widgets/weather');
+const { WeatherModel } = require('../models/weather');
 const { NewsModel } = require('../models/news');
 
 exports.news = (req, res) => {
     const data = {};
-    Object.assign(data, generic);
-    Object.assign(data, header);
+    Object.assign(data, generic, header, footer);
     data.toHomeVisible = true;
-    Object.assign(data, footer);
-    const weatherWidget = new WeatherWidget();
+    const weatherModel = new WeatherModel();
     const newsModel = new NewsModel();
     const category = req.params.category;
-    const country = req.query.country === undefined ? 'ru' : req.query.country;
-    let weatherPromise = weatherWidget.getWeather(req)
+    const country = req.query.country || 'ru';
+    let weatherPromise = weatherModel.getWeather(req)
         .then((weather) => {
             Object.assign(data, weather);
         });

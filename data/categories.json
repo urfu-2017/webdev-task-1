@@ -1,37 +1,41 @@
-[
-    {
-        "name": "Бизнес",
-        "backgroundClassName": "business",
-        "href": "business"
-    },
-    {
-        "name": "Развлечения",
-        "backgroundClassName": "entertainment",
-        "href": "entertainment"
-    },
-    {
-        "name": "Общее",
-        "backgroundClassName": "general",
-        "href": "general"
-    },
-    {
-        "name": "Здоровье",
-        "backgroundClassName": "health",
-        "href": "health"
-    },
-    {
-        "name": "Науки",
-        "backgroundClassName": "science",
-        "href": "science"
-    },
-    {
-        "name": "Спорт",
-        "backgroundClassName": "sports",
-        "href": "sports"
-    },
-    {
-        "name": "Технологии",
-        "backgroundClassName": "technology",
-        "href": "technology"
-    }
-]
+{ 
+    "categories":
+    [
+        {
+            "name": "Бизнес",
+            "backgroundClassName": "business",
+            "href": "business"
+        },
+        {
+            "name": "Развлечения",
+            "backgroundClassName": "entertainment",
+            "href": "entertainment"
+        },
+        {
+            "name": "Общее",
+            "backgroundClassName": "general",
+            "href": "general"
+        },
+        {
+            "name": "Здоровье",
+            "backgroundClassName": "health",
+            "href": "health"
+        },
+        {
+            "name": "Науки",
+            "backgroundClassName": "science",
+            "href": "science"
+        },
+        {
+            "name": "Спорт",
+            "backgroundClassName": "sports",
+            "href": "sports"
+        },
+        {
+            "name": "Технологии",
+            "backgroundClassName": "technology",
+            "href": "technology"
+        }
+    ],
+    "categoriesCaption": "Категории новостей"
+}
