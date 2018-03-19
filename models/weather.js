@@ -28,6 +28,11 @@ class Weather {
                 return Weather.requestWeatherId(config.get('urlWeather') + woeid, {});
             })
             .then(body => {
+                if (!body.data) {
+                    this.data = null;
+
+                    return this.data;
+                }
                 body.data.consolidated_weather.forEach(weatherOneDay => {
                     const oneDay = {};
                     const options = { month: 'long', day: 'numeric' };
@@ -49,6 +54,7 @@ class Weather {
 
         return axios.get(url, { params: { query, lattlong } })
             .then(function (body) {
+
                 return body;
             })
             .catch(function (err) {

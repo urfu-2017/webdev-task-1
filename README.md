@@ -1,5 +1,4 @@
 # Задача «Илон слишком занят»
-# Пример приложения «Заметки»
 
 В основе приложения [Express.js](https://expressjs.com/) и [Handelbars](http://handlebarsjs.com/).
 

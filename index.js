@@ -12,6 +12,7 @@ const handleErrors = require('./middlewares/handleErrors');
 const setInitialData = require('./middlewares/setInitialData');
 
 const app = express();
+const port = config.get('port') || 8080;
 
 // Определяем директорию для хранения шаблонов
 const viewsDir = path.join(__dirname, 'views');
@@ -50,8 +51,8 @@ routes(app);
 hbs.registerPartials(path.join(partialsDir, 'weather'), () => {
     hbs.registerPartials(partialsDir, () => {
         // Запускаем сервер на порту 8080
-        app.listen(config.get('port'), () => {
-            console.info(`Open http://localhost:${config.get('port')}/`);
+        app.listen(port, () => {
+            console.info(`Open http://localhost:${port}/`);
         });
     });
 });

@@ -6,9 +6,9 @@ const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI(config.get('keyNews'));
 
 class News {
-    constructor({ country = 'ru', categories }, main) {
+    constructor({ country = 'ru', category }, main) {
         this.country = country;
-        this.categories = categories;
+        this.categories = category;
         this.url = null;
         this.main = main;
     }

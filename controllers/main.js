@@ -1,7 +1,5 @@
 'use strict';
 
-// const url = require('url');
-
 const Weather = require('../models/weather');
 
 exports.home = (req, res) => {
