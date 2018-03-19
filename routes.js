@@ -7,7 +7,7 @@ const { listNews } = require('./controllers/news');
 module.exports = app => {
     app.get('/', home);
 
-    app.get('/news/:name', listNews);
+    app.get('/news/:category', listNews);
 
     app.all('*', error404);
 };
