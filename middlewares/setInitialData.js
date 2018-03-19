@@ -2,10 +2,9 @@
 const indexJson = require('../mocks/index.json');
 
 module.exports = (req, res, next) => {
-    const data = indexJson[0];
-    res.locals.title = data.title;
-    res.locals.meta = data.meta;
-    res.locals.main = data.main;
+    res.locals.title = indexJson.title;
+    res.locals.meta = indexJson.meta;
+    res.locals.main = indexJson.main;
 
     next();
 };
