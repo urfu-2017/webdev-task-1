@@ -1,0 +1,33 @@
+.header {
+    background: #ffee54;
+}
+
+.header__controls {
+    position: relative;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    margin: 24px;
+}
+
+.header__back {
+    position: absolute;
+    left: 0;
+
+    font-size: 16px;
+
+    text-decoration: none;
+}
+
+.header__back:active {
+
+}
+
+.header__title {
+    display: block;
+
+    font-size: 24px;
+}

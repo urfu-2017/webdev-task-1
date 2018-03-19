@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="{{ staticBasePath }}common.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}header.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}weather-widget.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}footer.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}index.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+    {{> header }}
+    {{> weatherWidget }}
+    <main class="news-categories">
+        <span class="news-categories__header">{{ newsHeader }}</span>
+        {{#each newsCategories }}
+        <a class="news-categories__category link" href="{{ link }}">
+            <i class="far {{ icon }} fa-2x news-categories__icon"></i>
+            <div class="news-categories__category-name">{{ name }}</div>
+        </a>
+        {{/each}}
+    </main>
+    {{> footer }}
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Portal",
+
+  "header": "Portal",
+  "newsHeader":"News",
+  "newsCategories": [
+    { "name": "Business", "link": "/business", "icon": "fa-briefcase" },
+    { "name": "Entertaiment", "link": "/entertaiment", "icon": "fa-smile" },
+    { "name": "Common", "link": "/common", "icon": "fa-money-bill-alt" },
+    { "name": "Health", "link": "/health", "icon": "fa-medkit" },
+    { "name": "Science", "link": "/science", "icon": "fa-money-bill-alt" },
+    { "name": "Sport", "link": "/sport", "icon": "fa-money-bill-alt" },
+    { "name": "Technology", "link": "/technology", "icon": "fa-money-bill-alt" }
+  ],
+  "copyrightName": "tonyfresher",
+  "currentYear": 2018
+}

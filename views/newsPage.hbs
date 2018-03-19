@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="{{ staticBasePath }}common.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}header.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}weather-widget.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}footer.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}news-page.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+    {{> header }}
+    {{> weatherWidget }}
+    <main class="news">
+        {{#each news }}
+         <a class="news-item link" href="{{ link }}">
+            <span class="news-item__header">{{ header }}</span>
+            <div class="news-item__body">
+                <img src="https://cdn.pixabay.com/photo/2013/04/06/11/50/image-editing-101040_960_720.jpg" class="news-item__image"></img>
+                <p class="news-item__description">{{ description }}</p>
+            </div>
+            <span class="news-item__date">{{ date }}</span>
+            <span class="news-item__source">{{ source }}</span>
+         </a>
+         {{/each}}
+    </main>
+    {{> footer }}
+</body>
+
+</html>
