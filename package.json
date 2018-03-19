@@ -3,7 +3,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint .",
-    "test": "npm run lint && mocha --exit tests/*.js"
+    "test": "npm run lint && mocha --timeout 3000 --exit tests/*.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
