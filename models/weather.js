@@ -52,14 +52,7 @@ class Weather {
 
     static requestWeatherId(url, { query, lattlong }) {
 
-        return axios.get(url, { params: { query, lattlong } })
-            .then(function (body) {
-
-                return body;
-            })
-            .catch(function (err) {
-                return err;
-            });
+        return axios.get(url, { params: { query, lattlong } });
     }
 }
 
