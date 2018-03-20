@@ -1,0 +1,17 @@
+{
+    "defaultQuery": "?query=moscow",
+    "apiBaseUrl": "https://www.metaweather.com",
+    "locationSearchPath": "/api/location/search/",
+    "locationPath": "/api/location/",
+    "weatherStateIconPath": "/static/img/weather/",
+    "windIcon": "images/wind.png",
+    "windAlt": "Wind, m/s",
+    "temperatureMeasure": "&#8451;",
+    "windSpeedMeasure": "м/c",
+    "monthesStrings": [
+        "января", "февраля", "марта",
+        "апреля", "мая", "июня",
+        "июля", "августа", "сентября",
+        "октября", "ноября", "декабря"
+    ]
+}

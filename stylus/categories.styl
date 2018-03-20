@@ -1,0 +1,42 @@
+.categories {
+    padding-top: 40px;
+
+    &__caption {
+        font-size: 24px;
+    }
+
+    &__category {
+        display: block;
+        text-decoration: none;
+        color: #000;
+        &:hover,
+        &:visited,
+        &:link {
+            color: #000;
+        }
+        margin: 5px 0 0 40px;
+    }
+
+    &__icon {
+        width: 64px;
+        height: 64px;
+        display: inline-block;
+        vertical-align: middle;
+
+        $icons = business entertainment general health science sports technology;
+        for $name in $icons {
+            &_background_{$name} {
+                background-image: url(../images/$name.png);
+            }
+        }
+
+    }
+
+    &__name {
+        font-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+}
+

@@ -1,0 +1,31 @@
+<div class="weather-widget">
+    <div class="weather-widget__city">{{ city }}</div>
+    <img class="weather-widget__weather-state" src="{{ weatherStateIcon }}" alt="{{ weatherStateAlt}}">
+    <span class="weather-widget__temperature">t</span>
+    <span class="weather-widget__temperature-value">
+        {{ temperature }} {{{ temperatureMeasure }}}
+    </span>
+    <img class="weather-widget__wind-speed" src="{{ windIcon }}" alt="{{ windAlt }}">
+    <span class="weather-widget__wind-speed-value">
+        {{ windSpeed }} {{ windSpeedMeasure }}
+    </span>
+    <div class="weather-widget__next-days">
+        <table>
+            <tbody>
+                {{#each nextDays}}
+                    <td>{{ date }}</td>
+                {{/each}}
+                <tr>
+                {{#each nextDays}}
+                    <td>{{ temperature }} {{{ ../temperatureMeasure }}}</td>
+                {{/each}}
+                </tr>
+                <tr>
+                {{#each nextDays}}
+                    <td>{{ windSpeed }} {{ ../windSpeedMeasure }}</td>
+                {{/each}}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

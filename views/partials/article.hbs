@@ -1,0 +1,11 @@
+<article class="article">
+    <div class="article__date">{{ publishedAt }}</div>
+    <a class="article__title" href="{{ url }}">{{ title }}</a>
+    <div class="article__main">
+        {{#if urlToImage }}
+            <img class="article__image" src="{{ urlToImage }}" alt="{{ title }}">
+        {{/if }}
+        <div class="article__description">{{{ description }}}</div>
+    </div>
+    <a class="article__source" href="{{ url }}" >{{ source.name }}</a>
+</article>

@@ -1,0 +1,60 @@
+$firstColumnWidth = 170px;
+$secondColumnWidth = 32px;
+$height = 32px;
+$cityFontSize = 28px;
+
+.weather-widget {
+
+    display: grid;
+    grid-template-areas:\
+        'city city city'\
+        'weather-state temperature temperature-value'\
+        'weather-state wind-speed wind-speed-value'\
+        'weather-state next-days next-days';
+    grid-template-columns: $firstColumnWidth $secondColumnWidth auto;
+    grid-template-rows: auto $height $height auto;
+    line-height: $height;
+    grid-column-gap: 15px;
+    grid-row-gap: 5px;
+
+    &__city {
+        font-size: $cityFontSize;
+    }
+
+    &__weather-state {
+        grid-area: weather-state;
+        width: $firstColumnWidth;
+    }
+    
+    &__temperature {
+        grid-area: temperature;
+    }
+
+    &__temperature-value {
+        grid-area: temperature-value;
+    }
+
+    &__wind-speed {
+        grid-area: wind-speed;
+    }
+
+    &__wind-speed-value {
+        grid-area: wind-speed-value;
+    }
+
+    &__next-days {
+        grid-area: next-days;
+        text-align: center;
+        & table, th, td {
+            border: 1px solid #000;
+        }
+        & table {
+            border-collapse: collapse;
+        }
+        & td {
+            padding: 3px 10px;
+            line-height: auto;
+        }
+    }
+
+}
