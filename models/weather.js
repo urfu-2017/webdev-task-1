@@ -16,9 +16,9 @@ const compareByDistance = (a, b) => {
     return 0;
 };
 
-class WeatherModel {
+class Weather {
 
-    async _resolver(query) {
+    static async _resolver(query) {
         let locationSearch = config.apiBaseUrl + config.locationSearchPath + query;
         let res = await fetch(locationSearch);
         let result = await res.json();
@@ -33,7 +33,7 @@ class WeatherModel {
         return location.woeid;
     }
 
-    async _getWoeid(request) {
+    static async _getWoeid(request) {
         let result;
         let query = request.query;
         if (query.lat !== undefined && query.lon !== undefined) {
@@ -51,7 +51,7 @@ class WeatherModel {
         return result;
     }
 
-    async _getWeatherByWoeid(woeid) {
+    static async _getWeatherByWoeid(woeid) {
         let location = config.apiBaseUrl + config.locationPath + woeid;
         let res = await fetch(location);
         let result = await res.json();
@@ -59,11 +59,11 @@ class WeatherModel {
         return result;
     }
 
-    _mphToMeterPerSeconds(mph) {
+    static _mphToMeterPerSeconds(mph) {
         return mph * meterInMile / 3600;
     }
 
-    _applicableToReadableDate(dateString) {
+    static _applicableToReadableDate(dateString) {
         let parsedDate = dateRegExp.exec(dateString);
         let month = parsedDate[1];
         let day = parsedDate[2];
@@ -71,7 +71,7 @@ class WeatherModel {
         return `${day} ${config.monthesStrings[month - 1]}`;
     }
 
-    _prepareNextDays(consolidatedWeather) {
+    static _prepareNextDays(consolidatedWeather) {
         return consolidatedWeather
             .slice(1)
             .map((weather) => (
@@ -83,7 +83,7 @@ class WeatherModel {
             ));
     }
 
-    async getWeather(request) {
+    static async getWeather(request) {
         let woeid = await this._getWoeid(request);
         let weather = await this._getWeatherByWoeid(woeid);
         let nowWeather = weather.consolidated_weather[0];
@@ -106,4 +106,4 @@ class WeatherModel {
 
 }
 
-module.exports.WeatherModel = WeatherModel;
+module.exports.Weather = Weather;

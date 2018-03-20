@@ -4,14 +4,13 @@ const generic = require('../data/generic');
 const header = require('../data/header');
 const footer = require('../data/footer');
 const categoriesData = require('../data/categories');
-const { WeatherModel } = require('../models/weather');
+const { Weather } = require('../models/weather');
 
 exports.home = (req, res) => {
     const data = { };
     Object.assign(data, generic, header, footer, categoriesData);
 
-    const weatherModel = new WeatherModel(req);
-    weatherModel.getWeather(req)
+    Weather.getWeather(req)
         .then((weather) => {
             Object.assign(data, weather);
             res.render('home', data);

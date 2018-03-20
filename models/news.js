@@ -3,8 +3,8 @@ const { key } = require('../newsapi.json');
 const baseUrl = 'https://newsapi.org/v2/top-headlines';
 const fetch = require('node-fetch');
 
-class NewsModel {
-    async getNews(country, category) {
+class News {
+    static async getNews(country, category) {
         let res = await fetch(baseUrl + `?country=${country}&category=${category}&apiKey=${key}`);
         let result = await res.json();
         result.articles.forEach((article, index, articles) => {
@@ -17,4 +17,4 @@ class NewsModel {
     }
 }
 
-exports.NewsModel = NewsModel;
+exports.News = News;
