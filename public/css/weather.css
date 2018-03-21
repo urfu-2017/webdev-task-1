@@ -40,6 +40,7 @@
 {
     padding: 0 7px;
     border-bottom: 1px solid aliceblue;
+    font-size: 11px;
 }
 
 .weather__future-temperature,

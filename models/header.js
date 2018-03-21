@@ -3,7 +3,12 @@ const back = { url: '/', backTitle: 'На главную' };
 const title = 'Новости и погода';
 
 class Header {
-    static head(param) {
+    constructor() {
+        this.title = title;
+        this.back = back;
+    }
+
+    static getHeader(param) {
         if (!param) {
             return { title };
         }

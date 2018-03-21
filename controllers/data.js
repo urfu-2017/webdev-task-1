@@ -1,6 +1,6 @@
 'use strict';
 import Weather from '../models/weather';
-import news from '../models/news';
+import getNews from '../models/news';
 import Header from '../models/header';
 import moment from 'moment';
 
@@ -12,7 +12,7 @@ let getDate = (date) => {
 exports.categories = async (req, res) => {
     await Weather.getWeather('moscow').then(weather =>
         res.render('categories', {
-            header: Header.head(),
+            header: Header.getHeader(),
             weather,
             categories: res.locals
         })
@@ -30,7 +30,7 @@ exports.news = async (req, res) => {
         });
 
     let newsResult;
-    await news(req.params.category, 'ru')
+    await getNews(req.params.category)
         .then(news => {
             for (let i = 0; i < news.articles.length; i++) {
                 news.articles[i].publishedAt = getDate(news.articles[i].publishedAt);
@@ -40,7 +40,7 @@ exports.news = async (req, res) => {
             return newsResult;
         });
     res.render('news', {
-        header: Header.head(req.param),
+        header: Header.getHeader(req.param),
         weather,
         news: newsResult
     });
