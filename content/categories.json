@@ -1,0 +1,37 @@
+[
+    {
+        "name": "business",
+        "icon": "briefcase",
+        "displayName": "Бизнес"
+    },
+    {
+        "name": "entertainment",
+        "icon": "smile",
+        "displayName": "Развлечения"
+    },
+    {
+        "name": "general",
+        "icon": "newspaper",
+        "displayName": "Общее"
+    },
+    {
+        "name": "health",
+        "icon": "heartbeat",
+        "displayName": "Здоровье"
+    },
+    {
+        "name": "science",
+        "icon": "flask",
+        "displayName": "Наука"
+    },
+    {
+        "name": "sports",
+        "icon": "basketball-ball",
+        "displayName": "Спорт"
+    },
+    {
+        "name": "technology",
+        "icon": "rocket",
+        "displayName": "Технологии"
+    }
+]

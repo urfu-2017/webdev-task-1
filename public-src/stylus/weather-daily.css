@@ -1,0 +1,14 @@
+.weather-daily {
+  border: solid 1px;
+  border-collapse: collapse;
+  text-align: center;
+}
+.weather-daily th,
+.weather-daily td {
+  border-style: solid;
+  border-width: 0 1px;
+  padding: 5px;
+}
+.weather-daily__header {
+  border-bottom: solid 1px;
+}

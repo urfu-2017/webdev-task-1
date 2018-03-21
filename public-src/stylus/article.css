@@ -1,0 +1,28 @@
+.article {
+  padding: 15px;
+}
+.article:not(:last-of-type) {
+  margin-bottom: 10px;
+  border-bottom: solid 1px;
+}
+.article__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.article__header h3 {
+  margin-right: 10px;
+}
+.article__content {
+  display: flex;
+}
+.article__image {
+  width: 300px;
+}
+.article__text {
+  width: 100%;
+  margin-left: 10px;
+}
+.article__source {
+  text-align: right;
+}

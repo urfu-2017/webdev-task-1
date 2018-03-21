@@ -1,0 +1,43 @@
+.article
+{
+    padding: 15px;
+
+    &:not(:last-of-type)
+    {
+        margin-bottom: 10px;
+        border-bottom: solid 1px;
+    }
+
+    &__header
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__header h3
+    {
+        margin-right: 10px;
+    }
+
+    &__content
+    {
+        display: flex;
+    }
+
+    &__image
+    {
+        width: 300px;
+    }
+
+    &__text
+    {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    &__source
+    {
+        text-align: right;
+    }
+}

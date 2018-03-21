@@ -1,0 +1,23 @@
+<main class="articles">
+    {{#each articles}}
+        <article class="article">
+            <div class="article__header">
+                <a href="{{ url }}"><h3>{{ title }}</h3></a>
+                <div class="article__date">
+                    {{ dateFormat publishedAt 'DD.MM.Y HH:mm' }}
+                </div>
+            </div>
+            <div class="article__content">
+                {{#if urlToImage}}
+                    <div>
+                        <img class="article__image" src="{{urlToImage}}" alt="">
+                    </div>
+                {{/if}}
+                <div class="article__text">{{ description }}</div>
+            </div>
+            <div class="article__source">
+                {{ source.name }}
+            </div>
+        </article>
+    {{/each}}
+</main>
