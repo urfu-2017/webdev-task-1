@@ -1,5 +1,5 @@
 {
-  "port": 8080,
+  "port": 8081,
   "weatherApiUrl": "https://www.metaweather.com/api/",
   "newsApiKey": "2ab36d81886f43de897561b53525dde7",
   "defaultWoeid": 2122265,
