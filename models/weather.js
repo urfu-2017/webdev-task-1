@@ -17,7 +17,7 @@ class Weather {
 
     get() {
 
-        return Weather.requestWeatherId(config.get('urlWeather') + 'search/', this)
+        return Weather.requestWeatherId(config.urlWeather + 'search/', this)
             .then(answer => {
                 let woeid = '';
                 if (answer.data && answer.data.length) {
@@ -25,7 +25,7 @@ class Weather {
                     woeid += answer.data[0].woeid;
                 }
 
-                return Weather.requestWeatherId(config.get('urlWeather') + woeid, {});
+                return Weather.requestWeatherId(config.urlWeather + woeid, {});
             })
             .then(body => {
                 if (!body.data) {
@@ -39,7 +39,7 @@ class Weather {
                     const date = new Date(weatherOneDay.applicable_date);
                     oneDay.date = date.toLocaleDateString('ru-Ru', options);
                     oneDay.weatherStateName = weatherOneDay.weather_state_name;
-                    oneDay.weatherStateImage = config.get('urlWeatherImage') +
+                    oneDay.weatherStateImage = config.urlWeatherImage +
                         weatherOneDay.weather_state_abbr + '.svg';
                     oneDay.windSpeed = Math.round(weatherOneDay.wind_speed * windSpeedCoefficient);
                     oneDay.temp = Math.round(weatherOneDay.the_temp);

@@ -12,7 +12,7 @@ const handleErrors = require('./middlewares/handleErrors');
 const setInitialData = require('./middlewares/setInitialData');
 
 const app = express();
-const port = config.get('port') || 8080;
+const port = config.port || 8080;
 
 // Определяем директорию для хранения шаблонов
 const viewsDir = path.join(__dirname, 'views');
@@ -30,7 +30,7 @@ app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
 // Логируем запросы к приложению в debug-режиме
-if (config.get('debug')) {
+if (config.debug) {
     app.use(morgan('dev'));
 }
 

@@ -3,7 +3,7 @@
 const config = require('config');
 const NewsAPI = require('newsapi');
 
-const newsapi = new NewsAPI(config.get('keyNews'));
+const newsapi = new NewsAPI(config.keyNews);
 
 class News {
     constructor({ country = 'ru', category }, main) {
