@@ -5,15 +5,15 @@ const url = require('url');
 const newsProxy = require('../proxies/news-proxy');
 const weatherProxy = require('../proxies/weather-proxy');
 
-function queryWeather(query, lat, lon) {
-    if (query) {
-        return weatherProxy.query(query);
-    } else if (lat && lon) {
+function queryWeather(query = 'san+fran', lat, lon) {
+    if (lat && lon) {
         return weatherProxy.lattlong(`${lat},${lon}`);
+    } else if (query) {
+        return weatherProxy.query(query);
     }
 }
 
-function queryNews(country, req) {
+function queryNews(country = 'ru', req) {
     if (country) {
         return newsProxy(req.params.category, country);
     }
