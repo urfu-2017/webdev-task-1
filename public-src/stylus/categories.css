@@ -1,0 +1,9 @@
+.categories__header,
+.categories__list {
+  margin: 5px 0;
+}
+.categories__category {
+  font-size: 1rem;
+  list-style-type: none;
+  padding: 7px 0;
+}

@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+const config = require('config');
 const express = require('express');
 const hbs = require('hbs');
 require('handlebars-helpers')({ handlebars: hbs });
@@ -50,7 +51,7 @@ Object.assign(app.locals, common);
 hbs.localsAsTemplateData(app);
 
 hbs.registerPartials(partialsDir, () => {
-    const port = 8080;
+    const port = config.get('port');
     app.listen(port, () => {
         console.info(`Server started on http://localhost:${port}/`);
     });

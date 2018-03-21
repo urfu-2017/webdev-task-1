@@ -3,7 +3,7 @@ const request = require('supertest');
 
 const app = require('../index');
 
-describe('GET /', function () {
+describe('GET /', () => {
     it('respond with html page', done => {
         request(app)
             .get('/')

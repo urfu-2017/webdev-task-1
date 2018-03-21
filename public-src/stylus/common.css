@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+}
+.page {
+  display: inline-block;
+  text-align: initial;
+}
+.header,
+.weather,
+.categories,
+.articles,
+.main,
+.footer {
+  height: 100%;
+  border-style: solid;
+  border-width: 1px 1px 0 1px;
+}
+.footer {
+  border-bottom-width: 1px;
+}
+.header,
+.weather,
+.categories,
+.footer {
+  padding: 10px;
+}
+.header {
+  position: relative;
+}
+.header__title {
+  text-align: center;
+}
+.header__main-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+}

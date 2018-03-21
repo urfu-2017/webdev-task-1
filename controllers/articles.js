@@ -1,16 +1,14 @@
 'use strict';
 
-const Articles = require('../models/articles');
+const articlesClient = require('../clients/articles');
 
-module.exports.categories = function (req, res) {
+module.exports.categories = (req, res) => {
     res.render('index', {
-        categories: Articles.categories()
+        categories: articlesClient.categories
     });
 };
 
-module.exports.articles = function (req, res) {
-    Articles.findArticles(req.params.category, req.query.country)
-        .then(articles => {
-            res.render('category', { articles });
-        });
+module.exports.articles = (req, res) => {
+    articlesClient.find(req.params.category, req.query.country)
+        .then(articles => res.render('category', { articles }));
 };

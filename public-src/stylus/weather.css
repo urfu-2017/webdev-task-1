@@ -1,0 +1,25 @@
+.weather {
+  text-align: center;
+}
+.weather__city {
+  margin-top: 5px;
+}
+.weather__column {
+  display: inline-block;
+  vertical-align: top;
+}
+.weather__column:first-of-type {
+  margin-right: 20px;
+}
+.weather__row {
+  margin: 10px 0;
+  text-align: left;
+}
+.weather__label,
+.weather__value {
+  display: inline-block;
+  vertical-align: middle;
+}
+.weather__label {
+  width: 30px;
+}
