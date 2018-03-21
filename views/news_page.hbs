@@ -1,0 +1,12 @@
+<body>
+{{> header innerClass="news-page__header"}}
+<main class="news-page">
+    {{> weather_widget innerClass="news-page__weather-widget"}}
+
+    {{#if newsQueryResult}}
+        {{#each newsQueryResult as |article|}}
+            {{> news article}}
+        {{/each}}
+    {{/if}}
+</main>
+{{> footer innerClass="news-page__footer"}}

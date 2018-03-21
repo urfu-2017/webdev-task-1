@@ -1,0 +1,24 @@
+{{> header innerClass="main-page__header"}}
+<main class="main-page">
+    {{> weather_widget innerClass="main-page__weather-widget"}}
+    <section class="main-page__categories">
+        <h2 class="main-page__categories-title">Категории новостей</h2>
+        <div class="main-page__categories-list">
+            <span class="main-page__category">💼 <a href="/news/business{{search}}"
+                                                    class="main-page__category-link">Бизнес</a></span>
+            <span class="main-page__category">😃 <a href="/news/entertainment{{search}}"
+                                                    class="main-page__category-link">Развлечения</a></span>
+            <span class="main-page__category">📄 <a href="/news/general{{search}}"
+                                                    class="main-page__category-link">Общее</a></span>
+            <span class="main-page__category">🏥 <a href="/news/health{{search}}"
+                                                    class="main-page__category-link">Здоровье</a></span>
+            <span class="main-page__category">⚛️ <a href="/news/science{{search}}"
+                                                    class="main-page__category-link">Наука</a></span>
+            <span class="main-page__category">⚽️ <a href="/news/sports{{search}}"
+                                                    class="main-page__category-link">Спорт</a></span>
+            <span class="main-page__category">🚀 <a href="/news/technology{{search}}"
+                                                    class="main-page__category-link">Технологии</a></span>
+        </div>
+    </section>
+</main>
+{{> footer innerClass="main-page__footer"}}

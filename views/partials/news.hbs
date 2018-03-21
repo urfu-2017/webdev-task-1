@@ -1,0 +1,13 @@
+<article class="news">
+    <div class="news__header">
+        <h2 class="news__title">{{title}}</h2>
+        <time class="news__date">{{publishedAt}}</time>
+    </div>
+    <div class="news__content">
+        {{#if urlToImage}}
+            <img src="{{urlToImage}}" alt="картика к новости" class="news__pic"/>
+        {{/if}}
+        <div class="news__description">{{description}}</div>
+        <div class="news__source">{{source}}</div>
+    </div>
+</article>
