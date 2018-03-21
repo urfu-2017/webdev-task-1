@@ -1,0 +1,21 @@
+<div class="weather page__weather">
+    <div class="weather__item">
+        <div class="weather__city">{{city}}</div>
+        <img class="weather__icon" src="{{stateUrl}}" alt="">
+    </div>
+    <div class="weather__item">
+        <span class="weather__letter">t</span>{{temperature}} °C
+        <span class="weather__wind">
+            <img class="weather__today-icon" alt="" src="/pic/wind.svg">{{wind}} м/c
+        </span>
+        <div class="weather__future">
+            {{#each nextDays }}
+                <span class="weather__future-item">
+                    <div class="weather__future-date">{{date}}</div>
+                    <div class="weather__future-temperature">{{temperature}} °C</div>
+                    <div class="feather__future-wind">{{wind}} м/c</div>
+                </span>
+            {{/each}}
+        </div>
+    </div>
+</div>

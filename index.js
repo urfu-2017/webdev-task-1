@@ -1,6 +1,5 @@
 'use strict';
-const express = require('express');
-
-const app = express();
-
+require('babel-core/register');
+// require('babel-polyfill');
+const { app } = require('./app');
 module.exports = app;

@@ -1,0 +1,17 @@
+<div class="news">
+    {{#each news.articles}}
+        <div class="news__item">
+            <div class="news__title">{{title}}</div>
+            <div class="news__block1">
+                <div class="news__block2">
+                    <img class="news__image" src="{{urlToImage}}" alt="">
+                    <div class="news__description">{{description}}</div>
+                </div>
+                <div class ="news__info">
+                    <div class="news__date">{{publishedAt}}</div>
+                    <div class="news__source">{{source.name}}</div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
