@@ -1,0 +1,45 @@
+.article {
+    border-bottom: 3px dashed rgb(119, 118, 118); 
+    padding: 0.5em 0;
+}
+
+.article:last-child {
+    border-bottom: none; 
+}
+
+.article__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article__title-link {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+    font-weight: 600;
+    color: #000;
+}
+
+.article__date {
+    width: 75px;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    white-space: nowrap;
+}
+
+.article__body {
+    display: flex;
+}
+
+.article__image {
+    width: auto;
+    height: 60px;
+    margin: 0 1em;
+}
+
+.article__source {
+    width: 100%;
+    text-align: right;
+    font-weight: 600;
+}

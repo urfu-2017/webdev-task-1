@@ -1,0 +1,15 @@
+{{#each news.articles}}
+    <article class="article">
+        <div class="article__header">
+            <a href="{{url}}" class="article__title-link">{{title}}</a>
+            <div class="article__date">{{date}}</div>
+        </div>
+        <div class="article__body">
+            {{#if urlToImage}}
+                <img class="article__image" src="{{urlToImage}}">
+            {{/if}}
+            <div class="article__text">{{description}}</div>
+        </div>
+        <div class="article__source">{{source.name}}</div>
+    </article>
+{{/each}}

@@ -1,0 +1,9 @@
+.news {
+    padding: 1em;
+    grid-area: c;
+}
+
+.news__list {
+    display: flex;
+    flex-direction: column;
+}

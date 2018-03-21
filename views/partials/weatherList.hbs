@@ -1,0 +1,11 @@
+<div class="weather-list">
+    {{#each weather}}
+        <div class="weather-list__item">
+            <div class="weather-list__date">{{date}}</div>
+            <div class="weather-list__data">
+                <div class="weather-list__temp">{{temp}}&deg;C</div>
+                <div class="weather-list__wind">{{windSpeed}}м/с</div>
+            </div>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,84 @@
+.weather {
+    background: #add8e6;
+    grid-area: 'w';
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: 
+                        'wh wh'
+                        'wi wt'
+                        'wi ww'
+                        'wi wd';
+    text-align: center;
+}
+
+.weather__name-city {
+    grid-area: wh;
+    font-size: 20px;
+    text-align: left;
+}
+
+.weather__image {
+    width: 120px;
+    height: 120px;
+    grid-area: wi;
+    margin: 0 10px;
+}
+
+.today-temp {
+    grid-area: wt;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px;
+}
+
+.today-temp__label {
+    height: 1.2em;
+    margin: 0 5px;
+}
+
+.today-wind {
+    grid-area: ww;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px;
+}
+
+.weather-list {
+    grid-area: wd;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+    margin: 5px;
+}
+
+.weather-list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.weather-list__item {
+    border-right: 1px solid #000;
+    flex-grow: 1;
+}
+
+.weather-list__item:last-child {
+    border-right: none;
+}
+
+.weather-list__date {
+    border-bottom: 1px solid #000;
+    padding: 2px;
+    text-align: center;
+}
+
+.weather-list__data {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
