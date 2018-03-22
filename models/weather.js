@@ -79,4 +79,4 @@ class WeatherFetcher {
     }
 }
 
-exports.weatherFetcher = new WeatherFetcher();
+exports.weatherFetcher = WeatherFetcher;

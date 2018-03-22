@@ -15,22 +15,13 @@ class News {
     }
 }
 
+let key;
+
 class NewsFetcher {
 
     constructor(apiKey) {
         this.apiKey = apiKey;
         this.apiUrl = 'https://newsapi.org/v2/top-headlines';
-    }
-
-    static initFromFile(filename) {
-        const data = fs.readFileSync(filename, 'utf-8');
-        try {
-            const key = JSON.parse(data).newsApiKey;
-
-            return new NewsFetcher(key);
-        } catch (ex) {
-            console.error(ex);
-        }
     }
 
     async loadFromApi(category, country) {
@@ -77,4 +68,15 @@ class NewsFetcher {
     }
 }
 
-exports.News = NewsFetcher.initFromFile('keys.json');
+exports.initNewsFetcher = function initNewsFetcher(filename) {
+    const data = fs.readFileSync(filename, 'utf-8');
+    try {
+        key = JSON.parse(data).newsApiKey;
+
+        return new NewsFetcher(key);
+    } catch (ex) {
+        console.error(ex);
+    }
+};
+
+exports.News = NewsFetcher;

@@ -2,9 +2,10 @@
 
 const { News } = require('../models/news');
 const { meta } = require('../utils/meta');
-const { weatherFetcher } = require('../models/weather');
+const { WeatherFetcher } = require('../models/weather');
 
 exports.renderNews = async (req, res) => {
+    const weatherFetcher = new WeatherFetcher();
     const query = req.query;
     const country = query.country || 'ru';
     const category = req.params.category;

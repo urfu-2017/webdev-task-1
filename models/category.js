@@ -7,25 +7,27 @@ class Category {
         this.value = value;
         this.icon = icon;
     }
-
-    static loadAll(filename) {
-        const data = fs.readFileSync(filename, 'utf-8');
-        try {
-            const readCats = JSON.parse(data);
-            const categories = readCats.reduce((result, current) => {
-                const category = new Category(current);
-                result.push(category);
-
-                return result;
-            }, []);
-
-            return categories;
-        } catch (ex) {
-            console.error(ex);
-
-            return null;
-        }
-    }
 }
 
-exports.categories = Category.loadAll('categories.json');
+let categories;
+
+exports.loadCategories = function loadCategories(filename) {
+    const data = fs.readFileSync(filename, 'utf-8');
+    try {
+        const readCats = JSON.parse(data);
+        categories = readCats.reduce((result, current) => {
+            const category = new Category(current);
+            result.push(category);
+
+            return result;
+        }, []);
+
+        return categories;
+    } catch (ex) {
+        console.error(ex);
+
+        return null;
+    }
+};
+
+exports.categories = categories;
