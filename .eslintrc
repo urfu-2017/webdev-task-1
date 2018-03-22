@@ -3,5 +3,8 @@
     "globals": {
         "describe": true,
         "it": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
     }
 }

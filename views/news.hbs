@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{meta.title}}</title>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <main class="main">
+            <header class="header">
+                <a href="/" class="back-link"><span class="fas fa-arrow-left"></span></a>
+                <h1 class="page-title">{{meta.title}}</h1>
+            </header>
+            {{>weather}}
+            {{#if error}}
+                <div class="error">{{error}}</div>
+            {{else}}
+                {{#each articles}}
+                    <a href="{{this.link}}" class="article-link">
+
+                        <article class="article">
+                            <h2 class="article__title">{{this.title}}</h2>
+                            <p class="article__description">{{this.description}}</p>
+                            {{#if this.image}}
+                                <img src="{{this.image}}" alt="{{this.title}}" class="article__image">
+                            {{/if}}
+                            <p class="article__source">{{this.source}}</p>
+                            <time class="article__date">{{dateFormat this.date 'LL'}}</time>
+                        </article>
+                    </a>
+
+                {{/each}}
+            {{/if}}
+        </main>
+    </body>
+
+</html>

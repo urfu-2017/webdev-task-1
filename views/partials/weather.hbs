@@ -1,0 +1,34 @@
+{{#if weather.error}}
+    <div class="error">{{weather.error}}</div>
+{{else}}
+    <div class="weather">
+        <span class="weather__title">{{weather.title}}</span>
+        {{#with weather.consolidated_weather.[0]}}
+            <img src="https://www.metaweather.com/static/img/weather/{{weather_state_abbr}}.svg"
+                 alt="{{weather_state_name}}" class="weather__current-img">
+            <span class="weather__temperature-sign">Температура</span>
+            <span class="weather__current-temperature">{{toFixed the_temp}} &deg;C</span>
+            <span class="weather__wind-sign">Ветер</span>
+            <span class="weather__current-wind">{{toFixed wind_speed}} м/с</span>
+        {{/with}}
+        <table class="forecast">
+            <thead>
+            <tr>
+                {{#each weather.consolidated_weather}}
+                    <td>{{dateFormat applicable_date 'D MMMM'}}</td>
+                {{/each}}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                {{#each weather.consolidated_weather}}
+                    <td>
+                        <span class="forecast__max">{{toFixed max_temp}} &deg;C</span>
+                        <span class="forecast__min">{{toFixed min_temp}} &deg;C</span>
+                    </td>
+                {{/each}}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{{/if}}
