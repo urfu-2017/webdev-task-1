@@ -1,0 +1,28 @@
+<section class="header">
+    Сервис Безумного <s>Макса</s> Маска.
+</section>
+<hr>
+<section class="back">
+    <a href="/">На главную</a>
+</section>
+{{> weather }}
+    {{#if newsField}}
+    <section class="news">
+        {{#each newsField }}
+            <div>
+                <div class="news__title"><b><u><span class="news__translate-title"> {{ titleTranslate }}:</span></u></b> {{ title }}</div>
+                <div class="news__date"><b>{{ publishedTranslate }}:</b> {{ date }}</div>
+                <div class="news__img"><img src={{ urlToImage }} alt="Высокоинтеллектуальная картинка"></div>
+                <div class="news__description"><b>{{ descriptionTranslate }}:</b> {{ description }}</div>
+                <div class="news__author"><b>{{ translatedAuthor }}:</b> {{ author }}</div>
+                <hr>
+            </div>
+        {{/each}}
+    </section>
+    {{^}}
+    <p>News not found :c</p>
+    {{/if}}
+<hr>    
+<section class="footer">
+    &copy; chrighter 2018
+</section>

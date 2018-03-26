@@ -1,0 +1,21 @@
+<section class="header">
+    Сервис Безумного <s>Макса</s> Маска.
+</section>
+<hr>
+{{> weather}}
+<hr>
+<div>Категории новостей</div>
+<hr>
+<section class="news">
+    {{#each newsItems}}
+        <article class="news__category">
+            <a href={{ link }}>
+                <img class="news__icon" src={{ icon }} alt="Красивая картиночка">
+                <div class="news__topic">{{ topic }}</div>
+            </a>
+        </article>
+    {{/each}}
+</section>
+<section class="footer">
+    &copy; chrighter 2018
+</section>
