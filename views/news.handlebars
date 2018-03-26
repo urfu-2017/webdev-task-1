@@ -6,15 +6,15 @@
     <a href="/">На главную</a>
 </section>
 {{> weather }}
-    {{#if news.length}}
+    {{#if newsField}}
     <section class="news">
-        {{#each news}}
+        {{#each newsField }}
             <div>
                 <div class="news__title"><b><u><span class="news__translate-title"> {{ titleTranslate }}:</span></u></b> {{ title }}</div>
                 <div class="news__date"><b>{{ publishedTranslate }}:</b> {{ date }}</div>
-                <div class="news__img"><img src={{ urlToImage }} alt="Выскоинтеллектуальная картинка"></div>
+                <div class="news__img"><img src={{ urlToImage }} alt="Высокоинтеллектуальная картинка"></div>
                 <div class="news__description"><b>{{ descriptionTranslate }}:</b> {{ description }}</div>
-                <div class="news__author"><b>{{ authorTranslate }}:</b> {{ author }}</div>
+                <div class="news__author"><b>{{ translatedAuthor }}:</b> {{ author }}</div>
                 <hr>
             </div>
         {{/each}}

@@ -1,11 +1,11 @@
 'use strict';
 
-const News = require('../models/news');
+const news = require('../parsers/newsParser');
 
 exports.renderNews = async (req, res) => {
-    let news = await News.getNews(req);
+    let newsArticles = await news.getNews(req);
     let container = {};
     Object.assign(container, req.weather);
-    Object.assign(container, { news });
+    Object.assign(container, newsArticles);
     res.render('news', container);
 };

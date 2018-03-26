@@ -1,0 +1,37 @@
+{
+    "DAY_OPTIONS": {
+        "year": "numeric",
+        "month": "long",
+        "day": "numeric"
+    },
+    "OPTIONS": { 
+        "max": 500,
+        "maxAge": 43200000
+    },
+    "BUSINESS_TOPIC": "Бизнес",
+    "BUSINESS_LINK": "/news/business",
+    "BUSINESS_ICON": "svg/stats.svg",
+    "ENTERTAINMENT_TOPIC": "Развлечения",
+    "ENTERTAINMENT_LINK": "/news/entertainment",
+    "ENTERTAINMENT_ICON": "svg/guests.svg",
+    "GENERAL_TOPIC": "Общее",
+    "GENERAL_LINK": "/news/general",
+    "GENERAL_ICON": "svg/batman.svg",
+    "HEALTH_TOPIC": "Здоровье",
+    "HEALTH_LINK": "/news/health",
+    "HEALTH_ICON": "svg/heart.svg",
+    "SCIENCE_TOPIC": "Наука",
+    "SCIENCE_LINK": "/news/science",
+    "SCIENCE_ICON": "svg/brain.svg",
+    "SPORT_TOPIC": "Спорт",
+    "SPORT_LINK": "/news/sport",
+    "SPORT_ICON": "svg/sport.svg",
+    "TECH_TOPIC": "Технологии",
+    "TECH_LINK": "/news/technology",
+    "TECH_ICON": "svg/tech.svg",
+    "CATEGORIES": ["business", "health", "entertainment", "sport", "general", "science", "technology"],
+    "COUNTRY_FOR_NEWS": "ru",
+    "TOWN_FOR_WEATHER": "moscow",
+    "TEXT_FOR_TRANSLATE": "Автор-Название-Описание-Дата",
+    "DEFAULT_LANG": "ru"
+}

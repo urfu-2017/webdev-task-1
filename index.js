@@ -1,26 +1,26 @@
 'use strict';
 
-const path = require('path');
-
+const dotenv = require('dotenv');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const dotenv = require('dotenv');
 
-const routes = require('./routes');
-const { weather } = require('./middlewares/getWeather');
 const { newsItems } = require('./middlewares/getNewsItems');
+const { weather } = require('./middlewares/getWeather');
+const routes = require('./routes');
 
-const defaultValues = dotenv.config({ path: path.join(__dirname, '.env') }).parsed;
+const defaultValues = dotenv.config('./env').parsed;
 const app = express();
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static('./public'));
 app.use(weather);
 app.use(newsItems);
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 routes(app);
-app.listen(defaultValues.PORT,
-    () => console.info(`app listening on port ${defaultValues.PORT}`));
+app.listen(
+    defaultValues.PORT,
+    () => console.info(`app listening on port ${defaultValues.PORT}`)
+);
 
 module.exports = app;

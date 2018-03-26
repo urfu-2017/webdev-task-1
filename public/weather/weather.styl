@@ -1,0 +1,37 @@
+
+.weather img
+    height 70px
+
+.forecast
+    display grid
+    width 100%
+    height 220px
+    grid-template-areas 'location          date'\
+        'weather-for-today   temp-for-today'\
+        'none weather-for-week'
+
+    grid-template-rows 40px 80px 1fr
+    grid-template-columns 150px 1fr
+
+    &__weather
+        grid-area weather-for-today
+
+    &__weather img
+        width 80px
+
+    &__temp
+        grid-area temp-for-today
+
+    &__forecast-for-week
+        grid-area weather-for-week
+
+    &__date
+        grid-area date
+
+    &__town
+        grid-area: location
+
+    &__forecast-for-week
+    &__forecast-for-week th
+    &__forecast-for-week td
+        border .5px ridge #ff0080

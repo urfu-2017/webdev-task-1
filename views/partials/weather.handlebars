@@ -1,11 +1,9 @@
 <section class="forecast">
-    {{#if weatherToday.length}}
-        {{#each weatherToday}}
-            <div class="forecast__town">{{ town }}</div>
-            <div class="forecast__weather"><img src = {{ weather }}></div>
-            <div class="forecast__date">{{ date }}</div>
-            <div class="forecast__temp">{{ temp }}&#176;C</div>
-        {{/each}}
+    {{#if weatherToday}}
+            <div class="forecast__town">{{ weatherToday.town }}</div>
+            <div class="forecast__weather"><img src = {{ weatherToday.weatherPic }}></div>
+            <div class="forecast__date">{{ weatherToday.date }}</div>
+            <div class="forecast__temp">{{ weatherToday.temp }}&#176;C</div>
         <table class="forecast__forecast-for-week"> 
             <tr>
                 {{#each weatherOther}}

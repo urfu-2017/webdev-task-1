@@ -1,8 +1,8 @@
 'use strict';
 
-const Weather = require('../models/weather');
+let weather = require('../parsers/weatherParser');
 
 exports.weather = async (req, res, next) => {
-    req.weather = await Weather.getWeather(req);
+    req.weather = await weather.getWeather(req);
     next();
 };
