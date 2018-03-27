@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="{{ meta.charset }}">
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ meta.description }}">
-    <link rel="stylesheet" type="text/css"  href="/index.css">
-</head>
+{{> layout}}
 <body>
     {{> weather}}
-    
     <main>
         {{#each news }}
         <div class="news-list">
@@ -20,7 +12,6 @@
             <p class="news-list__source">{{source.name}}</p>
         </div>
         {{/each}}
-
     </main>
 </body>
 </html>

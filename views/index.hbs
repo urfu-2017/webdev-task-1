@@ -1,19 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="{{ meta.charset }}">
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ meta.description }}">
-    <link rel="stylesheet" type="text/css"  href="/index.css">
-</head>
+{{> layout}}
 <body>
-    {{> weather}}
-    <main class="news">
-        {{#each categories }}
-        <div class="news-categories">
-            <a class="news-categories__category" href={{url}}>{{name}}</a>
+    <header class="header">
+        <div class="city-weather">
+            <p class="city-weather__city">{{weather.city}}</p>
+            <img class="city-weather__state" src= {{weather.imgSrc}} alt="тип погоды">
         </div>
-        {{/each}}
+       
+        <div class="header-data">
+            <p class="header-data__temp">температура {{weather.weather}} &#8451;</p>
+            <p class="header-data__wind">ветер {{weather.wind}} м/c</p>
+            
+            <table class = "table">
+                <tr>
+                    {{#each weather.daily }}
+                    <td class="table__col">{{ date }}</td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each weather.daily }}
+                    <td class="table__col">{{ weather }} &#8451;</td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each weather.daily }}
+                    <td class="table__col">{{ wind }} м/c</td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </header>
+    <main class="news">
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/business">Бизнес</a>
+        </div>
+
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/entertainment">Развлечения</a>
+        </div>
+
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/everything">Общее</a>
+        </div>
+
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/health">Здоровье</a>
+        </div>
+
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/science">Науки</a>
+        </div>
+
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/sports">Спорт</a>
+        </div>
+
+        <div class="news-categories">
+            <a class="news-categories__category" href="/news/technology">Технологии</a>
+        </div>
+
     </main>
 </body>
 </html>

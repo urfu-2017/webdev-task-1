@@ -1,20 +1,18 @@
 'use strict';
 
-const Category = require('../models/category');
+require('dotenv').config();
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('574326253ac74f489b5f5015089a3c66');
+const newsapi = new NewsAPI(process.env.API_KEY);
+const countries = ['ru', 'au', 'at', 'be', 'br', 'ca', 'ua', 'gb', 'us'];
 
 exports.list = (req, res) => {
-    res.locals.categories = Category.findAll();
-    let data = res.locals;
-    res.render('index', data);
+    res.render('index', res.locals);
 };
 
 exports.news = (req, res) => {
-    var name = req.params.name;
-    var country = req.query;
+    let name = req.params.name;
+    let country = req.query;
 
-    var countries = ['ru', 'au', 'at', 'be', 'br', 'ca', 'ua', 'gb', 'us'];
     if (!(country in countries)) {
         country = 'ru';
     }
@@ -28,7 +26,6 @@ exports.news = (req, res) => {
         country: country
     }).then(response => {
         res.locals.news = response.articles;
-        let data = res.locals;
-        res.render('news', data);
+        res.render('news', res.locals);
     });
 };
