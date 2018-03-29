@@ -6,7 +6,6 @@ const express = require('express');
 const hbs = require('hbs');
 
 const routes = require('./routes');
-const { getLocalData } = require('./middlewares/getLocalData');
 
 const app = express();
 
@@ -21,8 +20,6 @@ app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
-
-app.use(getLocalData);
 
 routes(app);
 

@@ -1,17 +1,3 @@
-{{> layout}}
-<body>
     {{> weather}}
-    <main>
-        {{#each news }}
-        <div class="news-list">
-            <div class="news-list-summury">
-                <p class="news-list-summury__title">{{title}}</p>
-                <p class="news-list-summury__date">{{publishedAt}}</p>
-            </div>
-            <p class="news-list__description">{{description}}</p>
-            <p class="news-list__source">{{source.name}}</p>
-        </div>
-        {{/each}}
-    </main>
-</body>
-</html>
+    {{> newsLi}}
+
