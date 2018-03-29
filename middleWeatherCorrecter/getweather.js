@@ -1,5 +1,8 @@
 'use strict';
-
+const cache = require('lru-cache')({
+    max: 100,
+    maxAge: 1000 * 60 * 60
+});
 const WetherModel = require('../models/weather');
 const url = require('url');
 const linkObj = require('../mocks/config');
@@ -8,33 +11,37 @@ const BASE_LONDON_ID = 44418;
 const SEARCH_PATH = 'search/';
 
 exports.getWeather = (query) => {
-
-    /*  
-        linkObj.pathname += "search/";
-        linkObj.search = `?query=${city}`;
-        let link = url.format(linkObj); 
-        получается удобно для первого запроса, но не для остальных
-    */
     let city = query.query;
     let search = `?query=${city}`;
     let XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
     let xhr = new XMLHttpRequest();
+    if (cache.get(city)) {
+        return cache.get(city);
+    }
     if (city) {
-        xhr.open('GET', `${link}${SEARCH_PATH}${search}`, false);
-        xhr.send();
-        if (JSON.parse(xhr.responseText)[0] !== undefined) {
-            let cityId = JSON.parse(xhr.responseText)[0].woeid;
-            xhr.open('GET', `${link}${cityId}/`, false);
-            xhr.send();
-
-            return correctWeather(JSON.parse(xhr.responseText));
-        }
+        return sendCityRequest(city, xhr, search);
     }
     xhr.open('GET', `${link}${BASE_LONDON_ID}/`, false);
     xhr.send();
 
     return correctWeather(JSON.parse(xhr.responseText));
 };
+
+function sendCityRequest(city, xhr, search) {
+    xhr.open('GET', `${link}${SEARCH_PATH}${search}`, false);
+    xhr.send();
+    if (JSON.parse(xhr.responseText)[0] !== undefined) {
+        let cityId = JSON.parse(xhr.responseText)[0].woeid;
+        let cityTitle = JSON.parse(xhr.responseText)[0].title;
+        if (cache.get(cityTitle)) {
+            return cache.get(cityTitle);
+        }
+        xhr.open('GET', `${link}${cityId}/`, false);
+        xhr.send();
+
+        return correctWeather(JSON.parse(xhr.responseText));
+    }
+}
 
 function correctWeather(data) {
     let city = data.title;
@@ -50,6 +57,10 @@ function correctWeather(data) {
             }
         ));
     });
+    if (!cache.get(city)) {
+        cache.set(city, weather);
+    }
+
 
     return weather;
 }

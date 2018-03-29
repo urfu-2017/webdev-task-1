@@ -9,6 +9,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "hbs": "^4.0.1",
+    "lru-cache": "^4.1.2",
     "newsapi": "^2.2.0",
     "xmlhttprequest": "^1.8.0"
   },
