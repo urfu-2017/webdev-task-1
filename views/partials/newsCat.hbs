@@ -1,29 +1,8 @@
 <main class="news">
+    {{#each categories}}
     <div class="news-categories">
-        <a class="news-categories__category" href="/news/business">Бизнес</a>
+        <a class="news-categories__category" href={{url}}>{{name}}</a>
     </div>
-    <div class="news-categories">
-        <a class="news-categories__category" href="/news/entertainment">Развлечения</a>
-    </div>
-
-    <div class="news-categories">
-        <a class="news-categories__category" href="/news/everything">Общее</a>
-    </div>
-
-    <div class="news-categories">
-        <a class="news-categories__category" href="/news/health">Здоровье</a>
-    </div>
-
-    <div class="news-categories">
-        <a class="news-categories__category" href="/news/science">Науки</a>
-    </div>
-
-    <div class="news-categories">
-        <a class="news-categories__category" href="/news/sports">Спорт</a>
-    </div>
-
-    <div class="news-categories">
-        <a class="news-categories__category" href="/news/technology">Технологии</a>
-    </div>
+    {{/each}}
 </main>
 
