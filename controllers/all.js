@@ -3,22 +3,18 @@
 require('dotenv').config();
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI(process.env.API_KEY);
+const NewModel = require('../models/new');
+const categories = require('../mocks/categories.json');
 const countries = ['ru', 'au', 'at', 'be', 'br', 'ca', 'ua', 'gb', 'us'];
-const { getWeather } = require('../middleWeatherCorrecter/getweather');
 
 exports.list = (req, res) => {
-    let weather = getWeather(req.query);
     res.render('index', {
-        charset: 'utf-8',
-        title: 'Погода',
-        today: weather[0],
-        forecast: weather.slice(0, 5)
+        categories
     });
 };
 
 exports.news = (req, res) => {
     let name = req.params.name;
-    let weather = getWeather(req.query, res);
     let country = req.query.country;
 
     if (countries.indexOf(country) < 0) {
@@ -33,12 +29,16 @@ exports.news = (req, res) => {
         language: country,
         country: country
     }).then(response => {
+        let news = response.articles.map(element => {
+            return new NewModel(
+                element.title,
+                element.publishedAt,
+                element.description,
+                element.source.name
+            );
+        });
         res.render('news', {
-            charset: 'utf-8',
-            title: 'Новости',
-            news: response.articles,
-            today: weather[0],
-            forecast: weather.slice(0, 5)
+            news
         });
     });
 };

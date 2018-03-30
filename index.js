@@ -6,6 +6,7 @@ const express = require('express');
 const hbs = require('hbs');
 
 const routes = require('./routes');
+const { weatherData } = require('./middlewares/weatherData');
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
 app.use(express.static(publicDir));
+
+app.use(weatherData);
 
 routes(app);
 

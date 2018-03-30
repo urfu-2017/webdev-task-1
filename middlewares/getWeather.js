@@ -45,9 +45,8 @@ function sendCityRequest(city, xhr, search) {
 
 function correctWeather(data) {
     let city = data.title;
-    let weather = [];
-    data.consolidated_weather.forEach(element => {
-        weather.push(new WetherModel (
+    let weather = data.consolidated_weather.map(element => {
+        return new WetherModel (
             {
                 city,
                 temp: element.the_temp,
@@ -55,12 +54,12 @@ function correctWeather(data) {
                 date: element.applicable_date,
                 abbr: element.weather_state_abbr
             }
-        ));
+
+        );
     });
     if (!cache.get(city)) {
         cache.set(city, weather);
     }
-
 
     return weather;
 }

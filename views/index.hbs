@@ -1,27 +1,26 @@
-
 <header class="header">
     <div class="city-weather">
         <p class="city-weather__city">{{today.city}}</p>
-        <img class="city-weather__state" src="https://www.metaweather.com/static/img/weather/{{today.abbr}}.svg" alt="тип погоды">
+        <img class="city-weather__state" src="https://www.metaweather.com/static/img/weather/{{weather.today.abbr}}.svg" alt="тип погоды">
     </div>
    
     <div class="header-data">
-        <p class="header-data__temp">температура {{today.temp}} &#8451;</p>
-        <p class="header-data__wind">ветер {{today.wind}} м/c</p>
+        <p class="header-data__temp">температура {{weather.today.temp}} &#8451;</p>
+        <p class="header-data__wind">ветер {{weather.today.wind}} м/c</p>
         
-        <table class = "table">
+        <table class="table">
             <tr>
-                {{#each forecast }}
+                {{#each weather.forecast }}
                 <td class="table__col">{{ date }}</td>
                 {{/each}}
             </tr>
             <tr>
-                {{#each forecast }}
+                {{#each weather.forecast }}
                 <td class="table__col">{{ temp }} &#8451;</td>
                 {{/each}}
             </tr>
             <tr>
-                {{#each forecast }}
+                {{#each weather.forecast }}
                 <td class="table__col">{{ wind }} м/c</td>
                 {{/each}}
             </tr>
@@ -29,4 +28,3 @@
     </div>
 </header>
 {{> newsCat}}
-
