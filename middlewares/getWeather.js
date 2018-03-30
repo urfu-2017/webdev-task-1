@@ -63,4 +63,3 @@ function correctWeather(data) {
 
     return weather;
 }
-
