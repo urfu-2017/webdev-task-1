@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint linebreak-style: 0 */
 const news = require('../models/news');
 const weather = require('../models/weather');
 
