@@ -1,32 +1,45 @@
-{
-    "categories": {
-        "business": {
-            "title": "Бизнес",
-            "icon": "💼"
-        },
-        "entertainment": {
-            "title": "Развлечение",
-            "icon": "🙂"
-        },
-        "blank": {
-            "title": "Общее",
-            "icon": "📄"
-        },
-        "health": {
-          "title": "Здоровье",
-          "icon": "💓"
-        },
-        "science": {
-            "title": "Науки",
-            "icon": "🔬"
-        },
-        "sports": {
-            "title": "Спорт",
-            "icon": "⚽"
-        },
-        "technology": {
-            "title": "Технологии",
-            "icon": "🚀"
-        }
-    }
-}
+[
+  {
+    "category": "business",
+    "categoryName": "Бизнес",
+    "imgUrl": "/img/business.png",
+    "imgAlt": "Изображение портфеля"
+  },
+  {
+    "category": "entertainment",
+    "categoryName": "Развлечение",
+    "imgUrl": "/img/entertainment.png",
+    "imgAlt": "Изображение смайлика"
+  },
+  {
+    "category": "general",
+    "categoryName": "Общее",
+    "imgUrl": "/img/general.png",
+    "imgAlt": "Изображение листка бумаги"
+  },
+  {
+    "category": "health",
+    "categoryName": "Здоровье",
+    "imgUrl": "/img/health.png",
+    "imgAlt": "Изображение сердца"
+  },
+  {
+    "category": "science",
+    "categoryName": "Науки",
+    "imgUrl": "/img/science.png",
+    "imgAlt": "Изображение атома"
+  },
+  {
+    "category": "sports",
+    "categoryName": "Спорт",
+    "imgUrl": "/img/sports.png",
+    "imgAlt": "Изображение футбольного мяча"
+  },
+  {
+    "category": "technology",
+    "categoryName": "Технологии",
+    "imgUrl": "/img/technology.png",
+    "imgAlt": "Изображение ракеты"
+  }
+
+]

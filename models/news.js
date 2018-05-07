@@ -1,16 +1,21 @@
 'use strict';
 
 const NewsAPI = require('newsapi');
-const news = new NewsAPI('2e4e625d90544fcf8c854716adfb8b0e');
+const categories = require('../data');
+const token = process.env.token;
+const news = new NewsAPI(token);
 
-class getNews {
-    static findByCategory(name) {
-        return news.v2.topHeadlines({
-            category: name,
-            language: 'ru',
-            country: 'ru'
-        });
-    }
-}
+exports.getAllCategories = () => {
+    return categories;
+};
 
-exports.getNews = getNews;
+exports.getNews = (category, country, language) =>{
+    return news.v2.topHeadlines({
+        category,
+        language,
+        country
+    }).then(res => {
+
+        return res.articles;
+    });
+};

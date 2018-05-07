@@ -1,19 +1,19 @@
-{{> weather}}
-<div>
-    {{#each articles}}
-    <article class='news'>
-        <div>
-            <div>{{ title }}</div>
-        </div>
-        <div>
-            {{#if urlToImage}}
-                <img  src="{{urlToImage}}" width="100" height="auto">
-            {{/if}}
-            <div>{{ description }}</div>
-        </div>
-        <div>
-            <a href="{{ url }}">{{ source.name }}</a>
-        </div>
-    </article>
-    {{/each}}
-</div>
+<section class="articles">
+    {{#each articles }}
+        <article class="article">
+            <div class="article-header">
+                <h2 class="article__topic">{{title}}</h2>
+                {{#if urlToImage}}
+                    <img src={{ urlToImage }} class="article__image">
+                {{/if }}
+            </div>
+            {{#if description }}
+                <p class="article__text">{{description}}</p>
+            {{/if }}
+            <div class="article-footer">
+                <time>{{publishedAt}}</time>
+                <a href={{url}}>{{source.name}}</a>
+            </div>
+        </article>
+    {{/each }}
+</section>

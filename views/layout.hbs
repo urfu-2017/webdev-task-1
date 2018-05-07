@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="{{ meta.charset }}">
     <title>{{ title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>{{ title }}</h1>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer class="footer">
-            <div class="copyright">Danmy</div>
-            <date class="date">2018</date>
-        </footer>
-    </div>
+<main>
+    {{> weather }}
+
+    {{{ body }}}
+</main>
+<footer class="footer">
+    <div class="copyright">Danmy</div>
+    <date class="date">2018</date>
+</footer>
 </body>
 </html>

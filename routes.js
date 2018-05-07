@@ -1,9 +1,8 @@
 'use strict';
 
-const categories = require('./controllers/categories');
-const news = require('./controllers/news');
+const { newsList, categoriesList } = require('./controllers/index');
 
 module.exports = app => {
-    app.get('/', categories.list);
-    app.get('/news/:category([a-z]+)', news.index);
+    app.get('/', categoriesList);
+    app.get('/:category', newsList);
 };

@@ -1,16 +1,21 @@
-<div class="weather">
-    <div>
-        Екатеринбург
-    </div>
-    <div>
-        <img src="https://image.flaticon.com/icons/svg/17/17712.svg" width="50" height="50">
+<header class="header">
+    {{#if articles }}
+        <a href={{ homePage }} class="header__link">На главную</a>
+    {{/if}}
+    <h1 class="header__title">Погода и Новости</h1>
+    <section class="weather-widget">
         <div>
-            <div>
-                <div>temperature</div>
-            </div>
-            <div>
-                <div>💨</div>
-            </div>
+            <h2 class="weather-widget__city">{{ weatherData.title }} </h2>
+            <img src= {{ weatherData.url }} alt="Изображение состояния погоды" class="weather-widget__image">
         </div>
-    </div>
-</div>
+        <div class="weather-table">
+            {{#each weatherData.consolidatedWeather}}
+                <div class="weather-table__item">
+                    <p class="weather-widget__text">{{ date }}</p>
+                    <p class="weather-widget__text">{{ temp }} &#8451;</p>
+                    <p class="weather-widget__text">{{ windSpeed }} м/с</p>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+</header>
