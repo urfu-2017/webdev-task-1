@@ -1,0 +1,164 @@
+body
+{
+    margin: 0;
+}
+
+main
+{
+    width: 650px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: calc(100vh - 30px);
+    margin: 0 auto;
+    background-color: #eff;
+}
+
+.weather-widget
+{
+    width: 100%;
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    border-top: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+.weather-widget__graph
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-widget__image
+{
+    align-self: center;
+    width: 30px;
+    margin: 10px;
+}
+
+.weather-table
+{
+    display: flex;
+}
+
+.weather-table__item
+{
+    width: 80px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.weather-widget__text
+{
+    margin: 0;
+}
+
+.categories,
+.articles
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.category
+{
+    width: 300px;
+    margin-top: 1px;
+    border: 1px solid #000;
+}
+
+.header__title
+{
+    text-align: center;
+    font-size: larger;
+}
+
+.header__link
+{
+    left: 30px;
+    top: 10px;
+    position: relative;
+}
+
+.footer
+{
+    width: 650px;
+    margin: 0 auto;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eff;
+}
+
+.category__image
+{
+    width: 50px;
+    margin: 0 10px;
+}
+
+.category__link
+{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    color: #000;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.article
+{
+    width: 650px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid #000;
+}
+
+.article-footer
+{
+    width: 150px;
+    margin: 20px 0;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.article-header
+{
+    align-self: flex-start;
+    width: 200px;
+    padding: 10px;
+}
+
+.article__text
+{
+    width: 250px;
+}
+
+.article__topic
+{
+    font-size: 15px;
+    text-align: center;
+}
+
+.header,
+.article__image,
+.weather-widget
+{
+    width: 100%;
+}
