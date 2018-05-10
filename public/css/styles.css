@@ -10,7 +10,7 @@ main
     align-items: center;
     flex-direction: column;
 
-    min-height: 95vh;
+    min-height: calc(100vh - 30px);
     margin: 0 auto;
     background-color: #eff;
 }
