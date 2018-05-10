@@ -18,7 +18,7 @@ routes(app);
 
 hbs.registerPartials(path.resolve('views/partials'), () => {
     app.listen(8080, () => {
-        console.info(`Server started on 8080`);
+        console.info('Server started on 8080');
     });
 });
 

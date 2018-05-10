@@ -9,6 +9,10 @@
             </div>
             {{#if description }}
                 <p class="article__text">{{description}}</p>
+            {{else}}
+                <p class="article__text">
+                    Читайте больше по ссылке
+                </p>
             {{/if }}
             <div class="article-footer">
                 <time>{{publishedAt}}</time>

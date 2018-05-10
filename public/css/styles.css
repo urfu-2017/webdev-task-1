@@ -10,7 +10,7 @@ main
     align-items: center;
     flex-direction: column;
 
-    min-height: 100vh;
+    min-height: 95vh;
     margin: 0 auto;
     background-color: #eff;
 }
@@ -23,13 +23,21 @@ main
     justify-content: space-around;
     align-items: center;
 
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-top: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+.weather-widget__graph
+{
+    display: flex;
+    flex-direction: row;
 }
 
 .weather-widget__image
 {
-    width: 100px;
+    align-self: center;
+    width: 30px;
+    margin: 10px;
 }
 
 .weather-table
@@ -66,6 +74,7 @@ main
 .header__title
 {
     text-align: center;
+    font-size: larger;
 }
 
 .header__link
@@ -113,7 +122,7 @@ main
     margin: 10px 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     border: 1px solid #000;
 }
@@ -121,7 +130,6 @@ main
 .article-footer
 {
     width: 150px;
-
     margin: 20px 0;
     display: flex;
     align-self: stretch;
@@ -134,6 +142,7 @@ main
 {
     align-self: flex-start;
     width: 200px;
+    padding: 10px;
 }
 
 .article__text
