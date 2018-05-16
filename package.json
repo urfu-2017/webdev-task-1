@@ -6,7 +6,13 @@
     "test": "npm run lint && mocha tests/*.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "handlebars-dateformat": "^1.1.1",
+    "handlebars-helpers": "^0.10.0",
+    "hbs": "^4.0.1",
+    "node-fetch": "^2.1.2",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
