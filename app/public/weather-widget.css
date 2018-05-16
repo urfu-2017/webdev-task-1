@@ -1,0 +1,54 @@
+.weather-widget {
+    display: grid;
+    grid-template-areas: 'c c'
+                         'i dt'
+                         'i dw'
+                         'i f';
+    grid-template-columns: min-content auto;
+
+    padding: 16px 36px;
+}
+
+.weather-widget__city {
+    grid-area: c;
+
+    margin: 0 0 8px 0;
+}
+
+.weather-widget__icon {
+    grid-area: i;
+
+    margin: auto 16px auto 0;
+
+    width: 64px;
+    height: 64px;
+}
+
+.weather-weather-widget__temp {
+    grid-area: dt;
+
+    width: 100px;
+    height: 25px;
+}
+.weather-weather-widget__wind {
+    grid-area: dw;
+
+    width: 100px;
+    height: 25px;
+}
+
+.weather-widget__forecast {
+    grid-area: f;
+
+    width: 100%;
+
+    border-spacing: 0
+}
+
+.forecast__temp {
+    display: block;
+}
+
+.forecast__wind {
+    display: block;
+}
