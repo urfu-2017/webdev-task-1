@@ -6,27 +6,29 @@
     <title>{{ pageTitle }}</title>
     <link rel="stylesheet" href="{{ staticBasePath }}common.css">
     <link rel="stylesheet" href="{{ staticBasePath }}header.css">
-    <link rel="stylesheet" href="{{ staticBasePath }}weather-widget.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}weather.css">
     <link rel="stylesheet" href="{{ staticBasePath }}footer.css">
-    <link rel="stylesheet" href="{{ staticBasePath }}news-page.css">
+    <link rel="stylesheet" href="{{ staticBasePath }}news.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 
 <body>
     {{> header }}
-    {{> weatherWidget }}
+    {{> weather }}
     <main class="news">
         {{#each news }}
-         <a class="news-item link" href="{{ link }}">
-            <span class="news-item__header">{{ header }}</span>
+        <a class="news-item link" href="{{ url }}">
+            <span class="news-item__header">{{ title }}</span>
             <div class="news-item__body">
-                <img src="https://cdn.pixabay.com/photo/2013/04/06/11/50/image-editing-101040_960_720.jpg" class="news-item__image"></img>
+                {{#if urlToImage }}
+                <img src={{ urlToImage }} class="news-item__image"></img>
+                {{/if }}
                 <p class="news-item__description">{{ description }}</p>
             </div>
-            <span class="news-item__date">{{ date }}</span>
-            <span class="news-item__source">{{ source }}</span>
-         </a>
-         {{/each}}
+            <span class="news-item__date">{{ dateFormat publishedAt 'LL' }}</span>
+            <span class="news-item__source">{{ source.name }}</span>
+        </a>
+        {{/each}}
     </main>
     {{> footer }}
 </body>

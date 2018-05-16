@@ -1,12 +1,4 @@
 {
   "backLink": "/",
-  "backTitle": "Back",
-  "header": "Business",
-  "news": [
-    { "header": "Header", "image": "Image", "description": "Description", "date": "Date","source": "Source", "link": "/business" },
-    { "header": "Header", "image": "Image", "description": "Description", "date": "Date","source": "Source", "link": "/business" },
-    { "header": "Header", "image": "Image", "description": "DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription", "date": "Date","source": "Source", "link": "/business" },
-    { "header": "Header", "image": "Image", "description": "Description", "date": "Date","source": "Source", "link": "/business" },
-    { "header": "Header", "image": "Image", "description": "Description", "date": "Date","source": "Source", "link": "/business" }
-  ]
+  "backTitle": "Back"
 }

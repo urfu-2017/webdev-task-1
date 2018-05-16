@@ -6,7 +6,7 @@ body {
 
     margin: 0;
 
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .news {
@@ -26,12 +26,15 @@ body {
 
 .news-item__header {
     grid-area: h;
+
+    font-weight: 500;
 }
 
 .news-item__date {
     grid-area: d;
 
     text-align: right;
+    color: #aaa;
 }
 
 .news-item__header,
@@ -64,6 +67,8 @@ body {
     grid-area: s;
 
     text-align: right;
+
+    color: #aaa;
 
     display: block;
     margin: 8px 0 0;

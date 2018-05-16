@@ -13,28 +13,33 @@
     grid-area: c;
 
     margin: 0 0 8px 0;
+
+    font-weight: 600;
+    font-size: 24px;
 }
 
 .weather-widget__icon {
     grid-area: i;
 
-    margin: auto 16px auto 0;
+    margin: auto 28px auto 0;
 
-    width: 64px;
-    height: 64px;
+    width: 110px;
+    height: 110px;
 }
 
-.weather-weather-widget__temp {
+.weather-widget__temp {
     grid-area: dt;
 
-    width: 100px;
-    height: 25px;
+    height: 100%;
+
+    font-size: 22px;
+    font-weight: 500;
 }
-.weather-weather-widget__wind {
+.weather-widget__wind {
     grid-area: dw;
 
-    width: 100px;
-    height: 25px;
+    color: #aaa;
+    font-size: 22px;
 }
 
 .weather-widget__forecast {
@@ -42,13 +47,25 @@
 
     width: 100%;
 
+    margin: 8px 0 0;
+
     border-spacing: 0
+}
+
+.forecast__date {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .forecast__temp {
     display: block;
+    font-size: 18px;
 }
 
 .forecast__wind {
     display: block;
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 300;
 }

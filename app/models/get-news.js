@@ -1,13 +1,13 @@
 'use strict';
+
 const fetch = require('node-fetch');
 const querystring = require('querystring');
 
 const API_ENDPOINT = {
     protocol: 'https',
-    host: 'metaweather.com',
-    basePath: '/api',
-    locationPath: '/location/search',
-    weatherPath: '/location'
+    host: 'newsapi.org',
+    basePath: '/v2',
+    headlinesPath: '/top-headlines'
 };
 
 async function fetchEndpoint(url) {
@@ -22,43 +22,18 @@ async function fetchEndpoint(url) {
     }
 }
 
-async function fetchLocationEndpoint(params) {
+async function fetchNewsEndpoint({ country, category, apiKey }) {
+    const params = querystring.stringify({ country, category, apiKey });
     const url = `${API_ENDPOINT.protocol}://${API_ENDPOINT.host}` +
-        `${API_ENDPOINT.basePath}${API_ENDPOINT.locationPath}?${params}`;
+        `${API_ENDPOINT.basePath}${API_ENDPOINT.headlinesPath}?${params}`;
 
     return fetchEndpoint(url);
 }
 
-async function getWOEIDByCoordinates({ lat, lon }) {
-    const params = querystring.stringify({ lattlong: `${lat},${lon}` });
-    const locations = await fetchLocationEndpoint(params);
-
-    return locations[0].woeid;
-}
-
-async function getWOEIDByName({ name }) {
-    const params = querystring.stringify({ query: name });
-    const locations = await fetchLocationEndpoint(params);
-
-    return locations[0].woeid;
-}
-
-async function fetchWeatherEndpoint(woeid) {
-    const url = `${API_ENDPOINT.protocol}://${API_ENDPOINT.host}` +
-        `${API_ENDPOINT.basePath}${API_ENDPOINT.weatherPath}/${woeid}`;
-
-    return fetchEndpoint(url);
-}
-
-exports.getWeather = async query => {
-    let woeid;
-    if (query.lat && query.lon) {
-        woeid = await getWOEIDByCoordinates({ lat: query.lat, lon: query.lon });
-    } else if (query.query) {
-        woeid = await getWOEIDByName({ name: query.query });
-    } else {
-        woeid = 2487956; // San Francisco
+module.exports = async (country, category, apiKey) => {
+    if (!country) {
+        country = 'us';
     }
 
-    return await fetchWeatherEndpoint(woeid);
+    return await fetchNewsEndpoint({ country, category, apiKey });
 };

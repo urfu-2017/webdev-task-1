@@ -5,13 +5,13 @@
         src="https://www.metaweather.com/static/img/weather/{{ weather_state_abbr }}.svg"
         alt="{{ weather_state_name }}">
     <span class="weather-widget__temp">{{ fixed the_temp }}°</span>
-    <span class="weather-widget__temp">{{ fixed wind_speed }} m/s</span>
+    <span class="weather-widget__wind">{{ fixed wind_speed }} m/s</span>
     {{/with }}
     <table class="weather-widget__forecast">
         <thead>
         <tr>
             {{#each weather.consolidated_weather }}
-                <td>{{ dateFormat applicable_date 'MMM DD' }}</td>
+                <td class="forecast__date">{{ dateFormat applicable_date 'MMM DD' }}</td>
             {{/each}}
         </tr>
         </thead>
